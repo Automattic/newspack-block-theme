@@ -18,5 +18,7 @@ if ( ! defined( 'NEWSPACK_BLOCK_THEME_FILE' ) ) {
 	define( 'NEWSPACK_BLOCK_THEME_VERSION', '1.0.0' );
 }
 
+
 // Include theme resources.
 require_once NEWSPACK_BLOCK_THEME_FILE_PATH . '/includes/class-core.php';
+

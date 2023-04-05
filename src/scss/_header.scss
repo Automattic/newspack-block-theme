@@ -1,0 +1,64 @@
+/**
+ * Mobile Header and Menu proof of concept
+ */
+.desktop-header {
+	display: none;
+}
+
+@media (min-width: 960px) {
+	.desktop-header {
+		display: inherit;
+	}
+
+	.mobile-header {
+		display: none;
+	}
+}
+
+.mobile-sidebar {
+	background: #fff;
+	bottom: 0;
+	left: auto;
+	overflow: auto;
+	padding: 2rem;
+	position: fixed;
+	right: -100%;
+	top: 0;
+	transition: right 0.2s;
+	width: 90%;
+	z-index: 999999;
+}
+
+@media (min-width: 782px) {
+	.mobile-sidebar {
+		width: 50%;
+	}
+}
+
+.mobile-sidebar > * {
+	visibility: hidden;
+}
+
+.overlay-mask {
+	background-color: rgba( 0, 0, 0, 0.5 );
+	bottom: 0;
+	content: '';
+	display: none;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 999998;
+}
+
+.mobile-menu-opened .mobile-sidebar {
+	right: 0;
+}
+
+.mobile-menu-opened .mobile-sidebar > * {
+	visibility: visible;
+}
+
+.mobile-menu-opened .overlay-mask {
+	display: block;
+}

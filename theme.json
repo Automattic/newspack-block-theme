@@ -397,6 +397,18 @@
 			"name": "header"
 		},
 		{
+			"area": "uncategorized",
+			"name": "mobile-header"
+		},
+		{
+			"area": "uncategorized",
+			"name": "mobile-sidebar"
+		},
+		{
+			"area": "uncategorized",
+			"name": "desktop-header"
+		},
+		{
 			"area": "footer",
 			"name": "footer"
 		}
