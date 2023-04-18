@@ -1,0 +1,42 @@
+{
+  "name": "newspack-block-theme",
+  "version": "1.0.0",
+  "description": "A forward-looking news theme designed and developed to be highly customizable with the WordPress block editor. Brought to you by Newspack: https://newspack.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Automattic/newspack-block-theme.git"
+  },
+  "author": "Newspack",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/Automattic/newspack-block-theme/issues"
+  },
+  "homepage": "https://github.com/Automattic/newspack-block-theme#readme",
+  "scripts": {
+    "cm": "newspack-scripts commit",
+    "semantic-release": "newspack-scripts release --files=newspack.php",
+    "build": "newspack-scripts build",
+    "start": "npm ci && newspack-scripts watch",
+    "watch": "newspack-scripts watch",
+    "lint": "npm run lint:scss && npm run lint:js",
+    "lint:js": "eslint --ext .js,.jsx src",
+    "lint:js:staged": "eslint --ext .js,.jsx",
+    "lint:php:staged": "./vendor/bin/phpcs --filter=GitStaged",
+    "format:js": "prettier 'src/**/*.{js,jsx}' --write",
+    "lint:scss": "stylelint '**/*.scss' --customSyntax postcss-scss --config=./node_modules/newspack-scripts/config/stylelint.config.js",
+    "format:scss": "prettier --write '**/*.scss'",
+    "lint:scss:staged": "stylelint --customSyntax postcss-scss --config=./node_modules/newspack-scripts/config/stylelint.config.js",
+    "release:archive": "rm -rf release && mkdir -p release && rsync -r . ./release/newspack-plugin --exclude-from='./.distignore' && cd release && zip -r newspack-plugin.zip newspack-plugin",
+    "release": "npm run build && npm run semantic-release",
+    "postinstall": "rm -rf node_modules/newspack-scripts/node_modules/prettier"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-patch": "^1.2.0",
+    "eslint": "^7.32.0",
+    "ignore-emit-webpack-plugin": "^2.0.6",
+    "lint-staged": "^13.2.1",
+    "newspack-scripts": "^5.1.0",
+    "postcss-scss": "^4.0.6",
+    "prettier": "^2.8.7"
+  }
+}
