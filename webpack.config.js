@@ -22,13 +22,7 @@ const frontEnd = fs
 	.reduce(
 		( acc, filename ) => ( {
 			...acc,
-			[ filename.replace( '.js', '' ) ]: path.join(
-				__dirname,
-				'src',
-				'js',
-				'front-end',
-				filename
-			),
+			[ filename.replace( '.js', '' ) ]: path.join( __dirname, 'src', 'js', 'front-end', filename ),
 		} ),
 		{}
 	);
@@ -45,7 +39,7 @@ const styleConfig = getBaseWebpackConfig(
 	{ WP: false },
 	{
 		entry: { style },
-		'output-path': __dirname
+		'output-path': __dirname,
 	}
 );
 
