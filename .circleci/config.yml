@@ -20,7 +20,7 @@ workflows:
       - newspack/build-distributable:
           requires:
             - newspack/build
-          archive-name: 'newspack-blocks'
+          archive-name: 'newspack-block-theme'
           filters:
             branches:
               only:
