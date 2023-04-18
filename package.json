@@ -12,6 +12,14 @@
     "url": "https://github.com/Automattic/newspack-block-theme/issues"
   },
   "homepage": "https://github.com/Automattic/newspack-block-theme#readme",
+  "browserslist": [
+    "extends @wordpress/browserslist-config"
+  ],
+  "lint-staged": {
+    "*.scss": "npm run lint:scss:staged",
+    "*.(js|jsx)": "npm run lint:js:staged",
+    "*.php": "npm run lint:php:staged"
+  },
   "scripts": {
     "cm": "newspack-scripts commit",
     "semantic-release": "newspack-scripts release --files=newspack.php",
