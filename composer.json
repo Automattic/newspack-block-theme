@@ -1,11 +1,11 @@
 {
-	"name": "automattic/newspack-plugin",
+	"name": "automattic/newspack-block-theme",
 	"description": "An advanced open-source publishing and revenue-generating platform for news organizations",
 	"homepage": "https://newspack.com/",
 	"type": "wordpress-plugin",
 	"license": "GPL-2.0-or-later",
 	"support": {
-		"issues": "https://github.com/Automattic/newspack-plugin/issues"
+		"issues": "https://github.com/Automattic/newspack-block-theme/issues"
 	},
 	"require-dev": {
 		"brainmaestro/composer-git-hooks": "^2.6",
