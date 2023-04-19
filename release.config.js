@@ -26,6 +26,7 @@ module.exports = {
 				'package.json',
 				'package-lock.json',
 				'CHANGELOG.md',
+				'functions.php',
 			],
 			message: 'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}',
 		},
@@ -47,8 +48,8 @@ module.exports = {
 					{
 						path: './release/newspack-block-theme.zip',
 						label: 'newspack-block-theme.zip',
-					}
-				]
+					},
+				],
 			},
 		],
 	],
