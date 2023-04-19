@@ -3,6 +3,28 @@ version: 2.1
 orbs:
   newspack: newspack/newspack@1.4.3
 
+commands:
+  checkout_code:
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/
+
+jobs:
+  # Release job. Required over newspack/release because of the need to version bump additional files.
+  release:
+    docker:
+      - image: cimg/node:16.11.1
+    steps:
+      - checkout_code
+      - run:
+          name: Release new version
+          command: npm run release
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - project
+
 workflows:
   version: 2
   all:
@@ -19,7 +41,7 @@ workflows:
             branches:
               only:
                 - master
-      - newspack/release:
+      - release:
           requires:
             - newspack/build
           filters:
