@@ -15,7 +15,7 @@ module.exports = {
 			{
 				// build script is run before semantic-release, so the version in *.css files
 				// have to be updated explicitly
-				files: [ 'src/scss/_theme-description.scss', 'style.css' ],
+				files: [ 'src/scss/_theme-description.scss', 'style.css', 'functions.php' ],
 				callback: 'npm run release:archive',
 			},
 		],
