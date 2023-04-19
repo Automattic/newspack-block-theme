@@ -1,3 +1,10 @@
+# [1.0.0-alpha.2](https://github.com/Automattic/newspack-block-theme/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2023-04-19)
+
+
+### Bug Fixes
+
+* version bump in additional files ([8616144](https://github.com/Automattic/newspack-block-theme/commit/8616144c06da05f1e372838f8d67bca9d2c3ddc2))
+
 # 1.0.0-alpha.1 (2023-04-19)
 
 
