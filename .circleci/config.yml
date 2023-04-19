@@ -38,6 +38,9 @@ jobs:
     steps:
       - checkout_code
       - run:
+          name: Install rsync
+          command: sudo apt-get update && sudo apt-get install rsync
+      - run:
           name: Release new version
           command: npm run release
       - persist_to_workspace:
