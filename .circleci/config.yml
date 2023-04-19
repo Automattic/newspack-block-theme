@@ -14,9 +14,10 @@ jobs:
   # Release job. Required over newspack/release because of the need to version bump additional files.
   release:
     docker:
-      - image: cimg/node:16.11.1
+      - image: circleci/node:latest
     steps:
-      - checkout_code
+      - checkout_with_workspace
+      - set_node_version
       - run:
           name: Install rsync
           command: sudo apt-get update && sudo apt-get install rsync
