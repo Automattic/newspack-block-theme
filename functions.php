@@ -8,53 +8,15 @@
  * @since Newspack Block Theme 1.0
  */
 
+defined( 'ABSPATH' ) || exit;
 
-if ( ! function_exists( 'newspack_block_theme_support' ) ) :
+// Define NEWSPACK_BLOCK_THEME_FILE.
+if ( ! defined( 'NEWSPACK_BLOCK_THEME_FILE' ) ) {
+	define( 'NEWSPACK_BLOCK_THEME_FILE', __FILE__ );
+	define( 'NEWSPACK_BLOCK_THEME_FILE_PATH', plugin_dir_path( NEWSPACK_BLOCK_THEME_FILE ) );
+	define( 'NEWSPACK_BLOCK_THEME_URL', plugin_dir_url( NEWSPACK_BLOCK_THEME_FILE ) );
+	define( 'NEWSPACK_BLOCK_THEME_VERSION', '1.0.0' );
+}
 
-	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
-	 *
-	 * @since Newspack Block Theme 1.0
-	 *
-	 * @return void
-	 */
-	function newspack_block_theme_support() {
-
-		// Enqueue editor styles.
-		add_editor_style( 'style.css' );
-
-		// Make theme available for translation.
-		load_theme_textdomain( 'newspack-block-theme' );
-	}
-
-endif;
-
-add_action( 'after_setup_theme', 'newspack_block_theme_support' );
-
-if ( ! function_exists( 'newspack_block_theme_styles' ) ) :
-
-	/**
-	 * Enqueue styles.
-	 *
-	 * @since Newspack Block Theme 1.0
-	 *
-	 * @return void
-	 */
-	function newspack_block_theme_styles() {
-
-		// Register theme stylesheet.
-		wp_register_style(
-			'newspack_block_theme-style',
-			get_stylesheet_directory_uri() . '/style.css',
-			array(),
-			wp_get_theme()->get( 'Version' )
-		);
-
-		// Enqueue theme stylesheet.
-		wp_enqueue_style( 'newspack_block_theme-style' );
-
-	}
-
-endif;
-
-add_action( 'wp_enqueue_scripts', 'newspack_block_theme_styles' );
+// Include theme resources.
+require_once NEWSPACK_BLOCK_THEME_FILE_PATH . '/includes/class-core.php';
