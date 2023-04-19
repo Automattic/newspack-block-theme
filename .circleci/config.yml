@@ -52,7 +52,7 @@ workflows:
                 - /^hotfix\/.*/
       - newspack/post-release:
           requires:
-            - newspack/release
+            - release
           filters:
             branches:
               only:
