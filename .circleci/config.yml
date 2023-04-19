@@ -1,8 +1,5 @@
 version: 2.1
 
-orbs:
-  newspack: newspack/newspack@1.4.3
-
 commands:
   checkout_code:
     steps:
@@ -11,19 +8,35 @@ commands:
           at: ~/
 
 jobs:
-  # Release job. Required over newspack/release because of the need to version bump additional files.
+  build:
+    docker:
+      - image: cimg/node:16.11.1
+    steps:
+      - checkout_code
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - project
+
+  # Linting
+  lint:
+    docker:
+      - image: cimg/node:16.11.1
+    steps:
+      - checkout_code
+      - run:
+          name: Run Linter
+          command: npm run lint
+
+  # Release job
   release:
     docker:
-      - image: circleci/node:latest
+      - image: cimg/node:16.11.1
     steps:
-      - checkout_with_workspace
-      - set_node_version
-      - run:
-          name: Install rsync
-          command: sudo apt-get update && sudo apt-get install rsync
-      - run:
-          name: Install PHP packages
-          command: composer install --no-dev --no-scripts
+      - checkout_code
       - run:
           name: Release new version
           command: npm run release
@@ -32,38 +45,37 @@ jobs:
           paths:
             - project
 
+  # Reset alpha branch after a release and publish child themes' releases
+  post_release:
+    docker:
+      - image: cimg/node:16.11.1
+    steps:
+      - checkout_code
+      - run:
+          name: Perform post-release chores
+          command: ./node_modules/newspack-scripts/post-release.sh
+
 workflows:
   version: 2
-  all:
+  main:
     jobs:
-      - newspack/build
-      - newspack/lint-js-scss:
+      - build
+      - lint:
           requires:
-            - newspack/build
-      - newspack/build-distributable:
-          requires:
-            - newspack/build
-          archive-name: 'newspack-block-theme'
-          filters:
-            branches:
-              only:
-                - master
+            - build
       - release:
           requires:
-            - newspack/build
+            - build
           filters:
             branches:
               only:
                 - release
                 - alpha
                 - /^hotfix\/.*/
-      - newspack/post-release:
+      - post_release:
           requires:
             - release
           filters:
             branches:
               only:
                 - release
-  php:
-    jobs:
-      - newspack/lint-php
