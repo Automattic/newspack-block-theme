@@ -3,6 +3,8 @@
  * Title: Comments
  * slug: newspack-block-theme/comments
  * inserter: no
+ *
+ * @package Newspack_Block_Theme
  */
 
 ?>
