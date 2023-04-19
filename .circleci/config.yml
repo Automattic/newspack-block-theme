@@ -3,20 +3,20 @@ version: 2.1
 orbs:
   newspack: newspack/newspack@1.4.3
 
-commands:
-  checkout_code:
-    steps:
-      - checkout
-      - attach_workspace:
-          at: ~/
-
 jobs:
   # Release job. Required over newspack/release because of the need to version bump additional files.
   release:
     docker:
       - image: cimg/node:16.11.1
     steps:
-      - checkout_code
+      - checkout_with_workspace
+      - set_node_version
+      - run:
+          name: Install rsync
+          command: sudo apt-get update && sudo apt-get install rsync
+      - run:
+          name: Install PHP packages
+          command: composer install --no-dev --no-scripts
       - run:
           name: Release new version
           command: npm run release
