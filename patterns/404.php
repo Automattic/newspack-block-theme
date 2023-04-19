@@ -3,6 +3,8 @@
  * Title: A 404 page
  * Slug: newspack-block-theme/404
  * Inserter: no
+ *
+ * @package Newspack_Block_Theme
  */
 
 ?>
@@ -12,5 +14,5 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p><?php echo  esc_html__( 'It looks like nothing was found at this location. Maybe try a search?', 'newspack-block-theme' ); ?></p>
+<p><?php echo esc_html__( 'It looks like nothing was found at this location. Maybe try a search?', 'newspack-block-theme' ); ?></p>
 <!-- /wp:paragraph -->
