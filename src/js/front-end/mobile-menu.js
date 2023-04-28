@@ -1,14 +1,5 @@
 /* globals newspackScreenReaderText */
-
-/**
- * File amp-fallback.js.
- *
- * AMP fallback JavaScript.
- */
-
 ( function () {
-	console.log( 'loaded!' );
-
 	// Shared variables
 	const headerContain = document.getElementsByClassName( 'mobile-header' );
 
