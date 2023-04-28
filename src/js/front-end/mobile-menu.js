@@ -1,4 +1,3 @@
-/* globals newspackScreenReaderText */
 ( function () {
 	// Shared variables
 	const headerContain = document.getElementsByClassName( 'mobile-header' );
@@ -54,8 +53,8 @@
 
 	// Mobile menu fallback.
 	for ( let i = 0; i < mobileToggle.length; i++ ) {
-		const mobileOpenButton = headerContain[0].querySelector( '.mobile-menu-toggle a' ),
-			mobileCloseButton = mobileSidebar[0].querySelector( '.mobile-menu-toggle a' );
+		const mobileOpenButton = headerContain[ 0 ].querySelector( '.mobile-menu-toggle a' ),
+			mobileCloseButton = mobileSidebar[ 0 ].querySelector( '.mobile-menu-toggle a' );
 
 		mobileToggle[ i ].addEventListener(
 			'click',
