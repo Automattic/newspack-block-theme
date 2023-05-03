@@ -1,4 +1,27 @@
 /*
+ * Change the line-height of the body, and custom font sizes.
+ */
+
+body {
+	line-height: var( --wp--custom--line-height--body );
+}
+.has-x-small-font-size {
+	line-height: var( --wp--custom--line-height--x-small );
+}
+.has-small-font-size {
+	line-height: var( --wp--custom--line-height--small );
+}
+.has-large-font-size {
+	line-height: var( --wp--custom--line-height--large );
+}
+.has-x-large-font-size {
+	line-height: var( --wp--custom--line-height--x-large );
+}
+.has-xx-large-font-size {
+	line-height: var( --wp--custom--line-height--xx-large );
+}
+
+/*
  * Control the hover stylings of outline block style.
  * Unnecessary once block styles are configurable via theme.json
  * https://github.com/WordPress/gutenberg/issues/42794
