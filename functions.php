@@ -1,6 +1,7 @@
 <?php
 /**
  * Newspack Block Theme functions and definitions
+ * Version: 1.0.0
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *

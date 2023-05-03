@@ -22,7 +22,7 @@
   },
   "scripts": {
     "cm": "newspack-scripts commit",
-    "semantic-release": "newspack-scripts release --files=newspack.php",
+    "semantic-release": "semantic-release",
     "build": "newspack-scripts build",
     "start": "npm ci && newspack-scripts watch",
     "watch": "newspack-scripts watch",
