@@ -67,7 +67,7 @@
 				{
 					"fluid": false,
 					"name": "X-Small",
-					"size": "clamp(0.875rem, 0.497rem + 0.61vw, 1rem)",
+					"size": "0.875rem",
 					"slug": "x-small"
 				},
 				{
