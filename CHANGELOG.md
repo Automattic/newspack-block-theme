@@ -1,3 +1,10 @@
+# [1.0.0-alpha.5](https://github.com/Automattic/newspack-block-theme/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2023-05-03)
+
+
+### Bug Fixes
+
+* try semantic-release directly ([fa2a979](https://github.com/Automattic/newspack-block-theme/commit/fa2a979bd3527dcb71a33298c3ef691074561704))
+
 # [1.0.0-alpha.4](https://github.com/Automattic/newspack-block-theme/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2023-04-19)
 
 
