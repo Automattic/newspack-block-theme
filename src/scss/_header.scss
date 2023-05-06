@@ -44,7 +44,7 @@
 	display: none;
 	inset: 0;
 	position: fixed;
-	z-index: sass-utils.$zindex-base;
+	z-index: sass-utils.$zindex-overlay-menu;
 }
 
 .mobile-menu-opened .mobile-sidebar {
