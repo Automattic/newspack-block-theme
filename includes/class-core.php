@@ -77,8 +77,8 @@ final class Core {
 		// Enqueue theme stylesheet.
 		\wp_enqueue_style( 'newspack_block_theme-style' );
 
-		// Enqueue mobile menu JavaScript.
-		wp_enqueue_script( 'newspack-mobile-menu', get_theme_file_uri( '/dist/mobile-menu.js' ), array(), wp_get_theme()->get( 'Version' ), true );
+		// Enqueue front-end JavaScript.
+		wp_enqueue_script( 'newspack-main', get_theme_file_uri( '/dist/main.js' ), array(), wp_get_theme()->get( 'Version' ), true );
 	}
 }
 
