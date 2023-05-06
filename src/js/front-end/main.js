@@ -1,1 +1,1 @@
-import "./mobile-menu"
+import './mobile-menu';
