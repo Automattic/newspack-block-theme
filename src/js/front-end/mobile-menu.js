@@ -5,30 +5,36 @@ const body = document.body,
 	headerContain = document.getElementsByClassName( 'mobile-header' ),
 	mobileToggle = document.getElementsByClassName( 'mobile-menu-toggle' ),
 	mobileSidebar = document.getElementsByClassName( 'mobile-sidebar' ),
-	// Toggle function for the menu and overlay
-	menuToggle = function ( event, openButton, closeButton ) {
-		event.preventDefault();
-		if ( body.classList.contains( 'mobile-menu-opened' ) ) {
-			closeMenu( 'mobile-menu-opened', openButton, 'mask-mobile' );
-		} else {
-			openMenu( 'mobile-menu-opened', closeButton, 'mask-mobile' );
-		}
-	};
+	overlay = [];
 
-let overlay;
+/**
+ * @description Fires either the opening or closing functions for a menu.
+ * @param {event}  event         Click event.
+ * @param {string} openButton    The button that opens the menu.
+ * @param {string} closeButton   The button that closes the menu.
+ * @param {string} openClassName CSS class used on the body to indicate menu is open.
+ * @param {string} maskId        The overlay mask's ID.
+ */
+const menuToggle = function ( event, openButton, closeButton, openClassName, maskId ) {
+	event.preventDefault();
+	if ( body.classList.contains( openClassName ) ) {
+		closeMenu( openClassName, openButton, maskId );
+	} else {
+		openMenu( openClassName, closeButton, maskId );
+	}
+};
 
 /**
  * @description Creates semi-transparent overlay behind menus.
  * @param {string} maskId The ID to add to the div.
  */
 function createOverlay( maskId ) {
-	if ( ! overlay ) {
-		overlay = document.createElement( 'div' );
-		overlay.setAttribute( 'class', 'overlay-mask' );
-		overlay.setAttribute( 'id', maskId );
+	if ( ! overlay[ maskId ] ) {
+		overlay[ maskId ] = document.createElement( 'div' );
+		overlay[ maskId ].setAttribute( 'class', 'overlay-mask' );
+		overlay[ maskId ].setAttribute( 'id', maskId );
 	}
-
-	body.appendChild( overlay );
+	body.appendChild( overlay[ maskId ] );
 }
 
 /**
@@ -63,14 +69,15 @@ function closeMenu( menuClass, openButton, maskId ) {
 	removeOverlay( maskId );
 }
 
-// Find each mobile toggle and attach an event listener.
+// Find each mobile toggle and attaches an event listener.
 for ( let i = 0; i < mobileToggle.length; i++ ) {
 	const mobileOpenButton = headerContain[ 0 ].querySelector( '.mobile-menu-toggle a' ),
 		mobileCloseButton = mobileSidebar[ 0 ].querySelector( '.mobile-menu-toggle a' );
 
 	mobileToggle[ i ].addEventListener(
 		'click',
-		() => menuToggle( event, mobileOpenButton, mobileCloseButton ),
+		() =>
+			menuToggle( event, mobileOpenButton, mobileCloseButton, 'mobile-menu-opened', 'mask-mobile' ),
 		false
 	);
 }
