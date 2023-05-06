@@ -92,7 +92,13 @@
 				}
 			]
 		},
-		"useRootPaddingAwareAlignments": true
+		"useRootPaddingAwareAlignments": true,
+		"custom": {
+			"background": {
+				"mobile-menu": "var( --wp--preset--color--white )",
+				"mobile-menu-overlay": "rgba( 0, 0, 0, 0.5 )"
+			}
+		}
 	},
 	"styles": {
 		"blocks": {
@@ -398,17 +404,17 @@
 			"title": "Header"
 		},
 		{
-			"area": "uncategorized",
+			"area": "header",
 			"name": "mobile-header",
 			"title": "Mobile Header"
 		},
 		{
-			"area": "uncategorized",
+			"area": "header",
 			"name": "mobile-sidebar",
 			"title": "Mobile Sidebar"
 		},
 		{
-			"area": "uncategorized",
+			"area": "header",
 			"name": "desktop-header",
 			"title": "Desktop Header"
 		},
