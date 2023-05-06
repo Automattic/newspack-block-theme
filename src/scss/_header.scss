@@ -1,3 +1,5 @@
+@use 'sass-utils';
+
 /**
  * Mobile Header and Menu proof of concept
  */
@@ -5,7 +7,7 @@
 	display: none;
 }
 
-@media (min-width: 960px) {
+@include sass-utils.media(large) {
 	.desktop-header {
 		display: inherit;
 	}
@@ -16,7 +18,7 @@
 }
 
 .mobile-sidebar {
-	background: #fff;
+	background: var( --wp--custom--background--mobile-menu );
 	inset: 0 -100% 0 auto;
 	overflow: auto;
 	padding: 2rem;
@@ -26,7 +28,7 @@
 	z-index: 999999;
 }
 
-@media (min-width: 782px) {
+@include sass-utils.media(medium) {
 	.mobile-sidebar {
 		width: 50%;
 	}
@@ -37,12 +39,12 @@
 }
 
 .overlay-mask {
-	background-color: rgba( 0, 0, 0, 0.5 );
+	background: var( --wp--custom--background--mobile-menu-overlay );
 	content: '';
 	display: none;
 	inset: 0;
 	position: fixed;
-	z-index: 999998;
+	z-index: sass-utils.$zindex-base;
 }
 
 .mobile-menu-opened .mobile-sidebar {
