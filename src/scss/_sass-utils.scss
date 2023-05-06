@@ -11,8 +11,8 @@ $xlarge-screen: 1320px;
 
 // Z-indexes
 $zindex-sticky-header: 1000;
-$zindex-overlay-menu: 1050;
-
+$zindex-overlay-menu: 2000;
+$zindex-screen-reader-text: 100000; /* Above WP toolbar. */
 
 /*
  * Sass mixins
