@@ -5,6 +5,7 @@ const body = document.body,
 	headerContain = document.getElementsByClassName( 'mobile-header' ),
 	mobileToggle = document.getElementsByClassName( 'mobile-menu-toggle' ),
 	mobileSidebar = document.getElementsByClassName( 'mobile-sidebar' ),
+	// Toggle function for the menu and overlay
 	menuToggle = function ( event, openButton, closeButton ) {
 		event.preventDefault();
 		if ( body.classList.contains( 'mobile-menu-opened' ) ) {
@@ -62,7 +63,7 @@ function closeMenu( menuClass, openButton, maskId ) {
 	removeOverlay( maskId );
 }
 
-// Mobile menu.
+// Find each mobile toggle and attach an event listener.
 for ( let i = 0; i < mobileToggle.length; i++ ) {
 	const mobileOpenButton = headerContain[ 0 ].querySelector( '.mobile-menu-toggle a' ),
 		mobileCloseButton = mobileSidebar[ 0 ].querySelector( '.mobile-menu-toggle a' );

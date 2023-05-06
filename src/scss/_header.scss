@@ -7,7 +7,7 @@
 	display: none;
 }
 
-@include sass-utils.media(large) {
+@include sass-utils.media( large ) {
 	.desktop-header {
 		display: inherit;
 	}
@@ -28,7 +28,7 @@
 	z-index: 999999;
 }
 
-@include sass-utils.media(medium) {
+@include sass-utils.media( medium ) {
 	.mobile-sidebar {
 		width: 50%;
 	}
