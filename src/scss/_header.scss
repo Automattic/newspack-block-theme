@@ -47,14 +47,14 @@
 	z-index: sass-utils.$zindex-overlay-menu;
 }
 
-.mobile-menu-opened .mobile-sidebar {
+.menu-open--mobile-menu .mobile-sidebar {
 	right: 0;
 }
 
-.mobile-menu-opened .mobile-sidebar > * {
+.menu-open--mobile-menu .mobile-sidebar > * {
 	visibility: visible;
 }
 
-.mobile-menu-opened .overlay-mask {
+.menu-open--mobile-menu .overlay-mask {
 	display: block;
 }

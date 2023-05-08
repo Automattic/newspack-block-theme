@@ -13,4 +13,99 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Template:
 Text Domain: newspack-block-theme
 Tags: one-column, wide-blocks, block-patterns, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, rtl-language-support, theme-options, threaded-comments, translation-ready, one-column, custom-colors, custom-menu, custom-logo, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, theme-options, threaded-comments, translation-ready, wide-blocks, auto-loading-homepage
-*/.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-background):hover{background-color:var(--wp--preset--color--secondary);color:var(--wp--preset--color--base);border-color:var(--wp--preset--color--secondary)}a{text-decoration-thickness:.0625em!important;text-underline-offset:.15em}
+*/
+/*
+ * Control the hover stylings of outline block style.
+ * Unnecessary once block styles are configurable via theme.json
+ * https://github.com/WordPress/gutenberg/issues/42794
+ */
+.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-background):hover {
+  background-color: var(--wp--preset--color--secondary);
+  color: var(--wp--preset--color--base);
+  border-color: var(--wp--preset--color--secondary);
+}
+
+/*
+ * Link styles
+ * https://github.com/WordPress/gutenberg/issues/42319
+ */
+a {
+  text-decoration-thickness: 0.0625em !important;
+  text-underline-offset: 0.15em;
+}
+
+/*
+ * Newspack Theme
+ */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+/*
+ * Sass variables
+ */
+/* Above WP toolbar. */
+/*
+ * Sass mixins
+ */
+/**
+ * Mobile Header and Menu proof of concept
+ */
+.desktop-header {
+  display: none;
+}
+
+@media only screen and (min-width: 992px) {
+  .desktop-header {
+    display: inherit;
+  }
+  .mobile-header {
+    display: none;
+  }
+}
+.mobile-sidebar {
+  background: var(--wp--custom--background--mobile-menu);
+  inset: 0 -100% 0 auto;
+  overflow: auto;
+  padding: 2rem;
+  position: fixed;
+  transition: right 0.2s;
+  width: 90%;
+  z-index: 999999;
+}
+
+@media only screen and (min-width: 782px) {
+  .mobile-sidebar {
+    width: 50%;
+  }
+}
+.mobile-sidebar > * {
+  visibility: hidden;
+}
+
+.overlay-mask {
+  background: var(--wp--custom--background--mobile-menu-overlay);
+  content: "";
+  display: none;
+  inset: 0;
+  position: fixed;
+  z-index: 2000;
+}
+
+.menu-open--mobile-menu .mobile-sidebar {
+  right: 0;
+}
+
+.menu-open--mobile-menu .mobile-sidebar > * {
+  visibility: visible;
+}
+
+.menu-open--mobile-menu .overlay-mask {
+  display: block;
+}
+
