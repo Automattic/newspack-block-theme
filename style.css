@@ -13,4 +13,4 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Template:
 Text Domain: newspack-block-theme
 Tags: one-column, wide-blocks, block-patterns, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, rtl-language-support, theme-options, threaded-comments, translation-ready, one-column, custom-colors, custom-menu, custom-logo, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, theme-options, threaded-comments, translation-ready, wide-blocks, auto-loading-homepage
-*/
+*/.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-background):hover{background-color:var(--wp--preset--color--secondary);color:var(--wp--preset--color--base);border-color:var(--wp--preset--color--secondary)}a{text-decoration-thickness:.0625em!important;text-underline-offset:.15em}
