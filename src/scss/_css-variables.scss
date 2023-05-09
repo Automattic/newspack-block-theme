@@ -1,0 +1,24 @@
+// Apply the custom CSS variables defined in theme.json.
+body {
+	line-height: var( --wp--custom--line-height--body );
+}
+
+.has-x-small-font-size {
+	line-height: var( --wp--custom--line-height--x-small );
+}
+
+.has-small-font-size {
+	line-height: var( --wp--custom--line-height--small );
+}
+
+.has-large-font-size {
+	line-height: var( --wp--custom--line-height--large );
+}
+
+.has-x-large-font-size {
+	line-height: var( --wp--custom--line-height--x-large );
+}
+
+.has-xx-large-font-size {
+	line-height: var( --wp--custom--line-height--xx-large );
+}
