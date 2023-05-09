@@ -21,3 +21,17 @@ a {
 	text-decoration-thickness: .0625em !important;
 	text-underline-offset: .15em;
 }
+
+/*
+ * Newspack Theme
+ */
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
