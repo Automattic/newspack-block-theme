@@ -109,7 +109,6 @@
 				"mobile-menu-overlay": "rgba( 0, 0, 0, 0.5 )"
 			},
 			"line-height": {
-				"body": "1.6667",
 				"x-small": "1.5",
 				"small": "1.5",
 				"large": "1.5454",
@@ -423,7 +422,7 @@
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--system-font)",
 			"fontSize": "var(--wp--preset--font-size--medium)",
-			"lineHeight": "1.6"
+			"lineHeight": "1.6667"
 		}
 	},
 	"templateParts": [
