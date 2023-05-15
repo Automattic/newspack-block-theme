@@ -203,6 +203,20 @@
 					"fontSize": "var(--wp--preset--font-size--small)"
 				}
 			},
+			"core/post-terms": {
+				"elements": {
+					"link": {
+						"typography": {
+							"textDecoration": "none"
+						},
+						":hover": {
+							"typography": {
+								"textDecoration": "underline"
+							}
+						}
+					}
+				}
+			},
 			"core/post-title": {
 				"elements": {
 					"link": {
