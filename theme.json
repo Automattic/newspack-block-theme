@@ -9,24 +9,34 @@
 					"slug": "base"
 				},
 				{
-					"color": "#333333",
+					"color": "#1E1E1E",
 					"name": "Contrast",
 					"slug": "contrast"
 				},
 				{
-					"color": "#000000",
+					"color": "#3366FF",
 					"name": "Primary",
 					"slug": "primary"
 				},
 				{
-					"color": "#006ba1",
+					"color": "#1522AF",
 					"name": "Secondary",
 					"slug": "secondary"
 				},
 				{
-					"color": "#F0F0F0",
+					"color": "#757575",
 					"name": "Tertiary",
 					"slug": "tertiary"
+				},
+				{
+					"color": "#DDDDDD",
+					"name": "Quartary",
+					"slug": "quartary"
+				},
+				{
+					"color": "#F0F0F0",
+					"name": "Quinary",
+					"slug": "quinary"
 				}
 			]
 		},
@@ -55,40 +65,40 @@
 			],
 			"fontSizes": [
 				{
-					"fluid": {
-						"max": "1.0625rem",
-						"min": "0.825rem"
-					},
+					"fluid": false,
+					"name": "X-Small",
+					"size": "0.875rem",
+					"slug": "x-small"
+				},
+				{
+					"fluid": false,
 					"name": "Small",
 					"size": "1rem",
 					"slug": "small"
 				},
 				{
-					"fluid": {
-						"max": "1.25rem",
-						"min": "1rem"
-					},
+					"fluid": false,
 					"name": "Medium",
 					"size": "1.125rem",
 					"slug": "medium"
 				},
 				{
-					"fluid": {
-						"max": "2rem",
-						"min": "1.75rem"
-					},
+					"fluid": false,
 					"name": "Large",
-					"size": "1.75rem",
+					"size": "clamp(1.25rem, 1.179rem + 0.316vw, 1.375rem)",
 					"slug": "large"
 				},
 				{
-					"fluid": {
-						"max": "3rem",
-						"min": "2.5rem"
-					},
+					"fluid": false,
 					"name": "Extra Large",
-					"size": "3rem",
+					"size": "clamp(1.5rem, 1.073rem + 1.899vw, 2.25rem)",
 					"slug": "x-large"
+				},
+				{
+					"fluid": false,
+					"name": "Extra Extra Large",
+					"size": "clamp(1.75rem, 1.038rem + 3.165vw, 3rem)",
+					"slug": "xx-large"
 				}
 			]
 		},
@@ -97,6 +107,13 @@
 			"background": {
 				"mobile-menu": "var( --wp--preset--color--white )",
 				"mobile-menu-overlay": "rgba( 0, 0, 0, 0.5 )"
+			},
+			"line-height": {
+				"x-small": "1.5",
+				"small": "1.5",
+				"large": "1.5454",
+				"x-large": "1.3333",
+				"xx-large": "1.25"
 			}
 		}
 	},
@@ -220,6 +237,9 @@
 			"core/post-title": {
 				"elements": {
 					"link": {
+						"color": {
+							"text": "var(--wp--preset--color--contrast)"
+						},
 						":hover": {
 							"typography": {
 								"textDecoration": "underline"
@@ -350,39 +370,47 @@
 			},
 			"h1": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--x-large)"
+					"fontSize": "clamp(1rem, calc(0.861rem + 5.063vw), 4rem)",
+					"lineHeight": "1.25"
 				}
 			},
 			"h2": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--large)"
+					"fontSize": "clamp(1.75rem, 1.038rem + 3.165vw, 3rem)",
+					"lineHeight": "1.25"
 				}
 			},
 			"h3": {
 				"typography": {
-					"fontSize": "clamp(1.5rem, calc(1.5rem + ((1vw - 0.48rem) * 0.4808)), 1.75rem)"
+					"fontSize": "clamp(1.5rem, 1.073rem + 1.899vw, 2.25rem)",
+					"lineHeight": "1.3333"
 				}
 			},
 			"h4": {
 				"typography": {
-					"fontSize": "clamp(1.25rem, calc(1.25rem + ((1vw - 0.48rem) * 0.4808)), 1.5rem)"
+					"fontSize": "clamp(1.25rem, 1.179rem + 0.316vw, 1.375rem)",
+					"lineHeight": "1.5454"
 				}
 			},
 			"h5": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--medium)"
+					"fontSize": "var(--wp--preset--font-size--medium)",
+					"lineHeight": "1.6667",
+					"textTransform": "uppercase"
 				}
 			},
 			"h6": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--small)"
+					"fontSize": "var(--wp--preset--font-size--small)",
+					"fontWeight": "normal",
+					"lineHeight": "1.5",
+					"textTransform": "uppercase"
 				}
 			},
 			"heading": {
 				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--rubik)",
-					"fontWeight": "400",
-					"lineHeight": "1.125"
+					"fontWeight": "bold",
+					"lineHeight": "1.25"
 				}
 			},
 			"link": {
@@ -408,7 +436,7 @@
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--system-font)",
 			"fontSize": "var(--wp--preset--font-size--medium)",
-			"lineHeight": "1.6"
+			"lineHeight": "1.6667"
 		}
 	},
 	"templateParts": [
