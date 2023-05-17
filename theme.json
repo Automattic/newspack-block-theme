@@ -333,6 +333,14 @@
 					"text": "var(--wp--preset--color--contrast)"
 				}
 			},
+			"core/social-links": {
+				"spacing": {
+					"blockGap": {
+						"left": "var(--wp--preset--spacing--20)",
+						"top": "var(--wp--preset--spacing--20)"
+					}
+				}
+			},
 			"core/site-tagline": {
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--small)"
