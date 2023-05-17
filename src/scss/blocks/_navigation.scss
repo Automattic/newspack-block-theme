@@ -1,0 +1,15 @@
+.wp-block-navigation {
+	.wp-block-navigation__submenu-container {
+		border-radius: 6px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		min-width: 240px;
+		overflow: hidden;
+		padding: 0.5em 0;
+	}
+
+	// Increase minimum dropdown width.
+	.has-child .wp-block-navigation-submenu__toggle[aria-expanded="true"] ~ .wp-block-navigation__submenu-container,
+	.has-child:not(.open-on-click):hover > .wp-block-navigation__submenu-container {
+		min-width: 240px;
+	}
+}
