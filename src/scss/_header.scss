@@ -1,7 +1,7 @@
 @use 'sass-utils';
 
 /**
- * Mobile Header and Menu proof of concept
+ * Mobile Header and Menu
  */
 .desktop-header {
 	display: none;
@@ -19,23 +19,29 @@
 
 .mobile-sidebar {
 	background: var( --wp--custom--background--mobile-menu );
+	color: var( --wp--custom--color--mobile-menu );
 	inset: 0 -100% 0 auto;
+	opacity: 0;
 	overflow: auto;
-	padding: 2rem;
+	padding: var(--wp--preset--spacing--50) var(--wp--preset--spacing--40);
 	position: fixed;
-	transition: right 0.2s;
-	width: 90%;
+	transition: opacity 0.2s;
+	width: 100%;
 	z-index: 999999;
+
+	> * {
+		visibility: hidden;
+	}
+
+	a {
+		color: inherit;
+	}
 }
 
 @include sass-utils.media( medium ) {
 	.mobile-sidebar {
 		width: 50%;
 	}
-}
-
-.mobile-sidebar > * {
-	visibility: hidden;
 }
 
 .overlay-mask {
@@ -48,6 +54,7 @@
 }
 
 .menu-open--mobile-menu .mobile-sidebar {
+	opacity: 1;
 	right: 0;
 }
 
@@ -58,3 +65,27 @@
 .menu-open--mobile-menu .overlay-mask {
 	display: block;
 }
+
+.mobile-menu-toggle {
+	span {
+		display: inline-block;
+		text-indent: -99999em;
+	}
+
+	.wp-block-button__link::after {
+		background-color: currentcolor;
+		content: "";
+		display: inline-block;
+		height: 14px;
+		mask: url("../../src/images/menu.svg") 0 0 no-repeat;
+		mask-size: 14px;
+		width: 14px;
+	}
+}
+
+.mobile-sidebar .mobile-menu-toggle {
+	.wp-block-button__link::after {
+		mask: url("../../src/images/close.svg") 0 0 no-repeat;
+	}
+}
+

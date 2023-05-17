@@ -105,8 +105,11 @@
 		"useRootPaddingAwareAlignments": true,
 		"custom": {
 			"background": {
-				"mobile-menu": "var( --wp--preset--color--white )",
+				"mobile-menu": "#1E1E1E",
 				"mobile-menu-overlay": "rgba( 0, 0, 0, 0.5 )"
+			},
+			"color": {
+				"mobile-menu": "var( --wp--preset--color--white )"
 			},
 			"line-height": {
 				"x-small": "1.5",
@@ -372,7 +375,7 @@
 						"text": "var(--wp--preset--color--base)"
 					},
 					"outline": {
-						"color": "var(--wp--preset--color--primary)",
+						"color": "currentcolor",
 						"offset": "2px",
 						"style": "dotted",
 						"width": "1px"
@@ -464,8 +467,8 @@
 			"blockGap": "1.5rem",
 			"padding": {
 				"bottom": "var(--wp--preset--spacing--50)",
-				"left": "var(--wp--preset--spacing--50)",
-				"right": "var(--wp--preset--spacing--50)",
+				"left": "var(--wp--preset--spacing--40)",
+				"right": "var(--wp--preset--spacing--40)",
 				"top": "0"
 			}
 		},
