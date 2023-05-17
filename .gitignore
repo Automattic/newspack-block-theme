@@ -31,5 +31,8 @@ Thumbs.db
 /dist/
 *.asset.php
 
+# Build images
+/images/
+
 # Release folder
 /release/
