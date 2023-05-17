@@ -1,8 +1,8 @@
 .wp-block-navigation {
+	// Give dropdowns a rounded border, a drop-shadow, and increase the top padding.
 	.wp-block-navigation__submenu-container {
 		border-radius: 6px;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-		min-width: 240px;
 		overflow: hidden;
 		padding: 0.5em 0;
 	}
@@ -11,5 +11,10 @@
 	.has-child .wp-block-navigation-submenu__toggle[aria-expanded="true"] ~ .wp-block-navigation__submenu-container,
 	.has-child:not(.open-on-click):hover > .wp-block-navigation__submenu-container {
 		min-width: 240px;
+	}
+
+	// Change the block spacing when vertical.
+	&.is-layout-flex.is-vertical {
+		gap: var(--wp--preset--spacing--40);
 	}
 }
