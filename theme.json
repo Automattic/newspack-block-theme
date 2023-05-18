@@ -278,9 +278,6 @@
 							"typography": {
 								"textDecoration": "underline"
 							}
-						},
-						"typography": {
-							"textDecoration": "none"
 						}
 					}
 				},
@@ -309,9 +306,6 @@
 							"typography": {
 								"textDecoration": "underline"
 							}
-						},
-						"typography": {
-							"textDecoration": "none"
 						}
 					}
 				},
