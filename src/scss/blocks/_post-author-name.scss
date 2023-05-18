@@ -1,0 +1,12 @@
+.wp-block-post-author {
+	align-items: center;
+
+	&__content > * {
+		display: inline;
+	}
+
+	&__byline {
+		font-size: inherit;
+		margin-right: 0.25em;
+	}
+}
