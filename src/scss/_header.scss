@@ -18,8 +18,8 @@
 }
 
 .mobile-sidebar {
-	background: var( --wp--custom--background--mobile-menu );
-	color: var( --wp--custom--color--mobile-menu );
+	background: var( --wp--custom--color--mobile-menu-background );
+	color: var( --wp--custom--color--mobile-menu-text );
 	inset: 0 -100% 0 auto;
 	opacity: 0;
 	overflow: auto;
