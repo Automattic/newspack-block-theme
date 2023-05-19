@@ -35,7 +35,15 @@ a {
 	text-underline-offset: .15em;
 }
 
+// Make sure links pick up their parent element's color.
+// TODO: Find related Gutenberg issue?
 .has-text-color a {
+	color: inherit;
+}
+
+// Can't control the link element when inside of the caption element.
+// TODO: Find related Gutenberg issue?
+figcaption a {
 	color: inherit;
 }
 
