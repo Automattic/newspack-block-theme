@@ -45,7 +45,8 @@ a {
  */
 label {
 	color: var(--wp--preset--color--contrast);
-	margin: calc( var(--wp--preset--spacing--20) / 2 ) 0;
+	display: inline-block;
+	margin-bottom: calc( var(--wp--preset--spacing--20) / 2 ) 0;
 }
 
 input[type='text'],
