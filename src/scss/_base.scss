@@ -14,3 +14,39 @@ html {
 .avatar {
 	border-radius: 100%;
 }
+
+
+// Icons
+[class*='newspack-icon'] {
+	line-height: 0;
+
+	span {
+		left: -99999em;
+		position: absolute;
+	}
+
+	.wp-block-button__link {
+		background: transparent;
+
+		&::after {
+			background-color: currentcolor;
+			content: "";
+			display: block;
+			height: 36px;
+			mask-size: 36px;
+			width: 36px;
+		}
+	}
+}
+
+.newspack-icon-menu .wp-block-button__link::after {
+	mask: url("../../src/images/icon-menu.svg") 0 0 no-repeat;
+}
+
+.newspack-icon-close .wp-block-button__link::after {
+	mask: url("../../src/images/icon-close.svg") 0 0 no-repeat;
+}
+
+.newspack-icon-search .wp-block-button__link::after {
+	mask: url("../../src/images/icon-search.svg") 0 0 no-repeat;
+}
