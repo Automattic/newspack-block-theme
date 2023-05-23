@@ -413,13 +413,6 @@
 							}
 						}
 					}
-				},
-				"variations": {
-					"category": {
-						"typography": {
-							"fontWeight": "bold"
-						}
-					}
 				}
 			},
 			"core/post-title": {
