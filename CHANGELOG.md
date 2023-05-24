@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Automattic/newspack-block-theme/compare/v1.0.0...v1.1.0) (2023-05-24)
+
+
+### Features
+
+* add mobile menu part proof of concept ([#3](https://github.com/Automattic/newspack-block-theme/issues/3)) ([3768123](https://github.com/Automattic/newspack-block-theme/commit/3768123019a5400509d145b033300934b901f55f))
+
 # [1.1.0-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.0.0...v1.1.0-alpha.1) (2023-05-11)
 
 
