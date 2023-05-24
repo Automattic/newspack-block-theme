@@ -42,6 +42,15 @@ figcaption a {
 }
 
 /*
+ * Term description - remove margin from first paragraph.
+ * The underlying issue is that the author bio block lacks paragraphs,
+ * so its spacing and the term description spacing differ.
+ */
+ .wp-block-term-description p:first-child {
+ 	margin-top: 0;
+ }
+
+/*
  * Form Styles
  * https://github.com/WordPress/gutenberg/issues/34198
  */
