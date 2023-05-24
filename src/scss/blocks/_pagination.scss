@@ -1,0 +1,13 @@
+.wp-block-query-pagination-numbers,
+.wp-block-comments-pagination-numbers {
+	a,
+	span {
+		border-radius: 6px;
+		padding: 0.5rem 0.8rem;
+	}
+
+	.current {
+		background: var(--wp--preset--color--primary);
+		color: var(--wp--preset--color--base);
+	}
+}
