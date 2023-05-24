@@ -1,8 +1,11 @@
 .wp-block-pullquote {
 	cite {
-		color: var(--wp--preset--color--contrast); // TODO: make sure this isn't used when pullqupte color is set
 		font-size: var(--wp--preset--font-size--small);
 		font-style: normal;
 		font-weight: normal;
+	}
+
+	&:not(.has-text-color) cite {
+		color: var(--wp--custom--color--gray-700);
 	}
 }

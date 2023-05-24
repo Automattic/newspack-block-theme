@@ -9,8 +9,8 @@
 	&.is-style-outline {
 		> .wp-block-button__link:not(.has-background):hover {
 			background-color: var(--wp--preset--color--secondary);
-			color: var(--wp--preset--color--base);
 			border-color: var(--wp--preset--color--secondary);
+			color: var(--wp--preset--color--base);
 		}
 	}
 }
@@ -35,14 +35,8 @@ a {
 	text-underline-offset: .15em;
 }
 
-// Make sure links pick up their parent element's color.
-// TODO: Find related Gutenberg issue?
-.has-text-color a {
-	color: inherit;
-}
-
 // Can't control the link element when inside of the caption element.
-// TODO: Find related Gutenberg issue?
+// TODO: Find related Gutenberg issue (if one exists - no luck yet!)
 figcaption a {
 	color: inherit;
 }
