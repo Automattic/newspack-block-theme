@@ -1,20 +1,31 @@
+@use '../sass-utils';
+
 .wp-block-navigation {
+	// Give dropdowns a rounded border, a drop-shadow, and increase the top padding.
 	.wp-block-navigation__submenu-container {
+		border-radius: 6px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		overflow: hidden;
 		padding: 0.5em 0;
 	}
 
-	&.is-horizontal {
-		// Give dropdowns a rounded border, a drop-shadow, and increase the top padding.
-		.wp-block-navigation__submenu-container {
-			border-radius: 6px;
-			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-			overflow: hidden;
+	@include sass-utils.media( medium ) {
+		.has-child .wp-block-navigation__submenu-container .wp-block-navigation__submenu-container {
+			top: calc( -0.5em - 1px);
 		}
+	}
 
-		// Increase minimum dropdown width.
-		.has-child .wp-block-navigation-submenu__toggle[aria-expanded="true"] ~ .wp-block-navigation__submenu-container,
-		.has-child:not(.open-on-click):hover > .wp-block-navigation__submenu-container {
-			min-width: 240px;
+	// Increase minimum dropdown width.
+	.has-child .wp-block-navigation-submenu__toggle[aria-expanded="true"] ~ .wp-block-navigation__submenu-container,
+	.has-child:not(.open-on-click):hover > .wp-block-navigation__submenu-container {
+		min-width: 240px;
+	}
+
+	// Don't add the box shadow/padding when using Gutenberg's default mobile menu.
+	.wp-block-navigation__responsive-container.has-modal-open {
+		.wp-block-navigation__submenu-container {
+			box-shadow: none;
+			padding-bottom: 0;
 		}
 	}
 
@@ -26,11 +37,12 @@
 			width: 100%;
 		}
 
-		.wp-block-navigation-item {
-			flex-wrap: wrap;
-		}
-
 		.open-on-click {
+			&.wp-block-navigation-item {
+				flex-wrap: wrap;
+			}
+
+
 			.wp-block-navigation__submenu-icon {
 				margin-right: var(--wp--preset--spacing--30);
 			}
@@ -40,7 +52,6 @@
 				border-radius: 0;
 				box-shadow: none;
 				margin-top: var(--wp--preset--spacing--20);
-
 			}
 
 			.wp-block-navigation-submenu__toggle[aria-expanded="true"] {
