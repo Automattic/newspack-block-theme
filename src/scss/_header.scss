@@ -1,0 +1,60 @@
+@use 'sass-utils';
+
+/**
+ * Mobile Header and Menu proof of concept
+ */
+.desktop-header {
+	display: none;
+}
+
+@include sass-utils.media( large ) {
+	.desktop-header {
+		display: inherit;
+	}
+
+	.mobile-header {
+		display: none;
+	}
+}
+
+.mobile-sidebar {
+	background: var( --wp--custom--background--mobile-menu );
+	inset: 0 -100% 0 auto;
+	overflow: auto;
+	padding: 2rem;
+	position: fixed;
+	transition: right 0.2s;
+	width: 90%;
+	z-index: 999999;
+}
+
+@include sass-utils.media( medium ) {
+	.mobile-sidebar {
+		width: 50%;
+	}
+}
+
+.mobile-sidebar > * {
+	visibility: hidden;
+}
+
+.overlay-mask {
+	background: var( --wp--custom--background--mobile-menu-overlay );
+	content: '';
+	display: none;
+	inset: 0;
+	position: fixed;
+	z-index: sass-utils.$zindex-overlay-menu;
+}
+
+.menu-open--mobile-menu .mobile-sidebar {
+	right: 0;
+}
+
+.menu-open--mobile-menu .mobile-sidebar > * {
+	visibility: visible;
+}
+
+.menu-open--mobile-menu .overlay-mask {
+	display: block;
+}
