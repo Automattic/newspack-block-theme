@@ -443,15 +443,15 @@
 				},
 				"spacing": {
 					"padding": {
-						"bottom": "var(--wp--preset--spacing--50)",
+						"bottom": "var(--wp--preset--spacing--40)",
 						"left": "0",
 						"right": "0",
-						"top": "var(--wp--preset--spacing--50)"
+						"top": "var(--wp--preset--spacing--40)"
 					}
 				},
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--x-large)",
-					"fontStyle": "italic",
+					"fontStyle": "normal",
 					"fontWeight": "bold",
 					"lineHeight": "1.333"
 				}
