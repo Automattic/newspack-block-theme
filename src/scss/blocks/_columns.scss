@@ -1,0 +1,14 @@
+@use '../sass-utils';
+
+// Experiment: hide column block if empty on smaller screens.
+// This is to prevent odd spacing issues, especially on mobile, but
+// may need to be removed if causing unexpected consiquences.
+.wp-block-columns {
+	.wp-block-column:empty {
+		display: none;
+
+		@include sass-utils.media( medium ) {
+			display: inherit;
+		}
+	}
+}
