@@ -12,6 +12,10 @@
 				display: none;
 			}
 
+			.wp-block-navigation__submenu-container {
+				overflow: visible;
+			}
+
 			&:not(.has-background) .wp-block-navigation__submenu-container {
 				background: transparent;
 			}
@@ -36,7 +40,7 @@
 				}
 
 				.wp-block-navigation__submenu-container,
-				.wp-block-navigation-submenu__toggle[aria-expanded=true]~.wp-block-navigation__submenu-container,
+				.wp-block-navigation-submenu__toggle[aria-expanded='true']~.wp-block-navigation__submenu-container,
 				&:not(.open-on-click):hover>.wp-block-navigation__submenu-container {
 					width: 100%;
 				}
