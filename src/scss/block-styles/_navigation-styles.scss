@@ -1,0 +1,50 @@
+.wp-block-navigation {
+	&.is-style-flatten {
+		// TODO: restrict this just to the vertical block variation.
+		// In the meantime, we'll use CSS so the styles are only applied there.
+		// See: https://github.com/WordPress/gutenberg/issues/40621.
+		&.is-vertical {
+			.wp-block-navigation-item {
+				flex-wrap: wrap;
+			}
+
+			.wp-block-navigation__submenu-icon {
+				display: none;
+			}
+
+			&:not(.has-background) .wp-block-navigation__submenu-container {
+				background: transparent;
+			}
+
+			&:not( .has-text-color) .wp-block-navigation__submenu-container {
+				color: inherit;
+			}
+
+			.has-child {
+				gap: var(--wp--preset--spacing--30);
+
+				.wp-block-navigation__submenu-container {
+					border: 0;
+					border-radius: 0;
+					box-shadow: none;
+					gap: inherit;
+					height: unset;
+					padding: 0 0 0 var(--wp--preset--spacing--30);
+					position: static;
+					opacity: unset;
+					visibility: unset;
+				}
+
+				.wp-block-navigation__submenu-container,
+				.wp-block-navigation-submenu__toggle[aria-expanded=true]~.wp-block-navigation__submenu-container,
+				&:not(.open-on-click):hover>.wp-block-navigation__submenu-container {
+					width: 100%;
+				}
+			}
+
+			&.has-background .has-child {
+				gap: var(--wp--preset--spacing--20);
+			}
+		}
+	}
+}
