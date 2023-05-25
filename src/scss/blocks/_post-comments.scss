@@ -1,0 +1,46 @@
+.wp-block-post-comments-form {
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: var(--wp--preset--spacing--50);
+		margin-top: var(--wp--preset--spacing--50);
+
+		p {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+
+	p {
+		color: var( --wp--custom--color--gray-700 );
+		font-size: var(--wp--preset--font-size--small);
+
+		a {
+			color: inherit;
+		}
+	}
+
+	.bypostauthor { // we probably don't want to inline text via CSS; can we filter the author post?
+
+	}
+}
+
+.wp-block-comment-template {
+	> li {
+		&:not(:first-of-type) {
+			padding-top: var(--wp--preset--spacing--50);
+		}
+
+		&:not(:last-of-type) {
+			border-bottom: 1px solid var( --wp--custom--color--gray-300 );
+			padding-bottom: var(--wp--preset--spacing--50);
+		}
+	}
+
+	ol {
+		border-left: 1px solid var( --wp--custom--color--gray-300 );
+		margin: var(--wp--preset--spacing--50) 0 0;
+		padding-left: var(--wp--preset--spacing--50);
+	}
+}
+
