@@ -1,0 +1,17 @@
+.wpnbpc {
+	article {
+		.cat-links {
+			font-size: var(--wp--preset--font-size--small);
+			text-transform: uppercase;
+		}
+
+		.entry-meta {
+			font-size: var(--wp--preset--font-size--small);
+
+			a {
+				font-weight: normal;
+			}
+		}
+
+	}
+}
