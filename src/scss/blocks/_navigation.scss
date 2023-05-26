@@ -1,10 +1,19 @@
+@use '../sass-utils';
+
 .wp-block-navigation {
 	// Give dropdowns a rounded border, a drop-shadow, and increase the top padding.
 	.wp-block-navigation__submenu-container {
 		border-radius: 6px;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		overflow: hidden;
-		padding: 0.5em 0;
+		padding: var(--wp--preset--spacing--20) 0;
+	}
+
+	@include sass-utils.media( medium ) {
+		// Adjust the vertical placement of the dropdowns to account for the extra padding.
+		.has-child .wp-block-navigation__submenu-container .wp-block-navigation__submenu-container {
+			top: calc( -0.5em - 1px);
+		}
 	}
 
 	// Increase minimum dropdown width.
@@ -13,8 +22,20 @@
 		min-width: 240px;
 	}
 
+	// Don't add the box shadow/padding when using the default mobile view of the navigation block.
+	.wp-block-navigation__responsive-container.has-modal-open {
+		.wp-block-navigation__submenu-container {
+			box-shadow: none;
+			padding-bottom: 0;
+		}
+	}
+
 	// Change the block spacing when vertical.
-	&.is-layout-flex.is-vertical {
+	&.is-vertical {
 		gap: var(--wp--preset--spacing--40);
+
+		&.has-background {
+			gap: var(--wp--preset--spacing--30);
+		}
 	}
 }
