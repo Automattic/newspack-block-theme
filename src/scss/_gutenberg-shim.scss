@@ -32,6 +32,11 @@
 	}
 }
 
+/* Fix for hidden 'append' icons in editor */
+.has-background .wp-block-navigation .wp-block .wp-block .block-editor-button-block-appender {
+	color: inherit;
+}
+
 /*
  * Link styles
  * https://github.com/WordPress/gutenberg/issues/42319

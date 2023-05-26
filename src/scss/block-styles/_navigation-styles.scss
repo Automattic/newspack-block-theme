@@ -44,6 +44,11 @@
 				&:not(.open-on-click):hover>.wp-block-navigation__submenu-container {
 					width: 100%;
 				}
+
+				&.has-child-selected>.wp-block-navigation__submenu-container,
+				&.is-selected>.wp-block-navigation__submenu-container {
+					width: 100% !important;
+				}
 			}
 
 			&.has-background .has-child {
