@@ -41,6 +41,7 @@ final class Core {
 		\add_action( 'after_setup_theme', [ __CLASS__, 'theme_support' ] );
 		\add_action( 'wp_enqueue_scripts', [ __CLASS__, 'theme_styles' ] );
 		\add_action( 'enqueue_block_editor_assets', [ __CLASS__, 'editor_scripts' ] );
+		\add_filter( 'block_type_metadata', [ __CLASS__, 'block_variations' ] );
 	}
 
 	/**
@@ -85,6 +86,26 @@ final class Core {
 	public static function editor_scripts() {
 		// Enqueue editor JavaScript.
 		wp_enqueue_script( 'editor-script', get_theme_file_uri( '/dist/editor.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
+	}
+
+	/**
+	 * Add block variations.
+	 *
+	 * @since Newspack Block Theme 1.0
+	 *
+	 * This is a bit clunky, but we'll be able to replace it with JavaScript once isDefault works there.
+	 * See: https://github.com/WordPress/gutenberg/issues/28119
+	 *
+	 * @return array Block metadata.
+	 */
+	public static function block_variations( $metadata ) {
+		if ( $metadata[ 'name' ] == 'core/search' ) {
+			$metadata['attributes']['buttonPosition']['default'] = 'button-inside';
+			$metadata['attributes']['buttonUseIcon']['default']  = true;
+			$metadata['attributes']['placeholder']['default']    = esc_html__( 'Search...', 'newspack-block-theme' );
+			$metadata['attributes']['showLabel']['default']      = false;
+		}
+		return $metadata;
 	}
 }
 
