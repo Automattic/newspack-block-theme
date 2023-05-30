@@ -63,31 +63,3 @@
 		visibility: visible;
 	}
 }
-
-// Search contents
-.search-contents {
-	background: var(--wp--preset--color--base);
-	inset: 0 -100% 0 auto;
-	opacity: 0;
-	overflow: auto;
-	padding: var(--wp--preset--spacing--50) var(--wp--preset--spacing--40);
-	position: fixed;
-	transition: opacity 0.2s;
-	width: 100%;
-	z-index: 999999;
-
-	> * {
-		visibility: hidden;
-	}
-}
-
-.menu-open--search-menu {
-	.search-contents {
-		opacity: 1;
-		right: 0;
-	}
-
-	.search-contents > * {
-		visibility: visible;
-	}
-}
