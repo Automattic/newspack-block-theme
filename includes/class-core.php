@@ -93,7 +93,7 @@ final class Core {
 	 *
 	 * @since Newspack Block Theme 1.0
 	 *
-	 * This is a bit clunky, but we'll be able to replace it with JavaScript once isDefault works there.
+	 * We may be able to replace this with JavaScript; I'm unclear whether isDefault isn't working, or just not working as I expect it to.
 	 * See: https://github.com/WordPress/gutenberg/issues/28119
 	 *
 	 * @return array Block metadata.
