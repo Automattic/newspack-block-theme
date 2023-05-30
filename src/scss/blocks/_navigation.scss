@@ -3,7 +3,7 @@
 .wp-block-navigation {
 	// Give dropdowns a rounded border, a drop-shadow, and increase the top padding.
 	.wp-block-navigation__submenu-container {
-		border-radius: 6px;
+		border-radius: var( --wp--custom--border--radius );
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		overflow: hidden;
 		padding: var(--wp--preset--spacing--20) 0;
