@@ -66,6 +66,7 @@
 
 // Search contents
 .search-contents {
+	background: var(--wp--preset--color--base);
 	inset: 0 -100% 0 auto;
 	opacity: 0;
 	overflow: auto;
@@ -77,5 +78,16 @@
 
 	> * {
 		visibility: hidden;
+	}
+}
+
+.menu-open--search-menu {
+	.search-contents {
+		opacity: 1;
+		right: 0;
+	}
+
+	.search-contents > * {
+		visibility: visible;
 	}
 }
