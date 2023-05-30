@@ -13,6 +13,6 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center","fontSize":"x-large"} -->
-<p class="has-text-align-center has-x-large-font-size">It looks like nothing was found at this location. Maybe try a search?</p>
+<p class="has-text-align-center has-x-large-font-size"><?php esc_html__( 'It looks like nothing was found at this location. Maybe try a search?', 'newspack-block-theme' ); ?></p>
 <!-- /wp:paragraph -->
 
