@@ -77,5 +77,5 @@ input[type='datetime-local'],
 input[type='zip'],
 input[type='color'],
 textarea {
-	border-radius: 6px;
+	border-radius: var( --wp--custom--border--radius );
 }
