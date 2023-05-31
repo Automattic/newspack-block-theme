@@ -26,6 +26,7 @@ Thumbs.db
 
 # Compiled CSS
 *.css
+style.css
 
 # Compiled Javascript
 /dist/
