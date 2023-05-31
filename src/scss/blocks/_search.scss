@@ -11,6 +11,20 @@
 		}
 	}
 
+	&__button-outside {
+		&.wp-block-search__icon-button {
+			.wp-block-search__input {
+				border-radius: var( --wp--custom--border--radius ) 0 0 var( --wp--custom--border--radius );
+				border-right: 0;
+			}
+
+			.wp-block-search__button {
+				border-radius: 0 var( --wp--custom--border--radius ) var( --wp--custom--border--radius ) 0;
+				margin-left: 0;
+			}
+		}
+	}
+
 	&__button-inside {
 		.wp-block-search__inside-wrapper {
 			border-radius: var( --wp--custom--border--radius );
