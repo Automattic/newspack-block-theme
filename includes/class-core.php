@@ -56,6 +56,9 @@ final class Core {
 
 		// Make theme available for translation.
 		\load_theme_textdomain( 'newspack-block-theme' );
+
+		// Unregister default block patterns
+		\remove_theme_support( 'core-block-patterns' );
 	}
 
 	/**
