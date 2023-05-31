@@ -1,3 +1,17 @@
+# [1.2.0-alpha.2](https://github.com/Automattic/newspack-block-theme/compare/v1.2.0-alpha.1...v1.2.0-alpha.2) (2023-05-31)
+
+
+### Bug Fixes
+
+* correct spacer block values ([#42](https://github.com/Automattic/newspack-block-theme/issues/42)) ([05980d9](https://github.com/Automattic/newspack-block-theme/commit/05980d98a22de9d56af4d2d3ac3de7437de03103))
+* remove style.css from the theme repo ([#32](https://github.com/Automattic/newspack-block-theme/issues/32)) ([51d849f](https://github.com/Automattic/newspack-block-theme/commit/51d849fc3e332a074a3d6c6e42bde60fbeb55ad5))
+
+
+### Features
+
+* add block style to 'flatten' mobile nav ([#37](https://github.com/Automattic/newspack-block-theme/issues/37)) ([7b00671](https://github.com/Automattic/newspack-block-theme/commit/7b00671356fc7315a5e13af941b6f5b2c790f88f))
+* building out 404 page ([#43](https://github.com/Automattic/newspack-block-theme/issues/43)) ([514111e](https://github.com/Automattic/newspack-block-theme/commit/514111e59e81fe135a4492a1f83c4f246d0dfcd4))
+
 # [1.2.0-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.1.0...v1.2.0-alpha.1) (2023-05-25)
 
 
