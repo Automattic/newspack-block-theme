@@ -44,7 +44,6 @@ domReady( function () {
 		}
 	};
 
-
 	/**
 	 * @description Opens specifed slide-out menu.
 	 */
