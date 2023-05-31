@@ -1,4 +1,4 @@
-/* globals newspackTranslations */
+/* globals newspackScreenReaderText */
 
 /**
  * Internal dependencies.
@@ -26,7 +26,7 @@ domReady( function () {
 
 	// If Jetpack Instant Search is enabled, add a CSS class to the search toggle and bail.
 	// See: https://jetpack.com/support/search/customizing-jetpack-search/#add-search-button
-	if ( newspackTranslations.jetpack_instant_search ) {
+	if ( newspackScreenReaderText.jetpack_instant_search ) {
 		searchOpenButton.classList.add( 'jetpack-search-filter__link' );
 		return;
 	}
@@ -37,13 +37,13 @@ domReady( function () {
 	 */
 	const searchMenuToggle = event => {
 		event.preventDefault();
-
 		if ( body.classList.contains( openClassName ) ) {
 			closeMenu();
 		} else {
 			openMenu();
 		}
 	};
+
 
 	/**
 	 * @description Opens specifed slide-out menu.
@@ -52,6 +52,7 @@ domReady( function () {
 		body.classList.add( openClassName );
 		searchOpenButton.parentNode.classList.add( 'newspack-icon-close' );
 		searchOpenButton.parentNode.classList.remove( 'newspack-icon-search' );
+		searchOpenButton.innerHTML = '<span>' + newspackScreenReaderText.close_search + '</span>';
 	};
 
 	/**
@@ -61,6 +62,7 @@ domReady( function () {
 		body.classList.remove( openClassName );
 		searchOpenButton.parentNode.classList.add( 'newspack-icon-search' );
 		searchOpenButton.parentNode.classList.remove( 'newspack-icon-close' );
+		searchOpenButton.innerHTML = '<span>' + newspackScreenReaderText.open_search + '</span>';
 	};
 
 	// Find each mobile toggle and attaches an event listener.
