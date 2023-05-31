@@ -16,7 +16,8 @@ domReady( function () {
 		searchToggle = document.querySelectorAll( '.search-menu-toggle' ),
 		searchContents = document.querySelector( '.search-contents' );
 
-	if ( ! searchContain || ! searchToggle.length || ! searchContents ) {
+
+	if ( ! searchContain || ! searchToggle.length || ! searchContents || newspackTranslations.jetpack_instant_search ) {
 		return;
 	}
 

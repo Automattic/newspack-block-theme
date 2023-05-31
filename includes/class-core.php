@@ -79,7 +79,13 @@ final class Core {
 		\wp_enqueue_style( 'newspack_block_theme-style' );
 
 		// Enqueue front-end JavaScript.
+		$newspack_block_theme_strings = array();
+		if ( wp_script_is( 'jetpack-instant-search', 'enqueued') ) {
+			$newspack_block_theme_strings['jetpack_instant_search'] = 'true';
+		}
+
 		wp_enqueue_script( 'newspack-main', get_theme_file_uri( '/dist/main.js' ), array(), wp_get_theme()->get( 'Version' ), true );
+		wp_localize_script( 'newspack-main', 'newspackTranslations', $newspack_block_theme_strings );
 	}
 
 	public static function editor_scripts() {
