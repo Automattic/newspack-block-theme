@@ -2,7 +2,7 @@
 .wp-block-comments-pagination-numbers {
 	a,
 	span {
-		border-radius: 6px;
+		border-radius: var( --wp--custom--border--radius );
 		padding: 0.5rem 0.8rem;
 	}
 

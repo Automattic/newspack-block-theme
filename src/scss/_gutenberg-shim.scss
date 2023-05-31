@@ -20,10 +20,21 @@
  * Remove extra padding from navigation link when set to click to open.
  * https://github.com/WordPress/gutenberg/issues/50722
  */
- .wp-block-navigation {
-	.wp-block-navigation-item.open-on-click .wp-block-navigation-submenu__toggle {
-		padding-left: 0;
+.wp-block-navigation {
+	&.is-vertical .wp-block-navigation-item.open-on-click {
+		.wp-block-navigation-submenu__toggle {
+			padding-left: 0;
+		}
+
+		.has-child .wp-block-navigation-submenu__toggle {
+			padding: 0.5em 1em;
+		}
 	}
+}
+
+/* Fix for hidden 'append' icons in editor */
+.has-background .wp-block-navigation .wp-block .wp-block .block-editor-button-block-appender {
+	color: inherit;
 }
 
 /*
@@ -77,5 +88,5 @@ input[type='datetime-local'],
 input[type='zip'],
 input[type='color'],
 textarea {
-	border-radius: 6px;
+	border-radius: var( --wp--custom--border--radius );
 }

@@ -1,3 +1,35 @@
-.wp-block-search__button svg {
-	vertical-align: middle
+.wp-block-search {
+
+	.wp-block-search__button.has-icon {
+		line-height: 1;
+		padding: 0.75rem;
+
+		svg {
+			min-height: var(--wp--preset--spacing--40);
+			min-width: var(--wp--preset--spacing--40);
+			vertical-align: middle;
+		}
+	}
+
+	&__button-inside {
+		.wp-block-search__inside-wrapper {
+			border-radius: var( --wp--custom--border--radius );
+			box-sizing: border-box;
+		}
+
+		.wp-block-search__button {
+			border-radius: calc( var( --wp--custom--border--radius ) / 2 );
+		}
+
+		&.wp-block-search__icon-button {
+			.wp-block-search__inside-wrapper {
+				padding: calc( var(--wp--preset--spacing--20) - 1px ); // maddening, but the math isn't working -- the search should be 52px tall, but is 54px.
+			}
+
+			.wp-block-search__button {
+				padding: 0.375rem;
+			}
+		}
+	}
 }
+
