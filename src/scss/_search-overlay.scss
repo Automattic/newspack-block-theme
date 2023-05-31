@@ -12,21 +12,17 @@
 	position: fixed;
 	transition: opacity 0.2s;
 	width: 100%;
-	z-index: 999999;
+	z-index: sass-utils.$zindex-overlay-menu;
 
 	> * {
 		visibility: hidden;
 	}
 
 	.search-wrapper {
-		display: flex;
-		flex-direction: column;
 		height: 90vh;
-		justify-content: center;
 
 		.wp-block-search {
 			margin-bottom: var(--wp--preset--spacing--70);
-			width: 600px;
 		}
 	}
 }
@@ -35,10 +31,15 @@
 	.search-contents {
 		opacity: 1;
 		right: 0;
+
+		> * {
+			visibility: visible;
+		}
 	}
 
-	.search-contents > * {
-		visibility: visible;
+	.search-menu-toggle {
+		position: relative;
+		z-index: calc( sass-utils.$zindex-overlay-menu + 1 );
 	}
 }
 

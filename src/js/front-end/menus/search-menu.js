@@ -1,3 +1,5 @@
+/* globals newspackTranslations */
+
 /**
  * Internal dependencies.
  */
@@ -16,13 +18,18 @@ domReady( function () {
 		searchToggle = document.querySelectorAll( '.search-menu-toggle' ),
 		searchContents = document.querySelector( '.search-contents' );
 
-
-	if ( ! searchContain || ! searchToggle.length || ! searchContents || newspackTranslations.jetpack_instant_search ) {
+	if ( ! searchContain || ! searchToggle.length || ! searchContents ) {
 		return;
 	}
 
-	const searchOpenButton = searchContain.querySelector( '.search-menu-toggle a' ),
-		searchCloseButton = searchContents.querySelector( '.search-menu-toggle a' );
+	const searchOpenButton = searchContain.querySelector( '.search-menu-toggle a' );
+
+	// If Jetpack Instant Search is enabled, add a CSS class to the search toggle and bail.
+	// See: https://jetpack.com/support/search/customizing-jetpack-search/#add-search-button
+	if ( newspackTranslations.jetpack_instant_search ) {
+		searchOpenButton.classList.add( 'jetpack-search-filter__link' );
+		return;
+	}
 
 	/**
 	 * @description Fires either the opening or closing functions for a menu.
@@ -43,7 +50,8 @@ domReady( function () {
 	 */
 	const openMenu = () => {
 		body.classList.add( openClassName );
-		searchCloseButton.focus();
+		searchOpenButton.parentNode.classList.add( 'newspack-icon-close' );
+		searchOpenButton.parentNode.classList.remove( 'newspack-icon-search' );
 	};
 
 	/**
@@ -51,7 +59,8 @@ domReady( function () {
 	 */
 	const closeMenu = () => {
 		body.classList.remove( openClassName );
-		searchOpenButton.focus();
+		searchOpenButton.parentNode.classList.add( 'newspack-icon-search' );
+		searchOpenButton.parentNode.classList.remove( 'newspack-icon-close' );
 	};
 
 	// Find each mobile toggle and attaches an event listener.
