@@ -62,6 +62,19 @@ figcaption a {
  }
 
 /*
+ * Search styles
+ * Hide date and byline for pages; may want to flip this in the future to all but posts.
+ */
+.search-results {
+	.type-page {
+		.wp-block-post-author,
+		.wp-block-post-date {
+			display: none;
+		}
+	}
+}
+
+/*
  * Form Styles
  * https://github.com/WordPress/gutenberg/issues/34198
  */
