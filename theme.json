@@ -685,6 +685,15 @@
 			"lineHeight": "1.6667"
 		}
 	},
+	"customTemplates": [
+		{
+			"name": "single/large-image",
+			"postTypes": [
+				"post"
+			],
+			"title": "Single - Large Image"
+		}
+	],
 	"templateParts": [
 		{
 			"area": "header",
