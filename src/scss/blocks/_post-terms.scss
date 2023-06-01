@@ -1,8 +1,5 @@
 .wp-block-post-terms {
 	&.taxonomy-post_tag {
-		border-top: 1px solid var( --wp--custom--color--gray-200 );
-		padding: var(--wp--preset--spacing--30) 0;
-
 		a {
 			border: 1px solid var( --wp--custom--color--gray-100 );
 			border-radius: var( --wp--custom--border--radius );
