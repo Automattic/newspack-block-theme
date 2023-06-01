@@ -57,9 +57,17 @@ figcaption a {
  * The underlying issue is that the author bio block lacks paragraphs,
  * so its spacing and the term description spacing differ.
  */
- .wp-block-term-description p:first-child {
- 	margin-top: 0;
- }
+.wp-block-term-description {
+	p {
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
 
 /*
  * Search styles
