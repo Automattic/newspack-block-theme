@@ -9,17 +9,15 @@
 
 <!-- wp:post-content {"lock":{"move":false,"remove":true},"layout":{"type":"constrained"}} /-->
 
-<!-- wp:template-part {"slug":"post-footer","theme":"newspack-block-theme"} /-->
-
 <!-- wp:spacer {"height":"var:preset|spacing|50"} -->
 <div style="height:var(--wp--preset--spacing--50)" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:template-part {"slug":"author-bio","theme":"newspack-block-theme"} /-->
+<!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group"><!-- wp:template-part {"slug":"post-footer","theme":"newspack-block-theme","className":"post-footer"} /-->
 
-<!-- wp:spacer {"height":"var:preset|spacing|50"} -->
-<div style="height:var(--wp--preset--spacing--50)" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer --></main>
+<!-- wp:template-part {"slug":"author-bio","theme":"newspack-block-theme","className":"author-bio"} /--></div>
+<!-- /wp:group --></main>
 <!-- /wp:group -->
 
 <!-- wp:group {"layout":{"type":"constrained"}} -->
