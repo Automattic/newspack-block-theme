@@ -52,17 +52,27 @@ domReady( function () {
 		searchOpenButton.parentNode.classList.add( 'newspack-icon-close' );
 		searchOpenButton.parentNode.classList.remove( 'newspack-icon-search' );
 		searchOpenButton.innerHTML = '<span>' + newspackScreenReaderText.close_search + '</span>';
+		searchContents.querySelector( 'input[type="search"]' ).focus();
 	};
 
 	/**
 	 * @description Closes specifed slide-out menu.
 	 */
 	const closeMenu = () => {
+		if ( ! body.classList.contains( openClassName ) ) {
+			return;
+		}
 		body.classList.remove( openClassName );
 		searchOpenButton.parentNode.classList.add( 'newspack-icon-search' );
 		searchOpenButton.parentNode.classList.remove( 'newspack-icon-close' );
 		searchOpenButton.innerHTML = '<span>' + newspackScreenReaderText.open_search + '</span>';
 	};
+
+	document.addEventListener( 'keydown', event => {
+		if ( event.key === 'Escape' ) {
+			closeMenu();
+		}
+	} );
 
 	// Find each mobile toggle and attaches an event listener.
 	for ( let i = 0; i < searchToggle.length; i++ ) {
