@@ -115,6 +115,9 @@ final class Core {
 			$metadata['attributes']['placeholder']['default']    = esc_html__( 'Search...', 'newspack-block-theme' );
 			$metadata['attributes']['showLabel']['default']      = false;
 		}
+		if ( $metadata[ 'name' ] == 'core/navigation' ) {
+			$metadata['attributes']['overlayMenu']['default'] = 'never';
+		}
 		return $metadata;
 	}
 }
