@@ -500,6 +500,13 @@
 				}
 			},
 			"core/search": {
+				"elements": {
+					"button": {
+						"color": {
+							"background": "var( --wp--preset--color--contrast )"
+						}
+					}
+				},
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--medium)",
 					"lineHeight": "1.6"
