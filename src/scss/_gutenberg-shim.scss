@@ -1,0 +1,92 @@
+// Add CSS for theme.json options that don't exist yet.
+
+/*
+ * Control the hover stylings of outline block style.
+ * Unnecessary once block styles are configurable via theme.json
+ * https://github.com/WordPress/gutenberg/issues/42794
+ */
+.wp-block-button {
+	&.is-style-outline {
+		> .wp-block-button__link:not(.has-background):hover {
+			background-color: var(--wp--preset--color--secondary);
+			border-color: var(--wp--preset--color--secondary);
+			color: var(--wp--preset--color--base);
+		}
+	}
+}
+
+/*
+ * Navigation styles
+ * Remove extra padding from navigation link when set to click to open.
+ * https://github.com/WordPress/gutenberg/issues/50722
+ */
+.wp-block-navigation {
+	&.is-vertical .wp-block-navigation-item.open-on-click {
+		.wp-block-navigation-submenu__toggle {
+			padding-left: 0;
+		}
+
+		.has-child .wp-block-navigation-submenu__toggle {
+			padding: 0.5em 1em;
+		}
+	}
+}
+
+/* Fix for hidden 'append' icons in editor */
+.has-background .wp-block-navigation .wp-block .wp-block .block-editor-button-block-appender {
+	color: inherit;
+}
+
+/*
+ * Link styles
+ * https://github.com/WordPress/gutenberg/issues/42319
+ */
+a {
+	text-decoration-thickness: .0625em !important;
+	text-underline-offset: .15em;
+}
+
+// Can't control the link element when inside of the caption element.
+// TODO: Find related Gutenberg issue (if one exists - no luck yet!)
+figcaption a {
+	color: inherit;
+}
+
+/*
+ * Term description - remove margin from first paragraph.
+ * The underlying issue is that the author bio block lacks paragraphs,
+ * so its spacing and the term description spacing differ.
+ */
+ .wp-block-term-description p:first-child {
+ 	margin-top: 0;
+ }
+
+/*
+ * Form Styles
+ * https://github.com/WordPress/gutenberg/issues/34198
+ */
+label {
+	color: var(--wp--preset--color--contrast);
+	display: inline-block;
+	margin-bottom: calc( var(--wp--preset--spacing--20) / 2 ) 0;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='url'],
+input[type='password'],
+input[type='search'],
+input[type='number'],
+input[type='tel'],
+input[type='range'],
+input[type='date'],
+input[type='month'],
+input[type='week'],
+input[type='time'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='zip'],
+input[type='color'],
+textarea {
+	border-radius: var( --wp--custom--border--radius );
+}

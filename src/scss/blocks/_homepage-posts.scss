@@ -1,0 +1,24 @@
+.wpnbha {
+	.cat-links {
+		color: var( --wp--preset--color--contrast );
+		font-size: var(--wp--preset--font-size--small);
+		text-transform: uppercase;
+
+		a {
+			color: inherit;
+		}
+	}
+
+	.entry-meta {
+		color: var( --wp--custom--color--gray-700 );
+		font-size: var(--wp--preset--font-size--small);
+
+		a {
+			color: inherit;
+		}
+	}
+
+	&.is-style-borders article {
+		border-color: rgba(0,0,0,0.135);
+	}
+}

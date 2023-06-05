@@ -1,0 +1,11 @@
+.wp-block-pullquote {
+	cite {
+		font-size: var(--wp--preset--font-size--small);
+		font-style: normal;
+		font-weight: normal;
+	}
+
+	&:not(.has-text-color) cite {
+		color: var(--wp--custom--color--gray-700);
+	}
+}

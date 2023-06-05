@@ -1,27 +1,29 @@
-<!-- wp:template-part {"slug":"header","tagName":"header","theme":"newspack-block-theme"} /-->
+<!-- wp:template-part {"slug":"header","theme":"newspack-block-theme","tagName":"header"} /-->
 
 <!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group">
-    <!-- wp:post-title /-->
-</div>
+<div class="wp-block-group"><!-- wp:template-part {"slug":"post-header","theme":"newspack-block-theme","area":"uncategorized"} /--></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"main","lock":{"move":false,"remove":true}} -->
-<main class="wp-block-group">
-    <!-- wp:post-featured-image {"align":"full"} /-->
-    <!-- wp:post-content {"layout":{"type":"constrained"},"lock":{"move":false,"remove":true}} /-->
-    <!-- wp:template-part {"slug":"post-meta","theme":"newspack-block-theme"} /-->
-</main>
+<!-- wp:group {"tagName":"main","lock":{"move":false,"remove":true},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group"><!-- wp:post-featured-image {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}}} /-->
+
+<!-- wp:post-content {"lock":{"move":false,"remove":true},"layout":{"type":"constrained"}} /-->
+
+<!-- wp:template-part {"slug":"post-footer","theme":"newspack-block-theme"} /-->
+
+<!-- wp:spacer {"height":"var:preset|spacing|50"} -->
+<div style="height:var:preset|spacing|50" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:template-part {"slug":"author-bio","theme":"newspack-block-theme"} /-->
+
+<!-- wp:spacer {"height":"var:preset|spacing|50"} -->
+<div style="height:var:preset|spacing|50" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer --></main>
 <!-- /wp:group -->
 
 <!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group">
-    <!-- wp:spacer {"height":"4rem"} -->
-    <div style="height:4rem" aria-hidden="true" class="wp-block-spacer"></div>
-    <!-- /wp:spacer -->
-    
-    <!-- wp:pattern {"slug":"newspack-block-theme/comments"} /-->
-</div>
+<div class="wp-block-group"><!-- wp:template-part {"slug":"comments","theme":"newspack-block-theme"} /--></div>
 <!-- /wp:group -->
 
-<!-- wp:template-part {"slug":"footer","tagName":"footer","theme":"newspack-block-theme"} /-->
+<!-- wp:template-part {"slug":"footer","theme":"newspack-block-theme","tagName":"footer"} /-->

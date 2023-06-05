@@ -26,10 +26,14 @@ Thumbs.db
 
 # Compiled CSS
 *.css
+style.css
 
 # Compiled Javascript
 /dist/
 *.asset.php
+
+# Build images
+/images/
 
 # Release folder
 /release/

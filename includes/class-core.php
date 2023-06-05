@@ -40,6 +40,7 @@ final class Core {
 	public function __construct() {
 		\add_action( 'after_setup_theme', [ __CLASS__, 'theme_support' ] );
 		\add_action( 'wp_enqueue_scripts', [ __CLASS__, 'theme_styles' ] );
+		\add_action( 'enqueue_block_editor_assets', [ __CLASS__, 'editor_scripts' ] );
 	}
 
 	/**
@@ -79,6 +80,11 @@ final class Core {
 
 		// Enqueue front-end JavaScript.
 		wp_enqueue_script( 'newspack-main', get_theme_file_uri( '/dist/main.js' ), array(), wp_get_theme()->get( 'Version' ), true );
+	}
+
+	public static function editor_scripts() {
+		// Enqueue editor JavaScript.
+		wp_enqueue_script( 'editor-script', get_theme_file_uri( '/dist/editor.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
 	}
 }
 
