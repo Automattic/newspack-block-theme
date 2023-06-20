@@ -15,7 +15,7 @@ module.exports = {
 			{
 				// build script is run before semantic-release, so the version in *.css files
 				// have to be updated explicitly
-				files: [ 'src/scss/_theme-description.scss', 'style.css', 'functions.php' ],
+				files: [ 'src/scss/_theme-description.scss', 'functions.php' ],
 				callback: 'npm run release:archive',
 			},
 		],
@@ -26,7 +26,6 @@ module.exports = {
 				'package-lock.json',
 				'CHANGELOG.md',
 				'src/scss/_theme-description.scss',
-				'style.css',
 				'functions.php',
 			],
 			message: 'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}',
