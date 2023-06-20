@@ -1,3 +1,10 @@
+## [1.2.1-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.2.0...v1.2.1-alpha.1) (2023-06-20)
+
+
+### Bug Fixes
+
+* delete style.css again ([7ea4e60](https://github.com/Automattic/newspack-block-theme/commit/7ea4e60d38ebdb5239a448ffe274b31c4ce86a8b))
+
 # [1.2.0](https://github.com/Automattic/newspack-block-theme/compare/v1.1.0...v1.2.0) (2023-06-05)
 
 
