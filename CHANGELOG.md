@@ -1,4 +1,4 @@
-## [1.2.1-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.2.0...v1.2.1-alpha.1) (2023-06-20)
+## [1.2.1](https://github.com/Automattic/newspack-block-theme/compare/v1.2.0...v1.2.1) (2023-06-20)
 
 
 ### Bug Fixes
