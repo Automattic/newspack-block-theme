@@ -1,0 +1,52 @@
+@use 'sass-utils';
+
+/**
+ * Search menu styles
+ */
+.search-contents {
+	background: var(--wp--preset--color--base);
+	inset: 0 -100% 0 auto;
+	opacity: 0;
+	overflow: auto;
+	padding: var(--wp--preset--spacing--50) var(--wp--preset--spacing--40);
+	position: fixed;
+	transition: opacity 0.2s;
+	width: 100%;
+	z-index: sass-utils.$zindex-overlay-menu;
+
+	> * {
+		visibility: hidden;
+	}
+
+	.search-wrapper {
+		height: 90vh;
+
+		.wp-block-search {
+			margin-bottom: var(--wp--preset--spacing--70);
+		}
+	}
+}
+
+.menu-open--search-menu {
+	.search-contents {
+		opacity: 1;
+		right: 0;
+
+		> * {
+			visibility: visible;
+		}
+	}
+
+	.search-menu-toggle {
+		position: relative;
+		z-index: calc( sass-utils.$zindex-overlay-menu + 1 );
+	}
+}
+
+.jetpack-instant-search {
+	@include sass-utils.media( large ) {
+		.jetpack-instant-search__search-results-wrapper {
+			max-width: 1020px;
+		}
+	}
+}

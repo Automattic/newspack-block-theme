@@ -10,7 +10,7 @@
 ?>
 <!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:spacer {"height":"var:preset|spacing|50"} -->
-<div style="height:var:preset|spacing|50" aria-hidden="true" class="wp-block-spacer"></div>
+<div style="height:var(--wp--preset--spacing--50)" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
 <!-- wp:paragraph {"fontSize":"x-large"} -->
@@ -18,7 +18,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:spacer {"height":"var:preset|spacing|70"} -->
-<div style="height:var:preset|spacing|70" aria-hidden="true" class="wp-block-spacer"></div>
+<div style="height:var(--wp--preset--spacing--70)" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
 <!-- wp:heading {"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|50"}}},"fontSize":"x-large"} -->

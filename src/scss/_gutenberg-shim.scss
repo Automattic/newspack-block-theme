@@ -57,9 +57,30 @@ figcaption a {
  * The underlying issue is that the author bio block lacks paragraphs,
  * so its spacing and the term description spacing differ.
  */
- .wp-block-term-description p:first-child {
- 	margin-top: 0;
- }
+.wp-block-term-description {
+	p {
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+/*
+ * Search styles
+ * Hide date and byline for pages; may want to flip this in the future to all but posts.
+ */
+.search-results {
+	.type-page {
+		.wp-block-post-author,
+		.wp-block-post-date {
+			display: none;
+		}
+	}
+}
 
 /*
  * Form Styles
@@ -89,4 +110,17 @@ input[type='zip'],
 input[type='color'],
 textarea {
 	border-radius: var( --wp--custom--border--radius );
+}
+
+
+/*
+ * Editor styles
+ *
+ * Fix spacing between title and editor content.
+ * In other themes, this comes from the spacing around the block, but we're using flex and gap.
+ */
+ .edit-post-visual-editor {
+	&__post-title-wrapper {
+		margin-bottom: var(--wp--preset--spacing--40);
+	}
 }

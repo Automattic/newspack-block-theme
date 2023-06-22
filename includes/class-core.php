@@ -41,6 +41,7 @@ final class Core {
 		\add_action( 'after_setup_theme', [ __CLASS__, 'theme_support' ] );
 		\add_action( 'wp_enqueue_scripts', [ __CLASS__, 'theme_styles' ] );
 		\add_action( 'enqueue_block_editor_assets', [ __CLASS__, 'editor_scripts' ] );
+		\add_filter( 'block_type_metadata', [ __CLASS__, 'block_variations' ] );
 	}
 
 	/**
@@ -78,13 +79,46 @@ final class Core {
 		// Enqueue theme stylesheet.
 		\wp_enqueue_style( 'newspack_block_theme-style' );
 
+		// Strings for translation.
+		$newspack_l10n = array(
+			'close_search' => esc_html__( 'Close Search', 'newspack-block-theme' ),
+			'open_search'  => esc_html__( 'Open Search', 'newspack-block-theme' )
+		);
+		if ( wp_script_is( 'jetpack-instant-search', 'enqueued') ) {
+			$newspack_l10n['jetpack_instant_search'] = 'true';
+		}
+
 		// Enqueue front-end JavaScript.
 		wp_enqueue_script( 'newspack-main', get_theme_file_uri( '/dist/main.js' ), array(), wp_get_theme()->get( 'Version' ), true );
+		wp_localize_script( 'newspack-main', 'newspackScreenReaderText', $newspack_l10n );
 	}
 
 	public static function editor_scripts() {
 		// Enqueue editor JavaScript.
 		wp_enqueue_script( 'editor-script', get_theme_file_uri( '/dist/editor.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
+	}
+
+	/**
+	 * Add block variations.
+	 *
+	 * @since Newspack Block Theme 1.0
+	 *
+	 * We may be able to replace this with JavaScript; I'm unclear whether isDefault isn't working, or just not working as I expect it to.
+	 * See: https://github.com/WordPress/gutenberg/issues/28119
+	 *
+	 * @return array Block metadata.
+	 */
+	public static function block_variations( $metadata ) {
+		if ( $metadata[ 'name' ] == 'core/search' ) {
+			$metadata['attributes']['buttonPosition']['default'] = 'button-inside';
+			$metadata['attributes']['buttonUseIcon']['default']  = true;
+			$metadata['attributes']['placeholder']['default']    = esc_html__( 'Search...', 'newspack-block-theme' );
+			$metadata['attributes']['showLabel']['default']      = false;
+		}
+		if ( $metadata[ 'name' ] == 'core/navigation' ) {
+			$metadata['attributes']['overlayMenu']['default'] = 'never';
+		}
+		return $metadata;
 	}
 }
 
