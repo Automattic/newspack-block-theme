@@ -76,17 +76,17 @@
 				},
 				{
 					"name": "5",
-					"size": "3.75rem",
+					"size": "clamp(2.625rem, 1.984rem + 2.848vw, 3.75rem)",
 					"slug": "60"
 				},
 				{
 					"name": "6",
-					"size": "5.625rem",
+					"size": "clamp(3.75rem, 2.682rem + 4.747vw, 5.625rem)",
 					"slug": "70"
 				},
 				{
 					"name": "7",
-					"size": "7.5rem",
+					"size": "clamp(5.625rem, 4.557rem + 4.747vw, 7.5rem)",
 					"slug": "80"
 				}
 			]
@@ -500,6 +500,13 @@
 				}
 			},
 			"core/search": {
+				"elements": {
+					"button": {
+						"color": {
+							"background": "var( --wp--preset--color--contrast )"
+						}
+					}
+				},
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--medium)",
 					"lineHeight": "1.6"
@@ -551,7 +558,8 @@
 					"text": "var( --wp--custom--color--gray-700 )"
 				},
 				"typography": {
-					"fontSize": "1.375rem"
+					"fontSize": "1.375rem",
+					"lineHeight": "1.5454"
 				}
 			}
 		},
@@ -685,6 +693,15 @@
 			"lineHeight": "1.6667"
 		}
 	},
+	"customTemplates": [
+		{
+			"name": "single/large-image",
+			"postTypes": [
+				"post"
+			],
+			"title": "Single - Large Image"
+		}
+	],
 	"templateParts": [
 		{
 			"area": "header",

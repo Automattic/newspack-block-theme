@@ -1,0 +1,15 @@
+.wp-block-post-terms {
+	&.taxonomy-post_tag {
+		a {
+			border: 1px solid var( --wp--custom--color--gray-100 );
+			border-radius: var( --wp--custom--border--radius );
+			display: inline-block;
+			margin-right: 0.25rem;
+			padding: 0.1875rem 0.5625rem;
+		}
+
+		.wp-block-post-terms__separator {
+			display: none;
+		}
+	}
+}
