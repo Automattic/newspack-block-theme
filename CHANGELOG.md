@@ -1,3 +1,28 @@
+# [1.3.0](https://github.com/Automattic/newspack-block-theme/compare/v1.2.2...v1.3.0) (2023-07-17)
+
+
+### Bug Fixes
+
+* add bottom space to post title in editor ([#60](https://github.com/Automattic/newspack-block-theme/issues/60)) ([ca6c9a1](https://github.com/Automattic/newspack-block-theme/commit/ca6c9a1f1494d0df9bc5535ebc0444ef2e92a7d3))
+* correct single post space; add tag styles ([#59](https://github.com/Automattic/newspack-block-theme/issues/59)) ([f3645d0](https://github.com/Automattic/newspack-block-theme/commit/f3645d07809099400dea86937299529cf7b28566))
+* correct spacing values ([#46](https://github.com/Automattic/newspack-block-theme/issues/46)) ([12cf2b4](https://github.com/Automattic/newspack-block-theme/commit/12cf2b4209239d73c4bf68a346809933dfc2f051))
+* hide author, date for pages in search ([#53](https://github.com/Automattic/newspack-block-theme/issues/53)) ([52b7a7f](https://github.com/Automattic/newspack-block-theme/commit/52b7a7f747a6e62bc30e5faeab1045d00edf3b62))
+* make archive spacing more consistent ([#56](https://github.com/Automattic/newspack-block-theme/issues/56)) ([041ec88](https://github.com/Automattic/newspack-block-theme/commit/041ec88f711212e6df7b2e9c598644e50d1ce10a))
+* make navigation block's overlayMenu default never ([#58](https://github.com/Automattic/newspack-block-theme/issues/58)) ([8fa02a6](https://github.com/Automattic/newspack-block-theme/commit/8fa02a645382c3b2777a223aee59aed1d4a8a576))
+* make sure wide/full blocks can flow outside of the content ([#66](https://github.com/Automattic/newspack-block-theme/issues/66)) ([2e282b7](https://github.com/Automattic/newspack-block-theme/commit/2e282b7945d42a5bbb75d62eb97a4639266e37df))
+* remove IDs from navigation blocks ([#50](https://github.com/Automattic/newspack-block-theme/issues/50)) ([1f140be](https://github.com/Automattic/newspack-block-theme/commit/1f140be93b6e315e879a78ff17f0d2a46e69e2e9))
+
+
+### Features
+
+* add a clamp to the larger spacing sizes ([#47](https://github.com/Automattic/newspack-block-theme/issues/47)) ([d3a01f4](https://github.com/Automattic/newspack-block-theme/commit/d3a01f45acc455d795c12a8172d127164b453ae0))
+* add large image single post variation ([#54](https://github.com/Automattic/newspack-block-theme/issues/54)) ([838128a](https://github.com/Automattic/newspack-block-theme/commit/838128af2823b24ae5b5f212b65b08743e4d1ae0))
+* add search toggle template parts ([#51](https://github.com/Automattic/newspack-block-theme/issues/51)) ([ad4e0a7](https://github.com/Automattic/newspack-block-theme/commit/ad4e0a7fed46fa42e8087b747d0ed438c3067f31))
+* change search block's default settings ([#44](https://github.com/Automattic/newspack-block-theme/issues/44)) ([1487a69](https://github.com/Automattic/newspack-block-theme/commit/1487a698b1d0924a762092e9523cf178692d830c))
+* update page, homepage templates to remove unneeded elements ([#49](https://github.com/Automattic/newspack-block-theme/issues/49)) ([2b888cd](https://github.com/Automattic/newspack-block-theme/commit/2b888cd83087348e590cbe42c506a28d53bb2128))
+* update search block styles ([#52](https://github.com/Automattic/newspack-block-theme/issues/52)) ([6ed06fb](https://github.com/Automattic/newspack-block-theme/commit/6ed06fb18c7647c80d99a107ea32256c5118bd8d))
+* update search styles ([#61](https://github.com/Automattic/newspack-block-theme/issues/61)) ([bf0d776](https://github.com/Automattic/newspack-block-theme/commit/bf0d776e2abdb7463e2d0251ec1822dfd422b19e))
+
 # [1.3.0-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.2.2...v1.3.0-alpha.1) (2023-06-22)
 
 
