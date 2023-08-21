@@ -46,6 +46,6 @@
     "lint-staged": "^13.2.3",
     "newspack-scripts": "^5.1.0",
     "postcss-scss": "^4.0.7",
-    "prettier": "^2.8.8"
+    "prettier": "^3.0.2"
   }
 }
