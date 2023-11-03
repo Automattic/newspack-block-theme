@@ -15,14 +15,14 @@
 
 // Newspack Grid
 .newspack-grid {
-	@include sass-utils.media( large ) {
+	@include sass-utils.media(large) {
 		/* "25 / 50 / 25" layout */
 		.wp-block-column[style*='25%'] {
 			max-width: 300px;
 		}
 	}
 
-	@include sass-utils.media( x-large ) {
+	@include sass-utils.media(x-large) {
 		&.wp-block-columns {
 			display: grid;
 			grid-template-columns: repeat(12, 1fr);
