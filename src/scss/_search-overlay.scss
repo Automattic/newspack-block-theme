@@ -39,12 +39,12 @@
 
 	.search-menu-toggle {
 		position: relative;
-		z-index: calc( sass-utils.$zindex-overlay-menu + 1 );
+		z-index: calc(sass-utils.$zindex-overlay-menu + 1);
 	}
 }
 
 .jetpack-instant-search {
-	@include sass-utils.media( large ) {
+	@include sass-utils.media(large) {
 		.jetpack-instant-search__search-results-wrapper {
 			max-width: 1020px;
 		}

@@ -1,7 +1,8 @@
 .wpnbha {
 	.cat-links {
-		color: var( --wp--preset--color--contrast );
+		color: var(--wp--preset--color--contrast);
 		font-size: var(--wp--preset--font-size--small);
+		line-height: var(--wp--custom--line-height--small);
 		text-transform: uppercase;
 
 		a {
@@ -10,8 +11,9 @@
 	}
 
 	.entry-meta {
-		color: var( --wp--custom--color--gray-700 );
+		color: var(--wp--preset--color--tertiary);
 		font-size: var(--wp--preset--font-size--small);
+		line-height: var(--wp--custom--line-height--small);
 
 		a {
 			color: inherit;
@@ -19,6 +21,6 @@
 	}
 
 	&.is-style-borders article {
-		border-color: rgba(0,0,0,0.135);
+		border-color: var(--wp--preset--color--quartary);
 	}
 }
