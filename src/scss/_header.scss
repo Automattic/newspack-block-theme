@@ -7,7 +7,7 @@
 	display: none;
 }
 
-@include sass-utils.media( large ) {
+@include sass-utils.media(large) {
 	.desktop-header {
 		display: inherit;
 	}
@@ -19,7 +19,7 @@
 
 // Overlay
 .overlay-mask {
-	background: var( --wp--custom--color--mobile-menu-overlay );
+	background: var(--wp--custom--color--mobile-menu-overlay);
 	content: '';
 	display: none;
 	inset: 0;
@@ -33,8 +33,8 @@
 
 // Mobile sidebar
 .mobile-sidebar {
-	background: var( --wp--custom--color--mobile-menu-background );
-	color: var( --wp--custom--color--mobile-menu-text );
+	background: var(--wp--custom--color--mobile-menu-background);
+	color: var(--wp--custom--color--mobile-menu-text);
 	inset: 0 -100% 0 auto;
 	opacity: 0;
 	overflow: auto;

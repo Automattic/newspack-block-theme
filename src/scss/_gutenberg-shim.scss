@@ -42,8 +42,8 @@
  * https://github.com/WordPress/gutenberg/issues/42319
  */
 a {
-	text-decoration-thickness: .0625em !important;
-	text-underline-offset: .15em;
+	text-decoration-thickness: 0.0625em !important;
+	text-underline-offset: 0.15em;
 }
 
 // Can't control the link element when inside of the caption element.
@@ -89,7 +89,7 @@ figcaption a {
 label {
 	color: var(--wp--preset--color--contrast);
 	display: inline-block;
-	margin-bottom: calc( var(--wp--preset--spacing--20) / 2 ) 0;
+	margin-bottom: var(--wp--preset--spacing--20);
 }
 
 input[type='text'],
@@ -109,9 +109,8 @@ input[type='datetime-local'],
 input[type='zip'],
 input[type='color'],
 textarea {
-	border-radius: var( --wp--custom--border--radius );
+	border-radius: var(--wp--custom--border--radius);
 }
-
 
 /*
  * Editor styles
@@ -119,8 +118,8 @@ textarea {
  * Fix spacing between title and editor content.
  * In other themes, this comes from the spacing around the block, but we're using flex and gap.
  */
- .edit-post-visual-editor {
+.edit-post-visual-editor {
 	&__post-title-wrapper {
-		margin-bottom: var(--wp--preset--spacing--40);
+		margin-bottom: var(--wp--preset--spacing--50);
 	}
 }

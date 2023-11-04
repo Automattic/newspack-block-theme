@@ -1,5 +1,4 @@
 .wp-block-search {
-
 	.wp-block-search__button.has-icon {
 		height: 3.25rem;
 		line-height: 1;
@@ -15,24 +14,26 @@
 	}
 
 	&__button-outside {
-			.wp-block-search__button {
-				margin-left: var( --wp--preset--spacing--30 );
-			}
+		.wp-block-search__button {
+			margin-left: var(--wp--preset--spacing--30);
+		}
 	}
 
 	&__button-inside {
 		.wp-block-search__inside-wrapper {
-			border-radius: var( --wp--custom--border--radius );
+			border-radius: var(--wp--custom--border--radius);
 			box-sizing: border-box;
 		}
 
 		.wp-block-search__button {
-			border-radius: calc( var( --wp--custom--border--radius ) / 2 );
+			border-radius: calc(var(--wp--custom--border--radius) / 2);
 		}
 
 		&.wp-block-search__icon-button {
 			.wp-block-search__inside-wrapper {
-				padding: calc( var( --wp--preset--spacing--20 ) - 1px ); // maddening, but the math isn't working -- the search should be 52px tall, but is 54px.
+				padding: calc(
+					var(--wp--preset--spacing--20) - 1px
+				); // maddening, but the math isn't working -- the search should be 52px tall, but is 54px.
 			}
 
 			.wp-block-search__button {
@@ -42,4 +43,3 @@
 		}
 	}
 }
-

@@ -15,6 +15,13 @@ html {
 	border-radius: 100%;
 }
 
+// Dropcap
+body .has-drop-cap:not(:focus)::first-letter {
+	font-size: calc(4 * var(--wp--preset--font-size--medium));
+	line-height: var(--wp--custom--line-height--medium);
+	margin: 0 var(--wp--preset--spacing--30);
+	padding: 0;
+}
 
 // Icons
 [class*='newspack-icon'] {
@@ -30,7 +37,7 @@ html {
 
 		&::after {
 			background-color: currentcolor;
-			content: "";
+			content: '';
 			display: block;
 			height: 36px;
 			mask-size: 36px;
@@ -40,13 +47,13 @@ html {
 }
 
 .newspack-icon-menu .wp-block-button__link::after {
-	mask: url("../../src/images/icon-menu.svg") 0 0 no-repeat;
+	mask: url('../../src/images/icon-menu.svg') 0 0 no-repeat;
 }
 
 .newspack-icon-close .wp-block-button__link::after {
-	mask: url("../../src/images/icon-close.svg") 0 0 no-repeat;
+	mask: url('../../src/images/icon-close.svg') 0 0 no-repeat;
 }
 
 .newspack-icon-search .wp-block-button__link::after {
-	mask: url("../../src/images/icon-search.svg") 0 0 no-repeat;
+	mask: url('../../src/images/icon-search.svg') 0 0 no-repeat;
 }
