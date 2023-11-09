@@ -217,6 +217,9 @@
 			"core/buttons": {
 				"spacing": {
 					"blockGap": "var( --wp--preset--spacing--30 )"
+				},
+				"typography": {
+					"fontWeight": "500"
 				}
 			},
 			"core/code": {
