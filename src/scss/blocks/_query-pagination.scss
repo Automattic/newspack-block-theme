@@ -12,7 +12,7 @@
 
 	.wp-block-query-pagination-numbers,
 	.wp-block-comments-pagination-numbers {
-		gap: 0.125rem;
+		gap: calc(var(--wp--preset--spacing--20) / 4);
 
 		a,
 		.current {
@@ -44,8 +44,8 @@
 					content: '';
 					display: inline-block;
 					height: 100%;
-					margin-right: 32px;
-					width: calc(50% - 16px);
+					margin-right: var(--wp--preset--spacing--30);
+					width: calc(50% - (var(--wp--preset--spacing--30) / 2));
 				}
 			}
 		}
