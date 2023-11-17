@@ -3,17 +3,18 @@
 		&__link {
 			padding: 0.5rem 1.5rem;
 		}
-
-		&.is-style-outline {
-			.wp-block-button__link {
-				padding: calc(0.5rem - 1.5px) calc(1.5rem - 1.5px);
-			}
-		}
 	}
 
 	.wp-block-button,
 	&.wp-block-button {
 		font-size: var(--wp--preset--font-size--small) !important;
 		line-height: var(--wp--custom--line-height--small);
+	}
+
+	.is-style-outline,
+	&.is-style-outline {
+		.wp-block-button__link {
+			padding: calc(0.5rem - 1.5px) calc(1.5rem - 1.5px) !important;
+		}
 	}
 }
