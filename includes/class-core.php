@@ -42,6 +42,7 @@ final class Core {
 		\add_action( 'wp_enqueue_scripts', [ __CLASS__, 'theme_styles' ] );
 		\add_action( 'enqueue_block_editor_assets', [ __CLASS__, 'editor_scripts' ] );
 		\add_filter( 'block_type_metadata', [ __CLASS__, 'block_variations' ] );
+		\add_action( 'init', [ __CLASS__, 'block_pattern_categories' ] );
 	}
 
 	/**
@@ -120,6 +121,22 @@ final class Core {
 		}
 		return $metadata;
 	}
+
+	/**
+	 * Add block pattern categories.
+	 *
+	 * @since Newspack Block Theme 1.0
+	 */
+	public static function block_pattern_categories() {
+		register_block_pattern_category(
+			'newspack-block-theme',
+			array(
+				'label' => __( 'Newspack Block Theme', 'text-domain' ),
+				'description' => __( 'Patterns bundled with the Newspack Block Theme.', 'text-domain' ),
+			)
+		);
+	}
 }
+
 
 Core::instance();
