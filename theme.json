@@ -96,6 +96,12 @@
 			"fontSizes": [
 				{
 					"fluid": false,
+					"name": "2X-Small",
+					"size": "0.75rem",
+					"slug": "xx-small"
+				},
+				{
+					"fluid": false,
 					"name": "X-Small",
 					"size": "0.875rem",
 					"slug": "x-small"
@@ -163,6 +169,7 @@
 				"mobile-menu-overlay": "rgba( 0, 0, 0, 0.5 )"
 			},
 			"line-height": {
+				"xx-small": "1.3333333333",
 				"x-small": "1.7142857143",
 				"small": "1.5",
 				"medium": "1.6",
