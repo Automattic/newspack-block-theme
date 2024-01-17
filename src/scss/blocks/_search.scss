@@ -21,12 +21,12 @@
 
 	&__button-inside {
 		.wp-block-search__inside-wrapper {
-			border-radius: var(--wp--custom--border--radius);
+			border-radius: var(--wp--custom--border--radius-medium);
 			box-sizing: border-box;
 		}
 
 		.wp-block-search__button {
-			border-radius: calc(var(--wp--custom--border--radius) / 2);
+			border-radius: var(--wp--custom--border--radius-small);
 		}
 
 		&.wp-block-search__icon-button {
