@@ -57,4 +57,11 @@
 			}
 		}
 	}
+
+	&.primary-navigation {
+		row-gap: var(--wp--preset--spacing--20);
+		.wp-block-page-list > li {
+			min-height: 36px;
+		}
+	}
 }
