@@ -57,4 +57,12 @@
 			}
 		}
 	}
+
+	a {
+		text-decoration: none;
+
+		&:not(.wp-element-button):hover {
+			text-decoration: underline;
+		}
+	}
 }
