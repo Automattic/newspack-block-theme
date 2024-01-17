@@ -37,6 +37,11 @@
 					"color": "#F0F0F0",
 					"name": "Quinary",
 					"slug": "quinary"
+				},
+				{
+					"color": "#2F2F2F",
+					"name": "Senary",
+					"slug": "senary"
 				}
 			]
 		},
