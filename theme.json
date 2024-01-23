@@ -37,6 +37,11 @@
 					"color": "#F0F0F0",
 					"name": "Quinary",
 					"slug": "quinary"
+				},
+				{
+					"color": "#00000070",
+					"name": "Overlay",
+					"slug": "overlay"
 				}
 			]
 		},
@@ -644,12 +649,6 @@
 					"color": {
 						"background": "var( --wp--preset--color--contrast )",
 						"text": "var( --wp--preset--color--base )"
-					},
-					"outline": {
-						"color": "currentcolor",
-						"offset": "2px",
-						"style": "dotted",
-						"width": "1px"
 					}
 				},
 				":hover": {
