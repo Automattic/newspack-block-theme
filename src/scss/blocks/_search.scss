@@ -22,10 +22,20 @@
 	&__button-inside {
 		width: 100%;
 
+		&:focus-within {
+			border-radius: var(--wp--custom--border--radius-medium);
+			outline: 1.5px solid;
+			outline-offset: -1.5px;
+		}
+
 		.wp-block-search__inside-wrapper {
 			background-color: var(--wp--preset--color--base);
 			border-radius: var(--wp--custom--border--radius-medium);
 			box-sizing: border-box;
+		}
+
+		.wp-block-search__input:focus {
+			outline: none;
 		}
 
 		.wp-block-search__button {

@@ -112,7 +112,13 @@ input[type='datetime-local'],
 input[type='zip'],
 input[type='color'],
 textarea {
+	border-color: var(--wp--preset--color--tertiary) !important;
 	border-radius: var(--wp--custom--border--radius-medium);
+
+	&:focus {
+		outline: 1.5px solid;
+		outline-offset: -1.5px;
+	}
 }
 
 /*
