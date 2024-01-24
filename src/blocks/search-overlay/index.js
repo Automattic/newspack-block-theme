@@ -1,7 +1,6 @@
 /**
  * WordPress dependencies
  */
-import { useInnerBlocksProps, useBlockProps } from '@wordpress/block-editor';
 import { Path, SVG } from '@wordpress/components';
 
 /**

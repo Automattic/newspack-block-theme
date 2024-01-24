@@ -1,5 +1,3 @@
-/* globals newspack_blocks */
-
 /**
  * WordPress dependencies
  */
@@ -10,7 +8,7 @@ import { registerBlockType } from '@wordpress/blocks';
  */
 import * as searchOverlay from './search-overlay';
 
-export const blocks = [searchOverlay];
+export const blocks = [ searchOverlay ];
 
 /**
  * Function to register an individual block.
@@ -19,15 +17,15 @@ export const blocks = [searchOverlay];
  *
  */
 const registerBlock = block => {
-	if (!block) {
+	if ( ! block ) {
 		return;
 	}
 
 	const { metadata, settings, name } = block;
 
-	registerBlockType({ name, ...metadata }, settings);
+	registerBlockType( { name, ...metadata }, settings );
 };
 
-for (const block of blocks) {
-	registerBlock(block);
+for ( const block of blocks ) {
+	registerBlock( block );
 }

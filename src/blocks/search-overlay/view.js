@@ -1,3 +1,5 @@
+/* globals newspackScreenReaderText */
+
 /**
  * Internal dependencies
  */
@@ -8,21 +10,19 @@ import { MENU_OPEN_CLASS_NAME } from '../../js/front-end/menus/consts'; // Menu 
 // A class name to append to the body element when the mobile menu is open.
 const openClassName = MENU_OPEN_CLASS_NAME + 'search-menu';
 
-domReady(function() {
+domReady( function () {
 	/**
 	 * Search Menu toggle and overlay JavaScript.
 	 */
 	const body = document.body,
-		searchToggle = document.querySelectorAll('.search-menu-toggle'),
-		searchOverlay = document.querySelector('.search-overlay');
+		searchToggle = document.querySelectorAll( '.search-menu-toggle' ),
+		searchOverlay = document.querySelector( '.search-overlay' );
 
-		console.log( searchToggle );
-
-	if (!searchToggle.length || !searchOverlay) {
+	if ( ! searchToggle.length || ! searchOverlay ) {
 		return;
 	}
 
-	const searchOpenButton = searchContain.querySelector( '.search-menu-toggle a' );
+	const searchOpenButton = searchOverlay.querySelector( '.search-menu-toggle a' );
 
 	// If Jetpack Instant Search is enabled, add a CSS class to the search toggle and bail.
 	// See: https://jetpack.com/support/search/customizing-jetpack-search/#add-search-button
@@ -37,7 +37,7 @@ domReady(function() {
 	 */
 	const searchMenuToggle = event => {
 		event.preventDefault();
-		if (body.classList.contains(openClassName)) {
+		if ( body.classList.contains( openClassName ) ) {
 			closeMenu();
 		} else {
 			openMenu();
@@ -48,28 +48,28 @@ domReady(function() {
 	 * @description Opens specifed slide-out menu.
 	 */
 	const openMenu = () => {
-		body.classList.add(openClassName);
-		searchOverlay.querySelector('input[type="search"]').focus();
+		body.classList.add( openClassName );
+		searchOverlay.querySelector( 'input[type="search"]' ).focus();
 	};
 
 	/**
 	 * @description Closes specifed slide-out menu.
 	 */
 	const closeMenu = () => {
-		if (!body.classList.contains(openClassName)) {
+		if ( ! body.classList.contains( openClassName ) ) {
 			return;
 		}
-		body.classList.remove(openClassName);
+		body.classList.remove( openClassName );
 	};
 
-	document.addEventListener('keydown', event => {
-		if (event.key === 'Escape') {
+	document.addEventListener( 'keydown', event => {
+		if ( event.key === 'Escape' ) {
 			closeMenu();
 		}
-	});
+	} );
 
 	// Find each mobile toggle and attaches an event listener.
-	for (let i = 0; i < searchToggle.length; i++) {
-		searchToggle[i].addEventListener('click', searchMenuToggle, false);
+	for ( let i = 0; i < searchToggle.length; i++ ) {
+		searchToggle[ i ].addEventListener( 'click', searchMenuToggle, false );
 	}
-});
+} );
