@@ -34,18 +34,22 @@
 			box-sizing: border-box;
 		}
 
-		.wp-block-search__input:focus {
-			outline: none;
+		.wp-block-search__input {
+			padding: 0;
+
+			&:focus {
+				outline: none;
+			}
 		}
 
 		.wp-block-search__button {
 			border-radius: var(--wp--custom--border--radius-small);
-			margin-left: calc( 0.75 * var(--wp--preset--spacing--20) );
 		}
 
 		&.wp-block-search__icon-button {
 			.wp-block-search__inside-wrapper {
-				padding: calc( 0.75 * var(--wp--preset--spacing--20) - 1px );
+				gap: calc( 0.625rem - 1px );
+				padding: calc( 0.625rem - 1px );
 			}
 
 			.wp-block-search__button {
