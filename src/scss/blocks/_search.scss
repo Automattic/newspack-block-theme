@@ -35,7 +35,7 @@
 		}
 
 		.wp-block-search__input {
-			padding: 0;
+			padding: 0 0.25rem;
 
 			&:focus {
 				outline: none;
@@ -50,6 +50,16 @@
 			.wp-block-search__inside-wrapper {
 				gap: calc( 0.625rem - 1px );
 				padding: calc( 0.625rem - 1px );
+
+				&:has(> .has-small-font-size) {
+					gap: calc( 0.375rem - 1px );
+					padding: calc( 0.375rem - 1px );
+
+					.wp-block-search__input {
+						padding-left: 0.375rem;
+						padding-right: 0.375rem;
+					}
+				}
 			}
 
 			.wp-block-search__button {
