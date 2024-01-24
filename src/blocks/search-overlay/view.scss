@@ -1,11 +1,13 @@
-@use 'sass-utils';
+@use '../../scss/sass-utils';
 
 /**
  * Search menu styles
  */
-.search-contents {
+.search-overlay {
 	background: var(--wp--preset--color--base);
 	inset: 0 -100% 0 auto;
+	margin: 0 !important; // !important to override styles from the block editor.
+	max-width: 100% !important; // !important to override styles from the block editor.
 	opacity: 0;
 	overflow: auto;
 	padding: var(--wp--preset--spacing--50) var(--wp--preset--spacing--40);
@@ -18,6 +20,10 @@
 		visibility: hidden;
 	}
 
+	.search-menu-toggle {
+		float: right;
+	}
+
 	.search-wrapper {
 		height: 90vh;
 
@@ -27,8 +33,21 @@
 	}
 }
 
+.admin-bar {
+	.search-overlay {
+		top: 46px;
+	}
+
+	@media (min-width: 782px) {
+		.search-overlay {
+			top: 32px;
+		}
+	}
+}
+
 .menu-open--search-menu {
-	.search-contents {
+	.search-overlay {
+		left: 0;
 		opacity: 1;
 		right: 0;
 
@@ -40,6 +59,16 @@
 	.search-menu-toggle {
 		position: relative;
 		z-index: calc(sass-utils.$zindex-overlay-menu + 1);
+	}
+}
+
+.search-menu-toggle {
+	background: transparent;
+	border: 0;
+	line-height: 1;
+
+	svg {
+		fill: currentcolor;
 	}
 }
 

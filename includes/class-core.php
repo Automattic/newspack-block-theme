@@ -41,8 +41,11 @@ final class Core {
 		\add_action( 'after_setup_theme', [ __CLASS__, 'theme_support' ] );
 		\add_action( 'wp_enqueue_scripts', [ __CLASS__, 'theme_styles' ] );
 		\add_action( 'enqueue_block_editor_assets', [ __CLASS__, 'editor_scripts' ] );
+		\add_action( 'enqueue_block_editor_assets', [ __CLASS__, 'block_scripts' ] );
 		\add_filter( 'block_type_metadata', [ __CLASS__, 'block_variations' ] );
 		\add_action( 'init', [ __CLASS__, 'block_pattern_categories' ] );
+
+		require_once NEWSPACK_BLOCK_THEME_FILE_PATH . 'src/blocks/search-overlay/index.php';
 	}
 
 	/**
@@ -97,6 +100,15 @@ final class Core {
 	public static function editor_scripts() {
 		// Enqueue editor JavaScript.
 		wp_enqueue_script( 'editor-script', get_theme_file_uri( '/dist/editor.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
+	}
+
+	/**
+	 * Enqueue blocks scripts and styles for editor.
+	 */
+	public static function block_scripts() {
+		wp_enqueue_script( 'newspack-block-theme-blocks', get_theme_file_uri( '/dist/blocks.js' ), [], wp_get_theme()->get( 'Version' ), true );
+
+		wp_enqueue_style( 'newspack-block-theme-blocks', get_theme_file_uri( '/dist/blocks.css' ), [], wp_get_theme()->get( 'Version' ) );
 	}
 
 	/**

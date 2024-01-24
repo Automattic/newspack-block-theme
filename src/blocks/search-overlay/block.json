@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "newspack-block-theme/search-overlay",
+	"title": "Search Overlay",
+	"category": "newspack",
+	"description": "Loads a search toggle and overlay.",
+	"textdomain": "newspack-block-theme",
+	"attributes": {
+		"searchLabel": {
+			"type": "string",
+			"default": "Search"
+		},
+		"textColor": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"html": true,
+		"align": true
+	}
+}
