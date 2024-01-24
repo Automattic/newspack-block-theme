@@ -22,12 +22,12 @@ domReady( function () {
 		return;
 	}
 
-	const searchOpenButton = searchOverlay.querySelector( '.search-menu-toggle a' );
-
 	// If Jetpack Instant Search is enabled, add a CSS class to the search toggle and bail.
 	// See: https://jetpack.com/support/search/customizing-jetpack-search/#add-search-button
 	if ( newspackScreenReaderText.jetpack_instant_search ) {
-		searchOpenButton.classList.add( 'jetpack-search-filter__link' );
+		for ( let i = 0; i < searchToggle.length; i++ ) {
+			searchToggle[ i ].classList.add( 'jetpack-search-filter__link' );
+		}
 		return;
 	}
 

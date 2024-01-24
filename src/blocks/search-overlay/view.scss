@@ -57,19 +57,23 @@
 	}
 
 	.search-menu-toggle {
-		position: relative;
-		z-index: calc(sass-utils.$zindex-overlay-menu + 1);
+		background: transparent;
+		border: 0;
 	}
 }
 
 .search-menu-toggle {
-	background: transparent;
-	border: 0;
 	color: var( --wp--preset--color--contrast );
 	line-height: 1;
+	padding: 0;
 
 	svg {
+		background: transparent;
 		fill: currentcolor;
+	}
+
+	&:hover {
+		color: var( --wp--preset--color--contrast );
 	}
 }
 
