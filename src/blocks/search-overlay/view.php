@@ -1,24 +1,21 @@
 <?php
 /**
- * Newspack Blocks.
+ * Newspack Block Theme.
  *
  * @package Newspack
  */
 
-namespace Newspack_Block_Theme;
-
-defined( 'ABSPATH' ) || exit;
+namespace Newspack_Block_Theme\Search_Overlay;
 
 /**
- * Register block from metadata.
+ * Register block..
  */
 function register_block() {
-	// Allow render_block callback to run so we can ensure it renders nothing.
-	\register_block_type_from_metadata(
+	register_block_type_from_metadata(
 		__DIR__ . '/block.json',
-		array(
+		[
 			'render_callback' => __NAMESPACE__ . '\\render_block',
-		)
+		]
 	);
 }
 add_action( 'init', __NAMESPACE__ . '\\register_block' );
@@ -36,7 +33,7 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_scripts' );
 /**
  * Render block output
  */
-function render_block( $attrs, $content ) {
+function render_block( $attrs ) {
 	ob_start();
 	?>
 		<div class="search-menu">
@@ -45,8 +42,6 @@ function render_block( $attrs, $content ) {
 					<path d="M13.5 6C10.5 6 8 8.5 8 11.5c0 1.1.3 2.1.9 3l-3.4 3 1 1.1 3.4-2.9c1 .9 2.2 1.4 3.6 1.4 3 0 5.5-2.5 5.5-5.5C19 8.5 16.5 6 13.5 6zm0 9.5c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z"></path>
 				</svg>
 				<span class="screen-reader-text"><?php esc_html_e( 'Open Search', 'newspack-block-theme' ); ?></span>
-
-
 			</a>
 		</div>
 
@@ -63,5 +58,3 @@ function render_block( $attrs, $content ) {
 	<?php
 	return ob_get_clean();
 }
-
-

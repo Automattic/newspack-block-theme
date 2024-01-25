@@ -45,7 +45,7 @@ final class Core {
 		\add_filter( 'block_type_metadata', [ __CLASS__, 'block_variations' ] );
 		\add_action( 'init', [ __CLASS__, 'block_pattern_categories' ] );
 
-		require_once NEWSPACK_BLOCK_THEME_FILE_PATH . 'src/blocks/search-overlay/index.php';
+		require_once get_template_directory() . '/src/blocks/search-overlay/view.php';
 	}
 
 	/**

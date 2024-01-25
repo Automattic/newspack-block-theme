@@ -42,7 +42,11 @@ node_modules
 .circleci
 /tests
 /bin
-/src
+/src/images
+/src/js
+/src/scss
+/src/**/*.js
+/src/**/*.scss
 /release
 .cache
 codecov
