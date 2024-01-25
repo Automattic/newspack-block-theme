@@ -64,4 +64,12 @@
 			min-height: 36px;
 		}
 	}
+
+	a {
+		text-decoration: none;
+
+		&:not(.wp-element-button):hover {
+			text-decoration: underline;
+		}
+	}
 }
