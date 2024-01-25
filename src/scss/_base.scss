@@ -57,3 +57,14 @@ body .has-drop-cap:not(:focus)::first-letter {
 .newspack-icon-search .wp-block-button__link::after {
 	mask: url('../../src/images/icon-search.svg') 0 0 no-repeat;
 }
+
+// Powered By
+.powered-by {
+	a {
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}

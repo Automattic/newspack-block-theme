@@ -1,4 +1,8 @@
 // Apply the custom CSS variables defined in theme.json.
+.has-xx-small-font-size {
+	line-height: var(--wp--custom--line-height--xx-small);
+}
+
 .has-x-small-font-size {
 	line-height: var(--wp--custom--line-height--x-small);
 }

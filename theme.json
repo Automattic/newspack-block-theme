@@ -37,6 +37,11 @@
 					"color": "#F0F0F0",
 					"name": "Quinary",
 					"slug": "quinary"
+				},
+				{
+					"color": "#3E3E3E",
+					"name": "Senary",
+					"slug": "senary"
 				}
 			]
 		},
@@ -581,12 +586,12 @@
 			},
 			"core/separator": {
 				"border": {
-					"color": "var( --wp--preset--color--quaternary )",
+					"color": "currentcolor",
 					"style": "solid",
 					"width": "0 0 1px 0"
 				},
 				"color": {
-					"text": "var( --wp--preset--color--contrast )"
+					"text": "var( --wp--preset--color--quaternary )"
 				}
 			},
 			"core/social-links": {
