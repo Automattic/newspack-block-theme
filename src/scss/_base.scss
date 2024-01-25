@@ -15,6 +15,12 @@ html {
 	border-radius: 100%;
 }
 
+// Focus Visible
+:focus-visible {
+	outline: 1.5px solid;
+	outline-offset: 1px;
+}
+
 // Dropcap
 body .has-drop-cap:not(:focus)::first-letter {
 	font-size: calc(4 * var(--wp--preset--font-size--medium));
@@ -34,14 +40,22 @@ body .has-drop-cap:not(:focus)::first-letter {
 
 	.wp-block-button__link {
 		background: transparent;
+		display: grid;
+		height: 36px;
+		place-items: center;
+		width: 36px;
 
 		&::after {
 			background-color: currentcolor;
 			content: '';
 			display: block;
-			height: 36px;
-			mask-size: 36px;
-			width: 36px;
+			height: 24px;
+			mask-size: 24px;
+			width: 24px;
+		}
+
+		&:focus {
+			outline-offset: -1.5px;
 		}
 	}
 }

@@ -42,6 +42,11 @@
 					"color": "#3E3E3E",
 					"name": "Senary",
 					"slug": "senary"
+				},
+				{
+					"color": "#00000070",
+					"name": "Overlay",
+					"slug": "overlay"
 				}
 			]
 		},
@@ -575,7 +580,8 @@
 				"elements": {
 					"button": {
 						"color": {
-							"background": "var( --wp--preset--color--contrast )"
+							"background": "var( --wp--preset--color--base )",
+							"text": "var( --wp--preset--color--contrast )"
 						}
 					}
 				},
@@ -649,12 +655,6 @@
 					"color": {
 						"background": "var( --wp--preset--color--contrast )",
 						"text": "var( --wp--preset--color--base )"
-					},
-					"outline": {
-						"color": "currentcolor",
-						"offset": "2px",
-						"style": "dotted",
-						"width": "1px"
 					}
 				},
 				":hover": {

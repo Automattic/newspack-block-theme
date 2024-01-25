@@ -6,11 +6,12 @@
 .search-contents {
 	background: var(--wp--preset--color--base);
 	inset: 0 -100% 0 auto;
+	margin: 0;
 	opacity: 0;
 	overflow: auto;
-	padding: var(--wp--preset--spacing--50) var(--wp--preset--spacing--40);
+	padding: var(--wp--preset--spacing--30);
 	position: fixed;
-	transition: opacity 0.2s;
+	transition: opacity 0.125s;
 	width: 100%;
 	z-index: sass-utils.$zindex-overlay-menu;
 
@@ -18,12 +19,11 @@
 		visibility: hidden;
 	}
 
-	.search-wrapper {
-		height: 90vh;
-
-		.wp-block-search {
-			margin-bottom: var(--wp--preset--spacing--70);
-		}
+	.wp-block-group {
+		display: grid;
+		height: 50vh;
+		place-items: center;
+		width: 100%;
 	}
 }
 
