@@ -1,3 +1,17 @@
+# [1.4.0](https://github.com/Automattic/newspack-block-theme/compare/v1.3.0...v1.4.0) (2024-01-08)
+
+
+### Features
+
+* add archive layout through pattern ([#55](https://github.com/Automattic/newspack-block-theme/issues/55)) ([8e6d912](https://github.com/Automattic/newspack-block-theme/commit/8e6d91292f8705822198d7a9d09693bc30789e47))
+
+# [1.4.0-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.3.0...v1.4.0-alpha.1) (2023-09-15)
+
+
+### Features
+
+* add archive layout through pattern ([#55](https://github.com/Automattic/newspack-block-theme/issues/55)) ([8e6d912](https://github.com/Automattic/newspack-block-theme/commit/8e6d91292f8705822198d7a9d09693bc30789e47))
+
 # [1.3.0](https://github.com/Automattic/newspack-block-theme/compare/v1.2.2...v1.3.0) (2023-07-17)
 
 
