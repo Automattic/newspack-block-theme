@@ -1,3 +1,26 @@
+# [1.5.0-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.4.0...v1.5.0-alpha.1) (2024-01-26)
+
+
+### Bug Fixes
+
+* parenthesis ([a0c485f](https://github.com/Automattic/newspack-block-theme/commit/a0c485f30cd39286d2fd897620e8880b61dee409))
+* remove link from post date archive ([#90](https://github.com/Automattic/newspack-block-theme/issues/90)) ([d08ba5e](https://github.com/Automattic/newspack-block-theme/commit/d08ba5efb043a326dd1fdb9899c847628acac957))
+
+
+### Features
+
+* add 2x-small font size ([#102](https://github.com/Automattic/newspack-block-theme/issues/102)) ([cb17fdc](https://github.com/Automattic/newspack-block-theme/commit/cb17fdcfbd988e04105e69615ec7b6f73f1b9abb))
+* add new "Paul" style ([#88](https://github.com/Automattic/newspack-block-theme/issues/88)) ([5605dab](https://github.com/Automattic/newspack-block-theme/commit/5605dabfe6d27e434c2ba124c14638db07becd63))
+* update archive template ([#89](https://github.com/Automattic/newspack-block-theme/issues/89)) ([3c8556d](https://github.com/Automattic/newspack-block-theme/commit/3c8556daa85b60ccbab6ac58df5d9a3513eb90e8))
+* update button block ([#91](https://github.com/Automattic/newspack-block-theme/issues/91)) ([b66f75a](https://github.com/Automattic/newspack-block-theme/commit/b66f75a219fdab176a1191281e361e9e7abec5a6))
+* update button style ([#103](https://github.com/Automattic/newspack-block-theme/issues/103)) ([4b686f9](https://github.com/Automattic/newspack-block-theme/commit/4b686f9b605591307f15257e89ca75cab8d24bc0))
+* update desktop header template part ([#106](https://github.com/Automattic/newspack-block-theme/issues/106)) ([b5d45ba](https://github.com/Automattic/newspack-block-theme/commit/b5d45ba3f25fb94967d475fcc98cdc7cdeba0f04))
+* update footer part and lock blocks ([#105](https://github.com/Automattic/newspack-block-theme/issues/105)) ([0490354](https://github.com/Automattic/newspack-block-theme/commit/0490354f93f0fbc253bee85dde36e803acb332c7))
+* update grid and typography ([64c70d7](https://github.com/Automattic/newspack-block-theme/commit/64c70d7cb4c2c88a82e01a2f99a9091a278042a5))
+* update grid and typography ([f5073ef](https://github.com/Automattic/newspack-block-theme/commit/f5073eff3068f8e37796f2ac5edaefc69f244094))
+* update svg icons and search overlay ([#111](https://github.com/Automattic/newspack-block-theme/issues/111)) ([9ee5b6a](https://github.com/Automattic/newspack-block-theme/commit/9ee5b6af172f0e9f7fc4e14351590fbdcac86a8b))
+* update the query pagination block ([#93](https://github.com/Automattic/newspack-block-theme/issues/93)) ([03e7fb6](https://github.com/Automattic/newspack-block-theme/commit/03e7fb64ccdab7ab7934a6f61ec4136618c71d9b))
+
 # [1.4.0](https://github.com/Automattic/newspack-block-theme/compare/v1.3.0...v1.4.0) (2024-01-08)
 
 
