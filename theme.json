@@ -30,8 +30,8 @@
 				},
 				{
 					"color": "#DDDDDD",
-					"name": "Quaternary",
-					"slug": "quaternary"
+					"name": "Quartary",
+					"slug": "quartary"
 				},
 				{
 					"color": "#F0F0F0",
@@ -597,7 +597,7 @@
 					"width": "0 0 1px 0"
 				},
 				"color": {
-					"text": "var( --wp--preset--color--quaternary )"
+					"text": "var( --wp--preset--color--quartary )"
 				}
 			},
 			"core/social-links": {
