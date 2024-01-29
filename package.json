@@ -44,7 +44,7 @@
     "eslint": "^7.32.0",
     "ignore-emit-webpack-plugin": "^2.0.6",
     "lint-staged": "^13.2.3",
-    "newspack-scripts": "^5.1.1",
+    "newspack-scripts": "^5.2.1",
     "postcss-scss": "^4.0.9",
     "prettier": "^3.2.4"
   }
