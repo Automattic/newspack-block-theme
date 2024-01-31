@@ -159,6 +159,18 @@
 					"name": "4X-Large",
 					"size": "clamp( 2rem, -1.141rem + 6.426vw, 4rem )",
 					"slug": "xxxx-large"
+				},
+				{
+					"fluid": false,
+					"name": "5X-Large",
+					"size": "clamp( 2.125rem, -2.39rem + 9.237vw, 5rem )",
+					"slug": "xxxxx-large"
+				},
+				{
+					"fluid": false,
+					"name": "6X-Large",
+					"size": "clamp( 2.25rem, -3.639rem + 12.048vw, 6rem )",
+					"slug": "xxxxxx-large"
 				}
 			]
 		},
@@ -196,7 +208,9 @@
 				"x-large": "1.375",
 				"xx-large": "1.3333333333",
 				"xxx-large": "1.25",
-				"xxxx-large": "1.125"
+				"xxxx-large": "1.125",
+				"xxxxx-large": "1.1",
+				"xxxxxx-large": "1.08333333333"
 			}
 		}
 	},
