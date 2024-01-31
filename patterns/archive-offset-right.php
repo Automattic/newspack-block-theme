@@ -54,8 +54,8 @@
 <!-- wp:post-date {"isLink":true} /--></div>
 <!-- /wp:group -->
 
-<!-- wp:separator {"backgroundColor":"quartary"} -->
-<hr class="wp-block-separator has-text-color has-quartary-color has-alpha-channel-opacity has-quartary-background-color has-background"/>
+<!-- wp:separator {"backgroundColor":"base-3"} -->
+<hr class="wp-block-separator has-text-color has-base-3-color has-alpha-channel-opacity has-base-3-background-color has-background"/>
 <!-- /wp:separator --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->

@@ -66,10 +66,15 @@
 	}
 
 	a {
-		text-decoration: none;
+		text-decoration-color: transparent;
+		text-decoration-thickness: 0.1875em !important;
+		text-underline-offset: 0.375em;
+		transition: all 125ms linear;
+		transition-delay: 100ms;
 
 		&:not(.wp-element-button):hover {
 			text-decoration: underline;
+			text-decoration-color: currentcolor;
 		}
 	}
 }
