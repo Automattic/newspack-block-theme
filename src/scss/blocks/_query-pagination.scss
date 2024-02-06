@@ -1,0 +1,53 @@
+@use '../sass-utils';
+
+.wp-block-query-pagination {
+	a,
+	.current,
+	.wp-block-query-pagination-numbers,
+	.wp-block-comments-pagination-numbers {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+	}
+
+	.wp-block-query-pagination-numbers,
+	.wp-block-comments-pagination-numbers {
+		gap: calc(var(--wp--preset--spacing--20) / 4);
+
+		a,
+		.current {
+			height: 2.5rem;
+			padding: 0;
+			width: 2.5rem;
+
+			@include sass-utils.all-transition;
+		}
+	}
+
+	// Justification = Space Between
+	&.is-content-justification-space-between {
+		@include sass-utils.media(small) {
+			display: grid;
+			grid-template-columns: repeat(12, 1fr);
+		}
+
+		> * {
+			grid-column-end: span 4;
+			margin: 0;
+		}
+
+		> .wp-block-query-pagination-numbers:first-child {
+			grid-column-end: span 8;
+
+			@include sass-utils.media(small) {
+				&::before {
+					content: '';
+					display: inline-block;
+					height: 100%;
+					margin-right: var(--wp--preset--spacing--30);
+					width: calc(50% - (var(--wp--preset--spacing--30) / 2));
+				}
+			}
+		}
+	}
+}

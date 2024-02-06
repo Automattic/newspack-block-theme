@@ -12,7 +12,7 @@
 	}
 
 	p {
-		color: var( --wp--custom--color--gray-700 );
+		color: var(--wp--custom--color--gray-700);
 		font-size: var(--wp--preset--font-size--small);
 
 		a {
@@ -20,8 +20,8 @@
 		}
 	}
 
-	.bypostauthor { // we probably don't want to inline text via CSS; can we filter the author post?
-
+	.bypostauthor {
+		// we probably don't want to inline text via CSS; can we filter the author post?
 	}
 }
 
@@ -32,15 +32,14 @@
 		}
 
 		&:not(:last-of-type) {
-			border-bottom: 1px solid var( --wp--custom--color--gray-300 );
+			border-bottom: 1px solid var(--wp--custom--color--gray-300);
 			padding-bottom: var(--wp--preset--spacing--50);
 		}
 	}
 
 	ol {
-		border-left: 1px solid var( --wp--custom--color--gray-300 );
+		border-left: 1px solid var(--wp--custom--color--gray-300);
 		margin: var(--wp--preset--spacing--50) 0 0;
 		padding-left: var(--wp--preset--spacing--50);
 	}
 }
-
