@@ -11,7 +11,7 @@
 	}
 
 	.entry-meta {
-		color: var(--wp--preset--color--tertiary);
+		color: var(--wp--preset--color--contrast-3);
 		font-size: var(--wp--preset--font-size--small);
 		line-height: var(--wp--custom--line-height--small);
 
@@ -21,6 +21,6 @@
 	}
 
 	&.is-style-borders article {
-		border-color: var(--wp--preset--color--quartary);
+		border-color: var(--wp--preset--color--base-3);
 	}
 }
