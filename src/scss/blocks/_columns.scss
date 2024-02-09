@@ -11,6 +11,15 @@
 			display: inherit;
 		}
 	}
+
+	&.is-style-borders > .wp-block-column::after {
+		border-color: var(--wp--preset--color--base-3);
+
+		.has-text-color & {
+			border-color: currentcolor; // Fallback
+			border-color: color-mix(in srgb, currentcolor 15%, transparent);
+		}
+	}
 }
 
 // Newspack Grid
