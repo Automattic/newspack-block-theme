@@ -1,3 +1,5 @@
+@use '../sass-utils';
+
 .wp-block-newspack-blocks-homepage-articles.wpnbha {
 	margin-bottom: auto;
 
@@ -56,6 +58,17 @@
 			a {
 				color: inherit;
 			}
+		}
+	}
+
+	&.image-alignleft,
+	&.image-alignright {
+		.post-has-image {
+			gap: var(--wp--preset--spacing--50);
+		}
+
+		.post-thumbnail {	
+			margin: 0;
 		}
 	}
 
@@ -264,6 +277,67 @@
 			p {
 				font-size: var(--wp--preset--font-size--x-small);
 				line-height: var(--wp--custom--line-height--x-small);
+			}
+		}
+	}
+
+	// Layout with Newspack Grid
+	@include sass-utils.media(large) {
+		.newspack-grid .wp-block-column[style*='50%'] &.image-alignleft,
+		.newspack-grid .wp-block-column[style*='50%'] &.image-alignright {
+			article {
+				display: grid;
+				grid-template-columns: repeat(6, 1fr);
+			}
+
+			.entry-wrapper {
+				grid-column: span 6;
+			}
+
+			.post-has-image {
+				.entry-wrapper {
+					grid-column: span 4;
+				}
+
+				.post-thumbnail {
+					grid-column: span 2;
+				}
+			}
+
+			&.is-1 {
+				.post-has-image {
+					.entry-wrapper {
+						grid-column: span 5;
+					}
+
+					.post-thumbnail {
+						grid-column: span 1;
+					}
+				}
+			}
+
+			&.is-3 {
+				.post-has-image {
+					.entry-wrapper {
+						grid-column: span 3;
+					}
+
+					.post-thumbnail {
+						grid-column: span 3;
+					}
+				}
+			}
+
+			&.is-4 {
+				.post-has-image {
+					.entry-wrapper {
+						grid-column: span 2;
+					}
+
+					.post-thumbnail {
+						grid-column: span 4;
+					}
+				}
 			}
 		}
 	}
