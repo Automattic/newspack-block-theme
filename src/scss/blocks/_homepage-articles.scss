@@ -1,4 +1,6 @@
 .wp-block-newspack-blocks-homepage-articles.wpnbha {
+	margin-bottom: auto;
+
 	.article-section-title {
 		font-size: var(--wp--preset--font-size--medium);
 		font-weight: initial;
@@ -27,6 +29,14 @@
 		}
 	}
 
+	.post-thumbnail {
+		margin-bottom: var(--wp--preset--spacing--20);
+
+		a {
+			display: flex;
+		}
+	}
+
 	.entry-meta {
 		color: var(--wp--preset--color--contrast-3);
 		font-size: var(--wp--preset--font-size--small);
@@ -37,11 +47,67 @@
 		}
 	}
 
-	&.is-style-borders article {
-		border-color: var(--wp--preset--color--base-3);
+	.has-background &,
+	.has-text-color & {
+		.entry-meta {
+			color: currentcolor; // Fallback
+			color: color-mix(in srgb, currentcolor 61%, transparent);
+	
+			a {
+				color: inherit;
+			}
+		}
+	}
+
+	&.is-style-borders {
+		& + & {
+			margin-top: var(--wp--preset--spacing--30);
+		}
+
+		article {
+			border-color: var(--wp--preset--color--base-3);
+			margin-bottom: var(--wp--preset--spacing--30);
+			padding-bottom: var(--wp--preset--spacing--30);
+
+			&:last-of-type:not(:first-of-type) {
+				padding-bottom: 0;
+			}
+		}
+
+		.has-background &,
+		.has-text-color & {
+			article {
+				border-color: currentcolor; // Fallback
+				border-color: color-mix(in srgb, currentcolor 15%, transparent);
+			}
+		}
+	}
+
+	&.is-grid {
+		article {
+			margin-bottom: 0;
+		}
+
+		&.colgap-1 .article-section-title {
+			margin-bottom: var(--wp--preset--spacing--20);
+		}
+
+		&.colgap-2 .article-section-title {
+			margin-bottom: 0;
+		}
+
+		&.colgap-3 .article-section-title {
+			margin-bottom: calc( -1 * var(--wp--preset--spacing--30) );
+		}
 	}
 
 	article {
+		margin-bottom: var(--wp--preset--spacing--50);
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
 		.entry-title {
 			font-size: var(--wp--preset--font-size--medium);
 			line-height: var(--wp--custom--line-height--medium);
@@ -93,6 +159,16 @@
 		}
 	}
 
+	&.ts-10 article,
+	&.ts-9 article {
+		.entry-wrapper {
+			p {
+				font-size: var(--wp--preset--font-size--x-large);
+				line-height: var(--wp--custom--line-height--x-large);
+			}
+		}
+	}
+
 	&.ts-10 article {
 		.entry-title {
 			font-size: var(--wp--preset--font-size--xxxxxx-large);
@@ -104,6 +180,17 @@
 		.entry-title {
 			font-size: var(--wp--preset--font-size--xxxxx-large);
 			line-height: var(--wp--custom--line-height--xxxxx-large);
+		}
+	}
+
+	&.ts-8 article,
+	&.ts-7 article,
+	&.ts-6 article {
+		.entry-wrapper {
+			p {
+				font-size: var(--wp--preset--font-size--large);
+				line-height: var(--wp--custom--line-height--large);
+			}
 		}
 	}
 
