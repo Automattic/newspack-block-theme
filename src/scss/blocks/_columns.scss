@@ -51,7 +51,7 @@
 			grid-column-end: span 12;
 		}
 
-		/* Three column layout */
+		/* "33 / 33 / 33" layout */
 		.wp-block-column:not([style*='flex-basis']):nth-last-child(3):first-child,
 		.wp-block-column:not([style*='flex-basis']):nth-last-child(3):first-child ~ .wp-block-column {
 			grid-column-end: span 4;
