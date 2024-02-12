@@ -37,6 +37,12 @@
 		a {
 			display: flex;
 		}
+
+		figcaption {
+			margin: var(--wp--preset--spacing--20) 0 0;
+			font-size: var(--wp--preset--font-size--x-small);
+			line-height: var(--wp--custom--line-height--x-small);
+		}
 	}
 
 	.entry-meta {
@@ -53,7 +59,7 @@
 	.has-text-color & {
 		.entry-meta {
 			color: currentcolor; // Fallback
-			color: color-mix(in srgb, currentcolor 61%, transparent);
+			color: color-mix(in srgb, currentcolor 61%, transparent); // #757575 if currentcolor is #1E1E1E
 	
 			a {
 				color: inherit;
@@ -91,7 +97,7 @@
 		.has-text-color & {
 			article {
 				border-color: currentcolor; // Fallback
-				border-color: color-mix(in srgb, currentcolor 15%, transparent);
+				border-color: color-mix(in srgb, currentcolor 15%, transparent); // #DDDDDD if currentcolor is #1E1E1E
 			}
 		}
 	}

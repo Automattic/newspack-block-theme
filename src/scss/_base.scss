@@ -15,6 +15,20 @@ html {
 	border-radius: 100%;
 }
 
+figcaption {
+	color: var(--wp--preset--color--contrast-3);
+
+	a {
+		color: inherit;
+	}
+
+	.has-background &,
+	.has-text-color & {
+		color: currentcolor; // Fallback
+		color: color-mix(in srgb, currentcolor 61%, transparent); // #757575 if currentcolor is #1E1E1E
+	}
+}
+
 // Focus Visible
 :focus-visible {
 	outline: 1.5px solid;
