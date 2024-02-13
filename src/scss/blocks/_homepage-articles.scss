@@ -120,6 +120,12 @@
 		}
 
 		.post-has-image {
+			.post-thumbnail {
+				a {
+					height: 100%;
+				}
+			}
+
 			.entry-wrapper {
 				padding: var(--wp--preset--spacing--30);
 
