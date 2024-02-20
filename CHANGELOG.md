@@ -1,3 +1,12 @@
+# [1.6.0-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.5.0...v1.6.0-alpha.1) (2024-02-08)
+
+
+### Features
+
+* add underline to navigation styles ([#112](https://github.com/Automattic/newspack-block-theme/issues/112)) ([d52e92d](https://github.com/Automattic/newspack-block-theme/commit/d52e92d52b1ce31ce1b315c8c2c6854b6fedb0df))
+* **ci:** add epic/* release workflow and rename `master` to `trunk` ([#119](https://github.com/Automattic/newspack-block-theme/issues/119)) ([b27b7d7](https://github.com/Automattic/newspack-block-theme/commit/b27b7d703ecad7181a3d8fb9b70fa25ad38d29d9))
+* rename colour variables ([#117](https://github.com/Automattic/newspack-block-theme/issues/117)) ([d263ccd](https://github.com/Automattic/newspack-block-theme/commit/d263ccd5756a576964a373fe123f3eda91b95c0b))
+
 # [1.5.0](https://github.com/Automattic/newspack-block-theme/compare/v1.4.0...v1.5.0) (2024-02-06)
 
 

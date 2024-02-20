@@ -9,34 +9,39 @@
 					"slug": "base"
 				},
 				{
+					"color": "#E4E2DC",
+					"name": "Base / Two",
+					"slug": "base-2"
+				},
+				{
+					"color": "#D3D1CC",
+					"name": "Base / Three",
+					"slug": "base-3"
+				},
+				{
 					"color": "#000000",
 					"name": "Contrast",
 					"slug": "contrast"
 				},
 				{
-					"color": "#C93A00",
-					"name": "Primary",
-					"slug": "primary"
-				},
-				{
-					"color": "#297373",
-					"name": "Secondary",
-					"slug": "secondary"
+					"color": "#383734",
+					"name": "Contrast / Two",
+					"slug": "contrast-2"
 				},
 				{
 					"color": "#6E6D6A",
-					"name": "Tertiary",
-					"slug": "tertiary"
+					"name": "Contrast / Three",
+					"slug": "contrast-3"
 				},
 				{
-					"color": "#D3D1CC",
-					"name": "Quaternary",
-					"slug": "quaternary"
+					"color": "#C93A00",
+					"name": "Accent",
+					"slug": "accent"
 				},
 				{
-					"color": "#E4E2DC",
-					"name": "Quinary",
-					"slug": "quinary"
+					"color": "#297373",
+					"name": "Accent / Two",
+					"slug": "accent-2"
 				}
 			]
 		},
