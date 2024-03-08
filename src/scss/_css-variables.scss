@@ -1,3 +1,8 @@
+// Extra variables
+:root {
+	--wp--preset--spacing--00: 0;
+}
+
 // Apply the custom CSS variables defined in theme.json.
 .has-xx-small-font-size {
 	line-height: var(--wp--custom--line-height--xx-small);
