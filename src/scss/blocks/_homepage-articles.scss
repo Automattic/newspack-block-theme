@@ -78,7 +78,7 @@
 		}
 	}
 
-	&.mobile-stack {
+	&.mobile-stack:not(.image-aligntop) {
 		.post-thumbnail {	
 			margin-bottom: var(--wp--preset--spacing--30);
 
