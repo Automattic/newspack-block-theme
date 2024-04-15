@@ -1,3 +1,5 @@
+@use '../mixins';
+
 .wp-block-search {
 	.wp-block-search__button.has-icon {
 		height: 3rem;
@@ -20,22 +22,32 @@
 	}
 
 	&__button-inside {
+		border-radius: var(--wp--custom--border--radius-medium);
 		width: 100%;
 
 		&:focus-within {
-			border-radius: var(--wp--custom--border--radius-medium);
-			outline: 1.5px solid;
-			outline-offset: -1.5px;
+			outline: 2px solid var( --wp--preset--color--contrast-3 );
+			outline-offset: -1px;
+	
+			@media ( prefers-contrast: more ) {
+				border-color: var( --wp--preset--color--contrast );
+				outline-color: var( --wp--preset--color--contrast );
+			}
 		}
 
 		.wp-block-search__inside-wrapper {
-			background-color: var(--wp--preset--color--base);
-			border-color: var(--wp--preset--color--contrast-3);
+			background-color:  var( --wp--preset--color--base );
+			border-color: var( --wp--preset--color--base-4 );
 			border-radius: var(--wp--custom--border--radius-medium);
 			box-sizing: border-box;
+
+			@media ( prefers-contrast: more ) {
+				border-color: var( --wp--preset--color--contrast-3 );
+			}
 		}
 
 		.wp-block-search__input {
+			border: 0;
 			padding: 0 0.25rem;
 
 			&:focus {
@@ -64,12 +76,7 @@
 			}
 
 			.wp-block-search__button {
-				display: grid;
-				height: 36px;
-				margin: 0;
-				padding: 0;
-				place-items: center;
-				width: 36px;
+				@include mixins.button-icon;
 
 				svg {
 					height: 24px;
