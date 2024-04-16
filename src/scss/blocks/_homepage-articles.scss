@@ -59,9 +59,13 @@
 	&.has-text-color,
 	.has-background:not(.has-base-background-color) &,
 	.has-text-color & {
-		.entry-meta {
+		.cat-links,
+		.entry-meta,
+		.more-link {
 			color: currentcolor;
-	
+		}
+
+		.entry-meta {
 			a {
 				color: inherit;
 			}
@@ -69,10 +73,6 @@
 			span:not(.avatar) {
 				opacity: 1;
 			}
-		}
-		
-		.more-link {
-			color: currentcolor;
 		}
 	}
 
@@ -249,16 +249,15 @@
 		}
 
 		.entry-wrapper {
-			p {
+			p,
+			.more-link {
 				font-size: var(--wp--preset--font-size--medium);
 				line-height: var(--wp--custom--line-height--medium);
-				margin: var(--wp--preset--spacing--20) 0;
+				margin: var(--wp--preset--spacing--20) 0 0;
 			}
 
 			.more-link {
 				display: block;
-				font-size: var(--wp--preset--font-size--medium);
-				line-height: var(--wp--custom--line-height--medium);
 			}
 
 			.entry-meta {
@@ -268,7 +267,7 @@
 				font-size: var(--wp--preset--font-size--x-small);
   				grid-template-columns: auto 1fr;
 				line-height: var(--wp--custom--line-height--x-small);
-				margin-top: var(--wp--preset--spacing--20);
+				margin: var(--wp--preset--spacing--20) 0 0;
 
 				> a,
 				> .avatar {
