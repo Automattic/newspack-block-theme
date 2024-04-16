@@ -1,3 +1,5 @@
+@use 'mixins';
+
 /*
  * Newspack Theme
  */
@@ -34,8 +36,8 @@ figcaption {
 
 // Focus Visible
 :focus-visible {
-	outline: 1.5px solid;
-	outline-offset: 1px;
+	outline: 2px solid;
+	outline-offset: 2px;
 }
 
 // Dropcap
@@ -56,11 +58,7 @@ body .has-drop-cap:not(:focus)::first-letter {
 	}
 
 	.wp-block-button__link {
-		background: transparent;
-		display: grid;
-		height: 36px;
-		place-items: center;
-		width: 36px;
+		@include mixins.button-icon;
 
 		&::after {
 			background-color: currentcolor;
@@ -69,10 +67,6 @@ body .has-drop-cap:not(:focus)::first-letter {
 			height: 24px;
 			mask-size: 24px;
 			width: 24px;
-		}
-
-		&:focus {
-			outline-offset: -1.5px;
 		}
 	}
 }

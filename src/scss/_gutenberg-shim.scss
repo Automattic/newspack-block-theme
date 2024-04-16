@@ -1,3 +1,5 @@
+@use 'mixins';
+
 // Add CSS for theme.json options that don't exist yet.
 
 /*
@@ -92,6 +94,10 @@ figcaption a {
 label {
 	color: var(--wp--preset--color--contrast);
 	display: inline-block;
+	font-family: var( --wp--preset--font-family--system-font );
+    font-size: var(--wp--preset--font-size--small);
+    font-weight: 600;
+    line-height: var(--wp--custom--line-height--small);
 	margin-bottom: var(--wp--preset--spacing--20);
 }
 
@@ -112,13 +118,7 @@ input[type='datetime-local'],
 input[type='zip'],
 input[type='color'],
 textarea {
-	border-color: var(--wp--preset--color--contrast-3) !important;
-	border-radius: var(--wp--custom--border--radius-medium);
-
-	&:focus {
-		outline: 1.5px solid;
-		outline-offset: -1.5px;
-	}
+	@include mixins.input;
 }
 
 /*
