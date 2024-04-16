@@ -255,6 +255,12 @@
 				margin: var(--wp--preset--spacing--20) 0;
 			}
 
+			.more-link {
+				display: block;
+				font-size: var(--wp--preset--font-size--medium);
+				line-height: var(--wp--custom--line-height--medium);
+			}
+
 			.entry-meta {
 				align-items: start;
 				column-gap: var(--wp--preset--spacing--20);
