@@ -55,9 +55,9 @@
 		}
 	}
 
-	&.has-background,
+	&.has-background:not(.has-base-background-color),
 	&.has-text-color,
-	.has-background &,
+	.has-background:not(.has-base-background-color) &,
 	.has-text-color & {
 		.entry-meta {
 			color: currentcolor;
