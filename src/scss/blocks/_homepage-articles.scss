@@ -70,6 +70,10 @@
 				opacity: 1;
 			}
 		}
+		
+		.more-link {
+			color: currentcolor;
+		}
 	}
 
 	&.image-alignleft,
@@ -292,7 +296,8 @@
 	&.ts-10 article,
 	&.ts-9 article {
 		.entry-wrapper {
-			p {
+			p,
+			.more-link {
 				font-size: var(--wp--preset--font-size--x-large);
 				line-height: var(--wp--custom--line-height--x-large);
 			}
@@ -316,7 +321,8 @@
 	&.ts-8 article,
 	&.ts-7 article {
 		.entry-wrapper {
-			p {
+			p,
+			.more-link {
 				font-size: var(--wp--preset--font-size--large);
 				line-height: var(--wp--custom--line-height--large);
 			}
@@ -351,22 +357,22 @@
 		}
 	}
 
+	&.ts-4 article,
+	&.ts-3 article,
+	&.ts-2 article {
+		.entry-wrapper {
+			p,
+			.more-link {
+				font-size: var(--wp--preset--font-size--small);
+				line-height: var(--wp--custom--line-height--small);
+			}
+		}
+	}
+
 	&.ts-4 article {
 		.entry-title {
 			font-size: var(--wp--preset--font-size--large);
 			line-height: var(--wp--custom--line-height--large);
-		}
-	}
-
-	&.ts-4 article,
-	&.ts-3 article,
-	&.ts-2 article,
-	&.ts-1 article {
-		.entry-wrapper {
-			p {
-				font-size: var(--wp--preset--font-size--small);
-				line-height: var(--wp--custom--line-height--small);
-			}
 		}
 	}
 
@@ -391,7 +397,8 @@
 		}
 
 		.entry-wrapper {
-			p {
+			p,
+			.more-link {
 				font-size: var(--wp--preset--font-size--x-small);
 				line-height: var(--wp--custom--line-height--x-small);
 			}
