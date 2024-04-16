@@ -19,14 +19,10 @@
 
 		a {
 			color: inherit;
-			text-decoration-color: transparent;
-			text-decoration-thickness: 0.1875em !important;
-			text-underline-offset: 0.375em;
-			transition: all 125ms linear;
-			transition-delay: 100ms;
-
+			text-decoration: none;
+			
 			&:hover {
-				text-decoration-color: currentcolor;
+				color: var(--wp--preset--color--contrast-3);
 			}
 		}
 	}
@@ -63,6 +59,13 @@
 		.entry-meta,
 		.more-link {
 			color: currentcolor;
+		}
+
+		.cat-links,
+		.entry-title {
+			a:hover {
+				color: color-mix(in srgb, currentcolor 80%, transparent);
+			}
 		}
 
 		.entry-meta {
@@ -246,6 +249,12 @@
 			font-size: var(--wp--preset--font-size--medium);
 			line-height: var(--wp--custom--line-height--medium);
 			margin: 0 0 var(--wp--preset--spacing--20);
+
+			a {
+				&:hover {
+					color: var(--wp--preset--color--contrast-3);
+				}
+			}
 		}
 
 		.entry-wrapper {
@@ -257,7 +266,7 @@
 			}
 
 			.more-link {
-				display: block;
+				display: inline-block;
 			}
 
 			.entry-meta {
