@@ -29,8 +29,7 @@ figcaption {
 
 	.has-background &,
 	.has-text-color & {
-		color: currentcolor; // Fallback
-		color: color-mix(in srgb, currentcolor 61%, transparent); // #757575 if currentcolor is #1E1E1E
+		color: currentcolor;
 	}
 }
 

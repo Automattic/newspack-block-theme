@@ -55,14 +55,19 @@
 		}
 	}
 
+	&.has-background,
+	&.has-text-color,
 	.has-background &,
 	.has-text-color & {
 		.entry-meta {
-			color: currentcolor; // Fallback
-			color: color-mix(in srgb, currentcolor 61%, transparent); // #757575 if currentcolor is #1E1E1E
+			color: currentcolor;
 	
 			a {
 				color: inherit;
+			}
+
+			span:not(.avatar) {
+				opacity: 1;
 			}
 		}
 	}
