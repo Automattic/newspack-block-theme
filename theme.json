@@ -54,11 +54,6 @@
 					"color": "#0B0B8D",
 					"name": "Accent / Two",
 					"slug": "accent-2"
-				},
-				{
-					"color": "#00000070",
-					"name": "Overlay",
-					"slug": "overlay"
 				}
 			]
 		},
