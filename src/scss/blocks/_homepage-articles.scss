@@ -134,6 +134,8 @@
 
 		.post-has-image {
 			.post-thumbnail {
+				margin: 0;
+
 				a {
 					height: 100%;
 				}
@@ -151,8 +153,17 @@
 				}
 			}
 
-			.entry-meta {
+			.cat-links,
+			.entry-meta,
+			.more-link {
 				color: inherit;
+			}
+
+			.cat-links,
+			.entry-title {
+				a:hover {
+					color: rgba(white, 0.85);
+				}
 			}
 		}
 	}
@@ -271,7 +282,7 @@
 			}
 
 			.entry-meta {
-				align-items: start;
+				align-items: center;
 				column-gap: var(--wp--preset--spacing--20);
 				display: grid;
 				font-size: var(--wp--preset--font-size--x-small);
@@ -286,8 +297,11 @@
 
 				&:not(:has(.entry-date)) {
 					.avatar {
-						height: 1.5rem;
-						width: 1.5rem;
+						height: 2rem;
+						width: 2rem;
+					}
+					.byline {
+						grid-row: span 2;
 					}
 				}
 
@@ -301,9 +315,9 @@
 			}
 
 			.avatar {
-				height: 3rem;
+				height: 2.5rem;
 				margin: 0;
-				width: 3rem;
+				width: 2.5rem;
 			}
 		}
 	}
