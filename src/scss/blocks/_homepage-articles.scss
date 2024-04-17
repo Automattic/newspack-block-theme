@@ -283,41 +283,55 @@
 
 			.entry-meta {
 				align-items: center;
-				column-gap: var(--wp--preset--spacing--20);
 				display: grid;
 				font-size: var(--wp--preset--font-size--x-small);
-  				grid-template-columns: auto 1fr;
+				grid-template-areas:
+					"byline"
+					"date";
 				line-height: var(--wp--custom--line-height--x-small);
 				margin: var(--wp--preset--spacing--20) 0 0;
 
-				> a,
-				> .avatar {
-					grid-row: span 2;
+				.byline {
+					margin: 0;
+					grid-area: byline;
+				}
+	
+				.entry-date {
+					grid-area: date;
 				}
 
-				&:not(:has(.entry-date)) {
+				&:has(.avatar) {
+					column-gap: var(--wp--preset--spacing--20);
+					grid-template-areas:
+						"avatar byline"
+						"avatar date";
+
+					@include mixins.wpnbha-avatar( $width: 2.5rem );
+
+					&:not(:has(.entry-date)) {
+						@include mixins.wpnbha-avatar( $width: 2rem );
+	
+						.avatar {
+							height: 2rem;
+							width: 2rem;
+						}
+	
+						.byline {
+							grid-row: span 2;
+						}
+					}
+
+					> a,
+					> .avatar {
+						grid-area: avatar;
+					}
+
 					.avatar {
-						height: 2rem;
-						width: 2rem;
-					}
-					.byline {
-						grid-row: span 2;
+						height: 2.5rem;
+						margin: 0;
+						width: 2.5rem;
 					}
 				}
-
-				&:not(:has(.avatar)) {
-					grid-template-columns: auto;
-				}
-			}
-
-			.byline {
-				margin: 0;
-			}
-
-			.avatar {
-				height: 2.5rem;
-				margin: 0;
-				width: 2.5rem;
 			}
 		}
 	}

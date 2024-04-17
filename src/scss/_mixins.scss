@@ -80,3 +80,17 @@
 	margin: $margin;
 	padding: 1rem;
 }
+
+@mixin wpnbha-avatar( $width, $amount: 5 ) {
+	@for $i from 1 through $amount {
+		&:has( > a:nth-child(#{$i}) ),
+		&:has( > .avatar:nth-child(#{$i}) ) {
+			grid-template-columns: calc( #{$i} * #{$width} - #{$i - 1} * var(--wp--preset--spacing--20 ) ) 1fr;
+
+			> a + a:nth-child(#{$i}),
+			> .avatar + .avatar:nth-child(#{$i}) {
+				margin-left: calc( #{$i - 1} * #{$width} - #{$i - 1} * var(--wp--preset--spacing--20 ) );
+			}
+		}
+	}
+}
