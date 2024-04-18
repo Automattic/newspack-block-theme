@@ -47,10 +47,50 @@
 
 	&:hover {
 		background-color: var( --wp--preset--color--base-2 );
-		background-color: color-mix(in srgb, var( --wp--preset--color--base-2 ) 50%, transparent);
+		background-color: color-mix( in srgb, var( --wp--preset--color--contrast ) 3.5%, transparent );
 	}
 
 	&:focus {
 		outline-offset: 2px;
+	}
+}
+
+@mixin notice( $type, $margin: var( --wp--preset--spacing--50 ) 0 ) {
+	--np--notice--color--border: var( --wp--custom--color--neutral-90 );
+	--np--notice--color--background: var( --wp--custom--color--neutral-5 );
+
+	@if $type == error {
+		--np--notice--color--border: var( --wp--custom--color--error-50 );
+		--np--notice--color--background: var( --wp--custom--color--error-0 );
+	} @else if $type == success {
+		--np--notice--color--border: var( --wp--custom--color--success-50 );
+		--np--notice--color--background: var( --wp--custom--color--success-0 );
+	}  @else if $type == warning {
+		--np--notice--color--border: var( --wp--custom--color--warning-30 );
+		--np--notice--color--background: var( --wp--custom--color--warning-0 );
+	}
+
+	background-color: var( --np--notice--color--background );
+	border-left: 3px solid var( --np--notice--color--border );
+	border-radius: var( --wp--custom--border--radius-x-small );
+	color: var( --wp--custom--color--neutral-90 );
+	font-family: var( --wp--preset--font-family--system-font );
+	font-size: var( --wp--preset--font-size--x-small );
+	line-height: var( --wp--custom--line-height--x-small );
+	margin: $margin;
+	padding: 1rem;
+}
+
+@mixin wpnbha-avatar( $width, $amount: 5 ) {
+	@for $i from 1 through $amount {
+		&:has( > a:nth-child(#{$i}) ),
+		&:has( > .avatar:nth-child(#{$i}) ) {
+			grid-template-columns: calc( #{$i} * #{$width} - #{$i - 1} * var(--wp--preset--spacing--20 ) ) 1fr;
+
+			> a + a:nth-child(#{$i}),
+			> .avatar + .avatar:nth-child(#{$i}) {
+				margin-left: calc( #{$i - 1} * #{$width} - #{$i - 1} * var(--wp--preset--spacing--20 ) );
+			}
+		}
 	}
 }

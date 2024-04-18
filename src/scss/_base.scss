@@ -17,6 +17,22 @@ html {
 	border-radius: 100%;
 }
 
+figcaption {
+	color: var(--wp--preset--color--contrast-3);
+	font-size: var(--wp--preset--font-size--x-small);
+	line-height: var(--wp--custom--line-height--x-small);
+	margin: var(--wp--preset--spacing--20) 0 0;		
+
+	a {
+		color: inherit;
+	}
+
+	.has-background &,
+	.has-text-color & {
+		color: currentcolor;
+	}
+}
+
 // Focus Visible
 :focus-visible {
 	outline: 2px solid;
