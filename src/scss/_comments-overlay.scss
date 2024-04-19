@@ -1,0 +1,39 @@
+@use 'sass-utils';
+
+/**
+ * Comments menu styles
+ */
+.comments-contents {
+	background: var(--wp--preset--color--base);
+	inset: 0 -100% 0 auto;
+	margin: 0;
+	max-width: 760px;
+	opacity: 0;
+	overflow: auto;
+	padding: var(--wp--preset--spacing--80);
+	position: fixed;
+	right: -100%;
+	transition: opacity 125ms ease-in-out, right 250ms ease-in-out;
+	width: 100%;
+	z-index: sass-utils.$zindex-overlay-menu;
+
+	> * {
+		visibility: hidden;
+	}
+}
+
+.menu-open--comments-menu {
+	.comments-contents {
+		opacity: 1;
+		right: 0;
+
+		> * {
+			visibility: visible;
+		}
+	}
+	
+	.overlay-mask {
+		display: block;
+		opacity: 1;
+	}
+}
