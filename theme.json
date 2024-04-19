@@ -51,7 +51,7 @@
 					"slug": "accent"
 				},
 				{
-					"color": "#0B0B8D",
+					"color": "#3366FF",
 					"name": "Accent / Two",
 					"slug": "accent-2"
 				}
@@ -689,21 +689,15 @@
 		},
 		"elements": {
 			"button": {
-				":active": {
-					"color": {
-						"background": "var( --wp--preset--color--contrast )",
-						"text": "var( --wp--preset--color--base )"
-					}
-				},
 				":focus": {
 					"color": {
-						"background": "var( --wp--preset--color--contrast )",
+						"background": "var( --wp--preset--color--accent )",
 						"text": "var( --wp--preset--color--base )"
 					}
 				},
 				":hover": {
 					"color": {
-						"background": "var( --wp--preset--color--contrast )",
+						"background": "color-mix( in srgb, var( --wp--preset--color--accent ) 80%, black )",
 						"text": "var( --wp--preset--color--base )"
 					}
 				},

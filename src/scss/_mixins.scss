@@ -51,7 +51,7 @@
 	}
 
 	&:focus {
-		outline-offset: 2px;
+		outline-color: var( --wp--preset--color--contrast ) !important;
 	}
 }
 
