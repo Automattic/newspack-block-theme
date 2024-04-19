@@ -33,12 +33,6 @@ figcaption {
 	}
 }
 
-// Focus Visible
-:focus-visible {
-	outline: 2px solid;
-	outline-offset: 1px;
-}
-
 // Dropcap
 body .has-drop-cap:not(:focus)::first-letter {
 	font-size: calc(4 * var(--wp--preset--font-size--medium));
