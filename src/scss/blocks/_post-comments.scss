@@ -1,6 +1,10 @@
 @use '../mixins';
 
 .wp-block-post-comments-form {
+	.comment-reply-title {
+		margin-top: 0;
+	}
+
 	form {
 		display: flex;
 		flex-direction: column;
@@ -40,13 +44,13 @@
 		}
 
 		&:not(:last-of-type) {
-			border-bottom: 1px solid var(--wp--custom--color--gray-300);
+			border-bottom: 1px solid var( --wp--preset--color--base-3 );
 			padding-bottom: var(--wp--preset--spacing--50);
 		}
 	}
 
 	ol {
-		border-left: 1px solid var(--wp--custom--color--gray-300);
+		border-left: 1px solid var( --wp--preset--color--base-3 );
 		margin: var(--wp--preset--spacing--50) 0 0;
 		padding-left: var(--wp--preset--spacing--50);
 	}
