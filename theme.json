@@ -642,6 +642,12 @@
 				},
 				"color": {
 					"text": "var( --wp--preset--color--base-3 )"
+				},
+				"spacing": {
+					"margin": {
+						"bottom": "0",
+						"top": "var( --wp--preset--spacing--50 )"
+					}
 				}
 			},
 			"core/social-links": {
