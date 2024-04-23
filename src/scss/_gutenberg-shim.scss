@@ -1,5 +1,3 @@
-@use 'mixins';
-
 // Add CSS for theme.json options that don't exist yet.
 
 /*
@@ -85,40 +83,6 @@ figcaption a {
 			display: none;
 		}
 	}
-}
-
-/*
- * Form Styles
- * https://github.com/WordPress/gutenberg/issues/34198
- */
-label {
-	color: var(--wp--preset--color--contrast);
-	display: inline-block;
-	font-family: var( --wp--preset--font-family--system-font );
-    font-size: var(--wp--preset--font-size--small);
-    font-weight: 600;
-    line-height: var(--wp--custom--line-height--small);
-	margin-bottom: var(--wp--preset--spacing--20);
-}
-
-input[type='text'],
-input[type='email'],
-input[type='url'],
-input[type='password'],
-input[type='search'],
-input[type='number'],
-input[type='tel'],
-input[type='range'],
-input[type='date'],
-input[type='month'],
-input[type='week'],
-input[type='time'],
-input[type='datetime'],
-input[type='datetime-local'],
-input[type='zip'],
-input[type='color'],
-textarea {
-	@include mixins.input;
 }
 
 /*

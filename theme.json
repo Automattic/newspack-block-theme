@@ -327,10 +327,13 @@
 				}
 			},
 			"core/comment-date": {
+				"color": {
+					"text": "var( --wp--preset--color--contrast-3 )"
+				},
 				"elements": {
 					"link": {
 						"color": {
-							"text": "var( --wp--preset--color--contrast-3 )"
+							"text": "inherit"
 						}
 					}
 				},

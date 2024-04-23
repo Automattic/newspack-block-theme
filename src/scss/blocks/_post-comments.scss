@@ -28,14 +28,32 @@
         @include mixins.input;
     }
 
+	input[type="checkbox"] {
+		@include mixins.checkbox-radio;
+		@include mixins.checkbox;
+	}
+
 	.comment-reply-title {
 		margin-top: 0;
+	}
+
+	.comment-form-cookies-consent {
+		gap: var(--wp--preset--spacing--20);
+
+		input[type='checkbox'] {
+			margin-top: 2px !important;
+		}
+
+		label {
+			font-weight: normal;
+			margin-bottom: 0;
+		}
 	}
 
 	.comment-form-url {
 		display: none;
 	}
-	
+
 	.required {
 		color: var(--wp--custom--color--error-50);
 	}
