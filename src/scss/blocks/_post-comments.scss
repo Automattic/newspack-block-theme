@@ -117,3 +117,8 @@
 		}
 	}
 }
+
+.wp-block-comments-pagination {
+	border-top: 1px solid var(--wp--preset--color--base-3);
+	padding-top: var(--wp--preset--spacing--30);
+}

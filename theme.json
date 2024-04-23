@@ -390,9 +390,30 @@
 						}
 					}
 				},
+				"spacing": {
+					"blockGap": "var( --wp--preset--spacing--30 )",
+					"margin": {
+						"top": "var( --wp--preset--spacing--50 )"
+					}
+				},
 				"typography": {
 					"fontSize": "var( --wp--preset--font-size--small )",
+					"fontWeight": "500",
 					"lineHeight": "var( --wp--custom--line-height--small )"
+				}
+			},
+			"core/comments-pagination-numbers": {
+				"elements": {
+					"link": {
+						":hover": {
+							"color": {
+								"background": "var( --wp--preset--color--base-2 )"
+							},
+							"typography": {
+								"textDecoration": "none !important"
+							}
+						}
+					}
 				}
 			},
 			"core/gallery": {
