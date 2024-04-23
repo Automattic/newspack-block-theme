@@ -5,6 +5,15 @@
 		margin-top: 0;
 	}
 
+	.required-field-message {
+		display: block;
+		margin-top: var(--wp--preset--spacing--20);
+	}
+
+	.required {
+		color: var(--wp--custom--color--error-50);
+	}
+
 	form {
 		display: flex;
 		flex-direction: column;
@@ -31,14 +40,16 @@
     textarea {
         @include mixins.input;
     }
-
-	.bypostauthor {
-		// we probably don't want to inline text via CSS; can we filter the author post?
-	}
 }
 
 .wp-block-comment-template {
-	> li {
+	ol {
+		border-left: 1px solid var( --wp--preset--color--base-3 );
+		margin: var(--wp--preset--spacing--50) 0 0;
+		padding-left: var(--wp--preset--spacing--50);
+	}
+
+	.comment {
 		&:not(:first-of-type) {
 			padding-top: var(--wp--preset--spacing--50);
 		}
@@ -48,10 +59,40 @@
 			padding-bottom: var(--wp--preset--spacing--50);
 		}
 	}
+}
 
-	ol {
-		border-left: 1px solid var( --wp--preset--color--base-3 );
-		margin: var(--wp--preset--spacing--50) 0 0;
-		padding-left: var(--wp--preset--spacing--50);
+.wp-block-comment-content {
+	> * {
+		margin: 0 0 var(--wp--preset--spacing--30);
+	}
+
+	.comment-awaiting-moderation {
+		font-size: inherit;
+		line-height: inherit;
+	}
+}
+
+.wp-block-comment-author-name {
+	a {
+		border-radius: var(--wp--custom--border--radius-x-small);
+		transition: color 125ms ease-in-out;
+	}
+	
+	.bypostauthor & {
+		background: var(--wp--preset--color--base-2);
+		border-radius: var(--wp--custom--border--radius-x-small);
+
+		&:not( :has(a) ) {
+			padding: 0 var(--wp--preset--spacing--20);
+		}
+
+		a {
+			display: block;
+			padding: 0 var(--wp--preset--spacing--20);
+
+			&:focus {
+				outline-offset: -3px;
+			}
+		}
 	}
 }
