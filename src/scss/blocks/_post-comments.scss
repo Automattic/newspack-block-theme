@@ -1,19 +1,6 @@
 @use '../mixins';
 
 .wp-block-post-comments-form {
-	.comment-reply-title {
-		margin-top: 0;
-	}
-
-	.required-field-message {
-		display: block;
-		margin-top: var(--wp--preset--spacing--20);
-	}
-
-	.required {
-		color: var(--wp--custom--color--error-50);
-	}
-
 	form {
 		display: flex;
 		flex-direction: column;
@@ -40,6 +27,22 @@
     textarea {
         @include mixins.input;
     }
+
+	.comment-reply-title {
+		margin-top: 0;
+	}
+
+	.comment-form-url {
+		display: none;
+	}
+	
+	.required {
+		color: var(--wp--custom--color--error-50);
+	}
+	
+	.required-field-message {
+		display: block;
+	}
 }
 
 .wp-block-comment-template {
