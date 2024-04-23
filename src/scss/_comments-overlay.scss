@@ -71,6 +71,23 @@
 			}
 		}
 	}
+
+	&:not( .newspack-icon-close ) {
+		.wp-block-button__link {
+			align-items: center;
+			display: inline-flex;
+			gap: var(--wp--preset--spacing--20);
+			justify-content: center;
+
+			&::before {
+				background: currentcolor;
+				content: "";
+				height: 24px;
+				mask: url('../../src/images/icon-comments.svg') 0 0 no-repeat;
+				width: 24px;
+			}
+		}
+	}
 }
 
 .menu-open--comments-menu {
