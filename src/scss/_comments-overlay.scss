@@ -7,43 +7,27 @@
 	background: var(--wp--preset--color--base);
 	inset: 0 -100% 0 auto;
 	margin: 0;
-	max-width: clamp( 37.5rem, 30.357rem + 19.048vw, 47.5rem );
+	max-width: var(--wp--style--global--content-size);
 	opacity: 0;
 	overflow: auto;
-	padding: calc( 36px + var(--wp--preset--spacing--30) ) var(--wp--preset--spacing--30) var(--wp--preset--spacing--30);
+	padding: 0 var(--wp--preset--spacing--30) var(--wp--preset--spacing--30);
 	position: fixed;
 	right: -100%;
 	transition: opacity 125ms ease-in-out, right 250ms ease-in-out;
 	width: 100%;
 	z-index: sass-utils.$zindex-overlay-menu;
 
-	@include sass-utils.media( small ) {
-		padding-bottom: var(--wp--preset--spacing--50);
-		padding-left: var(--wp--preset--spacing--50);
-		padding-right: var(--wp--preset--spacing--50);
-	}
-
 	@include sass-utils.media( medium ) {
-		padding-bottom: var(--wp--preset--spacing--80);
-		padding-left: var(--wp--preset--spacing--80);
-		padding-right: var(--wp--preset--spacing--80);
-	}
-
-	@include sass-utils.media( large-modal ) {
-		padding-top: var(--wp--preset--spacing--80);
+		padding: 0 var(--wp--preset--spacing--40) var(--wp--preset--spacing--40);
 	}
 
 	.admin-bar & {
 		@include sass-utils.media( small ) {
-			padding-top: calc( 36px + 46px + var(--wp--preset--spacing--30) );
+			padding-top: 46px;
 		}
 
 		@include sass-utils.media( medium ) {
-			padding-top: calc( 36px + 32px + var(--wp--preset--spacing--30) );
-		}
-
-		@include sass-utils.media( large-modal ) {
-			padding-top: calc( 32px + var(--wp--preset--spacing--80) );
+			padding-top: 32px;
 		}
 	}
 
@@ -55,20 +39,15 @@
 .comments-menu-toggle {
 	&.newspack-icon-close {
 		display: grid;
+		height: 48px;
+		margin-right: calc( -1 * var(--wp--preset--spacing--30) );
 		place-items: center;
-		position: absolute;
-		right: var(--wp--preset--spacing--20);
-		top: var(--wp--preset--spacing--20);
+		width: 48px;
 
-		@include sass-utils.media( large-modal ) {
-			height: var(--wp--preset--spacing--80);		
-			right: 0;
-			top: 0;
-			width: var(--wp--preset--spacing--80);
-
-			.admin-bar & {
-				top: 32px;
-			}
+		@include sass-utils.media( medium ) {
+			height: 64px;
+			margin-right: calc( -1 * var(--wp--preset--spacing--40) );
+			width: 64px;
 		}
 	}
 

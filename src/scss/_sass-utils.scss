@@ -6,7 +6,6 @@
 $xsmall-screen: 360px;
 $small-screen: 600px;
 $medium-screen: 782px;
-$large-modal: 846px; /* Specific to modals with spacing-80 padding */
 $large-screen: 1280px;
 $xlarge-screen: 1312px;
 
@@ -32,20 +31,12 @@ $zindex-screen-reader-text: 100000; /* Above WP toolbar. */
 		@media only screen and (min-width: $medium-screen) {
 			@content;
 		}
-	} @else if $class == large-modal {
-		@media only screen and (min-width: $large-modal) {
-			@content;
-		}
 	} @else if $class == large {
 		@media only screen and (min-width: $large-screen) {
 			@content;
 		}
 	} @else if $class == x-large {
 		@media only screen and (min-width: $xlarge-screen) {
-			@content;
-		}
-	} @else {
-		@media only screen and (min-width: $class) {
 			@content;
 		}
 	}

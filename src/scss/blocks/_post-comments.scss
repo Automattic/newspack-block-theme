@@ -4,8 +4,8 @@
 	form {
 		display: flex;
 		flex-direction: column;
-		gap: var(--wp--preset--spacing--50);
-		margin-top: var(--wp--preset--spacing--50);
+		gap: var(--wp--preset--spacing--30);
+		margin-top: var(--wp--preset--spacing--30);
 
 		p {
 			margin-top: 0;
@@ -35,6 +35,9 @@
 
 	.comment-reply-title {
 		margin-top: 0;
+		font-size: var(--wp--preset--font-size--medium);
+		font-weight: 600;
+		line-height: var(--wp--custom--line-height--medium);
 	}
 
 	.comment-form-cookies-consent {
@@ -71,6 +74,9 @@
 	}
 
 	.comment {
+		font-size: var(--wp--preset--font-size--small);
+		line-height: var(--wp--custom--line-height--small);
+
 		&:not(:first-of-type) {
 			padding-top: var(--wp--preset--spacing--50);
 		}
@@ -80,11 +86,34 @@
 			padding-bottom: var(--wp--preset--spacing--50);
 		}
 	}
+
+	.comment-respond {
+		margin: var(--wp--preset--spacing--50) 0 0;
+
+		.comment-reply-title {
+			align-items: baseline;
+			display: flex;
+			flex-wrap: wrap;
+			gap: var(--wp--preset--spacing--20);
+			justify-content: space-between;
+
+			a {
+				color: inherit;
+			}
+
+			small {
+				font-size: var(--wp--preset--font-size--small);
+				font-weight: 400;
+				line-height: var(--wp--custom--line-height--small);
+				margin: 0;
+			}
+		}
+	}
 }
 
 .wp-block-comment-content {
 	> * {
-		margin: 0 0 var(--wp--preset--spacing--30);
+		margin: var(--wp--preset--spacing--30) 0;
 	}
 
 	.comment-awaiting-moderation {
@@ -104,12 +133,12 @@
 		border-radius: var(--wp--custom--border--radius-x-small);
 
 		&:not( :has(a) ) {
-			padding: 0 var(--wp--preset--spacing--20);
+			padding: 0 0.375em;
 		}
 
 		a {
 			display: block;
-			padding: 0 var(--wp--preset--spacing--20);
+			padding: 0 0.375em;
 
 			&:focus {
 				outline-offset: -3px;
@@ -121,4 +150,10 @@
 .wp-block-comments-pagination {
 	border-top: 1px solid var(--wp--preset--color--base-3);
 	padding-top: var(--wp--preset--spacing--30);
+
+	> .wp-block-comments-pagination-next,
+	> .wp-block-comments-pagination-numbers,
+	> .wp-block-comments-pagination-previous {
+		margin: 0;
+	}
 }
