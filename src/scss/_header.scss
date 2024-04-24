@@ -63,3 +63,10 @@
 		visibility: visible;
 	}
 }
+
+// Header margin
+.wp-site-blocks {
+	> header + * {
+		margin-top: 0;
+	}
+}
