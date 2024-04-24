@@ -18,8 +18,6 @@
 	width: 100%;
 	z-index: sass-utils.$zindex-overlay-menu;
 
-	@include mixins.elevation( 3 );
-
 	@include sass-utils.media( medium ) {
 		padding: 0 var(--wp--preset--spacing--40) var(--wp--preset--spacing--40);
 	}
@@ -76,6 +74,8 @@
 	.comments-contents {
 		opacity: 1;
 		right: 0;
+
+		@include mixins.elevation( 3 );
 
 		> * {
 			visibility: visible;
