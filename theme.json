@@ -233,6 +233,12 @@
 				"xxxx-large": "1.125",
 				"xxxxx-large": "1.1",
 				"xxxxxx-large": "1.08333333333"
+			},
+			"width": {
+				"x-small": "300px",
+				"small": "410px",
+				"medium": "632px",
+				"large": "964px"
 			}
 		}
 	},
