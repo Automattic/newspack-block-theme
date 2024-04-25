@@ -1,3 +1,5 @@
+@use 'mixins';
+
 /*
  * Newspack Theme
  */
@@ -15,10 +17,20 @@ html {
 	border-radius: 100%;
 }
 
-// Focus Visible
-:focus-visible {
-	outline: 1.5px solid;
-	outline-offset: 1px;
+figcaption {
+	color: var(--wp--preset--color--contrast-3);
+	font-size: var(--wp--preset--font-size--x-small);
+	line-height: var(--wp--custom--line-height--x-small);
+	margin: var(--wp--preset--spacing--20) 0 0;		
+
+	a {
+		color: inherit;
+	}
+
+	.has-background &,
+	.has-text-color & {
+		color: currentcolor;
+	}
 }
 
 // Dropcap
@@ -39,11 +51,7 @@ body .has-drop-cap:not(:focus)::first-letter {
 	}
 
 	.wp-block-button__link {
-		background: transparent;
-		display: grid;
-		height: 36px;
-		place-items: center;
-		width: 36px;
+		@include mixins.button-icon;
 
 		&::after {
 			background-color: currentcolor;
@@ -52,10 +60,6 @@ body .has-drop-cap:not(:focus)::first-letter {
 			height: 24px;
 			mask-size: 24px;
 			width: 24px;
-		}
-
-		&:focus {
-			outline-offset: -1.5px;
 		}
 	}
 }

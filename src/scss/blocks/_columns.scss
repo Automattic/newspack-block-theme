@@ -11,6 +11,16 @@
 			display: inherit;
 		}
 	}
+
+	&.is-style-borders > .wp-block-column::after {
+		border-color: var(--wp--preset--color--base-3);
+
+		.has-background &,
+		.has-text-color & {
+			border-color: currentcolor; // Fallback
+			border-color: color-mix(in srgb, currentcolor 15%, transparent);
+		}
+	}
 }
 
 // Newspack Grid
@@ -41,7 +51,7 @@
 			grid-column-end: span 12;
 		}
 
-		/* Three column layout */
+		/* "33 / 33 / 33" layout */
 		.wp-block-column:not([style*='flex-basis']):nth-last-child(3):first-child,
 		.wp-block-column:not([style*='flex-basis']):nth-last-child(3):first-child ~ .wp-block-column {
 			grid-column-end: span 4;
