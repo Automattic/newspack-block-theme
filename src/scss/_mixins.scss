@@ -94,3 +94,15 @@
 		}
 	}
 }
+
+@mixin cap-avatar( $width, $amount: 5 ) {
+	@for $i from 1 through $amount {
+		&:has( .wp-block-co-authors-plus-coauthor:nth-of-type(#{$i}) ) {
+			padding-left: calc( #{$i} * #{$width} - #{$i - 1} * var(--wp--preset--spacing--20 ) );
+
+			.wp-block-co-authors-plus-coauthor:nth-of-type(#{$i}) .wp-block-co-authors-plus-avatar {
+				margin-left: calc( #{$i - 1} * #{$width} - #{$i - 1} * var(--wp--preset--spacing--20 ) );
+			}
+		}
+	}
+}
