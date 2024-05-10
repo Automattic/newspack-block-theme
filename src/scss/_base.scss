@@ -64,12 +64,12 @@ body .has-drop-cap:not(:focus)::first-letter {
 	}
 }
 
-.newspack-icon-menu .wp-block-button__link::after {
-	mask: url('../../src/images/icon-menu.svg') 0 0 no-repeat;
-}
-
 .newspack-icon-close .wp-block-button__link::after {
 	mask: url('../../src/images/icon-close.svg') 0 0 no-repeat;
+}
+
+.newspack-icon-menu .wp-block-button__link::after {
+	mask: url('../../src/images/icon-menu.svg') 0 0 no-repeat;
 }
 
 .newspack-icon-search .wp-block-button__link::after {
