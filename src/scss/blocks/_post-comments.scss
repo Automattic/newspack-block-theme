@@ -1,3 +1,5 @@
+@use '../mixins';
+
 .wp-block-post-comments-form {
 	form {
 		display: flex;
@@ -12,13 +14,19 @@
 	}
 
 	p {
-		color: var(--wp--custom--color--gray-700);
-		font-size: var(--wp--preset--font-size--small);
+		color: inherit;
+		font-size: inherit;
+		line-height: inherit;
 
 		a {
 			color: inherit;
 		}
 	}
+
+	input:not([type="submit"]):not([type="checkbox"]),
+    textarea {
+        @include mixins.input;
+    }
 
 	.bypostauthor {
 		// we probably don't want to inline text via CSS; can we filter the author post?

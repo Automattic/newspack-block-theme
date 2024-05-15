@@ -67,9 +67,9 @@
 
 	a {
 		text-decoration-color: transparent;
-		text-decoration-thickness: 0.1875em !important;
+		text-decoration-thickness: 0.125em !important;
 		text-underline-offset: 0.375em;
-		transition: all 125ms linear;
+		transition: text-decoration-color 125ms ease-in-out;
 		transition-delay: 100ms;
 
 		&:not(.wp-element-button):hover {

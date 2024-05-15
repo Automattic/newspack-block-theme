@@ -40,4 +40,9 @@
 			gap: var(--wp--preset--spacing--30);
 		}
 	}
+
+	a:not( .wp-element-button ):focus-visible {
+		outline: 2px solid;
+		outline-offset: 1px;
+	}
 }
