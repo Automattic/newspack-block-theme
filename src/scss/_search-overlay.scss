@@ -10,7 +10,7 @@
 	opacity: 0;
 	overflow: auto;
 	padding: var(--wp--preset--spacing--30);
-	position: fixed;
+	position: fixed !important; // !important to override some styles in the editor.
 	transition: opacity 0.125s;
 	width: 100%;
 	z-index: sass-utils.$zindex-overlay-menu;
