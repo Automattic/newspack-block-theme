@@ -1,3 +1,12 @@
+# [1.7.0](https://github.com/Automattic/newspack-block-theme/compare/v1.6.0...v1.7.0) (2024-05-15)
+
+
+### Features
+
+* homepage articles styles ([#118](https://github.com/Automattic/newspack-block-theme/issues/118)) ([532ad6d](https://github.com/Automattic/newspack-block-theme/commit/532ad6d88176f680ee77ac64f2565a53216627ec))
+* update button styles ([#134](https://github.com/Automattic/newspack-block-theme/issues/134)) ([d888783](https://github.com/Automattic/newspack-block-theme/commit/d88878355665016778a5db1f98406b3d4f46151f))
+* update input to match newspack components ([#133](https://github.com/Automattic/newspack-block-theme/issues/133)) ([094cf6f](https://github.com/Automattic/newspack-block-theme/commit/094cf6fcecd2e53584bbd2f44d65024e4a960ea8))
+
 # [1.7.0-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.6.0...v1.7.0-alpha.1) (2024-04-25)
 
 
