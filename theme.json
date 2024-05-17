@@ -258,6 +258,23 @@
 					"lineHeight": "var( --wp--custom--line-height--x-small )"
 				}
 			},
+			"co-authors-plus/name": {
+				"elements": {
+					"link": {
+						"color": {
+							"text": "var( --wp--preset--color--contrast-3 )"
+						},
+						":hover": {
+							"color": {
+								"text": "var( --wp--preset--color--contrast-3 )"
+							},
+							"typography": {
+								"textDecoration": "none"
+							}
+						}
+					}
+				}
+			},
 			"core/button": {
 				"spacing": {
 					"padding": {
@@ -491,7 +508,7 @@
 						},
 						":hover": {
 							"color": {
-								"text": "var( --wp--preset--color--contrast )"
+								"text": "var( --wp--preset--color--contrast-3 )"
 							},
 							"typography": {
 								"textDecoration": "none"
