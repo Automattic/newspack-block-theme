@@ -135,8 +135,16 @@ final class Core {
 		register_block_pattern_category(
 			'newspack-block-theme',
 			array(
-				'label'       => __( 'Newspack Block Theme', 'text-domain' ),
-				'description' => __( 'Patterns bundled with the Newspack Block Theme.', 'text-domain' ),
+				'label'       => __( 'Newspack Theme', 'newspack-block-theme' ),
+				'description' => __( 'Patterns bundled with the Newspack Block Theme.', 'newspack-block-theme' ),
+			)
+		);
+
+		register_block_pattern_category(
+			'newspack-block-theme-post-meta',
+			array(
+				'label'       => __( 'Newspack Theme - Post Meta', 'newspack-block-theme' ),
+				'description' => __( 'Patterns bundled with the Newspack Block Theme, specifically built for the post meta.', 'newspack-block-theme' ),
 			)
 		);
 	}
