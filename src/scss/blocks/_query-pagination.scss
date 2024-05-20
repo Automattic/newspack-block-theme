@@ -1,18 +1,19 @@
 @use '../sass-utils';
 
+.wp-block-comments-pagination,
 .wp-block-query-pagination {
 	a,
 	.current,
-	.wp-block-query-pagination-numbers,
-	.wp-block-comments-pagination-numbers {
+	.wp-block-comments-pagination-numbers,
+	.wp-block-query-pagination-numbers {
 		align-items: center;
 		display: flex;
 		justify-content: center;
 	}
 
-	.wp-block-query-pagination-numbers,
-	.wp-block-comments-pagination-numbers {
-		gap: calc(var(--wp--preset--spacing--20) / 4);
+	.wp-block-comments-pagination-numbers,
+	.wp-block-query-pagination-numbers {
+		gap: calc(var(--wp--preset--spacing--20) / 2);
 
 		a,
 		.current {
@@ -23,7 +24,9 @@
 			@include sass-utils.all-transition;
 		}
 	}
+}
 
+.wp-block-query-pagination {
 	// Justification = Space Between
 	&.is-content-justification-space-between {
 		@include sass-utils.media(small) {

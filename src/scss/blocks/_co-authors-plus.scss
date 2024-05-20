@@ -1,0 +1,28 @@
+@use '../mixins';
+
+.wp-block-co-authors-plus-coauthors {
+
+    &.wp-block-coauthors-is-layout-flow {
+        position: relative;
+
+        &:has(.wp-block-co-authors-plus-avatar) {
+            padding-left: calc( 24px + var(--wp--preset--spacing--20) );
+
+            .wp-block-co-authors-plus-coauthors__prefix {
+                margin-left: var(--wp--preset--spacing--20);
+            }
+
+            @include mixins.cap-avatar( $width: 24px );
+        }
+    
+        .wp-block-co-authors-plus-avatar {
+            left: 0;
+            position: absolute;
+            top: 0;
+    
+            img {
+                display: block;
+            }
+        }
+    }
+}

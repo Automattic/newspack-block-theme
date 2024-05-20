@@ -83,9 +83,9 @@ final class Core {
 		// Strings for translation.
 		$newspack_l10n = array(
 			'close_search' => esc_html__( 'Close Search', 'newspack-block-theme' ),
-			'open_search'  => esc_html__( 'Open Search', 'newspack-block-theme' )
+			'open_search'  => esc_html__( 'Open Search', 'newspack-block-theme' ),
 		);
-		if ( wp_script_is( 'jetpack-instant-search', 'enqueued') ) {
+		if ( wp_script_is( 'jetpack-instant-search', 'enqueued' ) ) {
 			$newspack_l10n['jetpack_instant_search'] = 'true';
 		}
 
@@ -94,6 +94,9 @@ final class Core {
 		wp_localize_script( 'newspack-main', 'newspackScreenReaderText', $newspack_l10n );
 	}
 
+	/**
+	 * Enqueue editor scripts.
+	 */
 	public static function editor_scripts() {
 		// Enqueue editor JavaScript.
 		wp_enqueue_script( 'editor-script', get_theme_file_uri( '/dist/editor.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
@@ -107,16 +110,17 @@ final class Core {
 	 * We may be able to replace this with JavaScript; I'm unclear whether isDefault isn't working, or just not working as I expect it to.
 	 * See: https://github.com/WordPress/gutenberg/issues/28119
 	 *
+	 * @param array $metadata Block metadata.
 	 * @return array Block metadata.
 	 */
 	public static function block_variations( $metadata ) {
-		if ( $metadata[ 'name' ] == 'core/search' ) {
+		if ( $metadata['name'] == 'core/search' ) {
 			$metadata['attributes']['buttonPosition']['default'] = 'button-inside';
 			$metadata['attributes']['buttonUseIcon']['default']  = true;
 			$metadata['attributes']['placeholder']['default']    = esc_html__( 'Search...', 'newspack-block-theme' );
 			$metadata['attributes']['showLabel']['default']      = false;
 		}
-		if ( $metadata[ 'name' ] == 'core/navigation' ) {
+		if ( $metadata['name'] == 'core/navigation' ) {
 			$metadata['attributes']['overlayMenu']['default'] = 'never';
 		}
 		return $metadata;
@@ -131,7 +135,7 @@ final class Core {
 		register_block_pattern_category(
 			'newspack-block-theme',
 			array(
-				'label' => __( 'Newspack Block Theme', 'text-domain' ),
+				'label'       => __( 'Newspack Block Theme', 'text-domain' ),
 				'description' => __( 'Patterns bundled with the Newspack Block Theme.', 'text-domain' ),
 			)
 		);
