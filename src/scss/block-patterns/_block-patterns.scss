@@ -1,0 +1,24 @@
+@use '../sass-utils';
+
+.newspack-pattern {
+    &.subscribe {
+        &__style-squeeze {
+            .wp-block-media-text__content {
+                padding: 0;
+                grid-column: span 2;
+
+                @include sass-utils.media(medium) {
+                    grid-column: auto;
+                }
+            }
+
+            .wp-block-media-text__media {
+                display: none;
+
+                @include sass-utils.media(medium) {
+                    display: block;
+                }
+            }
+        }
+    }
+}
