@@ -47,6 +47,6 @@
     "newspack-scripts": "^5.4.0",
     "postcss-scss": "^4.0.9",
     "prettier": "^3.2.5",
-    "stylelint": "^16.5.0"
+    "stylelint": "^16.6.0"
   }
 }
