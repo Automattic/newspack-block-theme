@@ -1,6 +1,7 @@
 @use '../sass-utils';
 
 .newspack-pattern {
+    &.donations,
     &.subscribe {
         &__style-squeeze {
             .wp-block-media-text__content {
