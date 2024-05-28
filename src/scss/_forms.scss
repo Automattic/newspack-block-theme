@@ -46,3 +46,19 @@ input[type='checkbox'] {
 input[type='radio'] {
 	@include mixins.radio;
 }
+
+button,
+input[type='submit'] {
+	border: 0;
+	border-radius: var( --newspack-ui-border-radius-m, var( --wp--custom--border--radius-medium ) );
+	cursor: pointer;
+	font-family: var( --newspack-ui-font-family, system-ui,sans-serif );
+	font-size: var( --newspack-ui-font-size-s, var( --wp--preset--font-size--small ) );
+	line-height: var( --newspack-ui-line-height-s, var( --wp--custom--line-height--small ) );
+	padding: var( --newspack-ui-spacer-2, calc( var( --wp--preset--spacing--20 ) * 1.5 ) ) var( --newspack-ui-spacer-5, var( --wp--preset--spacing--40 ) );
+
+	&:focus {
+		outline: 2px solid var( --newspack-ui-color-neutral-90, --wp--preset--color--contrast );
+		outline-offset: 1px;
+	}
+}
