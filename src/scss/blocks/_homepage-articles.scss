@@ -309,11 +309,11 @@
 					@include mixins.wpnbha-avatar( $width: 2.5rem );
 
 					&:not(:has(.entry-date)) {
-						@include mixins.wpnbha-avatar( $width: 2rem );
+						@include mixins.wpnbha-avatar( $width: 1.5rem );
 	
 						.avatar {
-							height: 2rem;
-							width: 2rem;
+							height: 1.5rem;
+							width: 1.5rem;
 						}
 	
 						.byline {
