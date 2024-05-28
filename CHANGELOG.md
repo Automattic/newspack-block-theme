@@ -1,3 +1,31 @@
+# [1.8.0](https://github.com/Automattic/newspack-block-theme/compare/v1.7.0...v1.8.0) (2024-05-28)
+
+
+### Bug Fixes
+
+* correct annoying search preview issue ([#147](https://github.com/Automattic/newspack-block-theme/issues/147)) ([7dde399](https://github.com/Automattic/newspack-block-theme/commit/7dde399d98aa05eee770e75c71c12b6f1bb0611d))
+
+
+### Features
+
+* add comments sidebar ([#135](https://github.com/Automattic/newspack-block-theme/issues/135)) ([5ffcd15](https://github.com/Automattic/newspack-block-theme/commit/5ffcd155b89346e61478198df3ee085a08e70a23))
+* add support for co-author plus blocks ([#139](https://github.com/Automattic/newspack-block-theme/issues/139)) ([14e2893](https://github.com/Automattic/newspack-block-theme/commit/14e2893870daded17d5ee626aa1c260d3369e0b4))
+* update search templates ([#137](https://github.com/Automattic/newspack-block-theme/issues/137)) ([5e89534](https://github.com/Automattic/newspack-block-theme/commit/5e89534b21517d8cbc59575eb05ce4494c7d0ffe))
+
+# [1.8.0-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.7.0...v1.8.0-alpha.1) (2024-05-20)
+
+
+### Bug Fixes
+
+* correct annoying search preview issue ([#147](https://github.com/Automattic/newspack-block-theme/issues/147)) ([7dde399](https://github.com/Automattic/newspack-block-theme/commit/7dde399d98aa05eee770e75c71c12b6f1bb0611d))
+
+
+### Features
+
+* add comments sidebar ([#135](https://github.com/Automattic/newspack-block-theme/issues/135)) ([5ffcd15](https://github.com/Automattic/newspack-block-theme/commit/5ffcd155b89346e61478198df3ee085a08e70a23))
+* add support for co-author plus blocks ([#139](https://github.com/Automattic/newspack-block-theme/issues/139)) ([14e2893](https://github.com/Automattic/newspack-block-theme/commit/14e2893870daded17d5ee626aa1c260d3369e0b4))
+* update search templates ([#137](https://github.com/Automattic/newspack-block-theme/issues/137)) ([5e89534](https://github.com/Automattic/newspack-block-theme/commit/5e89534b21517d8cbc59575eb05ce4494c7d0ffe))
+
 # [1.7.0](https://github.com/Automattic/newspack-block-theme/compare/v1.6.0...v1.7.0) (2024-05-15)
 
 
