@@ -408,13 +408,13 @@
 			"core/comments-title": {
 				"spacing": {
 					"margin": {
-						"bottom": 0,
+						"bottom": "0",
 						"top": "var( --wp--preset--spacing--80 )"
 					}
 				},
 				"typography": {
 					"fontSize": "var( --wp--preset--font-size--medium )",
-					"fontWeight": 600,
+					"fontWeight": "600",
 					"lineHeight": "var( --wp--custom--line-height--medium )"
 				}
 			},
@@ -758,6 +758,11 @@
 				"typography": {
 					"fontSize": "var( --wp--preset--font-size--large )",
 					"lineHeight": "var( --wp--custom--line-height--large )"
+				}
+			},
+			"jetpack/sharing-buttons": {
+				"spacing": {
+					"blockGap": "var( --wp--preset--spacing--20 )"
 				}
 			}
 		},

@@ -4,14 +4,17 @@
  * Slug: newspack-block-theme/post-meta-multiple-lines-avatar
  * Categories: newspack-block-theme-post-meta
  * Viewport Width: 632
- * Block Types: core/avatar, core/post-author, core/post-date
+ * Block Types: core/avatar, core/post-author, core/post-date, jetpack/sharing-buttons
  *
  * @package Newspack_Block_Theme
  */
 
 ?>
-<!-- wp:group {"metadata":{"name":"Post Meta"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"className":"post-meta","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
+<!-- wp:group {"metadata":{"name":"Post Meta"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"className":"post-meta","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"bottom"}} -->
 <div class="wp-block-group post-meta">
+	
+<!-- wp:group {"lock":{"move":false,"remove":true},"metadata":{"name":"Meta"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
+<div class="wp-block-group">
 
 <?php if ( class_exists( 'CoAuthors_Guest_Authors' ) ) : ?>
 	
@@ -42,4 +45,19 @@
 
 <!-- wp:post-date {"format":"F j, Y"} /--></div>
 <!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<?php if ( function_exists( 'sharing_display' ) ) : ?>
+
+	<!-- wp:jetpack/sharing-buttons {"styleType":"icon","layout":{"type":"flex","justifyContent":"left","flexWrap":"nowrap"}} -->
+	<ul class="wp-block-jetpack-sharing-buttons has-normal-icon-size jetpack-sharing-buttons__services-list" id="jetpack-sharing-serivces-list">
+		<!-- wp:jetpack/sharing-button {"service":"facebook","label":"Facebook"} /-->
+		<!-- wp:jetpack/sharing-button {"service":"x","label":"X"} /-->
+		<!-- wp:jetpack/sharing-button {"service":"mail","label":"Mail"} /-->
+	</ul>
+	<!-- /wp:jetpack/sharing-buttons -->
+
+<?php endif; ?>
+
+</div>
 <!-- /wp:group -->
