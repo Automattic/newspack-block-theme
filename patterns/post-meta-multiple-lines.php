@@ -13,8 +13,8 @@
 <!-- wp:group {"metadata":{"name":"Post Meta"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"className":"post-meta","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"bottom"}} -->
 <div class="wp-block-group post-meta">
 	
-<!-- wp:group {"lock":{"move":false,"remove":true},"metadata":{"name":"Meta"},"style":{"spacing":{"blockGap":"4px","padding":{"top":"2px","bottom":"2px"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
-<div class="wp-block-group" style="padding-top:2px;padding-bottom:2px">
+<!-- wp:group {"lock":{"move":false,"remove":true},"metadata":{"name":"Meta"},"style":{"spacing":{"blockGap":"4px"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+<div class="wp-block-group">
 
 <?php if ( class_exists( 'CoAuthors_Guest_Authors' ) ) : ?>
 
