@@ -35,6 +35,12 @@
 	> * {
 		visibility: hidden;
 	}
+
+	&:not( :has( .comment-respond ) ) {
+		.wp-block-comments-title {
+			margin-top: 0;
+		}
+	}
 }
 
 .comments-menu-toggle {
