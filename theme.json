@@ -866,6 +866,13 @@
 	},
 	"customTemplates": [
 		{
+			"name": "page/blank",
+			"postTypes": [
+				"page"
+			],
+			"title": "Page - Blank"
+		},
+		{
 			"name": "single/large-image",
 			"postTypes": [
 				"post"
