@@ -22,8 +22,8 @@ final class Core {
 	protected static $instance = null;
 
 	/**
-	 * Main Newspack_Block_Theme instance.
-	 * Ensures only one instance of Newspack_Block_Theme is loaded or can be loaded.
+	 * Main Core instance.
+	 * Ensures only one instance of Core is loaded or can be loaded.
 	 *
 	 * @return Core - Main instance.
 	 */
@@ -141,6 +141,5 @@ final class Core {
 		);
 	}
 }
-
 
 Core::instance();
