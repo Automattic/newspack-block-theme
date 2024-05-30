@@ -9,4 +9,14 @@
 		font-size: inherit;
 		margin-right: 0.25em;
 	}
+
+	&__avatar {
+		display: grid;
+		margin-right: var( --wp--preset--spacing--20 );
+		place-items: center;
+
+		img {
+			border-radius: 50%;
+		}
+	}
 }
