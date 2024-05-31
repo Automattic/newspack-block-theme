@@ -290,6 +290,7 @@
 					"date";
 				line-height: var(--wp--custom--line-height--x-small);
 				margin: var(--wp--preset--spacing--20) 0 0;
+				row-gap: calc( var(--wp--preset--spacing--20) / 2);
 
 				.byline {
 					margin: 0;
@@ -306,14 +307,14 @@
 						"avatar byline"
 						"avatar date";
 
-					@include mixins.wpnbha-avatar( $width: 2.5rem );
+					@include mixins.wpnbha-avatar( $width: 48px );
 
 					&:not(:has(.entry-date)) {
-						@include mixins.wpnbha-avatar( $width: 1.5rem );
+						@include mixins.wpnbha-avatar( $width: 24px );
 	
 						.avatar {
-							height: 1.5rem;
-							width: 1.5rem;
+							height:24px;
+							width: 24px;
 						}
 	
 						.byline {
@@ -327,9 +328,9 @@
 					}
 
 					.avatar {
-						height: 2.5rem;
+						height: 48px;
 						margin: 0;
-						width: 2.5rem;
+						width: 48px;
 					}
 				}
 			}
