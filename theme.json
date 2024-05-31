@@ -754,6 +754,17 @@
 					"lineHeight": "var( --wp--custom--line-height--large )"
 				}
 			},
+			"core/table": {
+				"border": {
+					"color": "var( --wp--preset--color--base-3 )",
+					"style": "solid",
+					"width": "1px"
+				},
+				"typography": {
+					"fontSize": "var( --wp--preset--font-size--small )",
+					"lineHeight": "var( --wp--custom--line-height--small )"
+				}
+			},
 			"core/term-description": {
 				"typography": {
 					"fontSize": "var( --wp--preset--font-size--large )",
