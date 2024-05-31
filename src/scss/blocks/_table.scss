@@ -36,4 +36,17 @@
 			}
 		}
 	}
+
+	&[style*='font-size'],
+	&[class*='font-size'] {
+		table {
+			font-size: inherit;
+		}
+	}
+
+	&[style*='line-height'] {
+		table {
+			line-height: inherit;
+		}
+	}
 }

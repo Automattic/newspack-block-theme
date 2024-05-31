@@ -492,6 +492,7 @@
 					"blockGap": "var( --wp--preset--spacing--50 )"
 				},
 				"typography": {
+					"fontFamily": "var( --wp--preset--font-family--system-font )",
 					"fontSize": "var( --wp--preset--font-size--small )",
 					"fontWeight": "600",
 					"lineHeight": "var( --wp--custom--line-height--small )"
@@ -852,8 +853,15 @@
 					"text": "var( --wp--preset--color--contrast-3 )"
 				},
 				"typography": {
+					"fontFamily": "var( --wp--preset--font-family--system-font )",
 					"fontSize": "var( --wp--preset--font-size--x-small )",
-					"lineHeight": "var( --wp--custom--line-height--x-small )"
+					"fontStyle": "normal",
+					"fontWeight": "400",
+					"letterSpacing": "0",
+					"lineHeight": "var( --wp--custom--line-height--x-small )",
+					"textDecoration": "none",
+					"textTransform": "none"
+
 				}
 			},
 			"h1": {
