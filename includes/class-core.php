@@ -163,6 +163,14 @@ final class Core {
 				'label' => __( 'Rounded', 'newspack-block-theme' ),
 			)
 		);
+
+		register_block_style(
+			'core/list',
+			array(
+				'name'  => 'checked',
+				'label' => __( 'Checked', 'newspack-block-theme' ),
+			)
+		);
 	}
 }
 
