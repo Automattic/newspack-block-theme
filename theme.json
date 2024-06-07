@@ -944,6 +944,13 @@
 			"title": "Page - Blank"
 		},
 		{
+			"name": "page/blank-footer",
+			"postTypes": [
+				"page"
+			],
+			"title": "Page - Blank with Footer"
+		},
+		{
 			"name": "single/large-image",
 			"postTypes": [
 				"post"
