@@ -42,8 +42,10 @@ final class Core {
 		\add_action( 'wp_enqueue_scripts', [ __CLASS__, 'theme_styles' ] );
 		\add_action( 'enqueue_block_editor_assets', [ __CLASS__, 'editor_scripts' ] );
 		\add_filter( 'block_type_metadata', [ __CLASS__, 'block_variations' ] );
+		\add_filter( 'should_load_remote_block_patterns', '__return_false' );
 		\add_action( 'init', [ __CLASS__, 'block_pattern_categories' ] );
 		\add_action( 'init', [ __CLASS__, 'register_block_styles' ] );
+		\add_action( 'init', [ __CLASS__, 'unregister_block_patterns' ] );
 	}
 
 	/**
@@ -59,6 +61,9 @@ final class Core {
 
 		// Make theme available for translation.
 		\load_theme_textdomain( 'newspack-block-theme' );
+
+		// Remove core patterns.
+		\remove_theme_support( 'core-block-patterns' );
 	}
 
 	/**
@@ -171,6 +176,22 @@ final class Core {
 				'label' => __( 'Checked', 'newspack-block-theme' ),
 			)
 		);
+	}
+
+	/**
+	 * Unregister some block patterns.
+	 *
+	 * @since Newspack Block Theme 1.0
+	 */
+	public static function unregister_block_patterns() {
+		unregister_block_pattern( 'woocommerce-blocks/footer-large' );
+		unregister_block_pattern( 'woocommerce-blocks/footer-large-dark' );
+		unregister_block_pattern( 'woocommerce-blocks/footer-simple' );
+		unregister_block_pattern( 'woocommerce-blocks/footer-simple-dark' );
+		unregister_block_pattern( 'woocommerce-blocks/footer-simple-menu' );
+		unregister_block_pattern( 'woocommerce-blocks/footer-with-2-menus' );
+		unregister_block_pattern( 'woocommerce-blocks/footer-with-2-menus-dark' );
+		unregister_block_pattern( 'woocommerce-blocks/footer-with-3-menus' );
 	}
 }
 
