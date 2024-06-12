@@ -35,6 +35,16 @@
 	> * {
 		visibility: hidden;
 	}
+  
+	&:not( :has( .comment-respond ) ) {
+		.wp-block-comments-title {
+			margin-top: 0;
+		}
+	}
+ 
+	&:has( #disqus_thread ) { /* stylelint-disable-line */
+		max-width: calc( ( var(--wp--custom--width--medium) - ( var(--wp--preset--spacing--50) * 5 ) ) / 6 * 7 + ( var(--wp--preset--spacing--50) * 6 ) );
+  }
 }
 
 .comments-menu-toggle {
