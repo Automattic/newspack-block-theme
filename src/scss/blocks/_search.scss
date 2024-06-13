@@ -26,13 +26,8 @@
 		width: 100%;
 
 		&:focus-within {
-			outline: 2px solid var( --wp--preset--color--contrast-3 );
+			outline: 2px solid var( --wp--preset--color--contrast );
 			outline-offset: -1px;
-	
-			@media ( prefers-contrast: more ) {
-				border-color: var( --wp--preset--color--contrast );
-				outline-color: var( --wp--preset--color--contrast );
-			}
 		}
 
 		.wp-block-search__inside-wrapper {

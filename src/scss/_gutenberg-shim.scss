@@ -55,19 +55,6 @@ figcaption a {
 }
 
 /*
- * Search styles
- * Hide date and byline for pages; may want to flip this in the future to all but posts.
- */
-.search-results {
-	.type-page {
-		.wp-block-post-author,
-		.wp-block-post-date {
-			display: none;
-		}
-	}
-}
-
-/*
  * Editor styles
  *
  * Fix spacing between title and editor content.
