@@ -82,3 +82,33 @@
 		}
 	}
 }
+
+.newspack-grid-small {
+	@include sass-utils.media(x-large) {
+		&.wp-block-columns {
+			display: grid;
+			grid-template-columns: repeat(6, 1fr);
+		}
+
+		& > * {
+			grid-column: 1 / -1;
+			margin: 0 !important;
+		}
+
+		.wp-block-column {
+			grid-column: auto / span 3;
+		}
+
+		.wp-block-column:only-child {
+			grid-column-end: span 6;
+		}
+
+		/* "30 / 70" and "70 / 30" layouts */
+		.wp-block-column[style*='33.33%'] {
+			grid-column-end: span 2;
+		}
+		.wp-block-column[style*='66.66%'] {
+			grid-column-end: span 4;
+		}
+	}
+}
