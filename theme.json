@@ -783,6 +783,11 @@
 					"lineHeight": "var( --wp--custom--line-height--large )"
 				}
 			},
+			"core/verse": {
+				"typography": {
+					"fontFamily": "monospace"
+				}
+			},
 			"jetpack/sharing-buttons": {
 				"spacing": {
 					"blockGap": "var( --wp--preset--spacing--20 )"
