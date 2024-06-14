@@ -336,7 +336,10 @@
 			},
 			"core/columns": {
 				"spacing": {
-					"blockGap": "var( --wp--preset--spacing--50 )",
+					"blockGap": {
+						"left": "var( --wp--preset--spacing--50 )",
+						"top": "var( --wp--preset--spacing--50 )"
+					},
 					"margin": {
 						"bottom": "var( --wp--preset--spacing--50 )"
 					}
