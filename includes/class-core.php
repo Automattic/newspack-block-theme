@@ -44,7 +44,6 @@ final class Core {
 		\add_filter( 'block_type_metadata', [ __CLASS__, 'block_variations' ] );
 		\add_filter( 'should_load_remote_block_patterns', '__return_false' );
 		\add_action( 'init', [ __CLASS__, 'block_pattern_categories' ] );
-		\add_action( 'init', [ __CLASS__, 'register_block_styles' ] );
 		\add_action( 'init', [ __CLASS__, 'unregister_block_patterns' ] );
 	}
 
@@ -151,29 +150,6 @@ final class Core {
 			array(
 				'label'       => __( 'Newspack Theme - Post Meta', 'newspack-block-theme' ),
 				'description' => __( 'Patterns bundled with the Newspack Block Theme, specifically built for the post meta.', 'newspack-block-theme' ),
-			)
-		);
-	}
-
-	/**
-	 * Register new block styles.
-	 *
-	 * @since Newspack Block Theme 1.0
-	 */
-	public static function register_block_styles() {
-		register_block_style(
-			'core/column',
-			array(
-				'name'  => 'rounded',
-				'label' => __( 'Rounded', 'newspack-block-theme' ),
-			)
-		);
-
-		register_block_style(
-			'core/list',
-			array(
-				'name'  => 'checked',
-				'label' => __( 'Checked', 'newspack-block-theme' ),
 			)
 		);
 	}
