@@ -1,9 +1,9 @@
 @mixin input {
-    box-sizing: border-box;
+	box-sizing: border-box;
 	background-color: var( --wp--preset--color--base );
 	border: 1px solid var( --wp--preset--color--base-4 );
 	border-radius: var( --wp--custom--border--radius-medium );
-    font-family: var( --wp--preset--font-family--system-font );
+	font-family: var( --wp--preset--font-family--inter );
 	font-size: var( --wp--preset--font-size--small );
 	line-height: var( --wp--custom--line-height--small );
 	padding: calc( 0.75rem - 1px );
@@ -78,7 +78,7 @@
 
 @mixin checkbox {
 	border-radius: var( --wp--custom--border--radius-xx-small );
-	
+
 	&::before {
 		background: transparent
 			url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath d='M16.7 7.1l-6.3 8.5-3.3-2.5-.9 1.2 4.5 3.4L17.9 8z' fill='white'%3E%3C/path%3E%3C/svg%3E" )
@@ -130,13 +130,13 @@
 }
 
 @mixin elevation($size: 1) {
-    @if $size == 1 {
-        box-shadow: 0 1px 10px rgba( 0, 0, 0, 0.07 );
-    } @else if $size == 2 {
-        box-shadow: 0 2px 20px rgba( 0, 0, 0, 0.14 );
-    }  @else if $size == 3 {
-        box-shadow: 0 3px 30px rgba( 0, 0, 0, 0.21 );
-    }
+	@if $size == 1 {
+		box-shadow: 0 1px 10px rgba( 0, 0, 0, 0.07 );
+	} @else if $size == 2 {
+		box-shadow: 0 2px 20px rgba( 0, 0, 0, 0.14 );
+	}  @else if $size == 3 {
+		box-shadow: 0 3px 30px rgba( 0, 0, 0, 0.21 );
+	}
 }
 
 @mixin notice( $type, $margin: var( --wp--preset--spacing--50 ) 0 ) {
@@ -158,7 +158,7 @@
 	border-left: 3px solid var( --np--notice--color--border );
 	border-radius: var( --wp--custom--border--radius-x-small );
 	color: var( --wp--custom--color--neutral-90 );
-	font-family: var( --wp--preset--font-family--system-font );
+	font-family: var( --wp--preset--font-family--inter );
 	font-size: var( --wp--preset--font-size--x-small );
 	line-height: var( --wp--custom--line-height--x-small );
 	margin: $margin;
