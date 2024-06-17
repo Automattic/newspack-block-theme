@@ -1,3 +1,6 @@
 import '../shared/_shared-module';
-import './block-styles/navigation-styles.js';
-import './block-styles/separator-styles.js';
+import './block-styles/column.js';
+import './block-styles/group.js';
+import './block-styles/list.js';
+import './block-styles/navigation.js';
+import './block-styles/separator.js';
