@@ -97,6 +97,29 @@
 			grid-column-end: span 8;
 		}
 	}
+
+	&:has( .wp-block-column[style*='25%']:empty ):has( .wp-block-column[style*='50%'] ) {
+		justify-content: center;
+
+		.wp-block-column[style*='50%'] {
+			flex-basis: 100% !important;
+			max-width: var( --wp--style--global--content-size );
+		}
+
+		.wp-block-column[style*='25%']:empty {
+			display: none;
+
+			@include sass-utils.media( x-large ) {
+				display: inherit;
+			}
+		}
+
+		&:has( :not( .wp-block-column[style*='25%']:empty ) ) {
+			.wp-block-column[style*='50%'] {
+				flex-basis: 75% !important;
+			}
+		}
+	}
 }
 
 .newspack-grid-small {
