@@ -1,11 +1,43 @@
+@use '../sass-utils';
+
 .wp-block-post-terms {
 	&.taxonomy-post_tag {
-		a {
-			border: 1px solid var(--wp--custom--color--gray-100);
-			border-radius: var(--wp--custom--border--radius-medium);
-			display: inline-block;
-			margin-right: 0.25rem;
-			padding: 0.1875rem 0.5625rem;
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		gap: var( --wp--custom--spacing--10 );
+
+		a,
+		> span:not( [class*="wp-block-post-terms__"] ) {
+			background: var( --wp--preset--color--base-2 );
+			border-radius: var( --wp--custom--border--radius-small );
+			display: grid;
+			min-height: var( --wp--preset--spacing--50 );
+			padding: var( --wp--custom--spacing--10 ) var( --wp--preset--spacing--20 );
+			place-items: center;
+			@include sass-utils.all-transition;
+
+			&:hover {
+				background: var( --wp--preset--color--base-3 );
+				text-decoration: none;
+			}
+
+			&:focus {
+				outline: none;
+			}
+
+			&:focus-visible {
+				outline: 2px solid;
+				outline-offset: 1px;
+			}
+		}
+
+		.wp-block-post-terms__prefix {
+			padding-right: var( --wp--custom--spacing--10 );
+		}
+
+		.wp-block-post-terms__suffix {
+			padding-left: var( --wp--custom--spacing--10 );
 		}
 
 		.wp-block-post-terms__separator {

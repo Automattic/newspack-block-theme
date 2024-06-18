@@ -13,7 +13,7 @@
 
 	.wp-block-comments-pagination-numbers,
 	.wp-block-query-pagination-numbers {
-		gap: calc( var( --wp--preset--spacing--20 ) / 2 );
+		gap: var( --wp--custom--spacing--10 );
 		margin: 0;
 
 		a,

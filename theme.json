@@ -234,6 +234,10 @@
 				"xxxxx-large": "1.1",
 				"xxxxxx-large": "1.08333333333"
 			},
+			"spacing": {
+				"00": "0",
+				"10": "0.25rem"
+			},
 			"width": {
 				"x-small": "300px",
 				"small": "410px",
