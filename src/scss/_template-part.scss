@@ -1,0 +1,13 @@
+.wp-block-template-part {
+	@at-root {
+		footer#{&} {
+			margin-top: 0;
+		}
+	}
+
+	&.post-footer {
+		&:has( .post-meta:empty ) {
+			display: none;
+		}
+	}
+}
