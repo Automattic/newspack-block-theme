@@ -236,7 +236,9 @@
 			},
 			"spacing": {
 				"00": "0",
-				"10": "0.25rem"
+				"10": "0.25rem",
+				"15": "0.375rem",
+				"25": "0.75rem"
 			},
 			"width": {
 				"x-small": "300px",
@@ -282,10 +284,10 @@
 			"core/button": {
 				"spacing": {
 					"padding": {
-						"bottom": "0.75rem",
-						"left": "1.5rem",
-						"right": "1.5rem",
-						"top": "0.75rem"
+						"bottom": "var( --wp--custom--spacing--25 )",
+						"left": "var( --wp--preset--spacing--40 )",
+						"right": "var( --wp--preset--spacing--40 )",
+						"top": "var( --wp--custom--spacing--25 )"
 					}
 				},
 				"typography": {
@@ -305,10 +307,10 @@
 						},
 						"spacing": {
 							"padding": {
-								"bottom": "calc( 0.75rem - 1px )",
-								"left": "calc( 1.5rem - 1px )",
-								"right": "calc( 1.5rem - 1px )",
-								"top": "calc( 0.75rem - 1px )"
+								"bottom": "calc( var( --wp--custom--spacing--25 ) - 1px )",
+								"left": "calc( var( --wp--preset--spacing--40 ) - 1px )",
+								"right": "calc( var( --wp--preset--spacing--40 ) - 1px )",
+								"top": "calc( var( --wp--custom--spacing--25 ) - 1px )"
 							}
 						}
 					}
@@ -858,10 +860,10 @@
 				},
 				"spacing": {
 					"padding": {
-						"bottom": "0.75rem",
-						"left": "1.5rem",
-						"right": "1.5rem",
-						"top": "0.75rem"
+						"bottom": "var( --wp--custom--spacing--25 )",
+						"left": "var( --wp--preset--spacing--40 )",
+						"right": "var( --wp--preset--spacing--40 )",
+						"top": "var( --wp--custom--spacing--25 )"
 					}
 				},
 				"typography": {

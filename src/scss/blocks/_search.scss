@@ -4,7 +4,7 @@
 	.wp-block-search__button.has-icon {
 		height: 3rem;
 		line-height: 1;
-		padding: 0.75rem;
+		padding: var( --wp--custom--spacing--25 );
 
 		svg {
 			height: 36px;
@@ -60,12 +60,12 @@
 				padding: calc( 0.625rem - 1px );
 
 				&:has(> .has-small-font-size) {
-					gap: calc( 0.375rem - 1px );
-					padding: calc( 0.375rem - 1px );
+					gap: calc( var( --wp--custom--spacing--15 ) - 1px );
+					padding: calc( var( --wp--custom--spacing--15 ) - 1px );
 
 					.wp-block-search__input {
-						padding-left: 0.375rem;
-						padding-right: 0.375rem;
+						padding-left: var( --wp--custom--spacing--15 );
+						padding-right: var( --wp--custom--spacing--15 );
 					}
 				}
 			}

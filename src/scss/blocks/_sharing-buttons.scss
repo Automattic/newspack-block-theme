@@ -68,7 +68,7 @@
         }
 
         .style-icon {
-            padding: calc( var( --wp--preset--spacing--20 ) * 0.75 );
+            padding: var( --wp--custom--spacing--15 );
 
             &:hover {
                 svg {
