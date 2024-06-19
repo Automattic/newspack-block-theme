@@ -82,11 +82,6 @@ ul, ol {
 }
 
 // Content
-.entry-content.alignfull {
-	margin-left: calc( 50% - 50vw );
-	width: 100vw;
-}
-
 .post-image {
 	&:empty {
 		&::before {
