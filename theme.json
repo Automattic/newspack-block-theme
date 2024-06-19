@@ -988,14 +988,21 @@
 			"postTypes": [
 				"post"
 			],
-			"title": "Single - Large Image"
+			"title": "Single - Large Image (960px)"
 		},
 		{
 			"name": "single/wide-image",
 			"postTypes": [
 				"post"
 			],
-			"title": "Single - Wide Image"
+			"title": "Single - Wide Image (1296px)"
+		},
+    {
+			"name": "single/full-width-image",
+			"postTypes": [
+				"post"
+			],
+			"title": "Single - Full Width Image"
 		}
 	],
 	"templateParts": [
