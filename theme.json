@@ -575,6 +575,14 @@
 					"lineHeight": "var( --wp--custom--line-height--small )"
 				}
 			},
+			"core/post-content": {
+				"spacing": {
+					"padding": {
+						"left": "var( --wp--preset--spacing--30 )",
+						"right": "var( --wp--preset--spacing--30 )"
+					}
+				}
+			},
 			"core/post-date": {
 				"color": {
 					"text": "var( --wp--preset--color--contrast-3 )"
