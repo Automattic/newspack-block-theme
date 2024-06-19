@@ -105,9 +105,59 @@
 			"fluid": true,
 			"fontFamilies": [
 				{
-					"fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+					"fontFamily": "system-ui, sans-serif",
 					"name": "System Font",
-					"slug": "system-font"
+					"slug": "system"
+				},
+				{
+					"fontFace": [
+						{
+							"fontFamily": "Inter",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "100 900",
+							"src": [
+								"file:./assets/fonts/inter/InterVariable.woff2"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontStretch": "normal",
+							"fontStyle": "italic",
+							"fontWeight": "100 900",
+							"src": [
+								"file:./assets/fonts/inter/InterVariable-Italic.woff2"
+							]
+						}
+					],
+					"fontFamily": "Inter, var( --wp--preset--font-family--system )",
+					"name": "Inter",
+					"slug": "inter"
+				},
+				{
+					"fontFace": [
+						{
+							"fontFamily": "JetBrainsMono",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "100 800",
+							"src": [
+								"file:./assets/fonts/jetbrains-mono/JetBrainsMono_wght.ttf"
+							]
+						},
+						{
+							"fontFamily": "JetBrainsMono",
+							"fontStretch": "normal",
+							"fontStyle": "italic",
+							"fontWeight": "100 800",
+							"src": [
+								"file:./assets/fonts/jetbrains-mono/JetBrainsMono-Italic_wght.ttf"
+							]
+						}
+					],
+					"fontFamily": "JetBrainsMono, monospace",
+					"name": "JetBrainsMono",
+					"slug": "jetbrainsmono"
 				}
 			],
 			"fontSizes": [
@@ -291,7 +341,7 @@
 					}
 				},
 				"typography": {
-					"fontFamily": "var( --wp--preset--font-family--system-font )",
+					"fontFamily": "var( --wp--preset--font-family--inter )",
 					"fontSize": "var( --wp--preset--font-size--small )",
 					"fontWeight": "600",
 					"lineHeight": "var( --wp--custom--line-height--small )"
@@ -337,7 +387,7 @@
 					}
 				},
 				"typography": {
-					"fontFamily": "monospace"
+					"fontFamily": "var( --wp--preset--font-family--jetbrainsmono )"
 				}
 			},
 			"core/columns": {
@@ -512,7 +562,7 @@
 					"blockGap": "var( --wp--preset--spacing--50 )"
 				},
 				"typography": {
-					"fontFamily": "var( --wp--preset--font-family--system-font )",
+					"fontFamily": "var( --wp--preset--font-family--inter )",
 					"fontSize": "var( --wp--preset--font-size--small )",
 					"fontWeight": "600",
 					"lineHeight": "var( --wp--custom--line-height--small )"
@@ -802,7 +852,7 @@
 			},
 			"core/verse": {
 				"typography": {
-					"fontFamily": "monospace"
+					"fontFamily": "var( --wp--preset--font-family--jetbrainsmono )"
 				}
 			},
 			"jetpack/sharing-buttons": {
@@ -875,7 +925,7 @@
 					}
 				},
 				"typography": {
-					"fontFamily": "var( --wp--preset--font-family--system-font )",
+					"fontFamily": "var( --wp--preset--font-family--inter )",
 					"fontSize": "var( --wp--preset--font-size--small )",
 					"fontWeight": "600",
 					"lineHeight": "var( --wp--custom--line-height--small )"
@@ -886,7 +936,7 @@
 					"text": "var( --wp--preset--color--contrast-3 )"
 				},
 				"typography": {
-					"fontFamily": "var( --wp--preset--font-family--system-font )",
+					"fontFamily": "var( --wp--preset--font-family--inter )",
 					"fontSize": "var( --wp--preset--font-size--x-small )",
 					"fontStyle": "normal",
 					"fontWeight": "400",
@@ -963,7 +1013,7 @@
 			}
 		},
 		"typography": {
-			"fontFamily": "var( --wp--preset--font-family--system-font )",
+			"fontFamily": "var( --wp--preset--font-family--inter )",
 			"fontSize": "var( --wp--preset--font-size--medium )",
 			"lineHeight": "var( --wp--custom--line-height--medium )"
 		}
