@@ -81,6 +81,21 @@ ul, ol {
 	mask: url('../../src/images/icon-search.svg') 0 0 no-repeat;
 }
 
+// Content
+.post-image {
+	&:empty {
+		&::before {
+			background: var( --wp--preset--color--base-3 );
+			content: "";
+			display: block;
+			height: 1px;
+			width: 100%;
+			margin: 0 auto;
+			max-width: var( --wp--style--global--wide-size );
+		}
+	}
+}
+
 // Footer
 footer {
 	&.wp-block-template-part {

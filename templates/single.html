@@ -2,20 +2,14 @@
 
 <!-- wp:template-part {"slug":"post-header","theme":"newspack-block-theme"} /-->
 
-<!-- wp:group {"tagName":"main","lock":{"move":false,"remove":true},"layout":{"type":"constrained"}} -->
-<main class="wp-block-group"><!-- wp:post-featured-image {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|80","top":"var:preset|spacing|80"}}}} /-->
-
-<!-- wp:post-content {"lock":{"move":false,"remove":true},"align":"full","layout":{"type":"constrained"}} /-->
-
-<!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:template-part {"slug":"post-footer","theme":"newspack-block-theme","className":"post-footer"} /-->
-
-<!-- wp:template-part {"slug":"author-bio","theme":"newspack-block-theme","className":"author-bio"} /--></div>
-<!-- /wp:group --></main>
+<!-- wp:group {"metadata":{"name":"Post Image"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"className":"post-image","layout":{"type":"constrained"}} -->
+<div class="wp-block-group post-image" style="margin-top:var(--wp--preset--spacing--80);margin-bottom:var(--wp--preset--spacing--80)"><!-- wp:post-featured-image /--></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:template-part {"slug":"comments-menu","theme":"newspack-block-theme","tagName":"div","className":"comments-menu"} /--></div>
+<!-- wp:group {"lock":{"move":false,"remove":true},"metadata":{"name":"Post Content"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|80"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--80)"><!-- wp:post-content {"lock":{"move":false,"remove":true},"align":"full","layout":{"type":"constrained"}} /--></div>
 <!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"post-footer","theme":"newspack-block-theme","className":"post-footer"} /-->
 
 <!-- wp:template-part {"slug":"footer","theme":"newspack-block-theme","tagName":"footer"} /-->
