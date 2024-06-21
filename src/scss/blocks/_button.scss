@@ -41,7 +41,8 @@
 	}
 
 	&.is-style-outline {
-		> .wp-block-button__link {
+		> .wp-block-button__link,
+		form .wp-block-button__link {
 			&:hover {
 				background: var( --wp--preset--color--base-2 );
 				color: var( --wp--preset--color--contrast );
