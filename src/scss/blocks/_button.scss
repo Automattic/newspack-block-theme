@@ -31,6 +31,13 @@
 				background-color: color-mix( in srgb, var( --wp--preset--color--accent-2 ) 80%, black ) !important;
 			}
 		}
+
+		&.has-contrast-color.has-base-background-color {
+			&:hover {
+				background-color: color-mix( in srgb, var( --wp--preset--color--contrast ) 3.5%, transparent ) !important;
+				opacity: 1;
+			}
+		}
 	}
 
 	&.is-style-outline {
