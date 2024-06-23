@@ -61,6 +61,35 @@
 			"contentSize": "632px",
 			"wideSize": "1296px"
 		},
+		"shadow": {
+			"presets": [
+				{
+					"name": "Elevation 1",
+					"slug": "elevation-1",
+					"shadow": "0 1px 10px #00000007"
+				},
+				{
+					"name": "Elevation 2",
+					"slug": "elevation-2",
+					"shadow": "0 2px 20px #00000014"
+				},
+				{
+					"name": "Elevation 3",
+					"slug": "elevation-3",
+					"shadow": "0 3px 30px #00000020"
+				},
+				{
+					"name": "Elevation 4",
+					"slug": "elevation-4",
+					"shadow": "0 0 20px #00000010, 0 25px 30px #00000015"
+				},
+				{
+					"name": "Outline",
+					"slug": "outline",
+					"shadow": "0 0 0 2px"
+				}
+			]
+		},
 		"spacing": {
 			"customSpacingSize": false,
 			"spacingSizes": [
