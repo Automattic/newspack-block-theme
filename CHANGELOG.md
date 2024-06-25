@@ -1,3 +1,10 @@
+# [1.10.0-alpha.2](https://github.com/Automattic/newspack-block-theme/compare/v1.10.0-alpha.1...v1.10.0-alpha.2) (2024-06-25)
+
+
+### Bug Fixes
+
+* update newspack-scripts to v5.5.1 ([72e9c48](https://github.com/Automattic/newspack-block-theme/commit/72e9c484fe6ecc60923843c82f7c99df4545f120))
+
 # [1.10.0-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.9.0...v1.10.0-alpha.1) (2024-06-24)
 
 
