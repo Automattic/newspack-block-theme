@@ -48,7 +48,7 @@ input[type='radio'] {
 	@include mixins.radio;
 }
 
-button,
+button:not( .components-button ),
 input[type='submit'] {
 	background: var( --wp--preset--color--accent );
 	border: 0;
