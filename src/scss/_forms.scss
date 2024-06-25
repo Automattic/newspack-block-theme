@@ -1,4 +1,5 @@
 @use 'mixins';
+@use 'sass-utils';
 
 /*
  * Form Styles
@@ -8,9 +9,9 @@ label {
 	color: var(--wp--preset--color--contrast);
 	display: inline-block;
 	font-family: var( --wp--preset--font-family--inter );
-    font-size: var(--wp--preset--font-size--small);
-    font-weight: 600;
-    line-height: var(--wp--custom--line-height--small);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 600;
+	line-height: var(--wp--custom--line-height--small);
 	margin-bottom: var(--wp--preset--spacing--20);
 }
 
@@ -47,18 +48,32 @@ input[type='radio'] {
 	@include mixins.radio;
 }
 
-button,
-input[type='submit'] {
+button:not( .components-button ):not( .newspack-ui__button ):not( .wp-block-navigation-submenu__toggle ),
+input[type='submit']:not( .newspack-ui__button ) {
+	background: var( --wp--preset--color--accent );
 	border: 0;
 	border-radius: var( --newspack-ui-border-radius-m, var( --wp--custom--border--radius-medium ) );
+	color: var( --wp--preset--color--base );
 	cursor: pointer;
 	font-family: var( --newspack-ui-font-family, system-ui,sans-serif );
 	font-size: var( --newspack-ui-font-size-s, var( --wp--preset--font-size--small ) );
+	font-weight: 600;
 	line-height: var( --newspack-ui-line-height-s, var( --wp--custom--line-height--small ) );
 	padding: var( --newspack-ui-spacer-2, calc( var( --wp--preset--spacing--20 ) * 1.5 ) ) var( --newspack-ui-spacer-5, var( --wp--preset--spacing--40 ) );
+	@include sass-utils.all-transition;
+
+	&:hover {
+		background: color-mix( in srgb,var( --wp--preset--color--accent ) 80%,black );
+		color: var( --wp--preset--color--base );
+	}
 
 	&:focus {
 		outline: 2px solid var( --newspack-ui-color-neutral-90, --wp--preset--color--contrast );
 		outline-offset: 1px;
+	}
+
+	&:disabled {
+		background: color-mix( in srgb,var( --wp--preset--color--accent ) 20%,transparent );
+		cursor: default;
 	}
 }

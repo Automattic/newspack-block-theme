@@ -84,15 +84,13 @@ ul, ol {
 // Content
 .post-image {
 	&:empty {
-		&::before {
-			background: var( --wp--preset--color--base-3 );
-			content: "";
-			display: block;
-			height: 1px;
-			width: 100%;
-			margin: 0 auto;
-			max-width: var( --wp--style--global--wide-size );
-		}
+		display: none;
+	}
+}
+
+.entry-content {
+	> :last-child:is( .alignfull ):is( .has-background ) {
+		margin-bottom: calc( -1 * var( --wp--preset--spacing--80 ) ) !important;
 	}
 }
 
