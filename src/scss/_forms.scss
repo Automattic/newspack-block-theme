@@ -48,8 +48,8 @@ input[type='radio'] {
 	@include mixins.radio;
 }
 
-button:not( .components-button ),
-input[type='submit'] {
+button:not( .components-button ):not( .newspack-ui__button ),
+input[type='submit']:not( .newspack-ui__button ) {
 	background: var( --wp--preset--color--accent );
 	border: 0;
 	border-radius: var( --newspack-ui-border-radius-m, var( --wp--custom--border--radius-medium ) );
