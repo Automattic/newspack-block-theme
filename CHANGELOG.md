@@ -1,3 +1,17 @@
+# [1.10.0-alpha.3](https://github.com/Automattic/newspack-block-theme/compare/v1.10.0-alpha.2...v1.10.0-alpha.3) (2024-06-25)
+
+
+### Bug Fixes
+
+* exclude styles for navigation submenu toggle ([#206](https://github.com/Automattic/newspack-block-theme/issues/206)) ([bdb5f6f](https://github.com/Automattic/newspack-block-theme/commit/bdb5f6fbae659e31b2161f34fe5900bbbaa6d825))
+
+
+### Features
+
+* add negative margin to last block in entry-content when fullwidth and background ([#204](https://github.com/Automattic/newspack-block-theme/issues/204)) ([1119cad](https://github.com/Automattic/newspack-block-theme/commit/1119cad86bcfb428abf51ab71d54980718aa415e))
+* make sure newspack ui buttons are not overridden ([#205](https://github.com/Automattic/newspack-block-theme/issues/205)) ([adef881](https://github.com/Automattic/newspack-block-theme/commit/adef881e14b02543e141eab476c800a35bc43d35))
+* update form elements ([#203](https://github.com/Automattic/newspack-block-theme/issues/203)) ([7395065](https://github.com/Automattic/newspack-block-theme/commit/73950659ff6b21859d187ae0071373ffbe2b44d0))
+
 # [1.10.0-alpha.2](https://github.com/Automattic/newspack-block-theme/compare/v1.10.0-alpha.1...v1.10.0-alpha.2) (2024-06-25)
 
 
