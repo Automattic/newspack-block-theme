@@ -3,8 +3,6 @@
 @import url('./_co-authors-plus.scss');
 @import url('./_column.scss');
 @import url('./_columns.scss');
-@import url('./_homepage-articles.scss');
-@import url('./_image-compare.scss');
 @import url('./_list.scss');
 @import url('./_media-text.scss');
 @import url('./_navigation.scss');
@@ -12,7 +10,6 @@
 @import url('./_paragraph.scss');
 @import url('./_pagination.scss');
 @import url('./_post-author.scss');
-@import url('./_post-carousel.scss');
 @import url('./_post-comments.scss');
 @import url('./_post-content.scss');
 @import url('./_post-terms.scss');
@@ -20,7 +17,11 @@
 @import url('./_query.scss');
 @import url('./_quote.scss');
 @import url('./_separator.scss');
-@import url('./_sharing-buttons.scss');
 @import url('./_search.scss');
 @import url('./_table.scss');
-@import url('./_top-posts.scss');
+@import url('./jetpack/_image-compare.scss');
+@import url('./jetpack/_sharing-buttons.scss');
+@import url('./jetpack/_top-posts.scss');
+@import url('./newspack/_author-profile.scss');
+@import url('./newspack/_homepage-articles.scss');
+@import url('./newspack/_post-carousel.scss');
