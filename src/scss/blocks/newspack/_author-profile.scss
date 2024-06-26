@@ -205,3 +205,42 @@
 		}
 	}
 }
+
+/* Has Text Color */
+.has-text-color {
+	.wp-block-newspack-blocks-author-profile {
+		color: inherit;
+
+		&__job-title,
+		&__employment {
+			color: inherit;
+		}
+
+		&__bio {
+			color: inherit;
+
+			h3 {
+				color: inherit;
+			}
+		}
+	}
+}
+
+/* Has Background Color */
+.has-background {
+	.wp-block-newspack-blocks-author-profile {
+		&__social-links {
+			color: inherit;
+
+			a {
+				background: color-mix( in srgb, currentcolor 15%, transparent );
+				color: currentcolor;
+
+				&:hover {
+					background: color-mix( in srgb, currentcolor 20%, transparent );
+				}
+			}
+		}
+	}
+}
+
