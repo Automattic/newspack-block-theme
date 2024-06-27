@@ -1,7 +1,7 @@
-@use '../sass-utils';
+@use '../../sass-utils';
 
 .wp-block-jetpack-sharing-buttons {
-    gap: calc( var( --wp--preset--spacing--20 ) / 2 );
+    gap: var( --wp--custom--spacing--10 );
 
     .jetpack-sharing-button {
         &__button {
@@ -34,11 +34,11 @@
                 font-family: var( --newspack-ui-font-family, system-ui, sans-serif );
                 font-size: var( --wp--preset--font-size--x-small );
                 font-weight: 600;
-                gap: calc( var( --wp--preset--spacing--20 ) / 2 );
+                gap: var( --wp--custom--spacing--10 );
                 line-height: var( --wp--custom--line-height--x-small );
                 min-height: var( --wp--preset--spacing--50 );
                 min-width: var( --wp--preset--spacing--50 );
-                padding: calc( var( --wp--preset--spacing--20 ) / 2 - 1px ) calc( var( --wp--preset--spacing--20 ) - 1px );
+                padding: calc( var( --wp--custom--spacing--10 ) - 1px ) calc( var( --wp--preset--spacing--20 ) - 1px );
 
                 &:hover {
                     background: var( --newspack-ui-color-neutral-5, var( --wp--preset--color--base-2 ) );
@@ -68,7 +68,7 @@
         }
 
         .style-icon {
-            padding: calc( var( --wp--preset--spacing--20 ) * 0.75 );
+            padding: var( --wp--custom--spacing--15 );
 
             &:hover {
                 svg {
