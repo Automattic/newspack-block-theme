@@ -86,3 +86,8 @@ $colors: (
 		border-color: $var !important;
 	}
 }
+
+// Custom Classes
+.align-items--baseline {
+	align-items: baseline !important;
+}
