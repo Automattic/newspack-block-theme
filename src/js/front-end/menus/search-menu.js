@@ -16,9 +16,10 @@ domReady( function () {
 	const body = document.body,
 		searchContain = document.querySelector( '.search-menu' ),
 		searchToggle = document.querySelectorAll( '.search-menu-toggle' ),
-		searchContents = document.querySelector( '.search-contents' );
+		searchContents = document.querySelector( '.search-contents' ),
+		searchOverlay = document.querySelector( '.search-contents__overlay' );
 
-	if ( ! searchContain || ! searchToggle.length || ! searchContents ) {
+	if ( ! searchContain || ! searchToggle.length || ! searchContents || ! searchOverlay ) {
 		return;
 	}
 
@@ -49,8 +50,6 @@ domReady( function () {
 	 */
 	const openMenu = () => {
 		body.classList.add( openClassName );
-		searchOpenButton.parentNode.classList.add( 'newspack-icon-close' );
-		searchOpenButton.parentNode.classList.remove( 'newspack-icon-search' );
 		searchOpenButton.innerHTML = '<span>' + newspackScreenReaderText.close_search + '</span>';
 		searchContents.querySelector( 'input[type="search"]' ).focus();
 	};
@@ -63,8 +62,6 @@ domReady( function () {
 			return;
 		}
 		body.classList.remove( openClassName );
-		searchOpenButton.parentNode.classList.add( 'newspack-icon-search' );
-		searchOpenButton.parentNode.classList.remove( 'newspack-icon-close' );
 		searchOpenButton.innerHTML = '<span>' + newspackScreenReaderText.open_search + '</span>';
 	};
 
@@ -73,6 +70,8 @@ domReady( function () {
 			closeMenu();
 		}
 	} );
+
+	searchOverlay.addEventListener( 'click', searchMenuToggle, false );
 
 	// Find each mobile toggle and attaches an event listener.
 	for ( let i = 0; i < searchToggle.length; i++ ) {

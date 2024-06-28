@@ -14,20 +14,22 @@
 	padding: 0 var(--wp--preset--spacing--30) var(--wp--preset--spacing--30);
 	position: fixed;
 	right: -100%;
-	transition: opacity 125ms ease-in-out, right 250ms ease-in-out;
+	transition:
+		opacity 125ms ease-in-out,
+		right 250ms ease-in-out;
 	width: 100%;
 	z-index: sass-utils.$zindex-overlay-menu;
 
-	@include sass-utils.media( medium ) {
+	@include sass-utils.media(medium) {
 		padding: 0 var(--wp--preset--spacing--40) var(--wp--preset--spacing--40);
 	}
 
 	.admin-bar & {
-		@include sass-utils.media( small ) {
+		@include sass-utils.media(small) {
 			padding-top: 46px;
 		}
 
-		@include sass-utils.media( medium ) {
+		@include sass-utils.media(medium) {
 			padding-top: 32px;
 		}
 	}
@@ -35,34 +37,39 @@
 	> * {
 		visibility: hidden;
 	}
-  
-	&:not( :has( .comment-respond ) ) {
+
+	&:not(:has(.comment-respond)) {
 		.wp-block-comments-title {
 			margin-top: 0;
 		}
 	}
- 
-	&:has( #disqus_thread ) { /* stylelint-disable-line */
-		max-width: calc( ( var(--wp--custom--width--medium) - ( var(--wp--preset--spacing--50) * 5 ) ) / 6 * 7 + ( var(--wp--preset--spacing--50) * 6 ) );
-  }
+
+	/* stylelint-disable */
+	&:has(#disqus_thread) {
+		/* stylelint-enable */
+		max-width: calc(
+			(var(--wp--custom--width--medium) - (var(--wp--preset--spacing--50) * 5)) / 6 * 7 +
+				(var(--wp--preset--spacing--50) * 6)
+		);
+	}
 }
 
 .comments-menu-toggle {
 	&.newspack-icon-close {
 		display: grid;
 		height: 48px;
-		margin-right: calc( -1 * var(--wp--preset--spacing--30) );
+		margin-right: calc(-1 * var(--wp--preset--spacing--30));
 		place-items: center;
 		width: 48px;
 
-		@include sass-utils.media( medium ) {
+		@include sass-utils.media(medium) {
 			height: 64px;
-			margin-right: calc( -1 * var(--wp--preset--spacing--40) );
+			margin-right: calc(-1 * var(--wp--preset--spacing--40));
 			width: 64px;
 		}
 	}
 
-	&:not( .newspack-icon-close ) {
+	&:not(.newspack-icon-close) {
 		.wp-block-button__link {
 			align-items: center;
 			display: inline-flex;
@@ -71,7 +78,7 @@
 
 			&::before {
 				background: currentcolor;
-				content: "";
+				content: '';
 				height: 24px;
 				mask: url('../../src/images/icon-comments.svg') 0 0 no-repeat;
 				width: 24px;
@@ -85,13 +92,13 @@
 		opacity: 1;
 		right: 0;
 
-		@include mixins.elevation( 3 );
+		@include mixins.elevation(3);
 
 		> * {
 			visibility: visible;
 		}
 	}
-	
+
 	.overlay-mask {
 		display: block;
 		opacity: 1;
