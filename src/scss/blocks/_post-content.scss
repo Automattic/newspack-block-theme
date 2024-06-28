@@ -1,8 +1,8 @@
 .wp-block-post-content {
 	> .alignfull {
-		margin-left: calc( -1 * var( --wp--preset--spacing--30 ) );
-		margin-right: calc( -1 * var( --wp--preset--spacing--30 ) );
-		padding-left: var( --wp--preset--spacing--30 );
-		padding-right: var( --wp--preset--spacing--30 );
+		margin-left: calc(-1 * var(--wp--preset--spacing--30));
+		margin-right: calc(-1 * var(--wp--preset--spacing--30));
+		padding-left: var(--wp--preset--spacing--30);
+		padding-right: var(--wp--preset--spacing--30);
 	}
 }

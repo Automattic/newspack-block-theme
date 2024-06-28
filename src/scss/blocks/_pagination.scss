@@ -15,23 +15,23 @@
 	.wp-block-comments-pagination-numbers,
 	.wp-block-query-pagination-numbers {
 		flex-wrap: wrap;
-		gap: var( --wp--custom--spacing--10 );
+		gap: var(--wp--custom--spacing--10);
 		margin: 0;
 
 		a,
 		.current,
 		.dots {
-			border-radius: var( --wp--custom--border--radius-medium );
-			height: var( --wp--custom--spacing--65 );
+			border-radius: var(--wp--custom--border--radius-medium);
+			height: var(--wp--custom--spacing--65);
 			padding: 0;
 			text-decoration: none;
-			width: var( --wp--custom--spacing--65 );
+			width: var(--wp--custom--spacing--65);
 			@include sass-utils.all-transition;
 		}
 
 		.current {
-			background: var( --wp--preset--color--accent );
-			color: var( --wp--preset--color--base );
+			background: var(--wp--preset--color--accent);
+			color: var(--wp--preset--color--base);
 		}
 	}
 
@@ -40,27 +40,27 @@
 		display: none;
 		margin: 0;
 
-		@include sass-utils.media( small ) {
+		@include sass-utils.media(small) {
 			display: block;
 		}
 
 		.is-arrow-arrow {
-			border-radius: var( --wp--custom--border--radius-medium );
+			border-radius: var(--wp--custom--border--radius-medium);
 			display: grid;
-			height: var( --wp--custom--spacing--65 );
+			height: var(--wp--custom--spacing--65);
 			margin: 0;
 			padding: 0;
 			place-items: center;
 			text-decoration: none;
-			width: var( --wp--custom--spacing--65 );
+			width: var(--wp--custom--spacing--65);
 			@include sass-utils.all-transition;
 		}
 
-		&:has( .is-arrow-arrow ):hover {
+		&:has(.is-arrow-arrow):hover {
 			text-decoration: none;
 
 			.is-arrow-arrow {
-				background: var( --wp--preset--color--base-2 );
+				background: var(--wp--preset--color--base-2);
 			}
 		}
 	}
@@ -71,12 +71,12 @@
 		&::before {
 			content: '';
 			display: block;
-			height: var( --wp--custom--spacing--65 );
+			height: var(--wp--custom--spacing--65);
 			margin-inline-end: auto;
-			width: var( --wp--custom--spacing--65 );
+			width: var(--wp--custom--spacing--65);
 		}
 
-		&:has( .wp-block-query-pagination-previous ) {
+		&:has(.wp-block-query-pagination-previous) {
 			&::before {
 				display: none;
 			}
@@ -87,7 +87,7 @@
 		}
 	}
 
-	&__container:not( :has( & ) ) {
+	&__container:not(:has(&)) {
 		display: none;
 	}
 }

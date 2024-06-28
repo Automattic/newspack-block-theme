@@ -4,7 +4,6 @@
  * Search menu styles
  */
 .search-contents {
-	background: var(--wp--preset--color--base);
 	inset: 0 -100% 0 auto;
 	margin: 0;
 	opacity: 0;
@@ -15,19 +14,36 @@
 	width: 100%;
 	z-index: sass-utils.$zindex-overlay-menu;
 
+	&__overlay {
+		background: var(--wp--custom--color--neutral-70);
+		bottom: 0;
+		left: 0;
+		margin: 0 !important;
+		max-width: 100vw !important;
+		position: absolute;
+		top: 0;
+		width: 100vw;
+		z-index: -1;
+	}
+
 	> * {
 		visibility: hidden;
 	}
 
 	.wp-block-group {
-		display: grid;
-		height: 50vh;
-		place-items: center;
+		margin-top: calc(10vh + var(--wp--custom--spacing--75));
+		position: initial;
 		width: 100%;
+	}
+
+	.wp-block-search {
+		box-shadow: var(--wp--preset--shadow--elevation-3);
 	}
 }
 
 .menu-open--search-menu {
+	overflow: hidden;
+
 	.search-contents {
 		opacity: 1;
 		right: 0;
@@ -35,11 +51,6 @@
 		> * {
 			visibility: visible;
 		}
-	}
-
-	.search-menu-toggle {
-		position: relative;
-		z-index: calc(sass-utils.$zindex-overlay-menu + 1);
 	}
 }
 

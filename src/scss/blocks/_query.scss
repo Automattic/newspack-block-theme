@@ -1,5 +1,5 @@
 .wp-block-query {
-	.wp-block-post:not( .type-post ) {
+	.wp-block-post:not(.type-post) {
 		.post-meta,
 		.wp-block-post-author,
 		.wp-block-post-date {
@@ -7,8 +7,8 @@
 		}
 	}
 
-	.wp-block-post:not( .has-post-thumbnail ) {
-		.wp-block-columns:not( .block-editor-block-list__layout ) {
+	.wp-block-post:not(.has-post-thumbnail) {
+		.wp-block-columns:not(.block-editor-block-list__layout) {
 			display: block;
 
 			.wp-block-column {

@@ -1,7 +1,7 @@
 .wp-block-separator {
-	&:not([class*="is-style-"]),
+	&:not([class*='is-style-']),
 	&.is-style-default {
-		max-width: calc( var( --wp--preset--spacing--50 ) * 4 ) !important;
+		max-width: calc(var(--wp--preset--spacing--50) * 4) !important;
 
 		&.alignfull {
 			margin-left: auto;
@@ -13,15 +13,15 @@
 		background: transparent !important;
 
 		&::before {
-			font-size: var( --wp--preset--font-size--x-large );
-			letter-spacing: var( --wp--preset--spacing--80 );
-			padding-left: var( --wp--preset--spacing--80 );
+			font-size: var(--wp--preset--font-size--x-large);
+			letter-spacing: var(--wp--preset--spacing--80);
+			padding-left: var(--wp--preset--spacing--80);
 		}
 	}
 
 	&.is-style-thick {
 		background: currentcolor;
 		border-bottom-width: 0;
-		padding: var( --wp--preset--spacing--20 );
+		padding: var(--wp--preset--spacing--20);
 	}
 }

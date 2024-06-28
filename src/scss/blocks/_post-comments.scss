@@ -23,12 +23,12 @@
 		}
 	}
 
-	input:not([type="submit"]):not([type="checkbox"]),
-    textarea {
-        @include mixins.input;
-    }
+	input:not([type='submit']):not([type='checkbox']),
+	textarea {
+		@include mixins.input;
+	}
 
-	input[type="checkbox"] {
+	input[type='checkbox'] {
 		@include mixins.checkbox-radio;
 		@include mixins.checkbox;
 	}
@@ -60,7 +60,7 @@
 	.required {
 		color: var(--wp--custom--color--error-50);
 	}
-	
+
 	.required-field-message {
 		display: block;
 	}
@@ -71,7 +71,7 @@
 		list-style: decimal;
 		padding-left: var(--wp--preset--spacing--40);
 
-		&:has( .comment ) {
+		&:has(.comment) {
 			border-left: 1px solid var(--wp--preset--color--base-3);
 			list-style: none;
 			margin: var(--wp--preset--spacing--50) 0 0;
@@ -94,7 +94,7 @@
 			padding-bottom: var(--wp--preset--spacing--50);
 		}
 
-		&:not( :has( .wp-block-comment-reply-link ) ) {
+		&:not(:has(.wp-block-comment-reply-link)) {
 			.wp-block-comment-content {
 				*:last-child {
 					margin-bottom: 0;
@@ -156,12 +156,12 @@
 		border-radius: var(--wp--custom--border--radius-x-small);
 		transition: color 125ms ease-in-out;
 	}
-	
+
 	.bypostauthor & {
 		background: var(--wp--preset--color--base-2);
 		border-radius: var(--wp--custom--border--radius-x-small);
 
-		&:not( :has(a) ) {
+		&:not(:has(a)) {
 			padding: 0 0.375em;
 		}
 
