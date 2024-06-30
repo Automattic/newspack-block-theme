@@ -57,9 +57,7 @@ input[type='radio'] {
 	@include mixins.radio;
 }
 
-button:not(.components-button):not(.newspack-ui__button):not(
-		.wp-block-navigation-submenu__toggle
-	):not(.has-icon),
+button:not([class]),
 input[type='submit']:not(.newspack-ui__button) {
 	background: var(--wp--preset--color--accent);
 	border: 0;

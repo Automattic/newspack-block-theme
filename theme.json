@@ -385,6 +385,7 @@
 				"variations": {
 					"outline": {
 						"border": {
+							"color": "currentcolor",
 							"style": "solid",
 							"width": "1px"
 						},
