@@ -21,7 +21,7 @@ figcaption {
 	color: var(--wp--preset--color--contrast-3);
 	font-size: var(--wp--preset--font-size--x-small);
 	line-height: var(--wp--custom--line-height--x-small);
-	margin: var(--wp--preset--spacing--20) 0 0;		
+	margin: var(--wp--preset--spacing--20) 0 0;
 
 	a {
 		color: inherit;
@@ -79,6 +79,26 @@ ul, ol {
 
 .newspack-icon-search .wp-block-button__link::after {
 	mask: url('../../src/images/icon-search.svg') 0 0 no-repeat;
+}
+
+// Content
+.post-image {
+	&:empty {
+		display: none;
+	}
+}
+
+.entry-content {
+	> :last-child:is( .alignfull ):is( .has-background ) {
+		margin-bottom: calc( -1 * var( --wp--preset--spacing--80 ) ) !important;
+	}
+}
+
+// Footer
+footer {
+	&.wp-block-template-part {
+		margin-top: 0;
+	}
 }
 
 // Powered By
