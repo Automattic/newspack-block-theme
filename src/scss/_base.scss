@@ -96,6 +96,16 @@ ol {
 	}
 }
 
+.page-template-no-title,
+.home.page {
+	.entry-content {
+		> :first-child:is(.alignfull):is(.has-background),
+		> :first-child:is(.alignfull):is(.wp-block-cover) {
+			margin-top: calc(-1 * var(--wp--preset--spacing--80)) !important;
+		}
+	}
+}
+
 // Footer
 footer {
 	&.wp-block-template-part {
