@@ -90,7 +90,8 @@ ol {
 }
 
 .entry-content {
-	> :last-child:is(.alignfull):is(.has-background) {
+	> :last-child:is(.alignfull):is(.has-background),
+	> :last-child:is(.alignfull):is(.wp-block-cover) {
 		margin-bottom: calc(-1 * var(--wp--preset--spacing--80)) !important;
 	}
 }
