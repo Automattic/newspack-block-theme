@@ -42,7 +42,8 @@ body .has-drop-cap:not(:focus)::first-letter {
 }
 
 // Lists
-ul, ol {
+ul,
+ol {
 	padding-left: var(--wp--preset--spacing--40);
 }
 
@@ -89,8 +90,8 @@ ul, ol {
 }
 
 .entry-content {
-	> :last-child:is( .alignfull ):is( .has-background ) {
-		margin-bottom: calc( -1 * var( --wp--preset--spacing--80 ) ) !important;
+	> :last-child:is(.alignfull):is(.has-background) {
+		margin-bottom: calc(-1 * var(--wp--preset--spacing--80)) !important;
 	}
 }
 
