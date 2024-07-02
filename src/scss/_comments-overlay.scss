@@ -44,9 +44,7 @@
 		}
 	}
 
-	/* stylelint-disable */
-	&:has(#disqus_thread) {
-		/* stylelint-enable */
+	&:has(#disqus_thread) { /* stylelint-disable-line selector-id-pattern */
 		max-width: calc(
 			(var(--wp--custom--width--medium) - (var(--wp--preset--spacing--50) * 5)) / 6 * 7 +
 				(var(--wp--preset--spacing--50) * 6)

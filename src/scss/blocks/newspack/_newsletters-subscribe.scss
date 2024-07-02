@@ -1,0 +1,13 @@
+@use '../../sass-utils';
+
+.wp-block-newspack-newsletters-subscribe {
+	&.is-style-modern {
+		.submit-button {
+			@include sass-utils.all-transition;
+
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+	}
+}

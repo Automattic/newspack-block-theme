@@ -39,6 +39,10 @@ $zindex-screen-reader-text: 100000; /* Above WP toolbar. */
 		@media only screen and (min-width: $xlarge-screen) {
 			@content;
 		}
+	} @else {
+		@media only screen and (min-width: $class) {
+			@content;
+		}
 	}
 }
 
