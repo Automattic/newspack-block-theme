@@ -331,7 +331,8 @@
 				"x-small": "300px",
 				"small": "410px",
 				"medium": "632px",
-				"large": "964px"
+				"large": "964px",
+				"x-large": "1296px"
 			}
 		}
 	},
@@ -1073,11 +1074,18 @@
 			"title": "Page - Blank with Footer"
 		},
 		{
+			"name": "page/no-title",
+			"postTypes": [
+				"page"
+			],
+			"title": "Page - No Title"
+		},
+		{
 			"name": "single/large-image",
 			"postTypes": [
 				"post"
 			],
-			"title": "Single - Large Image (960px)"
+			"title": "Single - Large Image (964px)"
 		},
 		{
 			"name": "single/wide-image",

@@ -381,7 +381,7 @@ body .jetpack-instant-search {
 
 			&.jetpack-instant-search__search-results-secondary--show-as-modal {
 				border-color: var(--jp--color--border);
-				inset: var(--wp--custom--spacing--05)  var(--wp--preset--spacing--20) auto;
+				inset: var(--wp--custom--spacing--05) var(--wp--preset--spacing--20) auto;
 				min-width: 1px;
 				padding: 0 var(--wp--preset--spacing--30);
 				@include mixins.elevation(3);
