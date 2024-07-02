@@ -6,7 +6,7 @@
 
 	td,
 	th {
-		padding: var( --wp--preset--spacing--20 );
+		padding: var(--wp--preset--spacing--20);
 	}
 
 	table {
@@ -22,7 +22,7 @@
 			tfoot,
 			td,
 			th {
-				border-color: var( --wp--preset--color--base-3 );
+				border-color: var(--wp--preset--color--base-3);
 			}
 		}
 	}
@@ -31,8 +31,8 @@
 		border-bottom: 0;
 
 		tbody {
-			tr:nth-child( odd ) {
-				background-color: var( --wp--preset--color--base-2 );
+			tr:nth-child(odd) {
+				background-color: var(--wp--preset--color--base-2);
 			}
 		}
 	}

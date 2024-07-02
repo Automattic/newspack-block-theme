@@ -7,33 +7,33 @@
 	.wp-block-column:empty {
 		display: none;
 
-		@include sass-utils.media( medium ) {
+		@include sass-utils.media(medium) {
 			display: inherit;
 		}
 	}
 
 	&.is-style-borders {
-		gap: var( --wp--preset--spacing--80 ) !important;
+		gap: var(--wp--preset--spacing--80) !important;
 
 		> .wp-block-column::after {
-			border-color: var( --wp--preset--color--base-3 );
-			bottom: calc( -1 * var( --wp--preset--spacing--80 ) / 2 - 0.5px );
+			border-color: var(--wp--preset--color--base-3);
+			bottom: calc(-1 * var(--wp--preset--spacing--80) / 2 - 0.5px);
 
-			@include sass-utils.media( medium ) {
+			@include sass-utils.media(medium) {
 				bottom: 0;
-				right: calc( -1 * var( --wp--preset--spacing--80 ) / 2 - 0.5px );
+				right: calc(-1 * var(--wp--preset--spacing--80) / 2 - 0.5px);
 			}
 
 			.has-background &,
 			.has-text-color & {
 				border-color: currentcolor; // Fallback
-				border-color: color-mix( in srgb, currentcolor 15%, transparent );
+				border-color: color-mix(in srgb, currentcolor 15%, transparent);
 			}
 		}
 
 		&.is-not-stacked-on-mobile {
 			> .wp-block-column::after {
-				right: calc( -1 * var( --wp--preset--spacing--80 ) / 2 - 0.5px );
+				right: calc(-1 * var(--wp--preset--spacing--80) / 2 - 0.5px);
 			}
 		}
 	}
@@ -41,17 +41,17 @@
 
 // Newspack Grid
 .newspack-grid {
-	@include sass-utils.media( large ) {
+	@include sass-utils.media(large) {
 		/* "25 / 50 / 25" layout */
 		.wp-block-column[style*='25%'] {
 			max-width: 300px;
 		}
 	}
 
-	@include sass-utils.media( x-large ) {
+	@include sass-utils.media(x-large) {
 		&.wp-block-columns {
 			display: grid;
-			grid-template-columns: repeat( 12, 1fr );
+			grid-template-columns: repeat(12, 1fr);
 		}
 
 		& > * {
@@ -68,8 +68,8 @@
 		}
 
 		/* "33 / 33 / 33" layout */
-		.wp-block-column:not( [style*='flex-basis'] ):nth-last-child( 3 ):first-child,
-		.wp-block-column:not( [style*='flex-basis'] ):nth-last-child( 3 ):first-child ~ .wp-block-column {
+		.wp-block-column:not([style*='flex-basis']):nth-last-child(3):first-child,
+		.wp-block-column:not([style*='flex-basis']):nth-last-child(3):first-child ~ .wp-block-column {
 			grid-column-end: span 4;
 		}
 
@@ -99,23 +99,23 @@
 	}
 
 	/* "25 / 50 / 25" layout */
-	&:has( .wp-block-column[style*='25%']:empty ):has( .wp-block-column[style*='50%'] ) {
+	&:has(.wp-block-column[style*='25%']:empty):has(.wp-block-column[style*='50%']) {
 		justify-content: center;
 
 		.wp-block-column[style*='50%'] {
 			flex-basis: 100% !important;
-			max-width: var( --wp--style--global--content-size );
+			max-width: var(--wp--style--global--content-size);
 		}
 
 		.wp-block-column[style*='25%']:empty {
 			display: none;
 
-			@include sass-utils.media( x-large ) {
+			@include sass-utils.media(x-large) {
 				display: inherit;
 			}
 		}
 
-		&:has( :not( .wp-block-column[style*='25%']:empty ) ) {
+		&:has(:not(.wp-block-column[style*='25%']:empty)) {
 			.wp-block-column[style*='50%'] {
 				flex-basis: 75% !important;
 			}
@@ -124,10 +124,10 @@
 }
 
 .newspack-grid-small {
-	@include sass-utils.media( x-large ) {
+	@include sass-utils.media(x-large) {
 		&.wp-block-columns {
 			display: grid;
-			grid-template-columns: repeat( 6, 1fr );
+			grid-template-columns: repeat(6, 1fr);
 		}
 
 		& > * {
