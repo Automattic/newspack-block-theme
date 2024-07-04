@@ -4,6 +4,14 @@
 /**
  * Mobile Header and Menu
  */
+.mobile-header {
+	width: 100%;
+
+	> .wp-block-group {
+		width: inherit;
+	}
+}
+
 .desktop-header {
 	display: none;
 }
@@ -19,9 +27,13 @@
 }
 
 // Mobile menu
-.menu-open--mobile-menu {
-	.mobile-sidebar {
+.mobile-sidebar {
+	.menu-open--mobile-menu & {
 		@include mixins.overlay-visible;
+	}
+
+	&.wp-block {
+		display: none;
 	}
 }
 

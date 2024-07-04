@@ -15,6 +15,7 @@
 			color 125ms ease-in-out,
 			opacity 125ms ease-in-out,
 			outline 125ms ease-in-out;
+		word-break: normal;
 
 		&:focus {
 			outline: 2px solid var(--wp--preset--color--accent);

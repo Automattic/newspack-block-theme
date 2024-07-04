@@ -62,11 +62,7 @@
 	}
 
 	.admin-bar & {
-		margin-top: 46px;
-
-		@include sass-utils.media(medium) {
-			margin-top: 32px;
-		}
+		margin-top: var(--wp-admin--admin-bar--height);
 	}
 
 	> * {
