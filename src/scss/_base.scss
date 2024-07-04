@@ -69,6 +69,20 @@ ol {
 	}
 }
 
+// Mobile-only
+.mobile-only {
+	@include sass-utils.media(medium) {
+		display: none !important;
+	}
+}
+
+// Desktop-only
+.desktop-only {
+	@include sass-utils.media(small-only) {
+		display: none !important;
+	}
+}
+
 // Icons
 [class*='newspack-icon'] {
 	line-height: 0;

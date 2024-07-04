@@ -12,20 +12,6 @@
 	}
 }
 
-.desktop-header {
-	display: none;
-}
-
-@include sass-utils.media(medium) {
-	.desktop-header {
-		display: inherit;
-	}
-
-	.mobile-header {
-		display: none;
-	}
-}
-
 // Mobile menu
 .mobile-sidebar {
 	.menu-open--mobile-menu & {
