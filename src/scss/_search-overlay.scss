@@ -49,6 +49,10 @@ body .jetpack-instant-search {
 	--jp--color--background: var(--wp--custom--color--neutral-0);
 	--jp--color--background-light: var(--wp--custom--color--neutral-5);
 	--jp--color--border: var(--wp--custom--color--neutral-30);
+	--jp--sidebar--width: calc(
+		1px + var(--wp--preset--spacing--30) + var(--wp--custom--width--x-small) +
+			var(--wp--preset--spacing--30)
+	);
 
 	&[class*='--dark'] {
 		--jp--color--text: var(--wp--custom--color--neutral-0);
@@ -227,12 +231,16 @@ body .jetpack-instant-search {
 
 		&-wrapper {
 			border-radius: var(--wp--custom--border--radius-medium);
-			max-width: calc(var(--wp--preset--spacing--80) + 632px + var(--wp--preset--spacing--80));
+			max-width: calc(
+				var(--wp--preset--spacing--80) + var(--wp--style--global--content-size) +
+					var(--wp--preset--spacing--80)
+			);
 
 			@include sass-utils.media('992px') {
 				&:has(.jetpack-instant-search__widget-area > *) {
 					max-width: calc(
-						var(--wp--preset--spacing--80) + 632px + var(--wp--preset--spacing--80) + 333px
+						var(--wp--preset--spacing--80) + var(--wp--style--global--content-size) +
+							var(--wp--preset--spacing--80) + var(--jp--sidebar--width)
 					);
 				}
 			}
@@ -357,7 +365,7 @@ body .jetpack-instant-search {
 			max-width: 100%;
 
 			@include sass-utils.media('992px') {
-				max-width: calc(100% - 333px);
+				max-width: calc(100% - var(--jp--sidebar--width));
 			}
 		}
 
@@ -365,7 +373,7 @@ body .jetpack-instant-search {
 			border-color: var(--jp--color--border) !important;
 			color: inherit;
 			padding: 0 var(--wp--preset--spacing--30);
-			width: 333px;
+			width: var(--jp--sidebar--width);
 
 			&.jetpack-instant-search__search-results-secondary--show-as-modal {
 				border-color: var(--jp--color--border);
@@ -563,7 +571,7 @@ body .jetpack-instant-search {
 				var(--newspack-ui-font-size-m, clamp(1.125rem, 0.929rem + 0.402vw, 1.25rem)) *
 					var(--newspack-ui-line-height-m, 1.6)
 			);
-			right: 333px;
+			right: var(--jp--sidebar--width);
 		}
 
 		.jetpack-instant-search__search-sort {

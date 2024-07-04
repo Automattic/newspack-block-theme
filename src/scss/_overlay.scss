@@ -33,7 +33,10 @@
 .overlay-contents {
 	background: var(--wp--preset--color--base);
 	color: var(--wp--preset--color--contrast);
-	max-width: calc(var(--wp--style--global--content-size) + var(--wp--preset--spacing--30) * 2);
+	max-width: calc(
+		var(--wp--preset--spacing--30) + var(--wp--style--global--content-size) +
+			var(--wp--preset--spacing--30)
+	);
 	opacity: 0;
 	overflow: auto;
 	padding: 0 var(--wp--preset--spacing--30) var(--wp--preset--spacing--30);
@@ -43,7 +46,10 @@
 
 	@include mixins.elevation(3);
 	@include sass-utils.media(medium) {
-		max-width: calc(var(--wp--style--global--content-size) + var(--wp--preset--spacing--40) * 2);
+		max-width: calc(
+			var(--wp--preset--spacing--40) + var(--wp--style--global--content-size) +
+				var(--wp--preset--spacing--40)
+		);
 		padding: 0 var(--wp--preset--spacing--40) var(--wp--preset--spacing--40);
 	}
 

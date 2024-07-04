@@ -309,7 +309,6 @@
 					'date';
 				line-height: var(--wp--custom--line-height--x-small);
 				margin: var(--wp--preset--spacing--20) 0 0;
-				row-gap: calc(var(--wp--preset--spacing--20) / 2);
 
 				.byline {
 					margin: 0;
@@ -318,6 +317,10 @@
 
 				.entry-date {
 					grid-area: date;
+				}
+
+				&:has(.entry-date):has(.byline) {
+					row-gap: var(--wp--custom--spacing--10);
 				}
 
 				&:has(.avatar) {
