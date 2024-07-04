@@ -347,9 +347,9 @@
 					}
 
 					.avatar {
-						height: 48px;
+						height: var(--wp--custom--spacing--75);
 						margin: 0;
-						width: 48px;
+						width: var(--wp--custom--spacing--75);
 					}
 				}
 			}

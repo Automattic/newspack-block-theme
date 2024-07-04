@@ -46,6 +46,6 @@ $zindex-screen-reader-text: 100000; /* Above WP toolbar. */
 	}
 }
 
-@mixin all-transition($transition: 125ms) {
-	transition: all $transition ease-in-out;
+@mixin transition($type: all, $duration: 125ms) {
+	transition: $type $duration ease-in-out;
 }

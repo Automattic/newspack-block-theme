@@ -5,21 +5,21 @@
  */
 import { domReady } from '../utils'; // Global utils.
 import { MENU_OPEN_CLASS_NAME } from './consts'; // Menu constants.
+import { createOverlay, removeOverlay } from './utils'; // Menu utils.
 
-// A class name to append to the body element when the mobile menu is open.
+// A class name to append to the body element when the search is open.
 const openClassName = MENU_OPEN_CLASS_NAME + 'search-menu';
 
 domReady( function () {
 	/**
-	 * Mobile Menu toggle and overlay JavaScript.
+	 * Search toggle and overlay JavaScript.
 	 */
 	const body = document.body,
 		searchContain = document.querySelector( '.search-menu' ),
 		searchToggle = document.querySelectorAll( '.search-menu-toggle' ),
-		searchContents = document.querySelector( '.search-contents' ),
-		searchOverlay = document.querySelector( '.search-contents__overlay' );
+		searchContents = document.querySelector( '.search-contents' );
 
-	if ( ! searchContain || ! searchToggle.length || ! searchContents || ! searchOverlay ) {
+	if ( ! searchContain || ! searchToggle.length || ! searchContents ) {
 		return;
 	}
 
@@ -33,7 +33,7 @@ domReady( function () {
 	}
 
 	/**
-	 * @description Fires either the opening or closing functions for a menu.
+	 * @description Fires either the opening or closing functions for the search.
 	 * @param {event} event Click event.
 	 */
 	const searchMenuToggle = event => {
@@ -46,16 +46,17 @@ domReady( function () {
 	};
 
 	/**
-	 * @description Opens specifed slide-out menu.
+	 * @description Opens specifed search.
 	 */
 	const openMenu = () => {
 		body.classList.add( openClassName );
 		searchOpenButton.innerHTML = '<span>' + newspackScreenReaderText.close_search + '</span>';
 		searchContents.querySelector( 'input[type="search"]' ).focus();
+		createOverlay();
 	};
 
 	/**
-	 * @description Closes specifed slide-out menu.
+	 * @description Closes specifed search.
 	 */
 	const closeMenu = () => {
 		if ( ! body.classList.contains( openClassName ) ) {
@@ -63,6 +64,7 @@ domReady( function () {
 		}
 		body.classList.remove( openClassName );
 		searchOpenButton.innerHTML = '<span>' + newspackScreenReaderText.open_search + '</span>';
+		removeOverlay();
 	};
 
 	document.addEventListener( 'keydown', event => {
@@ -71,9 +73,7 @@ domReady( function () {
 		}
 	} );
 
-	searchOverlay.addEventListener( 'click', searchMenuToggle, false );
-
-	// Find each mobile toggle and attaches an event listener.
+	// Find each search toggle and attaches an event listener.
 	for ( let i = 0; i < searchToggle.length; i++ ) {
 		searchToggle[ i ].addEventListener( 'click', searchMenuToggle, false );
 	}

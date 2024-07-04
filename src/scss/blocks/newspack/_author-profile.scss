@@ -95,7 +95,7 @@
 			place-items: center;
 			text-decoration: none;
 
-			@include sass-utils.all-transition;
+			@include sass-utils.transition;
 
 			&:hover {
 				background: var(--wp--preset--color--base-3);

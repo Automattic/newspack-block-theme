@@ -3,7 +3,7 @@
 .wp-block-newspack-newsletters-subscribe {
 	&.is-style-modern {
 		.submit-button {
-			@include sass-utils.all-transition;
+			@include sass-utils.transition;
 
 			&:hover {
 				opacity: 0.8;
