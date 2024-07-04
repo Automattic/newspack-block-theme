@@ -66,6 +66,18 @@ ol {
 
 	&-sticky {
 		position: sticky;
+
+		&--mobile-only {
+			@include sass-utils.media(medium) {
+				position: inherit;
+			}
+		}
+
+		&--desktop-only {
+			@include sass-utils.media(small-only) {
+				position: inherit;
+			}
+		}
 	}
 }
 
