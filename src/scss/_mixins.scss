@@ -211,3 +211,16 @@
 		}
 	}
 }
+
+@mixin overlay-visible($position: left) {
+	opacity: 1;
+	@if $position == right {
+		right: 0;
+	} @else {
+		left: 0;
+	}
+
+	> * {
+		visibility: visible;
+	}
+}

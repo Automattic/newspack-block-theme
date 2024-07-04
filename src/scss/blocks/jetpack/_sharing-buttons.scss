@@ -6,7 +6,7 @@
 	.jetpack-sharing-button {
 		&__button {
 			margin: 0;
-			@include sass-utils.all-transition;
+			@include sass-utils.transition;
 
 			&.style-icon {
 				line-height: 1;
@@ -14,7 +14,7 @@
 				top: 0;
 
 				svg {
-					@include sass-utils.all-transition;
+					@include sass-utils.transition;
 				}
 
 				&:hover {

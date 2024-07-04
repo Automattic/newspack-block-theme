@@ -10,7 +10,7 @@ $large-screen: 1280px;
 $xlarge-screen: 1312px;
 
 // Z-indexes
-$zindex-sticky-header: 1000;
+$zindex-fixed-element: 1000;
 $zindex-overlay-mask: 1999;
 $zindex-overlay-menu: 2000;
 $zindex-screen-reader-text: 100000; /* Above WP toolbar. */
@@ -25,6 +25,10 @@ $zindex-screen-reader-text: 100000; /* Above WP toolbar. */
 		}
 	} @else if $class == small {
 		@media only screen and (min-width: $small-screen) {
+			@content;
+		}
+	} @else if $class == small-only {
+		@media only screen and (max-width: $medium-screen - 1) {
 			@content;
 		}
 	} @else if $class == medium {
@@ -46,6 +50,6 @@ $zindex-screen-reader-text: 100000; /* Above WP toolbar. */
 	}
 }
 
-@mixin all-transition($transition: 125ms) {
-	transition: all $transition ease-in-out;
+@mixin transition($type: all, $duration: 125ms) {
+	transition: $type $duration ease-in-out;
 }

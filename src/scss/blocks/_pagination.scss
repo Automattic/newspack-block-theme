@@ -26,7 +26,7 @@
 			padding: 0;
 			text-decoration: none;
 			width: var(--wp--custom--spacing--65);
-			@include sass-utils.all-transition;
+			@include sass-utils.transition;
 		}
 
 		.current {
@@ -53,7 +53,7 @@
 			place-items: center;
 			text-decoration: none;
 			width: var(--wp--custom--spacing--65);
-			@include sass-utils.all-transition;
+			@include sass-utils.transition;
 		}
 
 		&:has(.is-arrow-arrow):hover {
