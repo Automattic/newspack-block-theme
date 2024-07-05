@@ -27,8 +27,8 @@
 | --------------------------------- | ---- |
 | --wp--custom--width--x-small      |  300 |
 | --wp--custom--width--small        |  410 |
-| --wp--preset--width--medium       |  632 |
+| --wp--custom--width--medium       |  632 |
 | --wp--custom--width--large        |  964 |
-| --wp--preset--width--x-large      | 1296 |
+| --wp--custom--width--x-large      | 1296 |
 | --wp--style--global--content-size |  632 |
 | --wp--style--global--wide-size    | 1296 |
