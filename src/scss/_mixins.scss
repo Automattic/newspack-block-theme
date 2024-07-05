@@ -146,18 +146,6 @@
 	}
 }
 
-@mixin elevation($size: 1) {
-	@if $size == 1 {
-		box-shadow: var(--wp--preset--shadow--elevation-1);
-	} @else if $size == 2 {
-		box-shadow: var(--wp--preset--shadow--elevation-2);
-	} @else if $size == 3 {
-		box-shadow: var(--wp--preset--shadow--elevation-3);
-	} @else if $size == 4 {
-		box-shadow: var(--wp--preset--shadow--elevation-4);
-	}
-}
-
 @mixin notice($type, $margin: var(--wp--preset--spacing--50) 0) {
 	--np--notice--color--border: var(--wp--custom--color--neutral-90);
 	--np--notice--color--background: var(--wp--custom--color--neutral-5);

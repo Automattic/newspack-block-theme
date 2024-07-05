@@ -13,9 +13,9 @@
 	position: fixed !important; // !important to override some styles in the editor.
 	top: -100%;
 	transform: translateX(-50%);
+	transition: opacity 125ms ease-in-out;
 	width: 100%;
 	z-index: sass-utils.$zindex-overlay-menu;
-	@include sass-utils.transition(opacity, 125ms);
 
 	> * {
 		visibility: hidden;
@@ -114,7 +114,7 @@ body .jetpack-instant-search {
 			min-height: var(--wp--preset--spacing--50);
 			padding: calc(var(--newspack-ui-spacer-base, var(--wp--preset--spacing--20)) / 2 - 1px)
 				calc(var(--newspack-ui-spacer-base, var(--wp--preset--spacing--20)) - 1px);
-			@include sass-utils.transition;
+			transition: outline 125ms ease-in-out;
 
 			&:focus {
 				outline: 2px solid var(--jp--color--text) !important;
@@ -156,9 +156,11 @@ body .jetpack-instant-search {
 				display: block;
 				height: 36px;
 				position: absolute;
+				transition:
+					background 125ms ease-in-out,
+					outline 125ms ease-in-out;
 				width: 36px;
 				z-index: -1;
-				@include sass-utils.transition;
 			}
 
 			&:hover {
@@ -264,7 +266,7 @@ body .jetpack-instant-search {
 			min-height: var(--wp--preset--spacing--50);
 			padding: calc(var(--newspack-ui-spacer-base, var(--wp--preset--spacing--20)) / 2 - 1px)
 				calc(var(--newspack-ui-spacer-base, var(--wp--preset--spacing--20)) - 1px);
-			@include sass-utils.transition;
+			transition: background 125ms ease-in-out;
 
 			&:hover {
 				background: var(--jp--color--background-light);
@@ -344,7 +346,10 @@ body .jetpack-instant-search {
 				color: var(--jp--color--background) !important;
 				padding: var(--newspack-ui-spacer-2, var(--wp--custom--spacing--25))
 					var(--newspack-ui-spacer-5, var(--wp--preset--spacing--40)) !important;
-				@include sass-utils.transition;
+				transition:
+					background 125ms ease-in-out,
+					color 125ms ease-in-out,
+					outline 125ms ease-in-out;
 
 				&:hover {
 					background: var(--jp--color--text-light) !important;
@@ -385,10 +390,10 @@ body .jetpack-instant-search {
 
 			&.jetpack-instant-search__search-results-secondary--show-as-modal {
 				border-color: var(--jp--color--border);
+				box-shadow: var(--wp--preset--shadow--elevation-3);
 				inset: var(--wp--custom--spacing--05) var(--wp--preset--spacing--20) auto;
 				min-width: 1px;
 				padding: 0 var(--wp--preset--spacing--30);
-				@include mixins.elevation(3);
 			}
 		}
 	}

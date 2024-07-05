@@ -1,9 +1,7 @@
-@use '../../sass-utils';
-
 .wp-block-newspack-newsletters-subscribe {
 	&.is-style-modern {
 		.submit-button {
-			@include sass-utils.transition;
+			transition: opacity 125ms ease-in-out;
 
 			&:hover {
 				opacity: 0.8;

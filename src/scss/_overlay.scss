@@ -1,5 +1,4 @@
 @use 'sass-utils';
-@use 'mixins';
 
 [class*='menu-open--'] {
 	overflow-y: hidden;
@@ -32,6 +31,7 @@
 
 .overlay-contents {
 	background: var(--wp--preset--color--base);
+	box-shadow: var(--wp--preset--shadow--elevation-3);
 	color: var(--wp--preset--color--contrast);
 	max-width: calc(
 		var(--wp--preset--spacing--30) + var(--wp--style--global--content-size) +
@@ -44,7 +44,6 @@
 	width: 100%;
 	z-index: sass-utils.$zindex-overlay-menu;
 
-	@include mixins.elevation(3);
 	@include sass-utils.media(medium) {
 		max-width: calc(
 			var(--wp--preset--spacing--40) + var(--wp--style--global--content-size) +

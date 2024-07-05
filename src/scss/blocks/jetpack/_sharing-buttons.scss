@@ -1,12 +1,14 @@
-@use '../../sass-utils';
-
 .wp-block-jetpack-sharing-buttons {
 	gap: var(--wp--custom--spacing--10);
 
 	.jetpack-sharing-button {
 		&__button {
 			margin: 0;
-			@include sass-utils.transition;
+			transition:
+				background 125ms ease-in-out,
+				border-color 125ms ease-in-out,
+				color 125ms ease-in-out,
+				outline 125ms ease-in-out;
 
 			&.style-icon {
 				line-height: 1;
@@ -14,7 +16,7 @@
 				top: 0;
 
 				svg {
-					@include sass-utils.transition;
+					transition: transform 125ms ease-in-out;
 				}
 
 				&:hover {
