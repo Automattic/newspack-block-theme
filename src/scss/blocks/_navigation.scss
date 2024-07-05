@@ -35,14 +35,24 @@
 	// Overlay Menu
 	&__responsive-container {
 		&.is-menu-open {
-			padding: var(--wp--preset--spacing--30);
+			animation-duration: 125ms;
+			animation-timing-function: ease-in-out;
+			padding: var(--wp--custom--spacing--85) var(--wp--preset--spacing--30)
+				var(--wp--preset--spacing--30);
 
 			@include sass-utils.media(medium) {
-				padding: var(--wp--preset--spacing--80);
+				padding: var(--wp--custom--spacing--85) var(--wp--preset--spacing--80)
+					var(--wp--preset--spacing--80);
 			}
 
 			.admin-bar & {
 				margin-top: var(--wp-admin--admin-bar--height);
+			}
+
+			.wp-block-navigation {
+				&__responsive-container-content {
+					padding-top: var(--wp--preset--spacing--30);
+				}
 			}
 		}
 
@@ -51,12 +61,11 @@
 			height: var(--wp--custom--spacing--85);
 			place-items: center;
 			right: calc(-1 * var(--wp--preset--spacing--30));
-			top: calc(-1 * var(--wp--preset--spacing--30));
+			top: calc(-1 * var(--wp--custom--spacing--85));
 			width: var(--wp--custom--spacing--85);
 
 			@include sass-utils.media(medium) {
 				right: calc(-1 * var(--wp--preset--spacing--80));
-				top: calc(-1 * var(--wp--preset--spacing--80));
 			}
 
 			&::before {

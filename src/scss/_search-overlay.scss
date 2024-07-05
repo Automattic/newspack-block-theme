@@ -13,7 +13,6 @@
 	position: fixed !important; // !important to override some styles in the editor.
 	top: -100%;
 	transform: translateX(-50%);
-	transition: opacity 125ms ease-in-out;
 	width: 100%;
 	z-index: sass-utils.$zindex-overlay-menu;
 
@@ -34,6 +33,7 @@
 	overflow: hidden;
 
 	.search-contents {
+		animation: search-contents__fade-in-animation 250ms ease-in-out;
 		opacity: 1;
 		top: calc(10vh + var(--wp--custom--spacing--75));
 
@@ -640,5 +640,17 @@ body .jetpack-instant-search {
 			font-size: var(--newspack-ui-font-size-2xs, 12px);
 			line-height: var(--newspack-ui-line-height-2xs, 1.3333);
 		}
+	}
+}
+
+@keyframes search-contents__fade-in-animation { /* stylelint-disable-line keyframes-name-pattern */
+	0% {
+		opacity: 0;
+		transform: translate(-50%, calc(-1 * var(--wp--preset--spacing--30)));
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(-50%, 0);
 	}
 }

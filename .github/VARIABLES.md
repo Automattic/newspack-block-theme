@@ -4,7 +4,7 @@ _Viewport range for clamp: 782px > 1280px_
 
 ## Font Size
 
-| name                                  | REM           | PX      |
+| NAME                                  | REM           | PX      |
 | ------------------------------------- | ------------- | ------- |
 | --wp--preset--font-size--xx-small     |          0.75 |      12 |
 | --wp--preset--font-size--x-small      |         0.875 |      14 |
@@ -20,7 +20,7 @@ _Viewport range for clamp: 782px > 1280px_
 
 ## Line Height
 
-| name                                    | size         |
+| NAME                                    | SIZE         |
 | --------------------------------------- | ------------ |
 | --wp--custom--line-height--xx-small     | 1.3333333333 |
 | --wp--custom--line-height--x-small      | 1.4285714286 |
@@ -36,7 +36,7 @@ _Viewport range for clamp: 782px > 1280px_
 
 # Spacing
 
-| name                      | px      |
+| NAME                      | PX      |
 | ------------------------- | ------- |
 | --wp--custom--spacing--00 |       0 |
 | --wp--custom--spacing--05 |       2 |
@@ -59,7 +59,7 @@ _Viewport range for clamp: 782px > 1280px_
 
 # Width
 
-| name                              | px   |
+| NAME                              | PX   |
 | --------------------------------- | ---- |
 | --wp--custom--width--x-small      |  300 |
 | --wp--custom--width--small        |  410 |
@@ -73,7 +73,7 @@ _Viewport range for clamp: 782px > 1280px_
 
 ## Theme (can be customized by user)
 
-| name                            | hex     |
+| NAME                            | HEX     |
 | ------------------------------- | ------- |
 | --wp--preset--color--base       | #FFFFFF |
 | --wp--preset--color--base-2     | #F0F0F0 |
@@ -88,7 +88,7 @@ _Viewport range for clamp: 782px > 1280px_
 
 ## Newspack UI-like
 
-| name                             | hex       |
+| NAME                             | HEX       |
 | -------------------------------- | --------- |
 | --wp--custom--color--neutral-0   |   #FFFFFF |
 | --wp--custom--color--neutral-5   |   #F7F7F7 |
@@ -117,7 +117,7 @@ _Viewport range for clamp: 782px > 1280px_
 
 # Border Radius
 
-| name                                    | REM    | PX |
+| NAME                                    | REM    | PX |
 | --------------------------------------- | ------ | -- |
 | --wp--custom--border--radius-xx-small   |  0.125 |  2 |
 | --wp--custom--border--radius-x-small    | 0.1875 |  3 |
@@ -131,7 +131,7 @@ _Viewport range for clamp: 782px > 1280px_
 
 # Elevation
 
-| name                              | css                                       |
+| NAME                              | CSS                                       |
 | --------------------------------- | ----------------------------------------- |
 | --wp--preset--shadow--elevation-1 |                      0 1px 10px #00000007 |
 | --wp--preset--shadow--elevation-2 |                      0 2px 20px #00000014 |

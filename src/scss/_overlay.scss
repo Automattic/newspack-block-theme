@@ -19,13 +19,13 @@
 	z-index: sass-utils.$zindex-overlay-mask;
 
 	[class*='menu-open--'] & {
-		animation: fade-in 500ms ease-in-out;
+		animation: overlay-mask__fade-in-animation 500ms ease-in-out;
 		display: block;
 		opacity: 1;
 	}
 
 	.menu-open--search-menu & {
-		animation-duration: 125ms;
+		animation-duration: 250ms;
 	}
 }
 
@@ -89,7 +89,7 @@
 	}
 }
 
-@keyframes fade-in {
+@keyframes overlay-mask__fade-in-animation { /* stylelint-disable-line keyframes-name-pattern */
 	0% {
 		display: none;
 		opacity: 0;
