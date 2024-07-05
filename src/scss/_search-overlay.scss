@@ -139,7 +139,7 @@ body .jetpack-instant-search {
 			background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.40456 5L19 19M5 19L18.5954 5' stroke='%231E1E1E' stroke-width='1.5'/%3E%3C/svg%3E") !important;
 			background-position: 50% 50% !important;
 			background-repeat: no-repeat !important;
-			background-size: 24px 24px !important;
+			background-size: var(--wp--preset--spacing--40) var(--wp--preset--spacing--40) !important;
 			border-bottom-color: var(--jp--color--border) !important;
 			flex: 0 0 var(--wp--custom--spacing--85);
 			height: calc(var(--wp--custom--spacing--85) + 1px);
@@ -154,12 +154,12 @@ body .jetpack-instant-search {
 				border-radius: var(--newspack-ui-border-radius-m, 6px);
 				content: '';
 				display: block;
-				height: 36px;
+				height: var(--wp--custom--spacing--55);
 				position: absolute;
 				transition:
 					background 125ms ease-in-out,
 					outline 125ms ease-in-out;
-				width: 36px;
+				width: var(--wp--custom--spacing--55);
 				z-index: -1;
 			}
 
@@ -225,7 +225,7 @@ body .jetpack-instant-search {
 			background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M18 11.5C18 14.5376 15.5376 17 12.5 17C11.103 17 9.82771 16.4792 8.85761 15.6211L5.49386 18.5644L4.5061 17.4355L7.87915 14.4841C7.32293 13.6246 7 12.6 7 11.5C7 8.46243 9.46243 6 12.5 6C15.5376 6 18 8.46243 18 11.5ZM16.5 11.5C16.5 13.7091 14.7091 15.5 12.5 15.5C10.2909 15.5 8.5 13.7091 8.5 11.5C8.5 9.29086 10.2909 7.5 12.5 7.5C14.7091 7.5 16.5 9.29086 16.5 11.5Z' fill='%231E1E1E'/%3E%3C/svg%3E");
 			background-position: center;
 			background-repeat: no-repeat;
-			background-size: 24px 24px;
+			background-size: var(--wp--preset--spacing--40) var(--wp--preset--spacing--40);
 			height: var(--wp--custom--spacing--85);
 			min-width: var(--wp--custom--spacing--75);
 			width: var(--wp--preset--spacing--80);

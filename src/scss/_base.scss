@@ -111,9 +111,9 @@ ol {
 			background-color: currentcolor;
 			content: '';
 			display: block;
-			height: 24px;
-			mask-size: 24px;
-			width: 24px;
+			height: var(--wp--preset--spacing--40);
+			mask-size: var(--wp--preset--spacing--40);
+			width: var(--wp--preset--spacing--40);
 		}
 	}
 }

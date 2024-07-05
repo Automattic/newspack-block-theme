@@ -30,9 +30,9 @@
 			&::before {
 				background: currentcolor;
 				content: '';
-				height: 24px;
+				height: var(--wp--preset--spacing--40);
 				mask: url('../../src/images/icon-comments.svg') 0 0 no-repeat;
-				width: 24px;
+				width: var(--wp--preset--spacing--40);
 			}
 		}
 	}
