@@ -37,6 +37,7 @@
 		var(--wp--preset--spacing--30) + var(--wp--style--global--content-size) +
 			var(--wp--preset--spacing--30)
 	);
+	margin: 0;
 	opacity: 0;
 	overflow: auto;
 	padding: 0 var(--wp--preset--spacing--30) var(--wp--preset--spacing--30);
@@ -67,7 +68,12 @@
 	}
 
 	.admin-bar & {
-		margin-top: var(--wp-admin--admin-bar--height);
+		z-index: sass-utils.$zindex-overlay-menu-mobile;
+
+		@include sass-utils.media(small) {
+			margin-top: var(--wp-admin--admin-bar--height);
+			z-index: sass-utils.$zindex-overlay-menu;
+		}
 	}
 
 	> * {
@@ -76,15 +82,14 @@
 
 	.newspack-icon-close {
 		display: grid;
+		height: var(--wp--custom--spacing--85);
 		margin-right: calc(-1 * var(--wp--preset--spacing--30));
-		padding: var(--wp--preset--spacing--30);
+		padding: 0;
 		place-items: center;
+		width: var(--wp--custom--spacing--85);
 
 		@include sass-utils.media(medium) {
-			height: var(--wp--custom--spacing--85);
 			margin-right: calc(-1 * var(--wp--preset--spacing--40));
-			padding: 0;
-			width: var(--wp--custom--spacing--85);
 		}
 	}
 }
