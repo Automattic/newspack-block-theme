@@ -1,5 +1,4 @@
 @use 'sass-utils';
-@use 'mixins';
 
 [class*='menu-open--'] {
 	overflow-y: hidden;
@@ -20,20 +19,25 @@
 	z-index: sass-utils.$zindex-overlay-mask;
 
 	[class*='menu-open--'] & {
-		animation: fade-in 500ms ease-in-out;
+		animation: overlay-mask__fade-in-animation 500ms ease-in-out;
 		display: block;
 		opacity: 1;
 	}
 
 	.menu-open--search-menu & {
-		animation-duration: 125ms;
+		animation-duration: 250ms;
 	}
 }
 
 .overlay-contents {
 	background: var(--wp--preset--color--base);
+	box-shadow: var(--wp--preset--shadow--elevation-3);
 	color: var(--wp--preset--color--contrast);
-	max-width: calc(var(--wp--style--global--content-size) + var(--wp--preset--spacing--30) * 2);
+	max-width: calc(
+		var(--wp--preset--spacing--30) + var(--wp--style--global--content-size) +
+			var(--wp--preset--spacing--30)
+	);
+	margin: 0;
 	opacity: 0;
 	overflow: auto;
 	padding: 0 var(--wp--preset--spacing--30) var(--wp--preset--spacing--30);
@@ -41,9 +45,11 @@
 	width: 100%;
 	z-index: sass-utils.$zindex-overlay-menu;
 
-	@include mixins.elevation(3);
 	@include sass-utils.media(medium) {
-		max-width: calc(var(--wp--style--global--content-size) + var(--wp--preset--spacing--40) * 2);
+		max-width: calc(
+			var(--wp--preset--spacing--40) + var(--wp--style--global--content-size) +
+				var(--wp--preset--spacing--40)
+		);
 		padding: 0 var(--wp--preset--spacing--40) var(--wp--preset--spacing--40);
 	}
 
@@ -62,7 +68,12 @@
 	}
 
 	.admin-bar & {
-		margin-top: var(--wp-admin--admin-bar--height);
+		z-index: sass-utils.$zindex-overlay-menu-mobile;
+
+		@include sass-utils.media(small) {
+			margin-top: var(--wp-admin--admin-bar--height);
+			z-index: sass-utils.$zindex-overlay-menu;
+		}
 	}
 
 	> * {
@@ -71,20 +82,19 @@
 
 	.newspack-icon-close {
 		display: grid;
+		height: var(--wp--custom--spacing--85);
 		margin-right: calc(-1 * var(--wp--preset--spacing--30));
-		padding: var(--wp--preset--spacing--30);
+		padding: 0;
 		place-items: center;
+		width: var(--wp--custom--spacing--85);
 
 		@include sass-utils.media(medium) {
-			height: var(--wp--custom--spacing--85);
 			margin-right: calc(-1 * var(--wp--preset--spacing--40));
-			padding: 0;
-			width: var(--wp--custom--spacing--85);
 		}
 	}
 }
 
-@keyframes fade-in {
+@keyframes overlay-mask__fade-in-animation { /* stylelint-disable-line keyframes-name-pattern */
 	0% {
 		display: none;
 		opacity: 0;

@@ -55,7 +55,7 @@ ol {
 		top: 0;
 		z-index: sass-utils.$zindex-fixed-element;
 
-		.admin-bar &:is( header ) {
+		.admin-bar &:is(header) {
 			top: var(--wp-admin--admin-bar--height);
 		}
 	}
@@ -66,6 +66,18 @@ ol {
 
 	&-sticky {
 		position: sticky;
+
+		&--mobile-only {
+			@include sass-utils.media(medium) {
+				position: inherit;
+			}
+		}
+
+		&--desktop-only {
+			@include sass-utils.media(small-only) {
+				position: inherit;
+			}
+		}
 	}
 }
 
@@ -99,9 +111,9 @@ ol {
 			background-color: currentcolor;
 			content: '';
 			display: block;
-			height: 24px;
-			mask-size: 24px;
-			width: 24px;
+			height: var(--wp--preset--spacing--40);
+			mask-size: var(--wp--preset--spacing--40);
+			width: var(--wp--preset--spacing--40);
 		}
 	}
 }

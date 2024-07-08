@@ -2,9 +2,9 @@
 
 .wp-block-navigation {
 	// Give dropdowns a rounded border, a drop-shadow, and increase the top padding.
-	.wp-block-navigation__submenu-container {
+	& &__submenu-container {
 		border-radius: var(--wp--custom--border--radius-x-small);
-		box-shadow: 0 1px 2px rgba(black, 0.05);
+		box-shadow: var(--wp--preset--shadow--elevation-1);
 		overflow: hidden;
 		padding: var(--wp--preset--spacing--20) 0;
 	}
@@ -21,7 +21,7 @@
 		.wp-block-navigation-submenu__toggle[aria-expanded='true']
 		~ .wp-block-navigation__submenu-container,
 	.has-child:not(.open-on-click):hover > .wp-block-navigation__submenu-container {
-		min-width: 240px;
+		min-width: calc(var(--wp--custom--width--small) / 2);
 	}
 
 	// Don't add the box shadow/padding when using the default mobile view of the navigation block.
@@ -30,6 +30,75 @@
 			box-shadow: none;
 			padding-bottom: 0;
 		}
+	}
+
+	// Overlay Menu
+	&__responsive-container {
+		&.is-menu-open {
+			animation-duration: 125ms;
+			animation-timing-function: ease-in-out;
+			padding: var(--wp--custom--spacing--85) var(--wp--preset--spacing--30)
+				var(--wp--preset--spacing--30);
+
+			@include sass-utils.media(medium) {
+				padding: var(--wp--custom--spacing--85) var(--wp--preset--spacing--80)
+					var(--wp--preset--spacing--80);
+			}
+
+			.admin-bar & {
+				margin-top: var(--wp-admin--admin-bar--height);
+			}
+
+			.wp-block-navigation {
+				&__responsive-container-content {
+					padding-top: var(--wp--preset--spacing--30);
+				}
+			}
+		}
+
+		& &-close {
+			display: grid;
+			height: var(--wp--custom--spacing--85);
+			place-items: center;
+			right: calc(-1 * var(--wp--preset--spacing--30));
+			top: calc(-1 * var(--wp--custom--spacing--85));
+			width: var(--wp--custom--spacing--85);
+
+			@include sass-utils.media(medium) {
+				right: calc(-1 * var(--wp--preset--spacing--80));
+			}
+
+			&::before {
+				background: transparent;
+				border-radius: var(--wp--custom--border--radius-medium);
+				content: '';
+				display: block;
+				height: var(--wp--custom--spacing--55);
+				position: absolute;
+				transition:
+					background 125ms ease-in-out,
+					outline 125ms ease-in-out;
+				width: var(--wp--custom--spacing--55);
+				z-index: -1;
+			}
+
+			&:hover {
+				&::before {
+					background: var(--wp--custom--color--neutral-5);
+				}
+			}
+
+			&:focus {
+				&::before {
+					outline: 2px solid currentcolor;
+					outline-offset: 1px;
+				}
+			}
+		}
+	}
+
+	&__responsive-dialog {
+		margin-top: 0 !important;
 	}
 
 	// Change the block spacing when vertical.
@@ -102,8 +171,9 @@
 
 	&.primary-navigation {
 		row-gap: var(--wp--preset--spacing--20);
+
 		.wp-block-page-list > li {
-			min-height: 36px;
+			min-height: var(--wp--custom--spacing--55);
 		}
 	}
 

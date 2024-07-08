@@ -4,7 +4,7 @@
 /**
  * Search menu styles
  */
-.search-contents {
+.search-menu__contents {
 	left: 50%;
 	margin: 0;
 	max-width: var(--wp--style--global--content-size);
@@ -15,7 +15,6 @@
 	transform: translateX(-50%);
 	width: 100%;
 	z-index: sass-utils.$zindex-overlay-menu;
-	@include sass-utils.transition(opacity, 125ms);
 
 	> * {
 		visibility: hidden;
@@ -28,12 +27,9 @@
 	.wp-block-search {
 		box-shadow: var(--wp--preset--shadow--elevation-3);
 	}
-}
 
-.menu-open--search-menu {
-	overflow: hidden;
-
-	.search-contents {
+	.menu-open--search-menu & {
+		animation: search-contents__fade-in-animation 250ms ease-in-out;
 		opacity: 1;
 		top: calc(10vh + var(--wp--custom--spacing--75));
 
@@ -49,6 +45,10 @@ body .jetpack-instant-search {
 	--jp--color--background: var(--wp--custom--color--neutral-0);
 	--jp--color--background-light: var(--wp--custom--color--neutral-5);
 	--jp--color--border: var(--wp--custom--color--neutral-30);
+	--jp--sidebar--width: calc(
+		1px + var(--wp--preset--spacing--30) + var(--wp--custom--width--x-small) +
+			var(--wp--preset--spacing--30)
+	);
 
 	&[class*='--dark'] {
 		--jp--color--text: var(--wp--custom--color--neutral-0);
@@ -67,6 +67,10 @@ body .jetpack-instant-search {
 			&__box {
 				&-gridicon {
 					background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M18 11.5C18 14.5376 15.5376 17 12.5 17C11.103 17 9.82771 16.4792 8.85761 15.6211L5.49386 18.5644L4.5061 17.4355L7.87915 14.4841C7.32293 13.6246 7 12.6 7 11.5C7 8.46243 9.46243 6 12.5 6C15.5376 6 18 8.46243 18 11.5ZM16.5 11.5C16.5 13.7091 14.7091 15.5 12.5 15.5C10.2909 15.5 8.5 13.7091 8.5 11.5C8.5 9.29086 10.2909 7.5 12.5 7.5C14.7091 7.5 16.5 9.29086 16.5 11.5Z' fill='white'/%3E%3C/svg%3E");
+				}
+
+				&-input {
+					height: var(--wp--custom--spacing--75) !important;
 				}
 			}
 		}
@@ -106,7 +110,7 @@ body .jetpack-instant-search {
 			min-height: var(--wp--preset--spacing--50);
 			padding: calc(var(--newspack-ui-spacer-base, var(--wp--preset--spacing--20)) / 2 - 1px)
 				calc(var(--newspack-ui-spacer-base, var(--wp--preset--spacing--20)) - 1px);
-			@include sass-utils.transition;
+			transition: outline 125ms ease-in-out;
 
 			&:focus {
 				outline: 2px solid var(--jp--color--text) !important;
@@ -129,10 +133,13 @@ body .jetpack-instant-search {
 
 		button.jetpack-instant-search__overlay-close {
 			background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.40456 5L19 19M5 19L18.5954 5' stroke='%231E1E1E' stroke-width='1.5'/%3E%3C/svg%3E") !important;
-			background-position: center !important;
+			background-position: 50% 50% !important;
 			background-repeat: no-repeat !important;
-			background-size: 24px 24px !important;
+			background-size: var(--wp--preset--spacing--40) var(--wp--preset--spacing--40) !important;
 			border-bottom-color: var(--jp--color--border) !important;
+			flex: 0 0 var(--wp--custom--spacing--85);
+			height: calc(var(--wp--custom--spacing--85) + 1px);
+			width: var(--wp--custom--spacing--85);
 
 			> svg {
 				display: none;
@@ -143,11 +150,13 @@ body .jetpack-instant-search {
 				border-radius: var(--newspack-ui-border-radius-m, 6px);
 				content: '';
 				display: block;
-				height: 36px;
+				height: var(--wp--custom--spacing--55);
 				position: absolute;
-				width: 36px;
+				transition:
+					background 125ms ease-in-out,
+					outline 125ms ease-in-out;
+				width: var(--wp--custom--spacing--55);
 				z-index: -1;
-				@include sass-utils.transition;
 			}
 
 			&:hover {
@@ -212,7 +221,8 @@ body .jetpack-instant-search {
 			background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M18 11.5C18 14.5376 15.5376 17 12.5 17C11.103 17 9.82771 16.4792 8.85761 15.6211L5.49386 18.5644L4.5061 17.4355L7.87915 14.4841C7.32293 13.6246 7 12.6 7 11.5C7 8.46243 9.46243 6 12.5 6C15.5376 6 18 8.46243 18 11.5ZM16.5 11.5C16.5 13.7091 14.7091 15.5 12.5 15.5C10.2909 15.5 8.5 13.7091 8.5 11.5C8.5 9.29086 10.2909 7.5 12.5 7.5C14.7091 7.5 16.5 9.29086 16.5 11.5Z' fill='%231E1E1E'/%3E%3C/svg%3E");
 			background-position: center;
 			background-repeat: no-repeat;
-			background-size: 24px 24px;
+			background-size: var(--wp--preset--spacing--40) var(--wp--preset--spacing--40);
+			height: var(--wp--custom--spacing--85);
 			min-width: var(--wp--custom--spacing--75);
 			width: var(--wp--preset--spacing--80);
 
@@ -227,12 +237,16 @@ body .jetpack-instant-search {
 
 		&-wrapper {
 			border-radius: var(--wp--custom--border--radius-medium);
-			max-width: calc(var(--wp--preset--spacing--80) + 632px + var(--wp--preset--spacing--80));
+			max-width: calc(
+				var(--wp--preset--spacing--80) + var(--wp--style--global--content-size) +
+					var(--wp--preset--spacing--80)
+			);
 
 			@include sass-utils.media('992px') {
 				&:has(.jetpack-instant-search__widget-area > *) {
 					max-width: calc(
-						var(--wp--preset--spacing--80) + 632px + var(--wp--preset--spacing--80) + 333px
+						var(--wp--preset--spacing--80) + var(--wp--style--global--content-size) +
+							var(--wp--preset--spacing--80) + var(--jp--sidebar--width)
 					);
 				}
 			}
@@ -248,7 +262,7 @@ body .jetpack-instant-search {
 			min-height: var(--wp--preset--spacing--50);
 			padding: calc(var(--newspack-ui-spacer-base, var(--wp--preset--spacing--20)) / 2 - 1px)
 				calc(var(--newspack-ui-spacer-base, var(--wp--preset--spacing--20)) - 1px);
-			@include sass-utils.transition;
+			transition: background 125ms ease-in-out;
 
 			&:hover {
 				background: var(--jp--color--background-light);
@@ -328,7 +342,10 @@ body .jetpack-instant-search {
 				color: var(--jp--color--background) !important;
 				padding: var(--newspack-ui-spacer-2, var(--wp--custom--spacing--25))
 					var(--newspack-ui-spacer-5, var(--wp--preset--spacing--40)) !important;
-				@include sass-utils.transition;
+				transition:
+					background 125ms ease-in-out,
+					color 125ms ease-in-out,
+					outline 125ms ease-in-out;
 
 				&:hover {
 					background: var(--jp--color--text-light) !important;
@@ -357,7 +374,7 @@ body .jetpack-instant-search {
 			max-width: 100%;
 
 			@include sass-utils.media('992px') {
-				max-width: calc(100% - 333px);
+				max-width: calc(100% - var(--jp--sidebar--width));
 			}
 		}
 
@@ -365,14 +382,14 @@ body .jetpack-instant-search {
 			border-color: var(--jp--color--border) !important;
 			color: inherit;
 			padding: 0 var(--wp--preset--spacing--30);
-			width: 333px;
+			width: var(--jp--sidebar--width);
 
 			&.jetpack-instant-search__search-results-secondary--show-as-modal {
 				border-color: var(--jp--color--border);
+				box-shadow: var(--wp--preset--shadow--elevation-3);
 				inset: var(--wp--custom--spacing--05) var(--wp--preset--spacing--20) auto;
 				min-width: 1px;
 				padding: 0 var(--wp--preset--spacing--30);
-				@include mixins.elevation(3);
 			}
 		}
 	}
@@ -563,7 +580,7 @@ body .jetpack-instant-search {
 				var(--newspack-ui-font-size-m, clamp(1.125rem, 0.929rem + 0.402vw, 1.25rem)) *
 					var(--newspack-ui-line-height-m, 1.6)
 			);
-			right: 333px;
+			right: var(--jp--sidebar--width);
 		}
 
 		.jetpack-instant-search__search-sort {
@@ -619,5 +636,17 @@ body .jetpack-instant-search {
 			font-size: var(--newspack-ui-font-size-2xs, 12px);
 			line-height: var(--newspack-ui-line-height-2xs, 1.3333);
 		}
+	}
+}
+
+@keyframes search-contents__fade-in-animation { /* stylelint-disable-line keyframes-name-pattern */
+	0% {
+		opacity: 0;
+		transform: translate(-50%, calc(-1 * var(--wp--preset--spacing--30)));
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(-50%, 0);
 	}
 }

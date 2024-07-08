@@ -2,16 +2,16 @@
 
 .wp-block-search {
 	.wp-block-search__button.has-icon {
-		height: 3rem;
+		height: var(--wp--custom--spacing--75);
 		line-height: 1;
 		padding: var(--wp--custom--spacing--25);
 
 		svg {
-			height: 36px;
+			height: var(--wp--custom--spacing--55);
 			min-height: 0;
 			min-width: 0;
 			vertical-align: middle;
-			width: 36px;
+			width: var(--wp--custom--spacing--55);
 		}
 	}
 
@@ -74,8 +74,8 @@
 				@include mixins.button-icon;
 
 				svg {
-					height: 24px;
-					width: 24px;
+					height: var(--wp--preset--spacing--40);
+					width: var(--wp--preset--spacing--40);
 				}
 			}
 		}

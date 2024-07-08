@@ -3,7 +3,7 @@
 .wp-block-co-authors-plus-coauthors {
 	&.cap-avatar {
 		.wp-block-co-authors-plus-coauthor:not(:first-child) {
-			margin-left: -8px;
+			margin-left: calc(-1 * var(--wp--preset--spacing--20));
 		}
 	}
 }
