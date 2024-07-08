@@ -4,7 +4,7 @@
 /**
  * Search menu styles
  */
-.search-contents {
+.search-menu__contents {
 	left: 50%;
 	margin: 0;
 	max-width: var(--wp--style--global--content-size);
@@ -27,12 +27,8 @@
 	.wp-block-search {
 		box-shadow: var(--wp--preset--shadow--elevation-3);
 	}
-}
 
-.menu-open--search-menu {
-	overflow: hidden;
-
-	.search-contents {
+	.menu-open--search-menu & {
 		animation: search-contents__fade-in-animation 250ms ease-in-out;
 		opacity: 1;
 		top: calc(10vh + var(--wp--custom--spacing--75));

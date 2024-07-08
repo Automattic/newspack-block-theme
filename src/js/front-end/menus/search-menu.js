@@ -16,14 +16,14 @@ domReady( function () {
 	 */
 	const body = document.body,
 		searchContain = document.querySelector( '.search-menu' ),
-		searchToggle = document.querySelectorAll( '.search-menu-toggle' ),
-		searchContents = document.querySelector( '.search-contents' );
+		searchToggle = document.querySelectorAll( '.search-menu__toggle' ),
+		searchContents = document.querySelector( '.search-menu__contents' );
 
 	if ( ! searchContain || ! searchToggle.length || ! searchContents ) {
 		return;
 	}
 
-	const searchOpenButton = searchContain.querySelector( '.search-menu-toggle a' );
+	const searchOpenButton = searchContain.querySelector( '.search-menu__toggle a' );
 
 	// If Jetpack Instant Search is enabled, add a CSS class to the search toggle and bail.
 	// See: https://jetpack.com/support/search/customizing-jetpack-search/#add-search-button
