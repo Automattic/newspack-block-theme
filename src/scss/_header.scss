@@ -13,7 +13,7 @@
 }
 
 // Mobile menu
-.mobile-sidebar {
+.mobile-menu__contents {
 	.menu-open--mobile-menu & {
 		@include mixins.overlay-visible;
 	}
