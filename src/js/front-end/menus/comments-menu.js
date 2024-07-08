@@ -14,15 +14,15 @@ domReady( function () {
 	 */
 	const body = document.body,
 		headerContain = document.querySelector( '.comments-menu' ),
-		commentsToggle = document.querySelectorAll( '.comments-menu-toggle' ),
-		commentsContents = document.querySelector( '.comments-contents' );
+		commentsToggle = document.querySelectorAll( '.comments-menu__toggle' ),
+		commentsContents = document.querySelector( '.comments-menu__contents' );
 
 	if ( ! headerContain || ! commentsToggle.length || ! commentsContents ) {
 		return;
 	}
 
-	const commentsOpenButton = headerContain.querySelector( '.comments-menu-toggle a' ),
-		commentsCloseButton = commentsContents.querySelector( '.comments-menu-toggle a' );
+	const commentsOpenButton = headerContain.querySelector( '.comments-menu__toggle a' ),
+		commentsCloseButton = commentsContents.querySelector( '.comments-menu__toggle a' );
 
 	/**
 	 * @description Fires either the opening or closing functions for a menu.
