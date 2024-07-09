@@ -52,6 +52,12 @@
 			.wp-block-navigation {
 				&__responsive-container-content {
 					padding-top: var(--wp--preset--spacing--30);
+
+					.has-child .wp-block-navigation__submenu-container {
+						gap: var(--wp--style--block-gap,var(--wp--preset--spacing--50));
+						padding-left: var(--wp--style--block-gap,var(--wp--preset--spacing--50));
+						padding-right: var(--wp--style--block-gap,var(--wp--preset--spacing--50));
+					}
 				}
 			}
 		}
@@ -60,13 +66,9 @@
 			display: grid;
 			height: var(--wp--custom--spacing--85);
 			place-items: center;
-			right: calc(-1 * var(--wp--preset--spacing--30));
-			top: calc(-1 * var(--wp--custom--spacing--85));
+			right: 0;
+			top: 0;
 			width: var(--wp--custom--spacing--85);
-
-			@include sass-utils.media(medium) {
-				right: calc(-1 * var(--wp--preset--spacing--80));
-			}
 
 			&::before {
 				background: transparent;
@@ -99,6 +101,7 @@
 
 	&__responsive-dialog {
 		margin-top: 0 !important;
+		position: initial;
 	}
 
 	// Change the block spacing when vertical.
