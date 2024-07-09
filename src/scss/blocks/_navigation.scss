@@ -9,6 +9,12 @@
 		padding: var(--wp--preset--spacing--20) 0;
 	}
 
+	&.has-text-color:not(.has-contrast-color) {
+		a:not(.wp-element-button):hover {
+			color: color-mix(in srgb, currentcolor 80%, transparent) !important;
+		}
+	}
+
 	@include sass-utils.media(medium) {
 		// Adjust the vertical placement of the dropdowns to account for the extra padding.
 		.has-child .wp-block-navigation__submenu-container .wp-block-navigation__submenu-container {
@@ -181,16 +187,7 @@
 	}
 
 	a {
-		text-decoration-color: transparent;
-		text-decoration-thickness: 0.125em !important;
-		text-underline-offset: 0.375em;
-		transition: text-decoration-color 125ms ease-in-out;
-		transition-delay: 100ms;
-
-		&:not(.wp-element-button):hover {
-			text-decoration: underline;
-			text-decoration-color: currentcolor;
-		}
+		transition: color 125ms ease-in-out;
 
 		&:not(.wp-element-button):focus-visible {
 			outline: 2px solid;
