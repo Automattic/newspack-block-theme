@@ -12,17 +12,6 @@
 	}
 }
 
-// Mobile menu
-.mobile-menu__contents {
-	.menu-open--mobile-menu & {
-		@include mixins.overlay-visible;
-	}
-
-	&.wp-block {
-		display: none;
-	}
-}
-
 // Header margin
 .wp-site-blocks {
 	> header + * {

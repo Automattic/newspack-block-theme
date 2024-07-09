@@ -13,15 +13,15 @@ domReady( function () {
 	 * Comments Menu toggle and overlay JavaScript.
 	 */
 	const body = document.body,
-		headerContain = document.querySelector( '.comments-menu' ),
+		pageContain = document.querySelector( '.comments-menu' ),
 		commentsToggle = document.querySelectorAll( '.comments-menu__toggle' ),
 		commentsContents = document.querySelector( '.comments-menu__contents' );
 
-	if ( ! headerContain || ! commentsToggle.length || ! commentsContents ) {
+	if ( ! pageContain || ! commentsToggle.length || ! commentsContents ) {
 		return;
 	}
 
-	const commentsOpenButton = headerContain.querySelector( '.comments-menu__toggle a' ),
+	const commentsOpenButton = pageContain.querySelector( '.comments-menu__toggle a' ),
 		commentsCloseButton = commentsContents.querySelector( '.comments-menu__toggle a' );
 
 	/**
@@ -43,6 +43,7 @@ domReady( function () {
 	 */
 	const openMenu = () => {
 		body.classList.add( openClassName );
+		commentsContents.classList.add( openClassName );
 		commentsCloseButton.focus();
 		createOverlay();
 	};
@@ -52,6 +53,7 @@ domReady( function () {
 	 */
 	const closeMenu = () => {
 		body.classList.remove( openClassName );
+		commentsContents.classList.remove( openClassName );
 		commentsOpenButton.focus();
 		removeOverlay();
 	};

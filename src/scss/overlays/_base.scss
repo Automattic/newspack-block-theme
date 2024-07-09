@@ -1,4 +1,5 @@
-@use 'sass-utils';
+@use '../sass-utils';
+@use '../mixins';
 
 [class*='menu-open--'] {
 	overflow-y: hidden;
@@ -33,6 +34,7 @@
 	background: var(--wp--preset--color--base);
 	box-shadow: var(--wp--preset--shadow--elevation-3);
 	color: var(--wp--preset--color--contrast);
+	inset: 0 auto 0 -100%;
 	max-width: calc(
 		var(--wp--preset--spacing--30) + var(--wp--style--global--content-size) +
 			var(--wp--preset--spacing--30)
@@ -53,20 +55,6 @@
 		padding: 0 var(--wp--preset--spacing--40) var(--wp--preset--spacing--40);
 	}
 
-	&--left {
-		inset: 0 auto 0 -100%;
-		transition:
-			opacity 125ms ease-in-out,
-			left 250ms ease-in-out;
-	}
-
-	&--right {
-		inset: 0 -100% 0 auto;
-		transition:
-			opacity 125ms ease-in-out,
-			right 250ms ease-in-out;
-	}
-
 	.admin-bar & {
 		z-index: sass-utils.$zindex-overlay-menu-mobile;
 
@@ -74,10 +62,6 @@
 			margin-top: var(--wp-admin--admin-bar--height);
 			z-index: sass-utils.$zindex-overlay-menu;
 		}
-	}
-
-	> * {
-		visibility: hidden;
 	}
 
 	.newspack-icon-close {
@@ -91,6 +75,57 @@
 		@include sass-utils.media(medium) {
 			margin-right: calc(-1 * var(--wp--preset--spacing--40));
 		}
+	}
+
+	&--left {
+		transition:
+			opacity 125ms ease-in-out,
+			left 250ms ease-in-out;
+
+		&[class*='menu-open--'] {
+			@include mixins.overlay-visible(left);
+		}
+	}
+
+	&--right {
+		inset: 0 -100% 0 auto;
+		transition:
+			opacity 125ms ease-in-out,
+			right 250ms ease-in-out;
+
+		&[class*='menu-open--'] {
+			@include mixins.overlay-visible(right);
+		}
+	}
+
+	&--full-width {
+		max-width: 100%;
+
+		@include sass-utils.media(medium) {
+			padding: 0 var(--wp--preset--spacing--80) var(--wp--preset--spacing--80);
+		}
+
+		&[class*='menu-open--'] {
+			@include mixins.overlay-visible(full-width);
+		}
+
+		body:has( &[class*='menu-open--'] ) {
+			overflow: hidden;
+		}
+
+		.newspack-icon-close {
+			@include sass-utils.media(medium) {
+				margin-right: calc(-1 * var(--wp--preset--spacing--80));
+			}
+		}
+	}
+
+	> * {
+		visibility: hidden;
+	}
+
+	&.wp-block {
+		display: none;
 	}
 }
 

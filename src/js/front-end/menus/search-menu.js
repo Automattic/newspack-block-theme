@@ -50,6 +50,7 @@ domReady( function () {
 	 */
 	const openMenu = () => {
 		body.classList.add( openClassName );
+		searchContents.classList.add( openClassName );
 		searchOpenButton.innerHTML = '<span>' + newspackScreenReaderText.close_search + '</span>';
 		searchContents.querySelector( 'input[type="search"]' ).focus();
 		createOverlay();
@@ -63,6 +64,7 @@ domReady( function () {
 			return;
 		}
 		body.classList.remove( openClassName );
+		searchContents.classList.remove( openClassName );
 		searchOpenButton.innerHTML = '<span>' + newspackScreenReaderText.open_search + '</span>';
 		removeOverlay();
 	};
