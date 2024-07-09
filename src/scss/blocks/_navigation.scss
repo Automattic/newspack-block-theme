@@ -9,6 +9,12 @@
 		padding: var(--wp--preset--spacing--20) 0;
 	}
 
+	&.has-text-color:not(.has-contrast-color) {
+		a:not(.wp-element-button):hover {
+			color: color-mix(in srgb, currentcolor 80%, transparent) !important;
+		}
+	}
+
 	@include sass-utils.media(medium) {
 		// Adjust the vertical placement of the dropdowns to account for the extra padding.
 		.has-child .wp-block-navigation__submenu-container .wp-block-navigation__submenu-container {
@@ -52,6 +58,12 @@
 			.wp-block-navigation {
 				&__responsive-container-content {
 					padding-top: var(--wp--preset--spacing--30);
+
+					.has-child .wp-block-navigation__submenu-container {
+						gap: var(--wp--style--block-gap,var(--wp--preset--spacing--50));
+						padding-left: var(--wp--style--block-gap,var(--wp--preset--spacing--50));
+						padding-right: var(--wp--style--block-gap,var(--wp--preset--spacing--50));
+					}
 				}
 			}
 		}
@@ -60,13 +72,9 @@
 			display: grid;
 			height: var(--wp--custom--spacing--85);
 			place-items: center;
-			right: calc(-1 * var(--wp--preset--spacing--30));
-			top: calc(-1 * var(--wp--custom--spacing--85));
+			right: 0;
+			top: 0;
 			width: var(--wp--custom--spacing--85);
-
-			@include sass-utils.media(medium) {
-				right: calc(-1 * var(--wp--preset--spacing--80));
-			}
 
 			&::before {
 				background: transparent;
@@ -99,6 +107,7 @@
 
 	&__responsive-dialog {
 		margin-top: 0 !important;
+		position: initial;
 	}
 
 	// Change the block spacing when vertical.
@@ -178,16 +187,7 @@
 	}
 
 	a {
-		text-decoration-color: transparent;
-		text-decoration-thickness: 0.125em !important;
-		text-underline-offset: 0.375em;
-		transition: text-decoration-color 125ms ease-in-out;
-		transition-delay: 100ms;
-
-		&:not(.wp-element-button):hover {
-			text-decoration: underline;
-			text-decoration-color: currentcolor;
-		}
+		transition: color 125ms ease-in-out;
 
 		&:not(.wp-element-button):focus-visible {
 			outline: 2px solid;

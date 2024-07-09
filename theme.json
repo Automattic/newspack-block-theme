@@ -595,7 +595,15 @@
 				"elements": {
 					"link": {
 						"typography": {
-							"textDecoration": "underline"
+							"textDecoration": "none"
+						},
+						":hover": {
+							"color": {
+								"text": "color-mix(in srgb, currentcolor 65.5%, transparent) !important"
+							},
+							"typography": {
+								"textDecoration": "none"
+							}
 						}
 					}
 				},

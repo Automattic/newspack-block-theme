@@ -50,22 +50,24 @@ ol {
 
 // Position
 .is-position {
-	&-fixed,
-	&-sticky {
-		top: 0;
-		z-index: sass-utils.$zindex-fixed-element;
-
-		.admin-bar &:is(header) {
-			top: var(--wp-admin--admin-bar--height);
-		}
-	}
-
 	&-fixed {
 		position: fixed;
 	}
 
 	&-sticky {
 		position: sticky;
+	}
+
+	&-fixed,
+	&-sticky {
+		top: 0;
+		z-index: sass-utils.$zindex-fixed-element;
+
+		.admin-bar &:is(header) {
+			@include sass-utils.media(small) {
+				top: var(--wp-admin--admin-bar--height);
+			}
+		}
 
 		&--mobile-only {
 			@include sass-utils.media(medium) {
