@@ -50,6 +50,14 @@ ol {
 
 // Position
 .is-position {
+	&-fixed {
+		position: fixed;
+	}
+
+	&-sticky {
+		position: sticky;
+	}
+
 	&-fixed,
 	&-sticky {
 		top: 0;
@@ -60,14 +68,6 @@ ol {
 				top: var(--wp-admin--admin-bar--height);
 			}
 		}
-	}
-
-	&-fixed {
-		position: fixed;
-	}
-
-	&-sticky {
-		position: sticky;
 
 		&--mobile-only {
 			@include sass-utils.media(medium) {
