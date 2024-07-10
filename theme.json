@@ -719,8 +719,11 @@
 							"textDecoration": "none"
 						},
 						":hover": {
+							"color": {
+								"text": "var( --wp--preset--color--contrast-3 )"
+							},
 							"typography": {
-								"textDecoration": "underline"
+								"textDecoration": "none"
 							}
 						}
 					}
@@ -737,8 +740,11 @@
 							"text": "var( --wp--preset--color--contrast )"
 						},
 						":hover": {
+							"color": {
+								"text": "var( --wp--preset--color--contrast-3 )"
+							},
 							"typography": {
-								"textDecoration": "underline"
+								"textDecoration": "none"
 							}
 						},
 						"typography": {

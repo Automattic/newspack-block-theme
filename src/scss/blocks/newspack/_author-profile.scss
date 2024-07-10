@@ -54,6 +54,10 @@
 					height: var(--wp--preset--spacing--20);
 				}
 			}
+
+			> div > p {
+				margin: 0;
+			}
 		}
 
 		> * {

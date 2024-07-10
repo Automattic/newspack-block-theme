@@ -19,4 +19,12 @@
 			border-radius: 50%;
 		}
 	}
+
+	.has-text-color & {
+		color: inherit;
+
+		a {
+			color: inherit;
+		}
+	}
 }
