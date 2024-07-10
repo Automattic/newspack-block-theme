@@ -200,12 +200,12 @@
 	}
 }
 
-@mixin overlay-visible($style: left) {
+@mixin overlay-visible($position: left) {
 	opacity: 1;
-	@if $style == full-width {
+	@if $position == full-width {
 		animation: overlay-full-width__fade-in-animation 125ms ease-in-out;
 		left: 0;
-	} @else if $style == right {
+	} @else if $position == right {
 		right: 0;
 	} @else {
 		left: 0;

@@ -22,6 +22,6 @@
 	</div>
 	<!-- /wp:buttons -->
 
-	<!-- wp:template-part {"slug":"drawer-contents","theme":"newspack-block-theme","tagName":"div","className":"drawer-menu__contents overlay-contents overlay-contents--left"} /-->
+	<!-- wp:template-part {"slug":"drawer-contents","theme":"newspack-block-theme","tagName":"div","className":"drawer-menu__contents overlay-contents overlay-contents--position--left"} /-->
 </div>
 <!-- /wp:group -->

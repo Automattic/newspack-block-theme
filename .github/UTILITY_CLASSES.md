@@ -35,11 +35,17 @@ Additionally, `is-position-sticky--mobile-only` and `is-position-sticky--desktop
 
 # Overlay
 
-The class `overlay-contents` needs to be applied in addition to:
+The class `overlay-contents` needs to be applied along with a position class: `overlay-contents--position--left`, `overlay-contents--position--right`, or `overlay-contents--position--full-width`.
 
-| CLASS NAME                   | DESCRIPTION                                                                |
-| ---------------------------- | -------------------------------------------------------------------------- |
-| overlay-contents             | Class required to enable the overlay.                                      |
-| overlay-contents--left       | This is the default behavior, where the content will appear from the left. |
-| overlay-contents--right      | In this case, the content will slide in from the right.                    |
-| overlay-contents--full-width | The content will take over the full screen.                                |
+When using the right or left position, you can also control the width, which defaults to a maximum of 632px.
+
+| CLASS NAME                             | DESCRIPTION                                                                |
+| -------------------------------------- | -------------------------------------------------------------------------- |
+| overlay-contents                       | Class required to enable the overlay.                                      |
+| overlay-contents--position--left       | This is the default behavior, where the content will appear from the left. |
+| overlay-contents--position--right      | In this case, the content will slide in from the right.                    |
+| overlay-contents--position--full-width | The content will take over the full screen.                                |
+| overlay-contents--width--x-small       | The content will expand to a maximum of 300px.                             |
+| overlay-contents--width--small         | The content will expand to a maximum of 410px.                             |
+| overlay-contents--width--large         | The content will expand to a maximum of 964px.                             |
+| overlay-contents--width--x-large       | The content will expand to a maximum of 1296px.                            |
