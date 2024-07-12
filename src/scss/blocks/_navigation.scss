@@ -111,7 +111,7 @@
 	}
 
 	// Change the block spacing when vertical.
-	.desktop-header &.is-vertical {
+	.header-desktop &.is-vertical {
 		gap: var(--wp--preset--spacing--40);
 
 		&.has-background {
