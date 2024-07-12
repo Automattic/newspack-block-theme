@@ -13,7 +13,7 @@ domReady( function () {
 	 * Mobile Menu toggle and overlay JavaScript.
 	 */
 	const body = document.body,
-		headerContain = document.querySelector( '.mobile-header' ),
+		headerContain = document.querySelector( '.header-mobile' ),
 		mobileToggle = document.querySelectorAll( '.mobile-menu__toggle' ),
 		mobileContents = document.querySelector( '.mobile-menu__contents' );
 

@@ -1125,18 +1125,18 @@
 		},
 		{
 			"area": "uncategorized",
-			"name": "mobile-header",
-			"title": "Mobile Header"
+			"name": "header-desktop",
+			"title": "Header (Desktop)"
+		},
+		{
+			"area": "uncategorized",
+			"name": "header-mobile",
+			"title": "Header (Mobile)"
 		},
 		{
 			"area": "uncategorized",
 			"name": "mobile-contents",
-			"title": "Mobile Contents"
-		},
-		{
-			"area": "uncategorized",
-			"name": "desktop-header",
-			"title": "Desktop Header"
+			"title": "Mobile Menu"
 		},
 		{
 			"area": "footer",
