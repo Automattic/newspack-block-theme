@@ -44,6 +44,7 @@
 	@include sass-utils.media(large) {
 		/* "25 / 50 / 25" layout */
 		.wp-block-column[style*='25%'] {
+			flex-basis: 100% !important;
 			max-width: var(--wp--custom--width--x-small);
 		}
 	}
