@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: Footer - Style 2
- * Slug: newspack-block-theme/footer-style-2
+ * Title: Footer - Style 4
+ * Slug: newspack-block-theme/footer-style-4
  * Inserter: no
  * Block Types: core/template-part/footer
  *
@@ -15,10 +15,16 @@
 	<!-- wp:group {"lock":{"move":true,"remove":true},"align":"wide","style":{"spacing":{"blockGap":"0"}},"layout":{"type":"default"}} -->
 	<div class="wp-block-group alignwide">
 
-		<!-- wp:group {"lock":{"move":true,"remove":true},"metadata":{"name":"<?php esc_html_e( 'Content', 'newspack-block-theme' ); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
-		<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
-			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
-			<div class="wp-block-group">
+		<!-- wp:columns {"lock":{"move":true,"remove":true},"metadata":{"name":"<?php esc_html_e( 'Content', 'newspack-block-theme' ); ?>"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}}} -->
+		<div class="wp-block-columns" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
+			<!-- wp:column -->
+			<div class="wp-block-column">
+				<!-- wp:site-title {"level":0,"fontSize":"large"} /-->
+
+				<!-- wp:paragraph {"fontSize":"small"} -->
+				<p class="has-small-font-size"><?php esc_html_e( 'Our online newspaper delivers the latest news and insightful analysis. Our experienced journalists ensure accurate and impartial reporting. Stay informed with our engaging and informative articles.', 'newspack-block-theme' ); ?></p>
+				<!-- /wp:paragraph -->
+
 				<!-- wp:social-links {"iconColor":"base","iconColorValue":"#ffffff","iconBackgroundColor":"contrast-2","className":"has-icon-background-color"} -->
 				<ul class="wp-block-social-links has-icon-color has-icon-background-color">
 					<!-- wp:social-link {"url":"#","service":"facebook"} /-->
@@ -28,26 +34,35 @@
 					<!-- wp:social-link {"url":"#","service":"x"} /-->
 				</ul>
 				<!-- /wp:social-links -->
-
-				<!-- wp:navigation {"className":"is-style-flatten","style":{"typography":{"fontStyle":"normal","fontWeight":"600"},"spacing":{"blockGap":"var:preset|spacing|40"}},"fontSize":"x-small","layout":{"type":"flex","flexWrap":"wrap"}} /-->
 			</div>
-			<!-- /wp:group -->
+			<!-- /wp:column -->
 
-			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"bottom"}} -->
-			<div class="wp-block-group">
-				<!-- wp:group {"metadata":{"name":"<?php esc_html_e( 'Description', 'newspack-block-theme' ); ?>"},"layout":{"type":"constrained","justifyContent":"left"}} -->
-				<div class="wp-block-group">
-					<!-- wp:paragraph {"fontSize":"small"} -->
-					<p class="has-small-font-size"><?php esc_html_e( 'Our online newspaper delivers the latest news and insightful analysis. Our experienced journalists ensure accurate and impartial reporting. Stay informed with our engaging and informative articles.', 'newspack-block-theme' ); ?></p>
-					<!-- /wp:paragraph -->
+			<!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
+			<div class="wp-block-column"></div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
+			<div class="wp-block-column">
+				<!-- wp:columns -->
+				<div class="wp-block-columns">
+					<!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
+					<div class="wp-block-column">
+						<!-- wp:navigation {"className":"is-style-default","style":{"typography":{"fontStyle":"normal","fontWeight":"600"},"spacing":{"blockGap":"var:preset|spacing|30"}},"fontSize":"x-small","layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical"}} /-->
+					</div>
+					<!-- /wp:column -->
+
+					<!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
+					<div class="wp-block-column">
+						<!-- wp:navigation {"className":"is-style-default","style":{"typography":{"fontStyle":"normal","fontWeight":"600"},"spacing":{"blockGap":"var:preset|spacing|30"}},"fontSize":"x-small","layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical"}} /-->
+					</div>
+					<!-- /wp:column -->
+
 				</div>
-				<!-- /wp:group -->
-
-				<!-- wp:site-title {"level":0,"fontSize":"large"} /-->
+				<!-- /wp:columns -->
 			</div>
-			<!-- /wp:group -->
+			<!-- /wp:column -->
 		</div>
-		<!-- /wp:group -->
+		<!-- /wp:columns -->
 
 		<!-- wp:group {"lock":{"move":true,"remove":true},"metadata":{"name":"<?php esc_html_e( 'Credits', 'newspack-block-theme' ); ?>"},"layout":{"type":"default"}} -->
 		<div class="wp-block-group">
