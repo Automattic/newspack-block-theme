@@ -1115,6 +1115,13 @@
 				"post"
 			],
 			"title": "Single - Full Width Image"
+		},
+		{
+			"name": "single/sidebar-layout",
+			"postTypes": [
+				"post"
+			],
+			"title": "Single - Sidebar Layout"
 		}
 	],
 	"templateParts": [

@@ -2,12 +2,16 @@
 
 <!-- wp:query {"tagName":"main","layout":{"type":"constrained"}} -->
 <main class="wp-block-query">
+
 	<!-- wp:post-template -->
 		<!-- wp:group -->
 		<div class="wp-block-group">
 			<!-- wp:post-title {"isLink":true} /-->
+
 			<!-- wp:post-featured-image {"isLink":true} /-->
+
 			<!-- wp:post-excerpt /-->
+
 			<!-- wp:template-part {"slug":"post-meta","theme":"newspack-block-theme"} /-->
 		</div>
 		<!-- /wp:group -->
@@ -15,13 +19,16 @@
 
 	<!-- wp:group {"layout":{"type":"constrained"}} -->
 	<div class="wp-block-group">
-		<!-- wp:query-pagination -->
+		<!-- wp:query-pagination {"paginationArrow":"arrow","showLabel":false,"layout":{"type":"flex","justifyContent":"space-between"}} -->
 			<!-- wp:query-pagination-previous /-->
-			<!-- wp:query-pagination-numbers /-->
+
+			<!-- wp:query-pagination-numbers {"midSize":1} /-->
+
 			<!-- wp:query-pagination-next /-->
 		<!-- /wp:query-pagination -->
 	</div>
 	<!-- /wp:group -->
+
 </main>
 <!-- /wp:query -->
 
