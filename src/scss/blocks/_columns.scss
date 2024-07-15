@@ -124,6 +124,13 @@
 	}
 
 	&--sidebar {
+		.wp-block-column[style*='66.66%'] {
+			.wp-block-post-content {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+
 		@include sass-utils.media(medium) {
 			/* "30 / 70" and "70 / 30" layouts */
 			.wp-block-column[style*='33.33%'] {

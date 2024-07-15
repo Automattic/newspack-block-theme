@@ -202,6 +202,14 @@ final class Core {
 		);
 
 		register_block_pattern_category(
+			'newspack-block-theme-post-header',
+			array(
+				'label'       => __( 'Newspack Theme - Post Header', 'newspack-block-theme' ),
+				'description' => __( 'Patterns bundled with the Newspack Block Theme, specifically built for the post header.', 'newspack-block-theme' ),
+			)
+		);
+
+		register_block_pattern_category(
 			'newspack-block-theme-post-meta',
 			array(
 				'label'       => __( 'Newspack Theme - Post Meta', 'newspack-block-theme' ),
