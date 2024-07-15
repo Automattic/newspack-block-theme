@@ -1,3 +1,24 @@
+# Newspack Grid
+
+Adding `newspack-grid` or `newspack-grid-small` to a Columns block ensures the columns fit on the grid on large screens.
+
+`newspack-grid` is designed for use with a wide Columns block. It supports the following layouts:
+
+- 25% / 50% / 25%
+- 33.33% / 33.33% / 33.33%
+- 15% / 70% / 15%
+- 66.66% / 33.33% or 33.33% / 66.66%
+
+`newspack-grid-small` is for narrow columns (e.g., at 632px) and currently supports only one layout type: 66.66% / 33.33% or 33.33% / 66.66%.
+
+For a single sidebar layout, you need to apply both the `newspack-grid` and `newspack-grid--sidebar` classes. The `newspack-grid` class sets up the primary grid structure, while the `newspack-grid--sidebar` class ensures that the single sidebar layout is correctly formatted and displayed. Without these two classes, the layout may not appear as intended, particularly on larger screens.
+
+| CLASS NAME             | DESCRIPTION                                                                                       |
+| ---------------------- | ------------------------------------------------------------------------------------------------- |
+| newspack-grid          | The Columns block will use a 12-column grid.                                                      |
+| newspack-grid--sidebar | For single sidebar layouts only. Requires a Columns block with 2 columns: 66.66% and 33.33% wide. |
+| newspack-grid-small    | The Columns block will use a 6-column grid.                                                       |
+
 # Responsive Elements
 
 `mobile-only` and `desktop-only` can be applied to blocks to display them based on the screen size.
