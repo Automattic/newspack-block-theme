@@ -6,6 +6,7 @@
  */
 html {
 	box-sizing: border-box;
+	text-wrap: balance;
 }
 
 *,
@@ -157,6 +158,29 @@ ol {
 				margin-top: calc(-1 * var(--wp--preset--spacing--80)) !important;
 			}
 		}
+	}
+}
+
+.alignleft,
+.alignright {
+	margin-block-end: var(--wp--preset--spacing--50);
+
+	&.wp-block-image {
+		max-width: calc(50% - var(--wp--preset--spacing--50) / 2);
+
+		@include sass-utils.media(medium) {
+			max-width: 100%;
+		}
+	}
+}
+
+.is-layout-flow {
+	> .alignleft {
+		margin-inline-end: var(--wp--preset--spacing--50);
+	}
+
+	> .alignright {
+		margin-inline-start: var(--wp--preset--spacing--50);
 	}
 }
 
