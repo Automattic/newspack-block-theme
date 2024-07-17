@@ -128,6 +128,7 @@
 
 @mixin button-icon {
 	background: transparent;
+	border-radius: var(--wp--custom--border--radius-small);
 	display: grid;
 	height: var(--wp--custom--spacing--55);
 	margin: 0;
