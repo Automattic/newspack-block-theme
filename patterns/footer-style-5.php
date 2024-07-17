@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: Footer - Style 4
- * Slug: newspack-block-theme/footer-style-4
+ * Title: Footer - Style 5
+ * Slug: newspack-block-theme/footer-style-5
  * Inserter: no
  * Block Types: core/template-part/footer
  *
@@ -23,8 +23,8 @@
 			<div class="wp-block-columns">
 				<!-- wp:column -->
 				<div class="wp-block-column">
-					<!-- wp:paragraph {"fontSize":"small"} -->
-					<p class="has-small-font-size"><?php esc_html_e( 'Our online newspaper delivers the latest news and insightful analysis. Our experienced journalists ensure accurate and impartial reporting. Stay informed with our engaging and informative articles.', 'newspack-block-theme' ); ?></p>
+					<!-- wp:paragraph {"fontSize":"large"} -->
+					<p class="has-large-font-size"><?php esc_html_e( 'Our online newspaper delivers the latest news and insightful analysis. Our experienced journalists ensure accurate and impartial reporting. Stay informed with our engaging and informative articles.', 'newspack-block-theme' ); ?></p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:social-links {"iconColor":"base","iconColorValue":"#ffffff","iconBackgroundColor":"contrast-2","className":"has-icon-background-color"} -->
@@ -40,13 +40,15 @@
 				<!-- /wp:column -->
 
 				<!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
-				<div class="wp-block-column"></div>
-				<!-- /wp:column -->
-
-				<!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
 				<div class="wp-block-column">
 					<!-- wp:columns -->
 					<div class="wp-block-columns">
+						<!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
+						<div class="wp-block-column">
+							<!-- wp:navigation {"className":"is-style-default","style":{"typography":{"fontStyle":"normal","fontWeight":"600"},"spacing":{"blockGap":"var:preset|spacing|30"}},"fontSize":"x-small","layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical"}} /-->
+						</div>
+						<!-- /wp:column -->
+
 						<!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
 						<div class="wp-block-column">
 							<!-- wp:navigation {"className":"is-style-default","style":{"typography":{"fontStyle":"normal","fontWeight":"600"},"spacing":{"blockGap":"var:preset|spacing|30"}},"fontSize":"x-small","layout":{"type":"flex","flexWrap":"nowrap","orientation":"vertical"}} /-->

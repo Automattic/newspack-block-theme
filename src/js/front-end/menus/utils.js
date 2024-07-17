@@ -40,14 +40,19 @@ export const anyMenuIsOpen = () => {
  * @description Closes all open menus.
  */
 export const closeAllMenus = () => {
-	const openClassNames = document.body.classList;
+	// Find all elements with class names containing MENU_OPEN_CLASS_NAME.
+	const openMenuElements = document.querySelectorAll( `[class*=${ MENU_OPEN_CLASS_NAME }]` );
 
-	for ( let i = 0; i < openClassNames.length; i++ ) {
-		if ( contains( openClassNames[ i ], MENU_OPEN_CLASS_NAME ) ) {
-			document.body.classList.remove( openClassNames[ i ] );
-		}
-	}
+	// Remove all the classes that start with MENU_OPEN_CLASS_NAME.
+	openMenuElements.forEach( element => {
+		const removeClassName = Array.from( element.classList ).filter( className =>
+			className.startsWith( MENU_OPEN_CLASS_NAME )
+		);
 
+		element.classList.remove( ...removeClassName );
+	} );
+
+	// Remove overlay.
 	removeOverlay();
 
 	// Remove focus from any elements inside open menus. Note that the disabled ESLint rule applies only to React elements: https://github.com/WordPress/gutenberg/pull/26810.

@@ -1,3 +1,57 @@
+# [1.11.0](https://github.com/Automattic/newspack-block-theme/compare/v1.10.0...v1.11.0) (2024-07-15)
+
+
+### Bug Fixes
+
+* buttons without class; outline border-color ([#212](https://github.com/Automattic/newspack-block-theme/issues/212)) ([3f9342b](https://github.com/Automattic/newspack-block-theme/commit/3f9342b78ed381196b5068015177327105b20559))
+* cover alignfull as last-child should not have margin with footer ([#218](https://github.com/Automattic/newspack-block-theme/issues/218)) ([dcd96a5](https://github.com/Automattic/newspack-block-theme/commit/dcd96a569ccab2d6c9391a739a043724acf0bb19))
+* homepage articles row gap; use custom spacing ([#223](https://github.com/Automattic/newspack-block-theme/issues/223)) ([300920e](https://github.com/Automattic/newspack-block-theme/commit/300920e5a8ecbf259cb06cbd0d08d8cb8a24548e))
+* variables typo ([#229](https://github.com/Automattic/newspack-block-theme/issues/229)) ([9bbd305](https://github.com/Automattic/newspack-block-theme/commit/9bbd3054f70498581cacdd7012bb92898760fb58))
+
+
+### Features
+
+* add author-profile styles ([#209](https://github.com/Automattic/newspack-block-theme/issues/209)) ([5d81cc1](https://github.com/Automattic/newspack-block-theme/commit/5d81cc11f23c647c5162890dac0828445cd4271d))
+* add backward compatibility with classic theme ([#176](https://github.com/Automattic/newspack-block-theme/issues/176)) ([01b95f2](https://github.com/Automattic/newspack-block-theme/commit/01b95f2462fd0f9561d697bbdac9d57bbd5cba9c))
+* add generic desktop-only and mobile-only classes ([#222](https://github.com/Automattic/newspack-block-theme/issues/222)) ([dc58d55](https://github.com/Automattic/newspack-block-theme/commit/dc58d5597c849161b1a3e8f119337b84ea6f44b2))
+* add no-title page template; reduce gap with header when no-title ([#219](https://github.com/Automattic/newspack-block-theme/issues/219)) ([3824676](https://github.com/Automattic/newspack-block-theme/commit/3824676d6f225d2693545b1c02012374076d5dc0))
+* **search-overlay:** update search input height ([#224](https://github.com/Automattic/newspack-block-theme/issues/224)) ([2cb32ad](https://github.com/Automattic/newspack-block-theme/commit/2cb32ad0f6ffab3a6567c57d7e8024a7196d78f5))
+* tweak animations ([#231](https://github.com/Automattic/newspack-block-theme/issues/231)) ([d475cc3](https://github.com/Automattic/newspack-block-theme/commit/d475cc3c1dfc148b578fa2b113091e63e9431ecd))
+* update desktop-header spacings ([#208](https://github.com/Automattic/newspack-block-theme/issues/208)) ([a7ba9b0](https://github.com/Automattic/newspack-block-theme/commit/a7ba9b0f355ab1c60396572517e8be0554255ac3))
+* update header mobile and desktop spacing; introduce is-position ([#221](https://github.com/Automattic/newspack-block-theme/issues/221)) ([a92f8fa](https://github.com/Automattic/newspack-block-theme/commit/a92f8faf303705db0965978a0e96d2969bdb6d7c))
+* update overlay ([#220](https://github.com/Automattic/newspack-block-theme/issues/220)) ([457347b](https://github.com/Automattic/newspack-block-theme/commit/457347b998dca352c8ca07346f499cfa7bf5cf50))
+* update search overlay ([#215](https://github.com/Automattic/newspack-block-theme/issues/215)) ([27699f8](https://github.com/Automattic/newspack-block-theme/commit/27699f8e133c21bbc99297d68c5507d1016f618b))
+* update sticky position to support mobile or desktop only ([#225](https://github.com/Automattic/newspack-block-theme/issues/225)) ([df1158e](https://github.com/Automattic/newspack-block-theme/commit/df1158e5be0d6d5cc9156af3572ca1937f04ab72))
+* update various widths and spacings to use variables ([#227](https://github.com/Automattic/newspack-block-theme/issues/227)) ([00dcc02](https://github.com/Automattic/newspack-block-theme/commit/00dcc02375eb4a7c4688b5fcf0ce6638aa8c3a8d))
+* use patterns instead of template parts for author-bio ([#210](https://github.com/Automattic/newspack-block-theme/issues/210)) ([147c315](https://github.com/Automattic/newspack-block-theme/commit/147c3156b613ec57a307430294de704870c0aab0))
+
+# [1.11.0-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.10.0...v1.11.0-alpha.1) (2024-07-05)
+
+
+### Bug Fixes
+
+* buttons without class; outline border-color ([#212](https://github.com/Automattic/newspack-block-theme/issues/212)) ([3f9342b](https://github.com/Automattic/newspack-block-theme/commit/3f9342b78ed381196b5068015177327105b20559))
+* cover alignfull as last-child should not have margin with footer ([#218](https://github.com/Automattic/newspack-block-theme/issues/218)) ([dcd96a5](https://github.com/Automattic/newspack-block-theme/commit/dcd96a569ccab2d6c9391a739a043724acf0bb19))
+* homepage articles row gap; use custom spacing ([#223](https://github.com/Automattic/newspack-block-theme/issues/223)) ([300920e](https://github.com/Automattic/newspack-block-theme/commit/300920e5a8ecbf259cb06cbd0d08d8cb8a24548e))
+* variables typo ([#229](https://github.com/Automattic/newspack-block-theme/issues/229)) ([9bbd305](https://github.com/Automattic/newspack-block-theme/commit/9bbd3054f70498581cacdd7012bb92898760fb58))
+
+
+### Features
+
+* add author-profile styles ([#209](https://github.com/Automattic/newspack-block-theme/issues/209)) ([5d81cc1](https://github.com/Automattic/newspack-block-theme/commit/5d81cc11f23c647c5162890dac0828445cd4271d))
+* add backward compatibility with classic theme ([#176](https://github.com/Automattic/newspack-block-theme/issues/176)) ([01b95f2](https://github.com/Automattic/newspack-block-theme/commit/01b95f2462fd0f9561d697bbdac9d57bbd5cba9c))
+* add generic desktop-only and mobile-only classes ([#222](https://github.com/Automattic/newspack-block-theme/issues/222)) ([dc58d55](https://github.com/Automattic/newspack-block-theme/commit/dc58d5597c849161b1a3e8f119337b84ea6f44b2))
+* add no-title page template; reduce gap with header when no-title ([#219](https://github.com/Automattic/newspack-block-theme/issues/219)) ([3824676](https://github.com/Automattic/newspack-block-theme/commit/3824676d6f225d2693545b1c02012374076d5dc0))
+* **search-overlay:** update search input height ([#224](https://github.com/Automattic/newspack-block-theme/issues/224)) ([2cb32ad](https://github.com/Automattic/newspack-block-theme/commit/2cb32ad0f6ffab3a6567c57d7e8024a7196d78f5))
+* tweak animations ([#231](https://github.com/Automattic/newspack-block-theme/issues/231)) ([d475cc3](https://github.com/Automattic/newspack-block-theme/commit/d475cc3c1dfc148b578fa2b113091e63e9431ecd))
+* update desktop-header spacings ([#208](https://github.com/Automattic/newspack-block-theme/issues/208)) ([a7ba9b0](https://github.com/Automattic/newspack-block-theme/commit/a7ba9b0f355ab1c60396572517e8be0554255ac3))
+* update header mobile and desktop spacing; introduce is-position ([#221](https://github.com/Automattic/newspack-block-theme/issues/221)) ([a92f8fa](https://github.com/Automattic/newspack-block-theme/commit/a92f8faf303705db0965978a0e96d2969bdb6d7c))
+* update overlay ([#220](https://github.com/Automattic/newspack-block-theme/issues/220)) ([457347b](https://github.com/Automattic/newspack-block-theme/commit/457347b998dca352c8ca07346f499cfa7bf5cf50))
+* update search overlay ([#215](https://github.com/Automattic/newspack-block-theme/issues/215)) ([27699f8](https://github.com/Automattic/newspack-block-theme/commit/27699f8e133c21bbc99297d68c5507d1016f618b))
+* update sticky position to support mobile or desktop only ([#225](https://github.com/Automattic/newspack-block-theme/issues/225)) ([df1158e](https://github.com/Automattic/newspack-block-theme/commit/df1158e5be0d6d5cc9156af3572ca1937f04ab72))
+* update various widths and spacings to use variables ([#227](https://github.com/Automattic/newspack-block-theme/issues/227)) ([00dcc02](https://github.com/Automattic/newspack-block-theme/commit/00dcc02375eb4a7c4688b5fcf0ce6638aa8c3a8d))
+* use patterns instead of template parts for author-bio ([#210](https://github.com/Automattic/newspack-block-theme/issues/210)) ([147c315](https://github.com/Automattic/newspack-block-theme/commit/147c3156b613ec57a307430294de704870c0aab0))
+
 # [1.10.0](https://github.com/Automattic/newspack-block-theme/compare/v1.9.0...v1.10.0) (2024-07-01)
 
 

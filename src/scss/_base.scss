@@ -135,7 +135,8 @@ ol {
 
 // Content
 .post-image {
-	&:empty {
+	&:empty,
+	&:not(:has(.wp-block-post-featured-image)) {
 		display: none;
 	}
 }
