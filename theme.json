@@ -1117,6 +1117,13 @@
 			"title": "Single - Full Width Image"
 		},
 		{
+			"name": "single/50-50-image",
+			"postTypes": [
+				"post"
+			],
+			"title": "Single - 50/50 Image/Header"
+		},
+		{
 			"name": "single/sidebar-layout",
 			"postTypes": [
 				"post"
