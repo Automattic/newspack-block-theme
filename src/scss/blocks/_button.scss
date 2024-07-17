@@ -8,6 +8,7 @@
 }
 
 .wp-block-button {
+	form .wp-block-button__link,
 	> .wp-block-button__link {
 		transition:
 			background-color 125ms ease-in-out,
@@ -57,6 +58,10 @@
 	&.is-style-outline {
 		> .wp-block-button__link,
 		form .wp-block-button__link {
+			background: var(--wp--preset--color--base);
+			border: 1px solid currentcolor;
+			color: var(--wp--preset--color--accent);
+
 			&:hover {
 				background: var(--wp--preset--color--base-2);
 				color: var(--wp--preset--color--contrast);
