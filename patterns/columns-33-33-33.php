@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: Columns - 33 / 33 / 33
+ * Title: 33 / 33 / 33
  * Slug: newspack-block-theme/columns-33-33-33
  * Categories: newspack-block-theme-columns
  * Block Types: core/columns
@@ -9,8 +9,8 @@
  */
 
 ?>
-<!-- wp:columns {"metadata":{"name":"33 / 33 / 33"},"align":"wide","className":"newspack-grid"} -->
-<div class="wp-block-columns alignwide newspack-grid">
+<!-- wp:columns {"metadata":{"name":"33 / 33 / 33"},"align":"wide","className":"newspack-grid columns-pattern"} -->
+<div class="wp-block-columns alignwide newspack-grid columns-pattern">
 
 	<!-- wp:column -->
 	<div class="wp-block-column"></div>
