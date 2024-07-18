@@ -3,9 +3,10 @@
 @import url('./_base.scss');
 @import url('./_forms.scss');
 @import url('./_gutenberg-shim.scss');
-@import url('./_overlay.scss');
 @import url('./blocks/_blocks.scss');
 @import url('./block-patterns/_block-patterns.scss');
 @import url('./_header.scss');
-@import url('./_comments-overlay.scss');
-@import url('./_search-overlay.scss');
+@import url('./overlays/_base.scss');
+@import url('./overlays/_comments.scss');
+@import url('./overlays/_drawer.scss');
+@import url('./overlays/_search.scss');

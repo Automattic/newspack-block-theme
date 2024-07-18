@@ -1,5 +1,5 @@
-@use 'sass-utils';
-@use 'mixins';
+@use '../sass-utils';
+@use '../mixins';
 
 /**
  * Comments menu styles
@@ -18,10 +18,6 @@
 					(var(--wp--preset--spacing--50) * 6)
 			);
 		}
-
-		.menu-open--comments-menu & {
-			@include mixins.overlay-visible(right);
-		}
 	}
 
 	&__toggle {
@@ -36,7 +32,7 @@
 					background: currentcolor;
 					content: '';
 					height: var(--wp--preset--spacing--40);
-					mask: url('../../src/images/icon-comments.svg') 0 0 no-repeat;
+					mask: url('../../../src/images/icon-comments.svg') 0 0 no-repeat;
 					width: var(--wp--preset--spacing--40);
 				}
 			}

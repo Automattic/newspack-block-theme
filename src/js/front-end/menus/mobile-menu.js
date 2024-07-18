@@ -43,6 +43,7 @@ domReady( function () {
 	 */
 	const openMenu = () => {
 		body.classList.add( openClassName );
+		mobileContents.classList.add( openClassName );
 		mobileCloseButton.focus();
 		createOverlay();
 	};
@@ -52,6 +53,7 @@ domReady( function () {
 	 */
 	const closeMenu = () => {
 		body.classList.remove( openClassName );
+		mobileContents.classList.remove( openClassName );
 		mobileOpenButton.focus();
 		removeOverlay();
 	};

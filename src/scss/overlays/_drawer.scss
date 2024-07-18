@@ -1,0 +1,26 @@
+
+@use '../mixins';
+
+.drawer-menu {
+	&__toggle {
+		&:not(.newspack-icon-close) {
+			align-items: center;
+			display: flex;
+
+			.wp-block-button__link {
+				align-items: center;
+				display: inline-flex;
+				gap: var(--wp--preset--spacing--20);
+				justify-content: center;
+
+				&::before {
+					background: currentcolor;
+					content: '';
+					height: var(--wp--preset--spacing--40);
+					mask: url('../../../src/images/icon-menu.svg') 0 0 no-repeat;
+					width: var(--wp--preset--spacing--40);
+				}
+			}
+		}
+	}
+}

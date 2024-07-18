@@ -13,11 +13,24 @@ Adding `newspack-grid` or `newspack-grid-small` to a Columns block ensures the c
 
 For a single sidebar layout, you need to apply both the `newspack-grid` and `newspack-grid--sidebar` classes. The `newspack-grid` class sets up the primary grid structure, while the `newspack-grid--sidebar` class ensures that the single sidebar layout is correctly formatted and displayed. Without these two classes, the layout may not appear as intended. It requires a Columns block with a 2-column layout: 66.66% / 33.33% or 33.33% / 66.66%.
 
-| CLASS NAME             | DESCRIPTION                                 |
-| ---------------------- | ------------------------------------------- |
-| newspack-grid          | The Columns block will use a 12-column grid.|
-| newspack-grid--sidebar | For single sidebar layouts only.            |
-| newspack-grid-small    | The Columns block will use a 6-column grid. |
+| CLASS NAME             | DESCRIPTION                                  |
+| ---------------------- | -------------------------------------------- |
+| newspack-grid          | The Columns block will use a 12-column grid. |
+| newspack-grid--sidebar | For single sidebar layouts only.             |
+| newspack-grid-small    | The Columns block will use a 6-column grid.  |
+
+# Buttons
+
+Adding `has-small-size` or `has-x-small-size` to a Buttons block will reduce its padding and border-radius.
+
+Padding can be controlled in the editor but only with the preset variable. To match our Newspack UI buttons, we need better control.
+
+Note: The font size still needs to be changed to x-small if we're recreating a Newspack UI button-like appearance.
+
+| CLASS NAME       | DESCRIPTION                                                                                                          |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------- |
+| has-small-size   | The buttons will have a top and bottom padding of 8px and a left and right padding of 16px.                          |
+| has-x-small-size | The buttons will have a top and bottom padding of 6px, a left and right padding of 12px, and a border-radius of 4px. |
 
 # Responsive Elements
 
@@ -56,11 +69,17 @@ Additionally, `is-position-sticky--mobile-only` and `is-position-sticky--desktop
 
 # Overlay
 
-The class `overlay-contents` needs to be applied in addition to:
+The class `overlay-contents` needs to be applied along with a position class: `overlay-contents--position--left`, `overlay-contents--position--right`, or `overlay-contents--position--full-width`.
 
-| CLASS NAME                   | DESCRIPTION                                                                |
-| ---------------------------- | -------------------------------------------------------------------------- |
-| overlay-contents             | Class required to enable the overlay.                                      |
-| overlay-contents--left       | This is the default behavior, where the content will appear from the left. |
-| overlay-contents--right      | In this case, the content will slide in from the right.                    |
-| overlay-contents--full-width | The content will take over the full screen.                                |
+When using the right or left position, you can also control the width, which defaults to a maximum of 632px.
+
+| CLASS NAME                             | DESCRIPTION                                                                |
+| -------------------------------------- | -------------------------------------------------------------------------- |
+| overlay-contents                       | Class required to enable the overlay.                                      |
+| overlay-contents--position--left       | This is the default behavior, where the content will appear from the left. |
+| overlay-contents--position--right      | In this case, the content will slide in from the right.                    |
+| overlay-contents--position--full-width | The content will take over the full screen.                                |
+| overlay-contents--width--x-small       | The content will expand to a maximum of 300px.                             |
+| overlay-contents--width--small         | The content will expand to a maximum of 410px.                             |
+| overlay-contents--width--large         | The content will expand to a maximum of 964px.                             |
+| overlay-contents--width--x-large       | The content will expand to a maximum of 1296px.                            |

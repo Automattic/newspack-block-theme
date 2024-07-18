@@ -1138,12 +1138,12 @@
 			"title": "Header"
 		},
 		{
-			"area": "uncategorized",
+			"area": "header",
 			"name": "header-desktop",
 			"title": "Header (Desktop)"
 		},
 		{
-			"area": "uncategorized",
+			"area": "header",
 			"name": "header-mobile",
 			"title": "Header (Mobile)"
 		},
