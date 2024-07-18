@@ -9,6 +9,8 @@ Adding `newspack-grid` or `newspack-grid-small` to a Columns block ensures the c
 - 15% / 70% / 15%
 - 66.66% / 33.33% or 33.33% / 66.66%
 
+_Note: These layouts are also available as patterns._
+
 `newspack-grid-small` is for narrow columns (e.g., at 632px) and currently supports only one layout type: 66.66% / 33.33% or 33.33% / 66.66%.
 
 For a single sidebar layout, you need to apply both the `newspack-grid` and `newspack-grid--sidebar` classes. The `newspack-grid` class sets up the primary grid structure, while the `newspack-grid--sidebar` class ensures that the single sidebar layout is correctly formatted and displayed. Without these two classes, the layout may not appear as intended. It requires a Columns block with a 2-column layout: 66.66% / 33.33% or 33.33% / 66.66%.
