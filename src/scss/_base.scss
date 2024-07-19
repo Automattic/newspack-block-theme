@@ -141,27 +141,6 @@ ol {
 	}
 }
 
-.entry-content {
-	> :last-child:is(.alignfull):is(.has-background),
-	> :last-child:is(.alignfull):is(.wp-block-cover) {
-		margin-bottom: calc(-1 * var(--wp--preset--spacing--80)) !important;
-	}
-}
-
-.page-template-no-title,
-.home.page {
-	.entry-content {
-		> :first-child:is(.alignfull):is(.has-background),
-		> :first-child:is(.alignfull):is(.wp-block-cover) {
-			margin-top: calc(-1 * var(--wp--preset--spacing--50)) !important;
-
-			@include sass-utils.media(medium) {
-				margin-top: calc(-1 * var(--wp--preset--spacing--80)) !important;
-			}
-		}
-	}
-}
-
 .alignleft,
 .alignright {
 	margin-block-end: var(--wp--preset--spacing--50);
@@ -175,6 +154,7 @@ ol {
 	}
 }
 
+.is-layout-constrained,
 .is-layout-flow {
 	> .alignleft {
 		margin-inline-end: var(--wp--preset--spacing--50);
