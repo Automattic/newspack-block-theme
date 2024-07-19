@@ -192,7 +192,14 @@ footer {
 	}
 }
 
-// Powered By
+.is-credits {
+	.is-footer:not(.has-link-color) & {
+		a {
+			color: inherit;
+		}
+	}
+}
+
 .powered-by {
 	a {
 		text-decoration: none;
