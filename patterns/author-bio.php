@@ -13,6 +13,7 @@
 <!-- wp:group {"metadata":{"name":"<?php esc_html_e( 'Author Bio', 'newspack-block-theme' ); ?>"},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 <div class="wp-block-group">
 
+
 	<!-- wp:separator {"className":"is-style-wide"} -->
 	<hr class="wp-block-separator has-alpha-channel-opacity is-style-wide"/>
 	<!-- /wp:separator -->
