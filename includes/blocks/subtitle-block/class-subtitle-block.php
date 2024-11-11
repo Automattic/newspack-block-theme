@@ -65,7 +65,7 @@ final class Subtitle_Block {
 		];
 
 		global $pagenow;
-		if ( in_array( $pagenow, [ 'site-editor.php' ] ) ) {
+		if ( $pagenow === 'site-editor.php' ) {
 			$handle = 'newspack-block-theme-subtitle-block-site-editor';
 			\wp_enqueue_script( $handle, \get_theme_file_uri( 'dist/subtitle-block-site-editor.js' ), [], NEWSPACK_BLOCK_THEME_VERSION, true );
 			\wp_localize_script( $handle, 'newspack_block_theme_subtitle_block', $script_data );
