@@ -21,7 +21,7 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:newspack-block-theme/subtitle {} /-->
+	<!-- wp:newspack-block-theme/article-subtitle {} /-->
 
 	<!-- wp:pattern {"slug":"newspack-block-theme/post-meta-multiple-lines-avatar"} /-->
 
