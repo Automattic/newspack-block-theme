@@ -5,14 +5,14 @@
  * WordPress dependencies
  */
 import { registerPlugin } from '@wordpress/plugins';
-import { withSelect, withDispatch } from '@wordpress/data';
-import { compose } from '@wordpress/compose';
+import { useSelect, useDispatch } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
 
 const META_FIELD_NAME = newspack_block_theme_subtitle_block.post_meta_name;
 
 const SUBTITLE_ID = 'newspack-post-subtitle-element';
 const SUBTITLE_STYLE_ID = 'newspack-post-subtitle-element-style';
+
 const appendSubtitleToTitleDOMElement = ( subtitle, callback ) => {
 	const titleWrapperEl = document.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
 
@@ -54,28 +54,24 @@ const appendSubtitleToTitleDOMElement = ( subtitle, callback ) => {
  * The post subtitle is edited directly beneath the post title, and no block is
  * registered in the post editor – this block will only be registered in the site editor.
  */
-const NewspackSubtitlePanel = ( { subtitle, saveSubtitle } ) => {
+const NewspackSubtitlePanel = () => {
+	const subtitle = useSelect(
+		select => select( 'core/editor' ).getEditedPostAttribute( 'meta' )[ META_FIELD_NAME ]
+	);
+	const dispatch = useDispatch();
+	const saveSubtitle = updatedSubtitle => {
+		dispatch( 'core/editor' ).editPost( {
+			meta: {
+				[ META_FIELD_NAME ]: updatedSubtitle,
+			},
+		} );
+	};
 	useEffect( () => {
 		appendSubtitleToTitleDOMElement( subtitle, saveSubtitle );
 	}, [] );
 };
 
-const connectWithStore = compose(
-	withSelect( select => ( {
-		subtitle: select( 'core/editor' ).getEditedPostAttribute( 'meta' )[ META_FIELD_NAME ],
-	} ) ),
-	withDispatch( dispatch => ( {
-		saveSubtitle: subtitle => {
-			dispatch( 'core/editor' ).editPost( {
-				meta: {
-					[ META_FIELD_NAME ]: subtitle,
-				},
-			} );
-		},
-	} ) )
-);
-
 registerPlugin( 'plugin-document-setting-panel-newspack-subtitle', {
-	render: connectWithStore( NewspackSubtitlePanel ),
+	render: NewspackSubtitlePanel,
 	icon: null,
 } );
