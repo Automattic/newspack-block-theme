@@ -12,7 +12,10 @@ import blockData from './block.json';
 
 const EditComponent = ( { context: { postType, postId } } ) => {
 	const [ postMeta = {} ] = useEntityProp( 'postType', postType, 'meta', postId );
-	return postMeta[ newspack_block_theme_subtitle_block.post_meta_name ] || '';
+	return (
+		postMeta[ newspack_block_theme_subtitle_block.post_meta_name ] ||
+		__( 'Article subtitle', 'newspack-block-theme' )
+	);
 };
 
 blockData = {
