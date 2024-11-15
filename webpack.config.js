@@ -18,23 +18,43 @@ const editor = path.join( __dirname, 'src', 'js', 'editor' );
 const frontEndDir = path.join( __dirname, 'src', 'js', 'front-end' );
 const frontEnd = fs
 	.readdirSync( frontEndDir )
-	.filter( asset => /.js?$/.test( asset ) )
+	.filter( asset => /.(j|t)sx?$/.test( asset ) )
 	.reduce(
 		( acc, filename ) => ( {
 			...acc,
-			[ filename.replace( '.js', '' ) ]: path.join( __dirname, 'src', 'js', 'front-end', filename ),
+			[ filename.replace( /\.[^/.]+$/, '' ) ]: path.join(
+				__dirname,
+				'src',
+				'js',
+				'front-end',
+				filename
+			),
 		} ),
 		{}
 	);
-const style = path.join( __dirname, 'src', 'scss', 'style.scss' );
+const blocks = fs
+	.readdirSync( path.join( __dirname, 'includes', 'blocks' ) )
+	.reduce( ( acc, asset ) => {
+		if ( fs.lstatSync( path.join( __dirname, 'includes', 'blocks', asset ) ).isDirectory() ) {
+			fs.readdirSync( path.join( __dirname, 'includes', 'blocks', asset ) )
+				.filter( file => /\.(j|t)sx?$/.test( file ) )
+				.forEach( file => {
+					const name = file.replace( /\.[^/.]+$/, '' );
+					acc[ `${ asset }-${ name }` ] = path.join( __dirname, 'includes', 'blocks', asset, file );
+				} );
+		}
+		return acc;
+	}, {} );
 
 const webpackConfig = getBaseWebpackConfig(
 	{ WP: true },
 	{
-		entry: { editor, ...frontEnd },
+		entry: { editor, ...frontEnd, ...blocks },
 		'output-path': path.join( __dirname, 'dist' ),
 	}
 );
+
+const style = path.join( __dirname, 'src', 'scss', 'style.scss' );
 const styleConfig = getBaseWebpackConfig(
 	{ WP: false },
 	{
