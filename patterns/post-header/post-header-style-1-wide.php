@@ -20,7 +20,7 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:post-excerpt {"fontSize":"large"} /-->
+	<!-- wp:newspack-block-theme/article-subtitle {} /-->
 
 	<!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
 	<div class="wp-block-group alignwide">
