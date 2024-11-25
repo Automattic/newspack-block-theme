@@ -48,17 +48,7 @@ $registry = WP_Block_Type_Registry::get_instance();
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<?php if ( $registry->get_registered( 'jetpack/sharing-buttons' ) ) : ?>
-
-	<!-- wp:jetpack/sharing-buttons {"styleType":"icon","layout":{"type":"flex","justifyContent":"left","flexWrap":"nowrap"}} -->
-	<ul class="wp-block-jetpack-sharing-buttons has-normal-icon-size jetpack-sharing-buttons__services-list" id="jetpack-sharing-serivces-list">
-		<!-- wp:jetpack/sharing-button {"service":"facebook","label":"Facebook"} /-->
-		<!-- wp:jetpack/sharing-button {"service":"x","label":"X"} /-->
-		<!-- wp:jetpack/sharing-button {"service":"mail","label":"Mail"} /-->
-	</ul>
-	<!-- /wp:jetpack/sharing-buttons -->
-
-<?php endif; ?>
+<!-- wp:pattern {"slug":"newspack-block-theme/jetpack-sharing-buttons"} /-->
 
 </div>
 <!-- /wp:group -->
