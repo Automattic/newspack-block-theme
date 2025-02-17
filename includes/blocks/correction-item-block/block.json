@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "newspack-block-theme/correction-item",
+	"title": "Correction Item",
+	"category": "newspack",
+	"description": "An item in the list of corrections.",
+	"attributes": {},
+	"supports": {
+		"html": false,
+		"color": {
+			"gradients": true,
+			"__experimentalDefaultControls": {
+			"background": true,
+			"text": true,
+			"link": true
+			}
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		}
+	},
+	"parent": [ "core/post-template" ],
+	"usesContext": [ "postId", "postType" ],
+	"textdomain": "newspack-block-theme"
+}
