@@ -19,8 +19,7 @@
 		},
 		"spacing": {
 			"margin": true,
-			"padding": true,
-			"blockGap": true
+			"padding": true
 		},
 		"shadow": true,
 		"typography": {
