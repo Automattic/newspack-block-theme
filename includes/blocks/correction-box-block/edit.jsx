@@ -33,10 +33,9 @@ export default function Edit() {
 	function LoadingPlaceholder() {
 		return (
 			<Placeholder
-				icon="admin-comments"
-				label={ __( 'Correction Box', 'newspack-block-theme' ) }
+				label={ __( 'Corrections', 'newspack-block-theme' ) }
 				instructions={ __(
-					'The Corrections are being loadinf from the server. Please wait.',
+					'The corrections and clarifications are being loaded from the server. Please wait.',
 					'newspack-block-theme'
 				) }
 			>
