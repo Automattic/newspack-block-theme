@@ -1,27 +1,42 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"name": "newspack-block-theme/correction-item",
-	"title": "Correction Item",
 	"category": "newspack",
-	"description": "An item in the list of corrections.",
 	"attributes": {},
 	"supports": {
 		"html": false,
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true
+		},
 		"color": {
-			"gradients": true,
+			"link": true,
 			"__experimentalDefaultControls": {
-			"background": true,
-			"text": true,
-			"link": true
+				"background": true,
+				"text": true
 			}
 		},
 		"spacing": {
 			"margin": true,
-			"padding": true
+			"padding": true,
+			"blockGap": true
 		},
+		"shadow": true,
 		"typography": {
 			"fontSize": true,
-			"lineHeight": true
+			"lineHeight": true,
+			"textAlign": true,
+			"__experimentalFontFamily": true,
+			"__experimentalTextDecoration": true,
+			"__experimentalFontStyle": true,
+			"__experimentalFontWeight": true,
+			"__experimentalLetterSpacing": true,
+			"__experimentalTextTransform": true,
+			"__experimentalWritingMode": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
 		}
 	},
 	"parent": [ "core/post-template" ],
