@@ -41,6 +41,23 @@ export default function Edit() {
 	}
 
 	/**
+	 * Placeholder when no Corrections are available.
+	 *
+	 * @return {JSX.Element} The Empty Placeholder JSX.
+	 */
+	function EmptyPlaceholder() {
+		return (
+			<Placeholder
+				label={ __( 'Corrections', 'newspack-block-theme' ) }
+				instructions={ __(
+					'This block will display corrections and clarifications. Please add the block to a post or page.',
+					'newspack-block-theme'
+				) }
+			/>
+		);
+	}
+
+	/**
 	 * Toggle Refresh state.
 	 */
 	const toggleRefresh = () => {
@@ -61,6 +78,7 @@ export default function Edit() {
 			<ServerSideRender
 				block={ meta.name }
 				LoadingResponsePlaceholder={ LoadingPlaceholder }
+				EmptyResponsePlaceholder={ EmptyPlaceholder }
 				refresh={ isRefreshing }
 			/>
 		</>
