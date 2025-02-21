@@ -67,11 +67,12 @@ final class Correction_Box_Block {
 			return '';
 		}
 
+		$block_wrapper_attributes = get_block_wrapper_attributes();
 		$corrections_archive_url = get_post_type_archive_link( Corrections::POST_TYPE );
 
 		ob_start();
 		?>
-		<div class="newspack-corrections-module">
+		<div <?php echo esc_attr( $block_wrapper_attributes ); ?>>
 			<?php
 			foreach ( $corrections as $correction ) :
 				$correction_content = $correction->post_content;
@@ -96,7 +97,6 @@ final class Correction_Box_Block {
 				</p>
 			<?php endforeach; ?>
 		</div>
-
 		<?php
 		return ob_get_clean();
 	}

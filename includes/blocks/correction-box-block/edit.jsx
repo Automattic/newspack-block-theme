@@ -5,7 +5,7 @@ import { __ } from '@wordpress/i18n';
 import { update } from '@wordpress/icons';
 import { useState } from '@wordpress/element';
 import ServerSideRender from '@wordpress/server-side-render';
-import { useBlockProps, BlockControls } from '@wordpress/block-editor';
+import { BlockControls } from '@wordpress/block-editor';
 import { Placeholder, Spinner, ToolbarGroup, ToolbarButton } from '@wordpress/components';
 
 /**
@@ -20,10 +20,6 @@ import meta from './block.json';
  */
 export default function Edit() {
 	const [ isRefreshing, setIsRefreshing ] = useState( false );
-
-	const blockProps = useBlockProps( {
-		className: 'correction-box',
-	} );
 
 	/**
 	 * Placeholder when Corrections are loading/Refreshed.
@@ -62,13 +58,11 @@ export default function Edit() {
 					/>
 				</ToolbarGroup>
 			</BlockControls>
-			<div { ...blockProps }>
-				<ServerSideRender
-					block={ meta.name }
-					LoadingResponsePlaceholder={ LoadingPlaceholder }
-					refresh={ isRefreshing }
-				/>
-			</div>
+			<ServerSideRender
+				block={ meta.name }
+				LoadingResponsePlaceholder={ LoadingPlaceholder }
+				refresh={ isRefreshing }
+			/>
 		</>
 	);
 }
