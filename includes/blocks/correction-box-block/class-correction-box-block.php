@@ -72,7 +72,7 @@ final class Correction_Box_Block {
 
 		ob_start();
 		?>
-		<div <?php echo esc_attr( $block_wrapper_attributes ); ?>>
+		<div <?php echo $block_wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 			<?php
 			foreach ( $corrections as $correction ) :
 				$correction_content = $correction->post_content;
