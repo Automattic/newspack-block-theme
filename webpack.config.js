@@ -68,4 +68,3 @@ const styleConfig = getBaseWebpackConfig(
 
 styleConfig.plugins.push( new IgnoreEmitPlugin( /\.js$/ ) );
 module.exports = [ webpackConfig, styleConfig ];
-// module.exports = webpackConfig;
