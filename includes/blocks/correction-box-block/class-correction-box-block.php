@@ -40,6 +40,14 @@ final class Correction_Box_Block {
 	 * Enqueues block editor assets.
 	 */
 	public static function enqueue_block_editor_assets() {
+		global $pagenow;
+		$handle = '';
+		if ( 'site-editor.php' === $pagenow ) {
+			$handle = 'newspack-block-theme-correction-box-site-editor';
+			wp_enqueue_script( $handle, \get_theme_file_uri( 'dist/correction-box-block-site-editor.js' ), [ 'wp-blocks', 'wp-i18n', 'wp-element' ], NEWSPACK_BLOCK_THEME_VERSION, true );
+			return;
+		}
+
 		$handle = 'newspack-block-theme-correction-box-block';
 		wp_enqueue_script( $handle, \get_theme_file_uri( 'dist/correction-box-block-index.js' ), [ 'wp-blocks', 'wp-i18n', 'wp-element' ], NEWSPACK_BLOCK_THEME_VERSION, true );
 	}
