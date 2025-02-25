@@ -40,8 +40,7 @@
 				line-height: var(--wp--custom--line-height--x-small);
 				min-height: var(--wp--preset--spacing--50);
 				min-width: var(--wp--preset--spacing--50);
-				padding: calc(var(--wp--custom--spacing--10) - 1px)
-					calc(var(--wp--preset--spacing--20) - 1px);
+				padding: calc(var(--wp--custom--spacing--10) - 1px) calc(var(--wp--preset--spacing--20) - 1px);
 
 				&:hover {
 					background: var(--newspack-ui-color-neutral-5, var(--wp--preset--color--base-2));

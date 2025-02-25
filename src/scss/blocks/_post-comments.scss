@@ -1,4 +1,4 @@
-@use '../mixins';
+@use "../mixins";
 
 .wp-block-post-comments-form {
 	form {
@@ -23,12 +23,12 @@
 		}
 	}
 
-	input:not([type='submit']):not([type='checkbox']),
+	input:not([type="submit"]):not([type="checkbox"]),
 	textarea {
 		@include mixins.input;
 	}
 
-	input[type='checkbox'] {
+	input[type="checkbox"] {
 		@include mixins.checkbox-radio;
 		@include mixins.checkbox;
 	}
@@ -43,7 +43,7 @@
 	.comment-form-cookies-consent {
 		gap: var(--wp--preset--spacing--20);
 
-		input[type='checkbox'] {
+		input[type="checkbox"] {
 			margin-top: 2px !important;
 		}
 

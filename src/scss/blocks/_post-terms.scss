@@ -17,7 +17,7 @@
 		text-transform: none;
 
 		a,
-		> span:not([class*='wp-block-post-terms__']) {
+		> span:not([class*="wp-block-post-terms__"]) {
 			background: var(--wp--preset--color--base-2);
 			border-radius: var(--wp--custom--border--radius-small);
 			color: var(--wp--preset--color--contrast);
@@ -59,20 +59,20 @@
 			display: none;
 		}
 
-		&:not([class*='-font-size']) {
+		&:not([class*="-font-size"]) {
 			line-height: var(--wp--custom--line-height--x-small);
 		}
 
-		&[class*='-font-size'] {
+		&[class*="-font-size"] {
 			a,
-			> span:not([class*='wp-block-post-terms__']) {
+			> span:not([class*="wp-block-post-terms__"]) {
 				padding: var(--wp--custom--spacing--25) var(--wp--preset--spacing--40);
 			}
 		}
 
 		&.has-background {
 			a,
-			> span:not([class*='wp-block-post-terms__']) {
+			> span:not([class*="wp-block-post-terms__"]) {
 				background: color-mix(in srgb, currentcolor 15%, transparent);
 				color: currentcolor;
 
@@ -98,7 +98,7 @@
 			}
 		}
 
-		> span:not([class*='wp-block-post-terms__']) {
+		> span:not([class*="wp-block-post-terms__"]) {
 			text-decoration: underline;
 		}
 

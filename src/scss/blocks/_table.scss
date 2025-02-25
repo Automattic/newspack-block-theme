@@ -10,7 +10,7 @@
 	}
 
 	table {
-		&[style*='border-width'] {
+		&[style*="border-width"] {
 			thead,
 			tfoot {
 				border-width: inherit;
@@ -37,14 +37,14 @@
 		}
 	}
 
-	&[style*='font-size'],
-	&[class*='font-size'] {
+	&[style*="font-size"],
+	&[class*="font-size"] {
 		table {
 			font-size: inherit;
 		}
 	}
 
-	&[style*='line-height'] {
+	&[style*="line-height"] {
 		table {
 			line-height: inherit;
 		}
