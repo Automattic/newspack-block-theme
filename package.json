@@ -1,5 +1,5 @@
 {
-  "name": "newspack-block-theme",
+  "name": "@automattic/newspack-block-theme",
   "version": "1.14.0",
   "description": "A forward-looking news theme designed and developed to be highly customizable with the WordPress block editor. Brought to you by Newspack: https://newspack.com",
   "repository": {
@@ -23,30 +23,50 @@
   "scripts": {
     "cm": "newspack-scripts commit",
     "semantic-release": "semantic-release",
-    "build": "newspack-scripts build",
-    "start": "npm ci && newspack-scripts watch",
-    "watch": "newspack-scripts watch",
+    "start": "npm ci --legacy-peer-deps && npm run watch",
+    "clean": "rm -rf dist",
+    "build:js": "newspack-scripts wp-scripts build --output-path js/dist",
+    "watch:js": "newspack-scripts wp-scripts start --output-path js/dist",
+    "build:scss": "node scripts/compile-scss.js",
+    "watch:scss": "node scripts/compile-scss.js --watch",
+    "build": "npm run clean && run-p \"build:*\"",
+    "watch": "npm run clean && run-p \"watch:*\"",
     "lint": "npm run lint:scss && npm run lint:js",
-    "lint:js": "eslint --ext .js,.jsx src",
-    "lint:js:staged": "eslint --ext .js,.jsx",
+    "lint:js": "newspack-scripts wp-scripts lint-js '**/src/**/*.{js,jsx}'",
+    "lint:js:staged": "newspack-scripts wp-scripts lint-js --ext .js,.jsx",
+    "fix:js": "newspack-scripts wp-scripts lint-js --fix '**/src/**/*.{js,jsx}'",
+    "format:js": "newspack-scripts wp-scripts format '**/src/**/*.{js,jsx}'",
     "lint:php": "./vendor/bin/phpcs",
     "lint:php:staged": "./vendor/bin/phpcs --filter=GitStaged",
-    "format:js": "prettier 'src/**/*.{js,jsx}' --write",
-    "lint:scss": "stylelint '**/*.scss' --customSyntax postcss-scss --config=./node_modules/newspack-scripts/config/stylelint.config.js",
-    "format:scss": "prettier --write '**/*.scss'",
-    "lint:scss:staged": "stylelint --customSyntax postcss-scss --config=./node_modules/newspack-scripts/config/stylelint.config.js",
+    "fix:php": "./vendor/bin/phpcbf",
+    "lint:scss": "newspack-scripts wp-scripts lint-style '**/src/**/*.scss' --customSyntax postcss-scss",
+    "lint:scss:staged": "newspack-scripts wp-scripts lint-style --customSyntax postcss-scss",
+    "format:scss": "newspack-scripts wp-scripts lint-style '**/src/**/*.scss' --customSyntax postcss-scss --fix",
     "release:archive": "rm -rf release && mkdir -p release && rsync -r . ./release/newspack-block-theme --exclude-from='./.distignore' && cd release && zip -r newspack-block-theme.zip newspack-block-theme",
-    "release": "npm run build && npm run semantic-release",
-    "postinstall": "rm -rf node_modules/newspack-scripts/node_modules/prettier"
+    "release": "npm run build && npm run semantic-release"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.10.5",
-    "eslint": "^7.32.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/lodash": "^4.17.15",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@wordpress/browserslist-config": "^6.17.0",
+    "eslint": "^8.57.0",
+    "fetch-mock-jest": "^1.5.1",
+    "html-entities": "^2.5.2",
+    "identity-obj-proxy": "^3.0.0",
     "ignore-emit-webpack-plugin": "^2.0.6",
     "lint-staged": "^15.4.3",
-    "newspack-scripts": "^5.5.1",
+    "mini-css-extract-plugin": "^2.9.2",
+    "newspack-components": "^3.1.0",
+    "newspack-scripts": "^5.5.2",
+    "postcss-focus-within": "^9.0.1",
     "postcss-scss": "^4.0.9",
-    "prettier": "npm:wp-prettier@^2.6.2-beta-1",
-    "stylelint": "^16.14.0"
+    "webpack-fix-style-only-entries": "^0.6.1"
+  },
+  "dependencies": {
+    "move-file-loader": "^1.0.0",
+    "npm-run-all": "^4.1.5"
   }
 }

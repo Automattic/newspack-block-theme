@@ -14,7 +14,6 @@ const IgnoreEmitPlugin = require( 'ignore-emit-webpack-plugin' );
 /**
  * Internal variables
  */
-const editor = path.join( __dirname, 'src', 'js', 'editor' );
 const frontEndDir = path.join( __dirname, 'src', 'js', 'front-end' );
 const frontEnd = fs
 	.readdirSync( frontEndDir )
@@ -46,24 +45,27 @@ const blocks = fs
 		return acc;
 	}, {} );
 
+const style = path.join( __dirname, 'src', 'scss', 'style.scss' );
+const editor = path.join( __dirname, 'src', 'js', 'editor' );
+
 const webpackConfig = getBaseWebpackConfig(
-	{ WP: true },
 	{
 		entry: { editor, ...frontEnd, ...blocks },
-		'output-path': path.join( __dirname, 'dist' ),
+		output: {
+			path: path.join( __dirname, 'dist' ),
+		}
 	}
 );
 
-const style = path.join( __dirname, 'src', 'scss', 'style.scss' );
 const styleConfig = getBaseWebpackConfig(
-	{ WP: false },
 	{
 		entry: { style },
-		'output-path': __dirname,
+		output: {
+			path: __dirname,
+		},
 	}
 );
 
-// Don't emit useless JS module files from the style config.
 styleConfig.plugins.push( new IgnoreEmitPlugin( /\.js$/ ) );
-
 module.exports = [ webpackConfig, styleConfig ];
+// module.exports = webpackConfig;
