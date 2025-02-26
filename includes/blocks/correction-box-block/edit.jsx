@@ -3,10 +3,11 @@
  */
 import { __ } from '@wordpress/i18n';
 import { update } from '@wordpress/icons';
+import { useSelect } from '@wordpress/data';
 import { useState } from '@wordpress/element';
 import ServerSideRender from '@wordpress/server-side-render';
 import { BlockControls } from '@wordpress/block-editor';
-import { Placeholder, Spinner, ToolbarGroup, ToolbarButton } from '@wordpress/components';
+import { Placeholder, ToolbarGroup, ToolbarButton } from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -20,25 +21,7 @@ import meta from './block.json';
  */
 export default function Edit() {
 	const [ isRefreshing, setIsRefreshing ] = useState( false );
-
-	/**
-	 * Placeholder when Corrections are loading/Refreshed.
-	 *
-	 * @return {JSX.Element} The Loading Placeholder JSX.
-	 */
-	function LoadingPlaceholder() {
-		return (
-			<Placeholder
-				label={ __( 'Corrections', 'newspack-block-theme' ) }
-				instructions={ __(
-					'The corrections and clarifications are being loaded from the server. Please wait.',
-					'newspack-block-theme'
-				) }
-			>
-				<Spinner />
-			</Placeholder>
-		);
-	}
+	const postType = useSelect( select => select( 'core/editor' ).getCurrentPostType(), [] );
 
 	/**
 	 * Placeholder when no Corrections are available.
@@ -64,7 +47,15 @@ export default function Edit() {
 		setIsRefreshing( ! isRefreshing );
 	};
 
-	return (
+	return 'wp_template' === postType ? (
+		<Placeholder
+			label={ __( 'Corrections', 'newspack-block-theme' ) }
+			instructions={ __(
+				'This is the Corrections block, it will display all the corrections and clarifications',
+				'newspack-block-theme'
+			) }
+		/>
+	) : (
 		<>
 			<BlockControls>
 				<ToolbarGroup>
@@ -77,7 +68,6 @@ export default function Edit() {
 			</BlockControls>
 			<ServerSideRender
 				block={ meta.name }
-				LoadingResponsePlaceholder={ LoadingPlaceholder }
 				EmptyResponsePlaceholder={ EmptyPlaceholder }
 				refresh={ isRefreshing }
 			/>
