@@ -36,13 +36,12 @@ const siteEditorBlockData = {
 		src: icon,
 		foreground: '#406ebc',
 	},
-	attributes: {},
-	supports: {},
 	keywords: [ __( 'clarifications', 'newspack-blocks' ), __( 'updates', 'newspack-blocks' ) ],
 	description: __(
 		'Display all corrections and clarifications made to a post.',
 		'newspack-blocks'
 	),
+	...blockData,
 	edit: EditComponent,
 };
 
