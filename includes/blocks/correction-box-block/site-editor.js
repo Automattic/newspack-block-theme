@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 import { registerBlockType } from '@wordpress/blocks';
-import { Path, SVG, Placeholder } from '@wordpress/components';
+import { Path, SVG } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -20,13 +20,20 @@ export const icon = (
 
 const EditComponent = () => {
 	return (
-		<Placeholder
-			label={ __( 'Corrections', 'newspack-block-theme' ) }
-			instructions={ __(
-				'This is the Corrections block, it will display all the corrections and clarifications',
-				'newspack-block-theme'
-			) }
-		/>
+		<>
+			<p>
+				{ __(
+					'This is the Corrections block, it will display all the corrections and clarifications.',
+					'newspack-block-theme'
+				) }
+			</p>
+			<p>
+				{ __(
+					'If there are no corrections or clarifications, this block will not be displayed.',
+					'newspack-block-theme'
+				) }
+			</p>
+		</>
 	);
 };
 

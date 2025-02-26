@@ -7,7 +7,7 @@ import { useSelect } from '@wordpress/data';
 import { useState } from '@wordpress/element';
 import ServerSideRender from '@wordpress/server-side-render';
 import { BlockControls } from '@wordpress/block-editor';
-import { Placeholder, ToolbarGroup, ToolbarButton } from '@wordpress/components';
+import { ToolbarGroup, ToolbarButton } from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -30,13 +30,20 @@ export default function Edit() {
 	 */
 	function EmptyPlaceholder() {
 		return (
-			<Placeholder
-				label={ __( 'Corrections', 'newspack-block-theme' ) }
-				instructions={ __(
-					'This block will display corrections and clarifications. Please add the block to a post or page.',
-					'newspack-block-theme'
-				) }
-			/>
+			<>
+				<p>
+					{ __(
+						'This is the Corrections block, it will display all the corrections and clarifications.',
+						'newspack-block-theme'
+					) }
+				</p>
+				<p>
+					{ __(
+						'If there are no corrections or clarifications, this block will not be displayed.',
+						'newspack-block-theme'
+					) }
+				</p>
+			</>
 		);
 	}
 
@@ -48,13 +55,7 @@ export default function Edit() {
 	};
 
 	return 'wp_template' === postType ? (
-		<Placeholder
-			label={ __( 'Corrections', 'newspack-block-theme' ) }
-			instructions={ __(
-				'This is the Corrections block, it will display all the corrections and clarifications',
-				'newspack-block-theme'
-			) }
-		/>
+		<EmptyPlaceholder />
 	) : (
 		<>
 			<BlockControls>
