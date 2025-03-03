@@ -9,7 +9,6 @@
 const fs = require( 'fs' );
 const getBaseWebpackConfig = require( 'newspack-scripts/config/getWebpackConfig' );
 const path = require( 'path' );
-const IgnoreEmitPlugin = require( 'ignore-emit-webpack-plugin' );
 
 /**
  * Internal variables
@@ -45,7 +44,6 @@ const blocks = fs
 		return acc;
 	}, {} );
 
-const style = path.join( __dirname, 'src', 'scss', 'style.scss' );
 const editor = path.join( __dirname, 'src', 'js', 'editor' );
 
 const webpackConfig = getBaseWebpackConfig(
@@ -56,15 +54,4 @@ const webpackConfig = getBaseWebpackConfig(
 		}
 	}
 );
-
-const styleConfig = getBaseWebpackConfig(
-	{
-		entry: { style },
-		output: {
-			path: __dirname,
-		},
-	}
-);
-
-styleConfig.plugins.push( new IgnoreEmitPlugin( /\.js$/ ) );
-module.exports = [ webpackConfig, styleConfig ];
+module.exports = webpackConfig;
