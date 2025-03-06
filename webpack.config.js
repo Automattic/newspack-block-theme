@@ -9,6 +9,7 @@
 const fs = require( 'fs' );
 const getBaseWebpackConfig = require( 'newspack-scripts/config/getWebpackConfig' );
 const path = require( 'path' );
+const { exec } = require( 'child_process' );
 
 /**
  * Internal variables
@@ -46,12 +47,35 @@ const blocks = fs
 
 const editor = path.join( __dirname, 'src', 'js', 'editor' );
 
+const style = [ path.join( __dirname, 'src', 'scss' ) ];
+
 const webpackConfig = getBaseWebpackConfig(
 	{
-		entry: { editor, ...frontEnd, ...blocks },
+		entry: { editor, ...frontEnd, ...blocks, style },
 		output: {
 			path: path.join( __dirname, 'dist' ),
 		}
 	}
+);
+
+// Copy built CSS files to the root of the theme. See: https://stackoverflow.com/questions/30312715/run-command-after-webpack-build
+webpackConfig.plugins.push(
+	{
+		apply: compiler => {
+		  compiler.hooks.afterEmit.tap( 'AfterEmitPlugin', () => {
+			exec( 'cp ./dist/*.css ./', ( err, stdout, stderr ) => {
+				if ( err ) {
+					process.stderr.write( err );
+				}
+				if ( stdout ) {
+					process.stdout.write( stdout );
+				}
+				if ( stderr ) {
+					process.stderr.write( stderr );
+				}
+			});
+		  });
+		}
+	  }
 );
 module.exports = webpackConfig;
