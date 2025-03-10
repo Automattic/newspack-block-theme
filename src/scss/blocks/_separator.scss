@@ -1,5 +1,5 @@
 .wp-block-separator {
-	&:not([class*='is-style-']),
+	&:not([class*="is-style-"]),
 	&.is-style-default {
 		max-width: calc(var(--wp--preset--spacing--50) * 4) !important;
 

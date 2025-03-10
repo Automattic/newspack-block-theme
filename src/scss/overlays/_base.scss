@@ -1,7 +1,7 @@
-@use '../sass-utils';
-@use '../mixins';
+@use "../sass-utils";
+@use "../mixins";
 
-[class*='menu-open--'] {
+[class*="menu-open--"] {
 	overflow-y: hidden;
 
 	@include sass-utils.media(medium) {
@@ -19,7 +19,7 @@
 	position: fixed;
 	z-index: sass-utils.$zindex-overlay-mask;
 
-	[class*='menu-open--'] & {
+	[class*="menu-open--"] & {
 		animation: overlay-mask__fade-in-animation 500ms ease-in-out;
 		display: block;
 		opacity: 1;
@@ -35,10 +35,9 @@
 	box-shadow: var(--wp--preset--shadow--elevation-3);
 	color: var(--wp--preset--color--contrast);
 	inset: 0 auto 0 -100%;
-	max-width: calc(
-		var(--wp--preset--spacing--30) + var(--wp--style--global--content-size) +
-			var(--wp--preset--spacing--30)
-	);
+	max-width:
+		calc(var(--wp--preset--spacing--30) + var(--wp--style--global--content-size) +
+		var(--wp--preset--spacing--30));
 	margin: 0;
 	opacity: 0;
 	overflow: auto;
@@ -48,10 +47,9 @@
 	z-index: sass-utils.$zindex-overlay-menu;
 
 	@include sass-utils.media(medium) {
-		max-width: calc(
-			var(--wp--preset--spacing--40) + var(--wp--style--global--content-size) +
-				var(--wp--preset--spacing--40)
-		);
+		max-width:
+			calc(var(--wp--preset--spacing--40) + var(--wp--style--global--content-size) +
+			var(--wp--preset--spacing--40));
 		padding: 0 var(--wp--preset--spacing--40) var(--wp--preset--spacing--40);
 	}
 
@@ -82,7 +80,7 @@
 			opacity 125ms ease-in-out,
 			left 250ms ease-in-out;
 
-		&[class*='menu-open--'] {
+		&[class*="menu-open--"] {
 			@include mixins.overlay-visible(left);
 		}
 	}
@@ -93,7 +91,7 @@
 			opacity 125ms ease-in-out,
 			right 250ms ease-in-out;
 
-		&[class*='menu-open--'] {
+		&[class*="menu-open--"] {
 			@include mixins.overlay-visible(right);
 		}
 	}
@@ -105,11 +103,11 @@
 			padding: 0 var(--wp--preset--spacing--80) var(--wp--preset--spacing--80);
 		}
 
-		&[class*='menu-open--'] {
+		&[class*="menu-open--"] {
 			@include mixins.overlay-visible(full-width);
 		}
 
-		body:has( &[class*='menu-open--'] ) {
+		body:has(&[class*="menu-open--"]) {
 			overflow: hidden;
 		}
 
@@ -121,58 +119,34 @@
 	}
 
 	&--width--x-small {
-		max-width: calc(
-			var(--wp--preset--spacing--30) + var(--wp--custom--width--x-small) +
-				var(--wp--preset--spacing--30)
-		);
+		max-width: calc(var(--wp--preset--spacing--30) + var(--wp--custom--width--x-small) + var(--wp--preset--spacing--30));
 
 		@include sass-utils.media(medium) {
-			max-width: calc(
-				var(--wp--preset--spacing--40) + var(--wp--custom--width--x-small) +
-					var(--wp--preset--spacing--40)
-			);
+			max-width: calc(var(--wp--preset--spacing--40) + var(--wp--custom--width--x-small) + var(--wp--preset--spacing--40));
 		}
 	}
 
 	&--width--small {
-		max-width: calc(
-			var(--wp--preset--spacing--30) + var(--wp--custom--width--small) +
-				var(--wp--preset--spacing--30)
-		);
+		max-width: calc(var(--wp--preset--spacing--30) + var(--wp--custom--width--small) + var(--wp--preset--spacing--30));
 
 		@include sass-utils.media(medium) {
-			max-width: calc(
-				var(--wp--preset--spacing--40) + var(--wp--custom--width--small) +
-					var(--wp--preset--spacing--40)
-			);
+			max-width: calc(var(--wp--preset--spacing--40) + var(--wp--custom--width--small) + var(--wp--preset--spacing--40));
 		}
 	}
 
 	&--width--large {
-		max-width: calc(
-			var(--wp--preset--spacing--30) + var(--wp--custom--width--large) +
-				var(--wp--preset--spacing--30)
-		);
+		max-width: calc(var(--wp--preset--spacing--30) + var(--wp--custom--width--large) + var(--wp--preset--spacing--30));
 
 		@include sass-utils.media(medium) {
-			max-width: calc(
-				var(--wp--preset--spacing--40) + var(--wp--custom--width--large) +
-					var(--wp--preset--spacing--40)
-			);
+			max-width: calc(var(--wp--preset--spacing--40) + var(--wp--custom--width--large) + var(--wp--preset--spacing--40));
 		}
 	}
 
 	&--width--x-large {
-		max-width: calc(
-			var(--wp--preset--spacing--30) + var(--wp--custom--width--x-large) +
-				var(--wp--preset--spacing--30)
-		);
+		max-width: calc(var(--wp--preset--spacing--30) + var(--wp--custom--width--x-large) + var(--wp--preset--spacing--30));
 
 		@include sass-utils.media(medium) {
-			max-width: calc(
-				var(--wp--preset--spacing--40) + var(--wp--custom--width--x-large) +
-					var(--wp--preset--spacing--40)
-			);
+			max-width: calc(var(--wp--preset--spacing--40) + var(--wp--custom--width--x-large) + var(--wp--preset--spacing--40));
 		}
 	}
 

@@ -1,5 +1,5 @@
-@use '../sass-utils';
-@use '../mixins';
+@use "../sass-utils";
+@use "../mixins";
 
 /**
  * Search menu styles
@@ -7,7 +7,7 @@
 .search-menu__contents {
 	left: 50%;
 	margin: 0;
-	max-width: calc( var(--wp--preset--spacing--30) + var(--wp--style--global--content-size) + var(--wp--preset--spacing--30) );
+	max-width: calc(var(--wp--preset--spacing--30) + var(--wp--style--global--content-size) + var(--wp--preset--spacing--30));
 	opacity: 0;
 	overflow: visible;
 	padding-left: var(--wp--preset--spacing--30);
@@ -47,12 +47,9 @@ body .jetpack-instant-search {
 	--jp--color--background: var(--wp--custom--color--neutral-0);
 	--jp--color--background-light: var(--wp--custom--color--neutral-5);
 	--jp--color--border: var(--wp--custom--color--neutral-30);
-	--jp--sidebar--width: calc(
-		1px + var(--wp--preset--spacing--30) + var(--wp--custom--width--x-small) +
-			var(--wp--preset--spacing--30)
-	);
+	--jp--sidebar--width: calc(1px + var(--wp--preset--spacing--30) + var(--wp--custom--width--x-small) + var(--wp--preset--spacing--30));
 
-	&[class*='--dark'] {
+	&[class*="--dark"] {
 		--jp--color--text: var(--wp--custom--color--neutral-0);
 		--jp--color--text-light: var(--wp--custom--color--neutral-10);
 		--jp--color--background: var(--wp--custom--color--neutral-100);
@@ -110,7 +107,8 @@ body .jetpack-instant-search {
 			font-weight: 600;
 			line-height: var(--newspack-ui-line-height-xs, 1.4286);
 			min-height: var(--wp--preset--spacing--50);
-			padding: calc(var(--newspack-ui-spacer-base, var(--wp--preset--spacing--20)) / 2 - 1px)
+			padding:
+				calc(var(--newspack-ui-spacer-base, var(--wp--preset--spacing--20)) / 2 - 1px)
 				calc(var(--newspack-ui-spacer-base, var(--wp--preset--spacing--20)) - 1px);
 			transition: outline 125ms ease-in-out;
 
@@ -129,7 +127,7 @@ body .jetpack-instant-search {
 		line-height: var(--newspack-ui-line-height-s, 1.5);
 		padding: var(--wp--preset--spacing--30);
 
-		@include sass-utils.media('576px') {
+		@include sass-utils.media("576px") {
 			padding: var(--wp--preset--spacing--80);
 		}
 
@@ -150,7 +148,7 @@ body .jetpack-instant-search {
 			&::before {
 				background: var(--jp--color--background);
 				border-radius: var(--newspack-ui-border-radius-m, 6px);
-				content: '';
+				content: "";
 				display: block;
 				height: var(--wp--custom--spacing--55);
 				position: absolute;
@@ -179,7 +177,7 @@ body .jetpack-instant-search {
 			}
 		}
 
-		button[class*='jetpack-instant-search'] {
+		button[class*="jetpack-instant-search"] {
 			background: none;
 			border-radius: 0;
 			color: inherit;
@@ -239,17 +237,11 @@ body .jetpack-instant-search {
 
 		&-wrapper {
 			border-radius: var(--wp--custom--border--radius-medium);
-			max-width: calc(
-				var(--wp--preset--spacing--80) + var(--wp--style--global--content-size) +
-					var(--wp--preset--spacing--80)
-			);
+			max-width: calc(var(--wp--preset--spacing--80) + var(--wp--style--global--content-size) + var(--wp--preset--spacing--80));
 
-			@include sass-utils.media('992px') {
+			@include sass-utils.media("992px") {
 				&:has(.jetpack-instant-search__widget-area > *) {
-					max-width: calc(
-						var(--wp--preset--spacing--80) + var(--wp--style--global--content-size) +
-							var(--wp--preset--spacing--80) + var(--jp--sidebar--width)
-					);
+					max-width: calc(var(--wp--preset--spacing--80) + var(--wp--style--global--content-size) + var(--wp--preset--spacing--80) + var(--jp--sidebar--width));
 				}
 			}
 		}
@@ -262,7 +254,8 @@ body .jetpack-instant-search {
 			font-weight: 600;
 			line-height: var(--newspack-ui-line-height-xs, 1.4286);
 			min-height: var(--wp--preset--spacing--50);
-			padding: calc(var(--newspack-ui-spacer-base, var(--wp--preset--spacing--20)) / 2 - 1px)
+			padding:
+				calc(var(--newspack-ui-spacer-base, var(--wp--preset--spacing--20)) / 2 - 1px)
 				calc(var(--newspack-ui-spacer-base, var(--wp--preset--spacing--20)) - 1px);
 			transition: background 125ms ease-in-out;
 
@@ -278,7 +271,7 @@ body .jetpack-instant-search {
 			line-height: var(--newspack-ui-line-height-m, 1.6);
 			margin: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
 
-			@include sass-utils.media('576px') {
+			@include sass-utils.media("576px") {
 				margin-left: var(--wp--preset--spacing--80);
 				margin-right: var(--wp--preset--spacing--80);
 			}
@@ -288,7 +281,7 @@ body .jetpack-instant-search {
 			color: inherit;
 			margin: 0 var(--wp--preset--spacing--40);
 
-			@include sass-utils.media('576px') {
+			@include sass-utils.media("576px") {
 				margin-left: var(--wp--preset--spacing--80);
 				margin-right: var(--wp--preset--spacing--80);
 			}
@@ -300,7 +293,7 @@ body .jetpack-instant-search {
 				margin: 0 var(--wp--preset--spacing--40);
 				padding: 0;
 
-				@include sass-utils.media('576px') {
+				@include sass-utils.media("576px") {
 					grid-template-columns: repeat(3, 1fr);
 					margin-left: var(--wp--preset--spacing--80);
 					margin-right: var(--wp--preset--spacing--80);
@@ -333,8 +326,9 @@ body .jetpack-instant-search {
 			font-weight: 600;
 			margin: var(--wp--preset--spacing--40);
 
-			@include sass-utils.media('576px') {
-				margin: var(--wp--preset--spacing--50) var(--wp--preset--spacing--80)
+			@include sass-utils.media("576px") {
+				margin:
+					var(--wp--preset--spacing--50) var(--wp--preset--spacing--80)
 					var(--wp--preset--spacing--80);
 			}
 
@@ -342,7 +336,8 @@ body .jetpack-instant-search {
 				background: var(--jp--color--text) !important;
 				border-radius: var(--wp--custom--border--radius-medium) !important;
 				color: var(--jp--color--background) !important;
-				padding: var(--newspack-ui-spacer-2, var(--wp--custom--spacing--25))
+				padding:
+					var(--newspack-ui-spacer-2, var(--wp--custom--spacing--25))
 					var(--newspack-ui-spacer-5, var(--wp--preset--spacing--40)) !important;
 				transition:
 					background 125ms ease-in-out,
@@ -375,7 +370,7 @@ body .jetpack-instant-search {
 		&-primary {
 			max-width: 100%;
 
-			@include sass-utils.media('992px') {
+			@include sass-utils.media("992px") {
 				max-width: calc(100% - var(--jp--sidebar--width));
 			}
 		}
@@ -428,14 +423,14 @@ body .jetpack-instant-search {
 				&-container {
 					gap: var(--wp--preset--spacing--20);
 
-					@include sass-utils.media('576px') {
+					@include sass-utils.media("576px") {
 						gap: var(--wp--preset--spacing--50);
 					}
 				}
 			}
 
 			&__copy-container {
-				@include sass-utils.media('576px') {
+				@include sass-utils.media("576px") {
 					width: calc(100% - 128px - var(--wp--preset--spacing--50));
 				}
 			}
@@ -445,7 +440,7 @@ body .jetpack-instant-search {
 					&::before {
 						padding-top: 75%;
 
-						@include sass-utils.media('576px') {
+						@include sass-utils.media("576px") {
 							padding-top: 100%;
 						}
 					}
@@ -505,11 +500,10 @@ body .jetpack-instant-search {
 				align-items: initial;
 				margin-top: var(--wp--preset--spacing--20);
 
-				input[type='checkbox'] {
+				input[type="checkbox"] {
 					position: relative;
 					@include mixins.checkbox-radio;
 					@include mixins.checkbox;
-
 					margin-top: 1px;
 				}
 			}
@@ -520,10 +514,9 @@ body .jetpack-instant-search {
 		&-link {
 			color: var(--jp--color--text-light) !important;
 			font-size: var(--newspack-ui-font-size-xs, 14px) !important;
-			height: calc(
-				var(--newspack-ui-font-size-m, clamp(1.125rem, 0.929rem + 0.402vw, 1.25rem)) *
-					var(--newspack-ui-line-height-m, 1.6)
-			);
+			height:
+				calc(var(--newspack-ui-font-size-m, clamp(1.125rem, 0.929rem + 0.402vw, 1.25rem)) *
+				var(--newspack-ui-line-height-m, 1.6));
 			line-height: var(--newspack-ui-line-height-xs, 1.4286) !important;
 
 			&:focus {
@@ -572,16 +565,15 @@ body .jetpack-instant-search {
 		line-height: var(--newspack-ui-line-height-xs, 1.4286);
 		margin: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40) 0;
 
-		@include sass-utils.media('576px') {
+		@include sass-utils.media("576px") {
 			margin-left: var(--wp--preset--spacing--80);
 			margin-right: var(--wp--preset--spacing--80);
 		}
 
-		@include sass-utils.media('992px') {
-			height: calc(
-				var(--newspack-ui-font-size-m, clamp(1.125rem, 0.929rem + 0.402vw, 1.25rem)) *
-					var(--newspack-ui-line-height-m, 1.6)
-			);
+		@include sass-utils.media("992px") {
+			height:
+				calc(var(--newspack-ui-font-size-m, clamp(1.125rem, 0.929rem + 0.402vw, 1.25rem)) *
+				var(--newspack-ui-line-height-m, 1.6));
 			right: var(--jp--sidebar--width);
 		}
 

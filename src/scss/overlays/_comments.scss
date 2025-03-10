@@ -1,5 +1,5 @@
-@use '../sass-utils';
-@use '../mixins';
+@use "../sass-utils";
+@use "../mixins";
 
 /**
  * Comments menu styles
@@ -13,10 +13,9 @@
 		}
 
 		&:has(#disqus_thread) { /* stylelint-disable-line selector-id-pattern */
-			max-width: calc(
-				(var(--wp--style--global--content-size) - (var(--wp--preset--spacing--50) * 5)) / 6 * 7 +
-					(var(--wp--preset--spacing--50) * 6)
-			);
+			max-width:
+				calc((var(--wp--style--global--content-size) - (var(--wp--preset--spacing--50) * 5)) / 6 * 7 +
+				(var(--wp--preset--spacing--50) * 6));
 		}
 	}
 
@@ -30,9 +29,9 @@
 
 				&::before {
 					background: currentcolor;
-					content: '';
+					content: "";
 					height: var(--wp--preset--spacing--40);
-					mask: url('../../../src/images/icon-comments.svg') 0 0 no-repeat;
+					mask: url("../../assets/images/icon-comments.svg") 0 0 no-repeat;
 					width: var(--wp--preset--spacing--40);
 				}
 			}

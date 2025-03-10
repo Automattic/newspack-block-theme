@@ -1,5 +1,5 @@
-@use 'sass-utils';
-@use 'mixins';
+@use "sass-utils";
+@use "mixins";
 
 /*
  * Newspack Theme
@@ -99,7 +99,7 @@ ol {
 }
 
 // Icons
-[class*='newspack-icon'] {
+[class*="newspack-icon"] {
 	line-height: 0;
 
 	span {
@@ -112,7 +112,7 @@ ol {
 
 		&::after {
 			background-color: currentcolor;
-			content: '';
+			content: "";
 			display: block;
 			height: var(--wp--preset--spacing--40);
 			mask-size: var(--wp--preset--spacing--40);
@@ -122,15 +122,15 @@ ol {
 }
 
 .newspack-icon-close .wp-block-button__link::after {
-	mask: url('../../src/images/icon-close.svg') 0 0 no-repeat;
+	mask: url("../../assets/images/icon-close.svg") 0 0 no-repeat;
 }
 
 .newspack-icon-menu .wp-block-button__link::after {
-	mask: url('../../src/images/icon-menu.svg') 0 0 no-repeat;
+	mask: url("../../assets/images/icon-menu.svg") 0 0 no-repeat;
 }
 
 .newspack-icon-search .wp-block-button__link::after {
-	mask: url('../../src/images/icon-search.svg') 0 0 no-repeat;
+	mask: url("../../assets/images/icon-search.svg") 0 0 no-repeat;
 }
 
 // Content

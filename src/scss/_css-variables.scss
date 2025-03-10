@@ -60,14 +60,14 @@
 
 // Backward compatibility with the Classic Theme
 $colors: (
-	'primary': var(--wp--preset--color--accent),
-	'primary-variation': color-mix(in srgb, var(--wp--preset--color--accent) 80%, black),
-	'secondary': var(--wp--preset--color--accent-2),
-	'secondary-variation': color-mix(in srgb, var(--wp--preset--color--accent-2) 80%, black),
-	'dark-gray': var(--wp--preset--color--contrast),
-	'medium-gray': var(--wp--preset--color--contrast-3),
-	'light-gray': var(--wp--preset--color--base-2),
-	'white': var(--wp--preset--color--base),
+	"primary": var(--wp--preset--color--accent),
+	"primary-variation": color-mix(in srgb, var(--wp--preset--color--accent) 80%, black),
+	"secondary": var(--wp--preset--color--accent-2),
+	"secondary-variation": color-mix(in srgb, var(--wp--preset--color--accent-2) 80%, black),
+	"dark-gray": var(--wp--preset--color--contrast),
+	"medium-gray": var(--wp--preset--color--contrast-3),
+	"light-gray": var(--wp--preset--color--base-2),
+	"white": var(--wp--preset--color--base),
 );
 
 @each $name, $var in $colors {

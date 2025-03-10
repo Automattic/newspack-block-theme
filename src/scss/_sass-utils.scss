@@ -24,27 +24,27 @@ $zindex-screen-reader-text: 100000; /* Above WP toolbar. */
 		@media only screen and (min-width: $xsmall-screen) {
 			@content;
 		}
-	} @else if $class == small {
+	} @else if $class == small { // stylelint-disable-line block-closing-brace-newline-after
 		@media only screen and (min-width: $small-screen) {
 			@content;
 		}
-	} @else if $class == small-only {
+	} @else if $class == small-only { // stylelint-disable-line block-closing-brace-newline-after
 		@media only screen and (max-width: $medium-screen - 1) {
 			@content;
 		}
-	} @else if $class == medium {
+	} @else if $class == medium { // stylelint-disable-line block-closing-brace-newline-after
 		@media only screen and (min-width: $medium-screen) {
 			@content;
 		}
-	} @else if $class == large {
+	} @else if $class == large { // stylelint-disable-line block-closing-brace-newline-after
 		@media only screen and (min-width: $large-screen) {
 			@content;
 		}
-	} @else if $class == x-large {
+	} @else if $class == x-large { // stylelint-disable-line block-closing-brace-newline-after
 		@media only screen and (min-width: $xlarge-screen) {
 			@content;
 		}
-	} @else {
+	} @else { // stylelint-disable-line block-closing-brace-newline-after
 		@media only screen and (min-width: $class) {
 			@content;
 		}
