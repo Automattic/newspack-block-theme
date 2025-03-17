@@ -8,7 +8,7 @@
 		"issues": "https://github.com/Automattic/newspack-block-theme/issues"
 	},
 	"require-dev": {
-		"brainmaestro/composer-git-hooks": "^2.6",
+		"brainmaestro/composer-git-hooks": "^3.0",
 		"automattic/vipwpcs": "^3.0.0",
 		"wp-coding-standards/wpcs": "*",
 		"dealerdirect/phpcodesniffer-composer-installer": "*",
