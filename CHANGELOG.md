@@ -1,3 +1,15 @@
+# [1.15.0-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.14.0...v1.15.0-alpha.1) (2025-03-20)
+
+
+### Bug Fixes
+
+* update block theme dependencies for WP 6.6 ([#314](https://github.com/Automattic/newspack-block-theme/issues/314)) ([13247ec](https://github.com/Automattic/newspack-block-theme/commit/13247eceaa7511daa48e2bdf87d30c3633ee6996))
+
+
+### Features
+
+* update colours ([#311](https://github.com/Automattic/newspack-block-theme/issues/311)) ([c8e01ae](https://github.com/Automattic/newspack-block-theme/commit/c8e01ae9c2afef2c7c54da849e9ba006a10c27a9))
+
 # [1.14.0](https://github.com/Automattic/newspack-block-theme/compare/v1.13.0...v1.14.0) (2024-11-25)
 
 
