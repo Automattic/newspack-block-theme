@@ -1,6 +1,6 @@
 .wp-block-buttons,
 .wp-block-button {
-	&[class*='-font-size'] {
+	&[class*="-font-size"] {
 		.wp-block-button__link {
 			line-height: inherit;
 		}
@@ -35,21 +35,13 @@
 
 		&.has-accent-2-background-color {
 			&:hover {
-				background-color: color-mix(
-					in srgb,
-					var(--wp--preset--color--accent-2) 80%,
-					black
-				) !important;
+				background-color: color-mix(in srgb, var(--wp--preset--color--accent-2) 80%, black) !important;
 			}
 		}
 
 		&.has-contrast-color.has-base-background-color {
 			&:hover {
-				background-color: color-mix(
-					in srgb,
-					var(--wp--preset--color--contrast) 3.5%,
-					transparent
-				) !important;
+				background-color: color-mix(in srgb, var(--wp--preset--color--contrast) 3.5%, transparent) !important;
 				opacity: 1;
 			}
 		}

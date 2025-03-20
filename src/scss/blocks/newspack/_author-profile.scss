@@ -1,7 +1,7 @@
-@use '../../sass-utils';
+@use "../../sass-utils";
 
 .wp-block-newspack-blocks-author-profile {
-	&[class*='text-size-'] {
+	&[class*="text-size-"] {
 		font-size: inherit;
 	}
 
@@ -49,7 +49,7 @@
 		p:not([class]) {
 			> a:last-of-type {
 				&::before {
-					content: '';
+					content: "";
 					display: block;
 					height: var(--wp--preset--spacing--20);
 				}
@@ -126,7 +126,7 @@
 
 			&::after {
 				clear: both;
-				content: '';
+				content: "";
 				display: table;
 			}
 		}

@@ -2,7 +2,7 @@
 	&.is-style-modern {
 		&.wpbnbd--tiers-based {
 			.wpbnbd__tiers__tier:not(& .wpbnbd__tiers__tier--recommended) {
-				button[type='submit'],
+				button[type="submit"],
 				.submit-button {
 					&:hover {
 						border-color: currentcolor !important;

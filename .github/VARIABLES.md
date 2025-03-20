@@ -83,8 +83,9 @@ _Viewport range for clamp: 782px > 1280px_
 | --wp--preset--color--contrast   | #1E1E1E |
 | --wp--preset--color--contrast-2 | #3E3E3E |
 | --wp--preset--color--contrast-3 | #6C6C6C |
-| --wp--preset--color--accent     | #2240D5 |
-| --wp--preset--color--accent-2   | #3366FF |
+| --wp--preset--color--accent     | #003DA5 |
+| --wp--preset--color--accent-2   | #2055B0 |
+| --wp--preset--color--accent-3   | #26D07C |
 
 ## Newspack UI-like
 
@@ -98,7 +99,7 @@ _Viewport range for clamp: 782px > 1280px_
 | --wp--custom--color--neutral-40  |   #CCCCCC |
 | --wp--custom--color--neutral-50  |   #949494 |
 | --wp--custom--color--neutral-60  |   #6C6C6C |
-| --wp--custom--color--neutral-70  | #00000070 |
+| --wp--custom--color--neutral-70  | #000000B3 |
 | --wp--custom--color--neutral-80  |   #3E3E3E |
 | --wp--custom--color--neutral-90  |   #1E1E1E |
 | --wp--custom--color--neutral-100 |   #000000 |

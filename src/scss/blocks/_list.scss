@@ -7,23 +7,13 @@ ul {
 			position: relative;
 			&::before {
 				background: currentcolor;
-				clip-path: polygon(
-					69.5833% 29.5834%,
-					43.3333% 65%,
-					29.5833% 54.5834%,
-					25.8333% 59.5834%,
-					44.5833% 73.75%,
-					74.5833% 33.3334%,
-					69.5833% 29.5834%
-				);
-				content: '';
+				clip-path: polygon(69.5833% 29.5834%, 43.3333% 65%, 29.5833% 54.5834%, 25.8333% 59.5834%, 44.5833% 73.75%, 74.5833% 33.3334%, 69.5833% 29.5834%);
+				content: "";
 				display: block;
 				height: var(--wp--preset--spacing--40);
 				left: calc(-1 * (var(--wp--preset--spacing--40) + 0.25em));
 				position: absolute;
-				top: calc(
-					(1em * var(--wp--custom--line-height--medium) - var(--wp--preset--spacing--40)) / 2
-				);
+				top: calc((1em * var(--wp--custom--line-height--medium) - var(--wp--preset--spacing--40)) / 2);
 				width: var(--wp--preset--spacing--40);
 			}
 		}
@@ -37,9 +27,7 @@ ul {
 			li::before {
 				height: var(--wp--preset--spacing--30);
 				left: calc(-1 * (var(--wp--preset--spacing--30) + 0.25em));
-				top: calc(
-					(1em * var(--wp--custom--line-height--xx-small) - var(--wp--preset--spacing--30)) / 2
-				);
+				top: calc((1em * var(--wp--custom--line-height--xx-small) - var(--wp--preset--spacing--30)) / 2);
 				width: var(--wp--preset--spacing--30);
 			}
 		}
@@ -47,27 +35,21 @@ ul {
 		.has-x-small-font-size &,
 		&.has-x-small-font-size {
 			li::before {
-				top: calc(
-					(1em * var(--wp--custom--line-height--x-small) - var(--wp--preset--spacing--30)) / 2
-				);
+				top: calc((1em * var(--wp--custom--line-height--x-small) - var(--wp--preset--spacing--30)) / 2);
 			}
 		}
 
 		.has-small-font-size &,
 		&.has-small-font-size {
 			li::before {
-				top: calc(
-					(1em * var(--wp--custom--line-height--small) - var(--wp--preset--spacing--40)) / 2
-				);
+				top: calc((1em * var(--wp--custom--line-height--small) - var(--wp--preset--spacing--40)) / 2);
 			}
 		}
 
 		.has-large-font-size &,
 		&.has-large-font-size {
 			li::before {
-				top: calc(
-					(1em * var(--wp--custom--line-height--large) - var(--wp--preset--spacing--40)) / 2
-				);
+				top: calc((1em * var(--wp--custom--line-height--large) - var(--wp--preset--spacing--40)) / 2);
 			}
 		}
 
@@ -80,9 +62,7 @@ ul {
 			li::before {
 				height: var(--wp--preset--spacing--50);
 				left: calc(-1 * (var(--wp--preset--spacing--50) + 0.25em));
-				top: calc(
-					(1em * var(--wp--custom--line-height--x-large) - var(--wp--preset--spacing--50)) / 2
-				);
+				top: calc((1em * var(--wp--custom--line-height--x-large) - var(--wp--preset--spacing--50)) / 2);
 				width: var(--wp--preset--spacing--50);
 			}
 		}
@@ -90,9 +70,7 @@ ul {
 		.has-xx-large-font-size &,
 		&.has-xx-large-font-size {
 			li::before {
-				top: calc(
-					(1em * var(--wp--custom--line-height--xx-large) - var(--wp--preset--spacing--40)) / 2
-				);
+				top: calc((1em * var(--wp--custom--line-height--xx-large) - var(--wp--preset--spacing--40)) / 2);
 			}
 		}
 
@@ -105,10 +83,7 @@ ul {
 			li::before {
 				height: calc(var(--wp--preset--spacing--50) * 1.5);
 				left: calc(-1 * (var(--wp--preset--spacing--50) * 1.5 + 0.25em));
-				top: calc(
-					(1em * var(--wp--custom--line-height--xxx-large) - var(--wp--preset--spacing--50) * 1.5) /
-						2
-				);
+				top: calc((1em * var(--wp--custom--line-height--xxx-large) - var(--wp--preset--spacing--50) * 1.5) / 2);
 				width: calc(var(--wp--preset--spacing--50) * 1.5);
 			}
 		}
@@ -116,10 +91,7 @@ ul {
 		.has-xxxx-large-font-size &,
 		&.has-xxxx-large-font-size {
 			li::before {
-				top: calc(
-					(1em * var(--wp--custom--line-height--xxxx-large) - var(--wp--preset--spacing--50) * 1.5) /
-						2
-				);
+				top: calc((1em * var(--wp--custom--line-height--xxxx-large) - var(--wp--preset--spacing--50) * 1.5) / 2);
 			}
 		}
 
@@ -132,10 +104,7 @@ ul {
 			li::before {
 				height: calc(var(--wp--preset--spacing--50) * 2);
 				left: calc(-1 * (var(--wp--preset--spacing--50) * 2 + 0.25em));
-				top: calc(
-					(1em * var(--wp--custom--line-height--xxxxx-large) - var(--wp--preset--spacing--50) * 2) /
-						2
-				);
+				top: calc((1em * var(--wp--custom--line-height--xxxxx-large) - var(--wp--preset--spacing--50) * 2) / 2);
 				width: calc(var(--wp--preset--spacing--50) * 2);
 			}
 		}
@@ -143,10 +112,7 @@ ul {
 		.has-xxxxxx-large-font-size &,
 		&.has-xxxxxx-large-font-size {
 			li::before {
-				top: calc(
-					(1em * var(--wp--custom--line-height--xxxxxx-large) - var(--wp--preset--spacing--50) * 2) /
-						2
-				);
+				top: calc((1em * var(--wp--custom--line-height--xxxxxx-large) - var(--wp--preset--spacing--50) * 2) / 2);
 			}
 		}
 	}

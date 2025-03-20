@@ -1,4 +1,4 @@
-@use '../sass-utils';
+@use "../sass-utils";
 
 .wp-block-navigation {
 	// Give dropdowns a rounded border, a drop-shadow, and increase the top padding.
@@ -23,9 +23,7 @@
 	}
 
 	// Increase minimum dropdown width.
-	.has-child
-		.wp-block-navigation-submenu__toggle[aria-expanded='true']
-		~ .wp-block-navigation__submenu-container,
+	.has-child .wp-block-navigation-submenu__toggle[aria-expanded="true"] ~ .wp-block-navigation__submenu-container,
 	.has-child:not(.open-on-click):hover > .wp-block-navigation__submenu-container {
 		min-width: calc(var(--wp--custom--width--small) / 2);
 	}
@@ -43,12 +41,10 @@
 		&.is-menu-open {
 			animation-duration: 125ms;
 			animation-timing-function: ease-in-out;
-			padding: var(--wp--custom--spacing--85) var(--wp--preset--spacing--30)
-				var(--wp--preset--spacing--30);
+			padding: var(--wp--custom--spacing--85) var(--wp--preset--spacing--30) var(--wp--preset--spacing--30);
 
 			@include sass-utils.media(medium) {
-				padding: var(--wp--custom--spacing--85) var(--wp--preset--spacing--80)
-					var(--wp--preset--spacing--80);
+				padding: var(--wp--custom--spacing--85) var(--wp--preset--spacing--80) var(--wp--preset--spacing--80);
 			}
 
 			.admin-bar & {
@@ -79,7 +75,7 @@
 			&::before {
 				background: transparent;
 				border-radius: var(--wp--custom--border--radius-medium);
-				content: '';
+				content: "";
 				display: block;
 				height: var(--wp--custom--spacing--55);
 				position: absolute;
@@ -160,8 +156,7 @@
 				}
 
 				.wp-block-navigation__submenu-container,
-				.wp-block-navigation-submenu__toggle[aria-expanded='true']
-					~ .wp-block-navigation__submenu-container,
+				.wp-block-navigation-submenu__toggle[aria-expanded="true"] ~ .wp-block-navigation__submenu-container,
 				&:not(.open-on-click):hover > .wp-block-navigation__submenu-container {
 					width: 100%;
 				}

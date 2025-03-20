@@ -56,7 +56,7 @@
 	}
 
 	&::before {
-		content: '';
+		content: "";
 		display: block;
 		opacity: 0;
 	}
@@ -65,7 +65,7 @@
 		background-color: var(--wp--preset--color--contrast);
 
 		&::before {
-			content: '';
+			content: "";
 			opacity: 1;
 		}
 	}
@@ -96,7 +96,8 @@
 	border-radius: var(--wp--custom--border--radius-xx-small);
 
 	&::before {
-		background: transparent
+		background:
+			transparent
 			url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath d='M16.7 7.1l-6.3 8.5-3.3-2.5-.9 1.2 4.5 3.4L17.9 8z' fill='white'%3E%3C/path%3E%3C/svg%3E")
 			0 0 no-repeat;
 		height: var(--wp--preset--spacing--40);
@@ -150,14 +151,13 @@
 @mixin notice($type, $margin: var(--wp--preset--spacing--50) 0) {
 	--np--notice--color--border: var(--wp--custom--color--neutral-90);
 	--np--notice--color--background: var(--wp--custom--color--neutral-5);
-
 	@if $type == error {
 		--np--notice--color--border: var(--wp--custom--color--error-50);
 		--np--notice--color--background: var(--wp--custom--color--error-0);
-	} @else if $type == success {
+	} @else if $type == success { // stylelint-disable-line block-closing-brace-newline-after
 		--np--notice--color--border: var(--wp--custom--color--success-50);
 		--np--notice--color--background: var(--wp--custom--color--success-0);
-	} @else if $type == warning {
+	} @else if $type == warning { // stylelint-disable-line block-closing-brace-newline-after
 		--np--notice--color--border: var(--wp--custom--color--warning-30);
 		--np--notice--color--background: var(--wp--custom--color--warning-0);
 	}
@@ -206,9 +206,9 @@
 	@if $position == full-width {
 		animation: overlay-full-width__fade-in-animation 125ms ease-in-out;
 		left: 0;
-	} @else if $position == right {
+	} @else if $position == right { // stylelint-disable-line block-closing-brace-newline-after
 		right: 0;
-	} @else {
+	} @else { // stylelint-disable-line block-closing-brace-newline-after
 		left: 0;
 	}
 
@@ -217,7 +217,7 @@
 	}
 }
 
-@keyframes overlay-full-width__fade-in-animation { /* stylelint-disable-line keyframes-name-pattern */
+@keyframes overlay-full-width__fade-in-animation { // stylelint-disable-line keyframes-name-pattern
 	0% {
 		opacity: 0;
 		transform: translateY(calc(-1 * var(--wp--preset--spacing--30)));
