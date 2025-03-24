@@ -29,7 +29,7 @@ $zindex-screen-reader-text: 100000; /* Above WP toolbar. */
 			@content;
 		}
 	} @else if $class == small-only { // stylelint-disable-line block-closing-brace-newline-after
-		@media only screen and (max-width: $medium-screen - 1) {
+		@media only screen and (max-width: ($medium-screen - 1)) {
 			@content;
 		}
 	} @else if $class == medium { // stylelint-disable-line block-closing-brace-newline-after

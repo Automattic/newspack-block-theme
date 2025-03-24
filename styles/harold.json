@@ -2,8 +2,8 @@
 	"title": "Harold",
 	"settings": {
 		"layout": {
-			"contentSize": "784px",
-			"wideSize": "1192px"
+			"contentSize": "800px",
+			"wideSize": "1216px"
 		},
 		"custom": {
 			"className": "harold"

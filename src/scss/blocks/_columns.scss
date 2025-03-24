@@ -1,5 +1,120 @@
 @use "../sass-utils";
 
+// Define mixin for grid layout (12 columns)
+@mixin grid-layout {
+	&.wp-block-columns {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+	}
+
+	& > * {
+		grid-column: 1 / -1;
+		margin: 0 !important;
+	}
+
+	.wp-block-column {
+		grid-column: auto / span 6;
+	}
+
+	.wp-block-column:only-child {
+		grid-column-end: span 12;
+	}
+
+	/* "33 / 33 / 33" layout */
+	.wp-block-column:not([style*="flex-basis"]):nth-last-child(3):first-child,
+	.wp-block-column:not([style*="flex-basis"]):nth-last-child(3):first-child ~ .wp-block-column {
+		grid-column-end: span 4;
+	}
+
+	/* "25 / 50 / 25" layout */
+	.wp-block-column[style*="25%"] {
+		grid-column-end: span 3;
+	}
+	.wp-block-column[style*="50%"] {
+		grid-column-end: span 6;
+	}
+
+	/* "15 / 70 / 15" layout */
+	.wp-block-column[style*="15%"] {
+		grid-column-end: span 2;
+	}
+	.wp-block-column[style*="70%"] {
+		grid-column-end: span 8;
+	}
+
+	/* "30 / 70" and "70 / 30" layouts */
+	.wp-block-column[style*="33.33%"] {
+		grid-column-end: span 4;
+	}
+	.wp-block-column[style*="66.66%"] {
+		grid-column-end: span 8;
+	}
+}
+
+// Define mixin for small grid layout (6 columns)
+@mixin small-grid-layout {
+	&.wp-block-columns {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+	}
+
+	& > * {
+		grid-column: 1 / -1;
+		margin: 0 !important;
+	}
+
+	.wp-block-column {
+		grid-column: auto / span 3;
+	}
+
+	.wp-block-column:only-child {
+		grid-column-end: span 6;
+	}
+
+	/* "30 / 70" and "70 / 30" layouts */
+	.wp-block-column[style*="33.33%"] {
+		grid-column-end: span 2;
+	}
+	.wp-block-column[style*="66.66%"] {
+		grid-column-end: span 4;
+	}
+}
+
+// Define mixin for sidebar layout
+@mixin sidebar-layout {
+	/* "30 / 70" and "70 / 30" layouts */
+	.wp-block-column[style*="33.33%"] {
+		grid-column: 2 / span 3;
+
+		+ .wp-block-column[style*="66.66%"] {
+			grid-column-start: 6;
+		}
+	}
+
+	.wp-block-column[style*="66.66%"] {
+		grid-column: 2 / span 6;
+
+		+ .wp-block-column[style*="33.33%"] {
+			grid-column-start: 9;
+		}
+
+		.alignleft {
+			margin-left: calc(-1 * ((var(--wp--style--global--wide-size) - (var(--wp--preset--spacing--50) * 11)) / 12 + var(--wp--preset--spacing--50)));
+		}
+
+		.alignright {
+			margin-right: calc(-1 * ((var(--wp--style--global--wide-size) - (var(--wp--preset--spacing--50) * 11)) / 12 + var(--wp--preset--spacing--50)));
+		}
+
+		> :first-child:is(.alignleft),
+		> :first-child:is(.alignright) {
+			+ * {
+				margin-top: 0;
+			}
+		}
+	}
+}
+
 // Experiment: hide column block if empty on smaller screens.
 // This is to prevent odd spacing issues, especially on mobile, but
 // may need to be removed if causing unexpected consiquences.
@@ -50,52 +165,12 @@
 	}
 
 	@include sass-utils.media(x-large) {
-		&.wp-block-columns {
-			display: grid;
-			grid-template-columns: repeat(12, 1fr);
-		}
+		@include grid-layout;
+	}
 
-		& > * {
-			grid-column: 1 / -1;
-			margin: 0 !important;
-		}
-
-		.wp-block-column {
-			grid-column: auto / span 6;
-		}
-
-		.wp-block-column:only-child {
-			grid-column-end: span 12;
-		}
-
-		/* "33 / 33 / 33" layout */
-		.wp-block-column:not([style*="flex-basis"]):nth-last-child(3):first-child,
-		.wp-block-column:not([style*="flex-basis"]):nth-last-child(3):first-child ~ .wp-block-column {
-			grid-column-end: span 4;
-		}
-
-		/* "25 / 50 / 25" layout */
-		.wp-block-column[style*="25%"] {
-			grid-column-end: span 3;
-		}
-		.wp-block-column[style*="50%"] {
-			grid-column-end: span 6;
-		}
-
-		/* "15 / 70 / 15" layout */
-		.wp-block-column[style*="15%"] {
-			grid-column-end: span 2;
-		}
-		.wp-block-column[style*="70%"] {
-			grid-column-end: span 8;
-		}
-
-		/* "30 / 70" and "70 / 30" layouts */
-		.wp-block-column[style*="33.33%"] {
-			grid-column-end: span 4;
-		}
-		.wp-block-column[style*="66.66%"] {
-			grid-column-end: span 8;
+	.theme-variation-harold & {
+		@include sass-utils.media(large) {
+			@include grid-layout;
 		}
 	}
 
@@ -113,6 +188,12 @@
 
 			@include sass-utils.media(x-large) {
 				display: inherit;
+			}
+
+			.theme-variation-harold & {
+				@include sass-utils.media(large) {
+					display: inherit;
+				}
 			}
 		}
 
@@ -154,36 +235,12 @@
 		}
 
 		@include sass-utils.media(x-large) {
-			/* "30 / 70" and "70 / 30" layouts */
-			.wp-block-column[style*="33.33%"] {
-				grid-column: 2 / span 3;
+			@include sidebar-layout;
+		}
 
-				+ .wp-block-column[style*="66.66%"] {
-					grid-column-start: 6;
-				}
-			}
-
-			.wp-block-column[style*="66.66%"] {
-				grid-column: 2 / span 6;
-
-				+ .wp-block-column[style*="33.33%"] {
-					grid-column-start: 9;
-				}
-
-				.alignleft {
-					margin-left: calc(-1 * ((var(--wp--style--global--wide-size) - (var(--wp--preset--spacing--50) * 11)) / 12 + var(--wp--preset--spacing--50)));
-				}
-
-				.alignright {
-					margin-right: calc(-1 * ((var(--wp--style--global--wide-size) - (var(--wp--preset--spacing--50) * 11)) / 12 + var(--wp--preset--spacing--50)));
-				}
-
-				> :first-child:is(.alignleft),
-				> :first-child:is(.alignright) {
-					+ * {
-						margin-top: 0;
-					}
-				}
+		.theme-variation-harold & {
+			@include sass-utils.media(large) {
+				@include sidebar-layout;
 			}
 		}
 	}
@@ -198,32 +255,15 @@
 	}
 }
 
+// Newspack Small Grid
 .newspack-grid-small {
 	@include sass-utils.media(x-large) {
-		&.wp-block-columns {
-			display: grid;
-			grid-template-columns: repeat(6, 1fr);
-		}
+		@include small-grid-layout;
+	}
 
-		& > * {
-			grid-column: 1 / -1;
-			margin: 0 !important;
-		}
-
-		.wp-block-column {
-			grid-column: auto / span 3;
-		}
-
-		.wp-block-column:only-child {
-			grid-column-end: span 6;
-		}
-
-		/* "30 / 70" and "70 / 30" layouts */
-		.wp-block-column[style*="33.33%"] {
-			grid-column-end: span 2;
-		}
-		.wp-block-column[style*="66.66%"] {
-			grid-column-end: span 4;
+	.theme-variation-harold & {
+		@include sass-utils.media(large) {
+			@include small-grid-layout;
 		}
 	}
 }
