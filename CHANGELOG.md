@@ -1,3 +1,17 @@
+# [1.15.0](https://github.com/Automattic/newspack-block-theme/compare/v1.14.0...v1.15.0) (2025-03-24)
+
+
+### Bug Fixes
+
+* update block theme dependencies for WP 6.6 ([#314](https://github.com/Automattic/newspack-block-theme/issues/314)) ([13247ec](https://github.com/Automattic/newspack-block-theme/commit/13247eceaa7511daa48e2bdf87d30c3633ee6996))
+
+
+### Features
+
+* add new harold theme style variation and add body class based on active variation ([#323](https://github.com/Automattic/newspack-block-theme/issues/323)) ([4e07071](https://github.com/Automattic/newspack-block-theme/commit/4e070715aa956750dfaff30f599aa2883e12b9cf))
+* update colours ([#311](https://github.com/Automattic/newspack-block-theme/issues/311)) ([c8e01ae](https://github.com/Automattic/newspack-block-theme/commit/c8e01ae9c2afef2c7c54da849e9ba006a10c27a9))
+* update columns breakpoints and use mixins ([#324](https://github.com/Automattic/newspack-block-theme/issues/324)) ([bb0f61b](https://github.com/Automattic/newspack-block-theme/commit/bb0f61ba64bb649df2316a3182ba0cc0230fd053))
+
 # [1.14.0](https://github.com/Automattic/newspack-block-theme/compare/v1.13.0...v1.14.0) (2024-11-25)
 
 
