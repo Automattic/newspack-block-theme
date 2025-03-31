@@ -1,3 +1,10 @@
+## [1.15.1](https://github.com/Automattic/newspack-block-theme/compare/v1.15.0...v1.15.1) (2025-03-31)
+
+
+### Bug Fixes
+
+* force release ([51ccdf9](https://github.com/Automattic/newspack-block-theme/commit/51ccdf90f3587ca4a632b993f36f5acf00f561ae))
+
 # [1.15.0](https://github.com/Automattic/newspack-block-theme/compare/v1.14.0...v1.15.0) (2025-03-24)
 
 
