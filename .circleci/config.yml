@@ -11,10 +11,6 @@ workflows:
       - newspack/lint-js-scss:
           requires:
             - newspack/build
-      - newspack/build-distributable:
-          requires:
-            - newspack/build
-          archive-name: 'newspack-block-theme'
       - newspack/release:
           requires:
             - newspack/build
@@ -25,6 +21,12 @@ workflows:
                 - alpha
                 - /^hotfix\/.*/
                 - /^epic\/.*/
+      - newspack/build-distributable:
+          requires:
+            - newspack/build
+            # Running this after release ensure the version number in files will be correct.
+            - newspack/release
+          archive-name: 'newspack-block-theme'
       - newspack/post-release:
           requires:
             - newspack/release

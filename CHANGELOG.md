@@ -1,3 +1,11 @@
+# [1.16.0-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.15.1...v1.16.0-alpha.1) (2025-04-04)
+
+
+### Features
+
+* **harold:** new colours and typography ([#325](https://github.com/Automattic/newspack-block-theme/issues/325)) ([c31184f](https://github.com/Automattic/newspack-block-theme/commit/c31184ff742255ed2e4d23440daf644f2ebc22e9))
+* **homepage-articles:** simplify and rename to content-loop ([#326](https://github.com/Automattic/newspack-block-theme/issues/326)) ([5ab0514](https://github.com/Automattic/newspack-block-theme/commit/5ab0514f0b0a15d6d9b0523a946e6a8fa218a92e))
+
 ## [1.15.1](https://github.com/Automattic/newspack-block-theme/compare/v1.15.0...v1.15.1) (2025-03-31)
 
 
