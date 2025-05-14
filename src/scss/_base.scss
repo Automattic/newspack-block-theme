@@ -6,7 +6,7 @@
  */
 html {
 	box-sizing: border-box;
-	text-wrap: balance;
+	text-wrap: pretty;
 }
 
 *,
@@ -41,6 +41,16 @@ body .has-drop-cap:not(:focus)::first-letter {
 	line-height: var(--wp--custom--line-height--medium);
 	margin: 0 var(--wp--preset--spacing--30);
 	padding: 0;
+}
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-wrap: pretty;
 }
 
 // Lists
