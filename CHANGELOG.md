@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/Automattic/newspack-block-theme/compare/v1.17.0...v1.18.0) (2025-06-02)
+
+
+### Features
+
+* **featured-image:** overwrite link style when it's the caption ([#339](https://github.com/Automattic/newspack-block-theme/issues/339)) ([cad839e](https://github.com/Automattic/newspack-block-theme/commit/cad839e4e3d96de4b5067b428849d01b1a205edd))
+
 # [1.18.0-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.17.0...v1.18.0-alpha.1) (2025-05-23)
 
 
