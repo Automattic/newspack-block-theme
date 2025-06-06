@@ -5,7 +5,7 @@
  */
 import { domReady } from '../utils'; // Global utils.
 import { MENU_OPEN_CLASS_NAME } from './consts'; // Menu constants.
-import { createOverlay, removeOverlay } from './utils'; // Menu utils.
+import { closeAllMenus, createOverlay, moveMenuToRoot } from './utils'; // Menu utils.
 
 // A class name to append to the body element when the search is open.
 const openClassName = MENU_OPEN_CLASS_NAME + 'search-menu';
@@ -39,7 +39,7 @@ domReady( function () {
 	const searchMenuToggle = event => {
 		event.preventDefault();
 		if ( body.classList.contains( openClassName ) ) {
-			closeMenu();
+			closeAllMenus();
 		} else {
 			openMenu();
 		}
@@ -51,27 +51,15 @@ domReady( function () {
 	const openMenu = () => {
 		body.classList.add( openClassName );
 		searchContents.classList.add( openClassName );
+		moveMenuToRoot( searchContents );
 		searchOpenButton.innerHTML = '<span>' + newspackScreenReaderText.close_search + '</span>';
 		searchContents.querySelector( 'input[type="search"]' ).focus();
 		createOverlay();
 	};
 
-	/**
-	 * @description Closes specifed search.
-	 */
-	const closeMenu = () => {
-		if ( ! body.classList.contains( openClassName ) ) {
-			return;
-		}
-		body.classList.remove( openClassName );
-		searchContents.classList.remove( openClassName );
-		searchOpenButton.innerHTML = '<span>' + newspackScreenReaderText.open_search + '</span>';
-		removeOverlay();
-	};
-
 	document.addEventListener( 'keydown', event => {
 		if ( event.key === 'Escape' ) {
-			closeMenu();
+			closeAllMenus();
 		}
 	} );
 

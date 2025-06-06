@@ -3,7 +3,7 @@
  */
 import { domReady } from '../utils'; // Global utils.
 import { MENU_OPEN_CLASS_NAME } from './consts'; // Menu constants.
-import { createOverlay, removeOverlay } from './utils'; // Menu utils.
+import { closeAllMenus, createOverlay, moveMenuToRoot } from './utils'; // Menu utils.
 
 // A class name to append to the body element when the mobile menu is open.
 const openClassName = MENU_OPEN_CLASS_NAME + 'mobile-menu';
@@ -21,8 +21,7 @@ domReady( function () {
 		return;
 	}
 
-	const mobileOpenButton = headerContain.querySelector( '.mobile-menu__toggle a' ),
-		mobileCloseButton = mobileContents.querySelector( '.mobile-menu__toggle a' );
+	const mobileCloseButton = mobileContents.querySelector( '.mobile-menu__toggle a' );
 
 	/**
 	 * @description Fires either the opening or closing functions for a menu.
@@ -32,7 +31,7 @@ domReady( function () {
 		event.preventDefault();
 
 		if ( body.classList.contains( openClassName ) ) {
-			closeMenu();
+			closeAllMenus();
 		} else {
 			openMenu();
 		}
@@ -44,18 +43,9 @@ domReady( function () {
 	const openMenu = () => {
 		body.classList.add( openClassName );
 		mobileContents.classList.add( openClassName );
+		moveMenuToRoot( mobileContents );
 		mobileCloseButton.focus();
 		createOverlay();
-	};
-
-	/**
-	 * @description Closes specifed slide-out menu.
-	 */
-	const closeMenu = () => {
-		body.classList.remove( openClassName );
-		mobileContents.classList.remove( openClassName );
-		mobileOpenButton.focus();
-		removeOverlay();
 	};
 
 	// Find each mobile toggle and attaches an event listener.

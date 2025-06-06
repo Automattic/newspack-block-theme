@@ -10,6 +10,9 @@ import { MENU_OPEN_CLASS_NAME } from './consts';
 // Cached overlay DOM element to be shared amongst all menus.
 let overlay;
 
+// Store original positions of menus
+const menuPositions = new Map();
+
 /**
  * Does a string contain another string?
  *
@@ -37,26 +40,82 @@ export const anyMenuIsOpen = () => {
 };
 
 /**
+ * @description Moves menu to body root when opened
+ * @param {HTMLElement} menuElement The menu element to move
+ */
+export const moveMenuToRoot = ( menuElement ) => {
+	if ( ! menuElement || menuPositions.has( menuElement ) ) {
+		return;
+	}
+
+	// Store original position
+	menuPositions.set( menuElement, {
+		parent: menuElement.parentNode,
+		nextSibling: menuElement.nextSibling
+	} );
+
+	// Move to body
+	document.body.appendChild( menuElement );
+};
+
+/**
+ * @description Restores menu to original position when closed
+ * @param {HTMLElement} menuElement The menu element to restore
+ */
+export const restoreMenuPosition = ( menuElement ) => {
+	if ( ! menuElement || ! menuPositions.has( menuElement ) ) {
+		return;
+	}
+
+	const originalPosition = menuPositions.get( menuElement );
+
+	if ( originalPosition.nextSibling ) {
+		originalPosition.parent.insertBefore( menuElement, originalPosition.nextSibling );
+	} else {
+		originalPosition.parent.appendChild( menuElement );
+	}
+
+	menuPositions.delete( menuElement );
+};
+
+/**
  * @description Closes all open menus.
  */
 export const closeAllMenus = () => {
 	// Find all elements with class names containing MENU_OPEN_CLASS_NAME.
 	const openMenuElements = document.querySelectorAll( `[class*=${ MENU_OPEN_CLASS_NAME }]` );
 
-	// Remove all the classes that start with MENU_OPEN_CLASS_NAME.
+	// Store the last opened menu type before closing
+	let lastOpenedMenu = '';
 	openMenuElements.forEach( element => {
-		const removeClassName = Array.from( element.classList ).filter( className =>
+		const menuClassName = Array.from( element.classList ).find( className =>
 			className.startsWith( MENU_OPEN_CLASS_NAME )
 		);
+		if ( menuClassName ) {
+			lastOpenedMenu = menuClassName.replace( MENU_OPEN_CLASS_NAME, '' );
+		}
+		element.classList.remove( menuClassName );
+	} );
 
-		element.classList.remove( ...removeClassName );
+	// Find all menu contents elements that have been moved to the body
+	const menuContents = document.querySelectorAll( '[class*="__contents"]' );
+	menuContents.forEach( element => {
+		if ( element.parentNode === document.body && menuPositions.has( element ) ) {
+			restoreMenuPosition( element );
+		}
 	} );
 
 	// Remove overlay.
 	removeOverlay();
 
-	// Remove focus from any elements inside open menus. Note that the disabled ESLint rule applies only to React elements: https://github.com/WordPress/gutenberg/pull/26810.
-	document.activeElement.blur(); // eslint-disable-line @wordpress/no-global-active-element
+	// Focus on the appropriate button based on which menu was closed
+	if ( lastOpenedMenu ) {
+		// Find the open button by looking for the toggle element that doesn't have the close icon class
+		const openButton = document.querySelector( `.${ lastOpenedMenu }__toggle:not(.newspack-icon-close) a` );
+		if ( openButton ) {
+			openButton.focus();
+		}
+	}
 };
 
 /**
