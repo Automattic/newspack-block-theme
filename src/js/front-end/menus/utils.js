@@ -14,14 +14,21 @@ let overlay;
 const menuPositions = new Map();
 
 /**
- * Does a string contain another string?
- *
- * @param {string} haystack The string to search.
- * @param {string} needle   The string to search for.
- * @return {boolean} True if the needle is found in the haystack.
+ * @description Extracts menu type from a class name
+ * @param {string} className The class name to process
+ * @return {string} The menu type without the open class prefix
  */
-export const contains = ( haystack, needle ) => {
-	return -1 < haystack.indexOf( needle );
+const getMenuTypeFromClassName = ( className ) => {
+	return className.replace( MENU_OPEN_CLASS_NAME, '' );
+};
+
+/**
+ * @description Finds elements with menu-related classes
+ * @param {string} selector The selector to use
+ * @return {NodeList} The matching elements
+ */
+const findMenuElements = ( selector ) => {
+	return document.querySelectorAll( `[class*=${ selector }]` );
 };
 
 /**
@@ -31,7 +38,7 @@ export const anyMenuIsOpen = () => {
 	const openClassNames = document.body.classList;
 
 	for ( let i = 0; i < openClassNames.length; i++ ) {
-		if ( contains( openClassNames[ i ], MENU_OPEN_CLASS_NAME ) ) {
+		if ( openClassNames[ i ].includes( MENU_OPEN_CLASS_NAME ) ) {
 			return true;
 		}
 	}
@@ -79,64 +86,117 @@ export const restoreMenuPosition = ( menuElement ) => {
 };
 
 /**
+ * @description Gets the animation duration based on menu type
+ * @return {string} The animation duration
+ */
+const getAnimationDuration = () => {
+	const openMenuType = Array.from( document.body.classList )
+		.find( className => className.startsWith( MENU_OPEN_CLASS_NAME ) )
+		?.replace( MENU_OPEN_CLASS_NAME, '' );
+
+	return openMenuType === 'search-menu' ? '250ms' : '500ms';
+};
+
+/**
  * @description Closes all open menus.
  */
 export const closeAllMenus = () => {
-	// Find all elements with class names containing MENU_OPEN_CLASS_NAME.
-	const openMenuElements = document.querySelectorAll( `[class*=${ MENU_OPEN_CLASS_NAME }]` );
-
-	// Store the last opened menu type before closing
+	const openMenuElements = findMenuElements( MENU_OPEN_CLASS_NAME );
 	let lastOpenedMenu = '';
+
 	openMenuElements.forEach( element => {
-		const menuClassName = Array.from( element.classList ).find( className =>
-			className.startsWith( MENU_OPEN_CLASS_NAME )
-		);
+		const menuClassName = Array.from( element.classList )
+			.find( className => className.startsWith( MENU_OPEN_CLASS_NAME ) );
 		if ( menuClassName ) {
-			lastOpenedMenu = menuClassName.replace( MENU_OPEN_CLASS_NAME, '' );
+			lastOpenedMenu = getMenuTypeFromClassName( menuClassName );
 		}
 		element.classList.remove( menuClassName );
 	} );
 
-	// Find all menu contents elements that have been moved to the body
-	const menuContents = document.querySelectorAll( '[class*="__contents"]' );
-	menuContents.forEach( element => {
+	findMenuElements( '__contents' ).forEach( element => {
 		if ( element.parentNode === document.body && menuPositions.has( element ) ) {
 			restoreMenuPosition( element );
 		}
 	} );
 
-	// Remove overlay.
 	removeOverlay();
 
-	// Focus on the appropriate button based on which menu was closed
 	if ( lastOpenedMenu ) {
-		// Find the open button by looking for the toggle element that doesn't have the close icon class
-		const openButton = document.querySelector( `.${ lastOpenedMenu }__toggle:not(.newspack-icon-close) a` );
-		if ( openButton ) {
-			openButton.focus();
-		}
+		const openButton = document.querySelector(
+			`.${ lastOpenedMenu }__toggle:not(.newspack-icon-close) a`
+		);
+		openButton?.focus();
 	}
+};
+
+/**
+ * @description Creates or updates the overlay element
+ * @return {HTMLElement} The overlay element
+ */
+const getOverlay = () => {
+	// Remove existing overlay if it exists
+	if ( overlay && overlay.parentNode ) {
+		document.body.removeChild( overlay );
+	}
+
+	// Create new overlay
+	overlay = document.createElement( 'div' );
+	overlay.className = 'overlay-mask';
+	overlay.style.display = 'none';
+	overlay.style.opacity = '0';
+	overlay.addEventListener( 'click', closeAllMenus, false );
+	document.body.appendChild( overlay );
+
+	return overlay;
+};
+
+/**
+ * @description Applies fade animation to the overlay
+ * @param {string}   targetOpacity The target opacity value
+ * @param {Function} onComplete    Optional callback when animation completes
+ */
+const fadeOverlay = ( targetOpacity, onComplete ) => {
+	const overlayElement = getOverlay();
+	const duration = getAnimationDuration();
+
+	overlayElement.style.transition = `opacity ${ duration } ease-in-out`;
+	overlayElement.style.display = 'block';
+	void overlayElement.offsetHeight; // Force reflow
+	requestAnimationFrame( () => {
+		overlayElement.style.opacity = targetOpacity;
+		if ( onComplete ) {
+			overlayElement.addEventListener( 'transitionend', onComplete, { once: true } );
+		}
+	} );
 };
 
 /**
  * @description Creates semi-transparent overlay behind menus.
  */
 export const createOverlay = () => {
-	if ( ! overlay ) {
-		overlay = document.createElement( 'div' );
-		overlay.className = 'overlay-mask';
-
-		// Add listener to the menu overlay, so it can be closed on click.
-		overlay.addEventListener( 'click', closeAllMenus, false );
-	}
-	document.body.appendChild( overlay );
+	fadeOverlay( '1' );
 };
 
 /**
  * @description Removes semi-transparent overlay behind menus.
  */
 export const removeOverlay = () => {
-	if ( overlay && ! anyMenuIsOpen() ) {
-		document.body.removeChild( overlay );
+	if ( ! overlay ) {
+		return;
+	}
+
+	// Always remove the overlay when no menus are open
+	if ( ! anyMenuIsOpen() ) {
+		const duration = getAnimationDuration();
+		overlay.style.transition = `opacity ${ duration } ease-in-out`;
+		overlay.style.opacity = '0';
+
+		overlay.addEventListener( 'transitionend', () => {
+			if ( overlay && overlay.parentNode ) {
+				overlay.style.display = 'none';
+				document.body.removeChild( overlay );
+				overlay = null;
+			}
+		}, { once: true } );
 	}
 };
