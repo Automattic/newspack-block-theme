@@ -60,25 +60,49 @@ ol {
 }
 
 // Position
+@mixin header-position($position) {
+	header:has(&) {
+		position: $position;
+		top: 0;
+		z-index: sass-utils.$zindex-fixed-element;
+
+		.admin-bar & {
+			@include sass-utils.media(small) {
+				top: var(--wp-admin--admin-bar--height);
+			}
+		}
+
+		&:has(.is-position-#{$position}--mobile-only),
+		&:has(.header-desktop:not(.is-position-#{$position})) {
+			@include sass-utils.media(medium) {
+				position: inherit;
+			}
+		}
+
+		&:has(.is-position-#{$position}--desktop-only),
+		&:has(.header-mobile:not(.is-position-#{$position})) {
+			@include sass-utils.media(small-only) {
+				position: inherit;
+			}
+		}
+	}
+}
+
 .is-position {
 	&-fixed {
 		position: fixed;
+		@include header-position(fixed);
 	}
 
 	&-sticky {
 		position: sticky;
+		@include header-position(sticky);
 	}
 
 	&-fixed,
 	&-sticky {
 		top: 0;
 		z-index: sass-utils.$zindex-fixed-element;
-
-		.admin-bar &:is(header) {
-			@include sass-utils.media(small) {
-				top: var(--wp-admin--admin-bar--height);
-			}
-		}
 
 		&--mobile-only {
 			@include sass-utils.media(medium) {
