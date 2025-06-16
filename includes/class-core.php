@@ -66,8 +66,8 @@ final class Core {
 
 		// Strings for translation.
 		$newspack_l10n = array(
+			'close_menu'   => esc_html__( 'Close Menu', 'newspack-block-theme' ),
 			'close_search' => esc_html__( 'Close Search', 'newspack-block-theme' ),
-			'open_search'  => esc_html__( 'Open Search', 'newspack-block-theme' ),
 		);
 		if ( wp_script_is( 'jetpack-instant-search', 'enqueued' ) ) {
 			$newspack_l10n['jetpack_instant_search'] = 'true';
