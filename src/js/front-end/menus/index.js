@@ -3,24 +3,108 @@
 // Prefix for class name to be added to document.body when any menu is open.
 const MENU_OPEN_CLASS_NAME = 'menu-open--';
 
-// Constants for commonly used selectors.
+// Animation duration constants.
+const ANIMATION_DURATION = {
+	OPACITY: 125,
+	POSITION: 250,
+	OVERLAY: 500
+};
+
+// Commonly used selectors.
 const SELECTORS = {
 	FOCUSABLE: 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]), iframe, object, embed, [contenteditable="true"]',
 	CLOSE_BUTTON: '.newspack-icon-close',
 	SCREEN_READER_LINK: 'a.screen-reader-text'
 };
 
-// Store original positions of menus using WeakMap for better garbage collection.
+// Store original positions of menus.
 const menuPositions = new WeakMap();
 
 // Store focus trap cleanup functions.
 const focusTrapCleanups = new WeakMap();
 
-// Store the last focused element before opening a menu
+// Store the last focused element before opening a menu.
 let lastFocusedElement;
 
 // Store the currently active focus trap element.
 let activeFocusTrapElement = null;
+
+/**
+ * Helper function to get visible focusable elements within a container.
+ *
+ * @param {HTMLElement} container The container element to search within.
+ * @return {Array} Array of visible focusable elements.
+ */
+const getVisibleFocusableElements = ( container ) => {
+	const focusableElements = container.querySelectorAll( SELECTORS.FOCUSABLE );
+	return Array.from( focusableElements ).filter( el => {
+		const rect = el.getBoundingClientRect();
+		const style = window.getComputedStyle( el );
+		return rect.width > 0 && rect.height > 0 &&
+			   style.visibility !== 'hidden' &&
+			   style.display !== 'none' &&
+			   ! el.hasAttribute( 'hidden' );
+	} );
+};
+
+/**
+ * Helper function to remove classes that start with a prefix.
+ *
+ * @param {HTMLElement} element The element to remove classes from.
+ * @param {string}      prefix  The class prefix to match.
+ */
+const removeClassesWithPrefix = ( element, prefix ) => {
+	const classesToRemove = Array.from( element.classList ).filter( className =>
+		className.startsWith( prefix )
+	);
+	classesToRemove.forEach( className => element.classList.remove( className ) );
+};
+
+/**
+ * Finds elements with menu-related classes.
+ *
+ * @param {string} selector The selector to use.
+ * @return {NodeList} Collection of elements matching the selector pattern.
+ */
+const findMenuElements = ( selector ) => {
+	return document.querySelectorAll( `[class*=${ selector }]` );
+};
+
+/**
+ * Checks if any menu is open.
+ *
+ * @return {boolean} True if any menu is currently open, false otherwise.
+ */
+const anyMenuIsOpen = () => {
+	return document.body.className.includes( MENU_OPEN_CLASS_NAME );
+};
+
+/**
+ * Gets the close button element for a menu.
+ *
+ * @param {string}      menuType        The type of menu (e.g., 'mobile-menu').
+ * @param {HTMLElement} contentsElement The menu contents element.
+ * @return {HTMLElement|null} The close button element or null if not found.
+ */
+const getMenuCloseButton = ( menuType, contentsElement ) => {
+	if ( ! contentsElement ) {
+		return null;
+	}
+
+	const selector = `.${ menuType }__toggle a`;
+	return contentsElement.querySelector( selector );
+};
+
+/**
+ * Validates menu configuration object.
+ *
+ * @param {Object} config The menu configuration to validate.
+ * @return {boolean} True if configuration is valid, false otherwise.
+ */
+const validateMenuConfig = ( config ) => {
+	const required = [ 'menuType', 'containerSelector', 'toggleSelector', 'contentsSelector' ];
+	return required.every( key => config[ key ] );
+};
 
 /**
  * Creates an overlay manager for handling menu overlays.
@@ -65,18 +149,18 @@ const createOverlayManager = () => {
 	};
 
 	// Shows the overlay with fade-in animation.
-	const show = ( duration = 500 ) => {
+	const show = ( duration = ANIMATION_DURATION.OVERLAY ) => {
 		const element = create();
 		element.style.transition = `opacity ${ duration }ms ease-in-out`;
 		element.style.display = 'block';
-		void element.offsetHeight; // Force reflow.
+		void element.offsetHeight;
 		requestAnimationFrame( () => {
 			element.style.opacity = '1';
 		} );
 	};
 
 	// Hides the overlay with fade-out animation.
-	const hide = ( duration = 500 ) => {
+	const hide = ( duration = ANIMATION_DURATION.OVERLAY ) => {
 		if ( ! overlay ) {
 			return;
 		}
@@ -111,35 +195,140 @@ const createOverlayManager = () => {
 const overlayManager = createOverlayManager();
 
 /**
- * Helper function to get visible focusable elements within a container.
+ * Creates a slide animation manager for menu contents with position classes.
  *
- * @param {HTMLElement} container The container element to search within.
- * @return {Array} Array of visible focusable elements.
+ * @return {Object} Object with slideIn and slideOut methods for managing slide animations.
  */
-const getVisibleFocusableElements = ( container ) => {
-	const focusableElements = container.querySelectorAll( SELECTORS.FOCUSABLE );
-	return Array.from( focusableElements ).filter( el => {
-		const rect = el.getBoundingClientRect();
-		const style = window.getComputedStyle( el );
-		return rect.width > 0 && rect.height > 0 &&
-			   style.visibility !== 'hidden' &&
-			   style.display !== 'none' &&
-			   ! el.hasAttribute( 'hidden' );
-	} );
+const createSlideAnimationManager = () => {
+	// Store slide animation cleanup functions.
+	const slideCleanups = new WeakMap();
+
+	/**
+	 * Determines slide direction and distance based on position class.
+	 *
+	 * @param {HTMLElement} element The menu element to check.
+	 * @return {Object} Object with direction and positioning properties.
+	 */
+	const getSlideParams = ( element ) => {
+		if ( element.classList.contains( 'overlay-contents--position--left' ) ) {
+			return {
+				direction: 'left',
+				property: 'left',
+				hiddenValue: '-100%',
+				visibleValue: '0'
+			};
+		}
+		if ( element.classList.contains( 'overlay-contents--position--right' ) ) {
+			return {
+				direction: 'right',
+				property: 'right',
+				hiddenValue: '-100%',
+				visibleValue: '0'
+			};
+		}
+		return null;
+	};
+
+	/**
+	 * Slides the menu content in from the specified direction.
+	 *
+	 * @param {HTMLElement} element          The menu element to animate.
+	 * @param {number}      opacityDuration  Duration for opacity animation in milliseconds.
+	 * @param {number}      positionDuration Duration for position animation in milliseconds.
+	 */
+	const slideIn = ( element, opacityDuration = ANIMATION_DURATION.OPACITY, positionDuration = ANIMATION_DURATION.POSITION ) => {
+		if ( ! element || ! element.style ) {
+			return;
+		}
+
+		const slideParams = getSlideParams( element );
+		if ( ! slideParams ) {
+			return;
+		}
+
+		// Clean up any existing animation.
+		const existingCleanup = slideCleanups.get( element );
+		if ( existingCleanup ) {
+			existingCleanup();
+		}
+
+		// Set initial state.
+		element.style.opacity = '0';
+		element.style[slideParams.property] = slideParams.hiddenValue;
+		element.style.transition = `opacity ${ opacityDuration }ms ease-in-out, ${ slideParams.property } ${ positionDuration }ms ease-in-out`;
+		void element.offsetHeight;
+
+		// Animate to final state.
+		requestAnimationFrame( () => {
+			element.style.opacity = '1';
+			element.style[slideParams.property] = slideParams.visibleValue;
+		} );
+
+		// Store cleanup function.
+		const cleanup = () => {
+			element.style.opacity = '';
+			element.style[slideParams.property] = '';
+			element.style.transition = '';
+			slideCleanups.delete( element );
+		};
+
+		slideCleanups.set( element, cleanup );
+	};
+
+	/**
+	 * Slides the menu content out to the specified direction.
+	 *
+	 * @param {HTMLElement} element          The menu element to animate.
+	 * @param {number}      opacityDuration  Duration for opacity animation in milliseconds.
+	 * @param {number}      positionDuration Duration for position animation in milliseconds.
+	 * @param {Function}    callback         Optional callback to run after animation completes.
+	 */
+	const slideOut = ( element, opacityDuration = ANIMATION_DURATION.OPACITY, positionDuration = ANIMATION_DURATION.POSITION, callback = null ) => {
+		if ( ! element || ! element.style ) {
+			if ( callback ) {
+				callback();
+			}
+			return;
+		}
+
+		const slideParams = getSlideParams( element );
+		if ( ! slideParams ) {
+			// No position classes - run callback immediately
+			if ( callback ) {
+				callback();
+			}
+			return;
+		}
+
+		// Set transition for slide out.
+		element.style.transition = `opacity ${ opacityDuration }ms ease-in-out, ${ slideParams.property } ${ positionDuration }ms ease-in-out`;
+
+		// Animate to hidden state.
+		element.style.opacity = '0';
+		element.style[slideParams.property] = slideParams.hiddenValue;
+
+		// Run callback after animation completes.
+		const maxDuration = Math.max( opacityDuration, positionDuration );
+		setTimeout( () => {
+			const cleanup = slideCleanups.get( element );
+			if ( cleanup ) {
+				cleanup();
+			}
+			if ( callback ) {
+				callback();
+			}
+		}, maxDuration );
+	};
+
+	// Cleanup all slide animations.
+	const cleanup = () => {
+		slideCleanups.forEach( ( cleanupFn ) => cleanupFn() );
+	};
+
+	return { slideIn, slideOut, cleanup };
 };
 
-/**
- * Helper function to remove classes that start with a prefix.
- *
- * @param {HTMLElement} element The element to remove classes from.
- * @param {string}      prefix  The class prefix to match.
- */
-const removeClassesWithPrefix = ( element, prefix ) => {
-	const classesToRemove = Array.from( element.classList ).filter( className =>
-		className.startsWith( prefix )
-	);
-	classesToRemove.forEach( className => element.classList.remove( className ) );
-};
+const slideAnimationManager = createSlideAnimationManager();
 
 /**
  * Global focus monitor to catch escaping focus.
@@ -161,7 +350,7 @@ const createGlobalFocusMonitor = () => {
 
 			const activeElement = activeFocusTrapElement.ownerDocument.activeElement;
 
-			// Check if focus has escaped to browser chrome or outside the menu.
+			// Check if focus has escaped outside the menu.
 			if ( ! activeFocusTrapElement.contains( activeElement ) &&
 				 activeElement !== document.body &&
 				 activeElement !== document.documentElement ) {
@@ -187,25 +376,6 @@ const createGlobalFocusMonitor = () => {
 };
 
 const globalFocusMonitor = createGlobalFocusMonitor();
-
-/**
- * Finds elements with menu-related classes.
- *
- * @param {string} selector The selector to use.
- * @return {NodeList} Collection of elements matching the selector pattern.
- */
-const findMenuElements = ( selector ) => {
-	return document.querySelectorAll( `[class*=${ selector }]` );
-};
-
-/**
- * Checks if any menu is open.
- *
- * @return {boolean} True if any menu is currently open, false otherwise.
- */
-const anyMenuIsOpen = () => {
-	return document.body.className.includes( MENU_OPEN_CLASS_NAME );
-};
 
 /**
  * Creates a focus trap for better accessibility.
@@ -341,22 +511,6 @@ const enhanceMenuAccessibility = ( menuElement, menuType = '' ) => {
 };
 
 /**
- * Gets the close button element for a menu.
- *
- * @param {string}      menuType        The type of menu (e.g., 'mobile-menu').
- * @param {HTMLElement} contentsElement The menu contents element.
- * @return {HTMLElement|null} The close button element or null if not found.
- */
-const getMenuCloseButton = ( menuType, contentsElement ) => {
-	if ( ! contentsElement ) {
-		return null;
-	}
-
-	const selector = `.${ menuType }__toggle a`;
-	return contentsElement.querySelector( selector );
-};
-
-/**
  * Moves menu to body root when opened.
  *
  * @param {HTMLElement} menuElement The menu element to move.
@@ -376,77 +530,65 @@ const moveMenuToRoot = ( menuElement, menuType ) => {
 	// Move to body.
 	document.body.appendChild( menuElement );
 
+	// Apply slide-in animation if element has position classes.
+	slideAnimationManager.slideIn( menuElement );
+
 	// Enhance accessibility.
 	enhanceMenuAccessibility( menuElement, menuType );
-};
-
-/**
- * Restores menu to original position when closed.
- *
- * @param {HTMLElement} menuElement The menu element to restore.
- */
-const restoreMenuPosition = ( menuElement ) => {
-	if ( ! menuElement || ! menuPositions.has( menuElement ) ) {
-		return;
-	}
-
-	// Clean up focus trap.
-	const cleanup = focusTrapCleanups.get( menuElement );
-	if ( cleanup ) {
-		cleanup();
-	}
-
-	const originalPosition = menuPositions.get( menuElement );
-
-	if ( originalPosition.nextSibling ) {
-		originalPosition.parent.insertBefore( menuElement, originalPosition.nextSibling );
-	} else {
-		originalPosition.parent.appendChild( menuElement );
-	}
-
-	menuPositions.delete( menuElement );
-
-	// Restore focus.
-	if ( lastFocusedElement ) {
-		lastFocusedElement.focus();
-	}
 };
 
 /**
  * Closes all open menus.
  */
 export const closeAllMenus = () => {
-
-
 	// Stop global focus monitoring.
 	globalFocusMonitor.stopMonitoring();
 
-	// Remove menu-open classes from elements and body.
+	// Get elements before starting animations
 	const openMenuElements = findMenuElements( MENU_OPEN_CLASS_NAME );
+	const menuContents = Array.from( findMenuElements( '__contents' ) ).filter( element =>
+		element.parentNode === document.body && menuPositions.has( element )
+	);
+
+	// Remove menu-open classes immediately to allow toggle to work properly
 	openMenuElements.forEach( element => {
 		removeClassesWithPrefix( element, MENU_OPEN_CLASS_NAME );
 	} );
 	removeClassesWithPrefix( document.body, MENU_OPEN_CLASS_NAME );
 
-	// Restore menu positions.
-	findMenuElements( '__contents' ).forEach( element => {
-		if ( element.parentNode === document.body && menuPositions.has( element ) ) {
-			restoreMenuPosition( element );
+	// Handle menu contents restoration - simplified approach
+	menuContents.forEach( element => {
+		// Clean up focus trap immediately
+		const cleanup = focusTrapCleanups.get( element );
+		if ( cleanup ) {
+			cleanup();
 		}
+
+		// Get original position
+		const originalPosition = menuPositions.get( element );
+		if ( ! originalPosition ) {
+			return;
+		}
+
+		// Start slide-out animation
+		slideAnimationManager.slideOut( element, ANIMATION_DURATION.OPACITY, ANIMATION_DURATION.POSITION, () => {
+			// Restore position after slide-out animation
+			if ( originalPosition.nextSibling ) {
+				originalPosition.parent.insertBefore( element, originalPosition.nextSibling );
+			} else {
+				originalPosition.parent.appendChild( element );
+			}
+			menuPositions.delete( element );
+		} );
 	} );
 
-	overlayManager.hide(); // Uses default duration since this closes all menus
-};
+	// Restore focus immediately
+	if ( lastFocusedElement ) {
+		lastFocusedElement.focus();
+	}
 
-/**
- * Validates menu configuration object.
- *
- * @param {Object} config The menu configuration to validate.
- * @return {boolean} True if configuration is valid, false otherwise.
- */
-const validateMenuConfig = ( config ) => {
-	const required = [ 'menuType', 'containerSelector', 'toggleSelector', 'contentsSelector' ];
-	return required.every( key => config[ key ] );
+	// Hide overlay with standard duration.
+	overlayManager.hide( ANIMATION_DURATION.OVERLAY );
 };
 
 /**
@@ -474,7 +616,7 @@ export const createMenu = ( config ) => {
 		containerSelector,
 		toggleSelector,
 		contentsSelector,
-		overlayAnimationDuration = 500,
+		overlayAnimationDuration = ANIMATION_DURATION.OVERLAY,
 		onOpen = null,
 		onClose = () => {},
 		specialHandling = () => {}
