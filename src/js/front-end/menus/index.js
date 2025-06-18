@@ -3,6 +3,9 @@
 // Prefix for class name to be added to document.body when any menu is open.
 const MENU_OPEN_CLASS_NAME = 'menu-open--';
 
+// Prefix for overlay position class names.
+const OVERLAY_POSITION_CLASS_PREFIX = 'overlay-contents--position--';
+
 // Animation duration constants.
 const ANIMATION_DURATION = {
 	OPACITY: 125,
@@ -210,7 +213,7 @@ const createSlideAnimationManager = () => {
 	 * @return {Object} Object with direction and positioning properties.
 	 */
 	const getSlideParams = ( element ) => {
-		if ( element.classList.contains( 'overlay-contents--position--left' ) ) {
+		if ( element.classList.contains( OVERLAY_POSITION_CLASS_PREFIX + 'left' ) ) {
 			return {
 				direction: 'left',
 				property: 'left',
@@ -218,12 +221,20 @@ const createSlideAnimationManager = () => {
 				visibleValue: '0'
 			};
 		}
-		if ( element.classList.contains( 'overlay-contents--position--right' ) ) {
+		if ( element.classList.contains( OVERLAY_POSITION_CLASS_PREFIX + 'right' ) ) {
 			return {
 				direction: 'right',
 				property: 'right',
 				hiddenValue: '-100%',
 				visibleValue: '0'
+			};
+		}
+		if ( element.classList.contains( OVERLAY_POSITION_CLASS_PREFIX + 'full-width' ) ) {
+			return {
+				direction: 'full-width',
+				property: 'transform',
+				hiddenValue: 'translateY(-1rem)',
+				visibleValue: 'translateY(0)'
 			};
 		}
 		return null;
@@ -256,6 +267,7 @@ const createSlideAnimationManager = () => {
 		element.style.opacity = '0';
 		element.style[slideParams.property] = slideParams.hiddenValue;
 		element.style.transition = `opacity ${ opacityDuration }ms ease-in-out, ${ slideParams.property } ${ positionDuration }ms ease-in-out`;
+
 		void element.offsetHeight;
 
 		// Animate to final state.
@@ -551,8 +563,12 @@ export const closeAllMenus = () => {
 	);
 
 	// Remove menu-open classes immediately to allow toggle to work properly
+	// (except for full-width menus which need the class during slide-out animation)
 	openMenuElements.forEach( element => {
-		removeClassesWithPrefix( element, MENU_OPEN_CLASS_NAME );
+		const isFullWidth = element.classList.contains( OVERLAY_POSITION_CLASS_PREFIX + 'full-width' );
+		if ( ! isFullWidth ) {
+			removeClassesWithPrefix( element, MENU_OPEN_CLASS_NAME );
+		}
 	} );
 	removeClassesWithPrefix( document.body, MENU_OPEN_CLASS_NAME );
 
@@ -570,8 +586,16 @@ export const closeAllMenus = () => {
 			return;
 		}
 
+		// For full-width menus, delay class removal until after animation
+		const isFullWidth = element.classList.contains( OVERLAY_POSITION_CLASS_PREFIX + 'full-width' );
+
 		// Start slide-out animation
 		slideAnimationManager.slideOut( element, ANIMATION_DURATION.OPACITY, ANIMATION_DURATION.POSITION, () => {
+			// Remove menu-open class from full-width elements after animation
+			if ( isFullWidth ) {
+				removeClassesWithPrefix( element, MENU_OPEN_CLASS_NAME );
+			}
+
 			// Restore position after slide-out animation
 			if ( originalPosition.nextSibling ) {
 				originalPosition.parent.insertBefore( element, originalPosition.nextSibling );
@@ -659,7 +683,11 @@ export const createMenu = ( config ) => {
 				body.classList.add( openClassName );
 				contents.classList.add( openClassName );
 				moveMenuToRoot( contents, menuType );
-				overlayManager.show( overlayAnimationDuration );
+
+				// Only show overlay for non-full-width menus
+				if ( ! contents.classList.contains( OVERLAY_POSITION_CLASS_PREFIX + 'full-width' ) ) {
+					overlayManager.show( overlayAnimationDuration );
+				}
 
 				// Handle onOpen callback or default behavior.
 				if ( onOpen ) {

@@ -82,7 +82,7 @@
 		}
 
 		&[class*="menu-open--"] {
-			@include mixins.overlay-visible(full-width);
+			inset: 0;
 		}
 
 		body:has(&[class*="menu-open--"]) {
@@ -126,14 +126,6 @@
 		@include sass-utils.media(medium) {
 			max-width: calc(var(--wp--preset--spacing--40) + var(--wp--custom--width--x-large) + var(--wp--preset--spacing--40));
 		}
-	}
-
-	> * {
-		visibility: hidden;
-	}
-
-	&[class*="menu-open--"] > * {
-		visibility: visible;
 	}
 
 	&.wp-block {
