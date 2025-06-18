@@ -1,4 +1,4 @@
-import './menus/comments-menu';
-import './menus/drawer-menu';
-import './menus/mobile-menu';
-import './menus/search-menu';
+import './menus/comments';
+import './menus/drawer';
+import './menus/mobile';
+import './menus/search';
