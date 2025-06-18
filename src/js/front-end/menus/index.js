@@ -1,35 +1,26 @@
 /* globals newspackScreenReaderText */
 
-// Prefix for class name to be added to document.body when any menu is open.
-const MENU_OPEN_CLASS_NAME = 'menu-open--';
+/**
+ * Internal dependencies.
+ */
+import {
+	MENU_OPEN_CLASS_NAME,
+	OVERLAY_POSITION_CLASS_PREFIX,
+	ANIMATION_DURATION,
+	POSITION_VALUES,
+	SELECTORS
+} from './consts.js';
 
-// Prefix for overlay position class names.
-const OVERLAY_POSITION_CLASS_PREFIX = 'overlay-contents--position--';
-
-// Animation duration constants.
-const ANIMATION_DURATION = {
-	OPACITY: 125,
-	POSITION: 250,
-	OVERLAY: 500
-};
-
-// Commonly used selectors.
-const SELECTORS = {
-	FOCUSABLE: 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]), iframe, object, embed, [contenteditable="true"]',
-	CLOSE_BUTTON: '.newspack-icon-close',
-	SCREEN_READER_LINK: 'a.screen-reader-text'
-};
-
-// Store original positions of menus.
+// Stores the original DOM position of menu elements before they are moved to the body.
 const menuPositions = new WeakMap();
 
-// Store focus trap cleanup functions.
+// Stores cleanup functions for active focus traps.
 const focusTrapCleanups = new WeakMap();
 
-// Store the last focused element before opening a menu.
+// Stores the last focused element before a menu was opened.
 let lastFocusedElement;
 
-// Store the currently active focus trap element.
+// Tracks the currently active menu element that has a focus trap.
 let activeFocusTrapElement = null;
 
 /**
@@ -39,14 +30,23 @@ let activeFocusTrapElement = null;
  * @return {Array} Array of visible focusable elements.
  */
 const getVisibleFocusableElements = ( container ) => {
+	if ( ! container ) {
+		return [];
+	}
+
 	const focusableElements = container.querySelectorAll( SELECTORS.FOCUSABLE );
 	return Array.from( focusableElements ).filter( el => {
-		const rect = el.getBoundingClientRect();
-		const style = window.getComputedStyle( el );
-		return rect.width > 0 && rect.height > 0 &&
-			   style.visibility !== 'hidden' &&
-			   style.display !== 'none' &&
-			   ! el.hasAttribute( 'hidden' );
+		try {
+			const rect = el.getBoundingClientRect();
+			const style = window.getComputedStyle( el );
+			return rect.width > 0 && rect.height > 0 &&
+				   style.visibility !== 'hidden' &&
+				   style.display !== 'none' &&
+				   ! el.hasAttribute( 'hidden' );
+		} catch ( error ) {
+			// Element might be detached from DOM
+			return false;
+		}
 	} );
 };
 
@@ -61,6 +61,39 @@ const removeClassesWithPrefix = ( element, prefix ) => {
 		className.startsWith( prefix )
 	);
 	classesToRemove.forEach( className => element.classList.remove( className ) );
+};
+
+/**
+ * Helper function to check if an element is a full-width menu.
+ *
+ * @param {HTMLElement} element The element to check.
+ * @return {boolean} True if element is a full-width menu, false otherwise.
+ */
+const isFullWidthMenu = ( element ) => {
+	return element && element.classList.contains( OVERLAY_POSITION_CLASS_PREFIX + 'full-width' );
+};
+
+/**
+ * Helper function to restore an element to its original position.
+ *
+ * @param {HTMLElement} element          The element to restore.
+ * @param {Object}      originalPosition The original position data.
+ */
+const restoreElementPosition = ( element, originalPosition ) => {
+	if ( ! element || ! originalPosition ) {
+		return;
+	}
+
+	try {
+		if ( originalPosition.nextSibling && document.contains( originalPosition.nextSibling ) ) {
+			originalPosition.parent.insertBefore( element, originalPosition.nextSibling );
+		} else {
+			originalPosition.parent.appendChild( element );
+		}
+	} catch ( error ) {
+		// Fallback: append to body if restoration fails
+		document.body.appendChild( element );
+	}
 };
 
 /**
@@ -195,8 +228,6 @@ const createOverlayManager = () => {
 	return { show, hide, cleanup };
 };
 
-const overlayManager = createOverlayManager();
-
 /**
  * Creates a slide animation manager for menu contents with position classes.
  *
@@ -206,47 +237,39 @@ const createSlideAnimationManager = () => {
 	// Store slide animation cleanup functions.
 	const slideCleanups = new WeakMap();
 
-	/**
-	 * Determines slide direction and distance based on position class.
-	 *
-	 * @param {HTMLElement} element The menu element to check.
-	 * @return {Object} Object with direction and positioning properties.
-	 */
+	// Determines slide direction and distance based on position class.
 	const getSlideParams = ( element ) => {
-		if ( element.classList.contains( OVERLAY_POSITION_CLASS_PREFIX + 'left' ) ) {
-			return {
+		const slideConfigs = [
+			{
 				direction: 'left',
 				property: 'left',
-				hiddenValue: '-100%',
-				visibleValue: '0'
-			};
-		}
-		if ( element.classList.contains( OVERLAY_POSITION_CLASS_PREFIX + 'right' ) ) {
-			return {
+				hiddenValue: POSITION_VALUES.HIDDEN,
+				visibleValue: POSITION_VALUES.VISIBLE
+			},
+			{
 				direction: 'right',
 				property: 'right',
-				hiddenValue: '-100%',
-				visibleValue: '0'
-			};
-		}
-		if ( element.classList.contains( OVERLAY_POSITION_CLASS_PREFIX + 'full-width' ) ) {
-			return {
+				hiddenValue: POSITION_VALUES.HIDDEN,
+				visibleValue: POSITION_VALUES.VISIBLE
+			},
+			{
 				direction: 'full-width',
 				property: 'transform',
-				hiddenValue: 'translateY(-1rem)',
-				visibleValue: 'translateY(0)'
-			};
+				hiddenValue: POSITION_VALUES.TRANSFORM_HIDDEN,
+				visibleValue: POSITION_VALUES.TRANSFORM_VISIBLE
+			}
+		];
+
+		for ( const config of slideConfigs ) {
+			if ( element.classList.contains( OVERLAY_POSITION_CLASS_PREFIX + config.direction ) ) {
+				return config;
+			}
 		}
+
 		return null;
 	};
 
-	/**
-	 * Slides the menu content in from the specified direction.
-	 *
-	 * @param {HTMLElement} element          The menu element to animate.
-	 * @param {number}      opacityDuration  Duration for opacity animation in milliseconds.
-	 * @param {number}      positionDuration Duration for position animation in milliseconds.
-	 */
+	// Slides the menu content in from the specified direction.
 	const slideIn = ( element, opacityDuration = ANIMATION_DURATION.OPACITY, positionDuration = ANIMATION_DURATION.POSITION ) => {
 		if ( ! element || ! element.style ) {
 			return;
@@ -287,14 +310,7 @@ const createSlideAnimationManager = () => {
 		slideCleanups.set( element, cleanup );
 	};
 
-	/**
-	 * Slides the menu content out to the specified direction.
-	 *
-	 * @param {HTMLElement} element          The menu element to animate.
-	 * @param {number}      opacityDuration  Duration for opacity animation in milliseconds.
-	 * @param {number}      positionDuration Duration for position animation in milliseconds.
-	 * @param {Function}    callback         Optional callback to run after animation completes.
-	 */
+	// Slides the menu content out to the specified direction.
 	const slideOut = ( element, opacityDuration = ANIMATION_DURATION.OPACITY, positionDuration = ANIMATION_DURATION.POSITION, callback = null ) => {
 		if ( ! element || ! element.style ) {
 			if ( callback ) {
@@ -339,8 +355,6 @@ const createSlideAnimationManager = () => {
 
 	return { slideIn, slideOut, cleanup };
 };
-
-const slideAnimationManager = createSlideAnimationManager();
 
 /**
  * Global focus monitor to catch escaping focus.
@@ -387,6 +401,9 @@ const createGlobalFocusMonitor = () => {
 	return { startMonitoring, stopMonitoring };
 };
 
+// Instantiate managers for use in this module.
+const overlayManager = createOverlayManager();
+const slideAnimationManager = createSlideAnimationManager();
 const globalFocusMonitor = createGlobalFocusMonitor();
 
 /**
@@ -565,8 +582,7 @@ export const closeAllMenus = () => {
 	// Remove menu-open classes immediately to allow toggle to work properly
 	// (except for full-width menus which need the class during slide-out animation)
 	openMenuElements.forEach( element => {
-		const isFullWidth = element.classList.contains( OVERLAY_POSITION_CLASS_PREFIX + 'full-width' );
-		if ( ! isFullWidth ) {
+		if ( ! isFullWidthMenu( element ) ) {
 			removeClassesWithPrefix( element, MENU_OPEN_CLASS_NAME );
 		}
 	} );
@@ -587,28 +603,32 @@ export const closeAllMenus = () => {
 		}
 
 		// For full-width menus, delay class removal until after animation
-		const isFullWidth = element.classList.contains( OVERLAY_POSITION_CLASS_PREFIX + 'full-width' );
+		const elementIsFullWidth = isFullWidthMenu( element );
 
 		// Start slide-out animation
 		slideAnimationManager.slideOut( element, ANIMATION_DURATION.OPACITY, ANIMATION_DURATION.POSITION, () => {
 			// Remove menu-open class from full-width elements after animation
-			if ( isFullWidth ) {
+			if ( elementIsFullWidth ) {
 				removeClassesWithPrefix( element, MENU_OPEN_CLASS_NAME );
 			}
 
 			// Restore position after slide-out animation
-			if ( originalPosition.nextSibling ) {
-				originalPosition.parent.insertBefore( element, originalPosition.nextSibling );
-			} else {
-				originalPosition.parent.appendChild( element );
-			}
+			restoreElementPosition( element, originalPosition );
 			menuPositions.delete( element );
 		} );
 	} );
 
 	// Restore focus immediately
 	if ( lastFocusedElement ) {
-		lastFocusedElement.focus();
+		try {
+			// Check if element is still in DOM and focusable
+			if ( document.contains( lastFocusedElement ) && ! lastFocusedElement.disabled ) {
+				lastFocusedElement.focus();
+			}
+		} catch ( error ) {
+			// Element might be detached or no longer focusable
+			// Focus will remain on body, which is acceptable
+		}
 	}
 
 	// Hide overlay with standard duration.
@@ -685,7 +705,7 @@ export const createMenu = ( config ) => {
 				moveMenuToRoot( contents, menuType );
 
 				// Only show overlay for non-full-width menus
-				if ( ! contents.classList.contains( OVERLAY_POSITION_CLASS_PREFIX + 'full-width' ) ) {
+				if ( ! isFullWidthMenu( contents ) ) {
 					overlayManager.show( overlayAnimationDuration );
 				}
 
