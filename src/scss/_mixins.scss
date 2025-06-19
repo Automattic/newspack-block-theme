@@ -200,31 +200,3 @@
 		}
 	}
 }
-
-@mixin overlay-visible($position: left) {
-	opacity: 1;
-	@if $position == full-width {
-		animation: overlay-full-width__fade-in-animation 125ms ease-in-out;
-		left: 0;
-	} @else if $position == right { // stylelint-disable-line block-closing-brace-newline-after
-		right: 0;
-	} @else { // stylelint-disable-line block-closing-brace-newline-after
-		left: 0;
-	}
-
-	> * {
-		visibility: visible;
-	}
-}
-
-@keyframes overlay-full-width__fade-in-animation { // stylelint-disable-line keyframes-name-pattern
-	0% {
-		opacity: 0;
-		transform: translateY(calc(-1 * var(--wp--preset--spacing--30)));
-	}
-
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
