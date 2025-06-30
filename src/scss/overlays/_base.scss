@@ -20,13 +20,8 @@
 	z-index: sass-utils.$zindex-overlay-mask;
 
 	[class*="menu-open--"] & {
-		animation: overlay-mask__fade-in-animation 500ms ease-in-out;
 		display: block;
 		opacity: 1;
-	}
-
-	.menu-open--search-menu & {
-		animation-duration: 250ms;
 	}
 }
 
@@ -75,25 +70,8 @@
 		}
 	}
 
-	&--position--left {
-		transition:
-			opacity 125ms ease-in-out,
-			left 250ms ease-in-out;
-
-		&[class*="menu-open--"] {
-			@include mixins.overlay-visible(left);
-		}
-	}
-
 	&--position--right {
 		inset: 0 -100% 0 auto;
-		transition:
-			opacity 125ms ease-in-out,
-			right 250ms ease-in-out;
-
-		&[class*="menu-open--"] {
-			@include mixins.overlay-visible(right);
-		}
 	}
 
 	&--position--full-width {
@@ -104,7 +82,7 @@
 		}
 
 		&[class*="menu-open--"] {
-			@include mixins.overlay-visible(full-width);
+			inset: 0;
 		}
 
 		body:has(&[class*="menu-open--"]) {
@@ -150,28 +128,7 @@
 		}
 	}
 
-	> * {
-		visibility: hidden;
-	}
-
 	&.wp-block {
 		display: none;
-	}
-}
-
-@keyframes overlay-mask__fade-in-animation { /* stylelint-disable-line keyframes-name-pattern */
-	0% {
-		display: none;
-		opacity: 0;
-	}
-
-	1% {
-		display: block;
-		opacity: 0;
-	}
-
-	100% {
-		display: block;
-		opacity: 1;
 	}
 }
