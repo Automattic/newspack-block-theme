@@ -1,3 +1,10 @@
+# [1.19.0](https://github.com/Automattic/newspack-block-theme/compare/v1.18.1...v1.19.0) (2025-06-30)
+
+
+### Features
+
+* update menu position using JS ([#354](https://github.com/Automattic/newspack-block-theme/issues/354)) ([0227bb5](https://github.com/Automattic/newspack-block-theme/commit/0227bb51f02c887baf8ddcaf72cccbe56ce207a8))
+
 # [1.19.0-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.18.1...v1.19.0-alpha.1) (2025-06-19)
 
 
