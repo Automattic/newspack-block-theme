@@ -1,3 +1,11 @@
+# [1.20.0-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.19.0...v1.20.0-alpha.1) (2025-08-14)
+
+
+### Features
+
+* add basic woocommerce support ([#368](https://github.com/Automattic/newspack-block-theme/issues/368)) ([ce04831](https://github.com/Automattic/newspack-block-theme/commit/ce0483187f768925ae757d347309141802a33647))
+* add i18n ([#364](https://github.com/Automattic/newspack-block-theme/issues/364)) ([ebfe854](https://github.com/Automattic/newspack-block-theme/commit/ebfe854cdb352e91b5cec57535fc8c6b0fb14151))
+
 # [1.19.0](https://github.com/Automattic/newspack-block-theme/compare/v1.18.1...v1.19.0) (2025-06-30)
 
 
