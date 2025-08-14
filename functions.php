@@ -24,3 +24,4 @@ require_once NEWSPACK_BLOCK_THEME_FILE_PATH . '/includes/class-core.php';
 require_once NEWSPACK_BLOCK_THEME_FILE_PATH . '/includes/blocks/index.php';
 require_once NEWSPACK_BLOCK_THEME_FILE_PATH . '/includes/class-patterns.php';
 require_once NEWSPACK_BLOCK_THEME_FILE_PATH . '/includes/class-jetpack.php';
+require_once NEWSPACK_BLOCK_THEME_FILE_PATH . '/includes/class-woocommerce.php';
