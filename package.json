@@ -1,6 +1,6 @@
 {
 	"name": "@automattic/newspack-block-theme",
-	"version": "1.19.0",
+	"version": "1.20.0-alpha.1",
 	"description": "A forward-looking news theme designed and developed to be highly customizable with the WordPress block editor. Brought to you by Newspack: https://newspack.com",
 	"repository": {
 		"type": "git",
@@ -42,11 +42,11 @@
 		"release": "npm run build && npm run semantic-release"
 	},
 	"devDependencies": {
-		"@rushstack/eslint-patch": "^1.11.0",
-		"@wordpress/browserslist-config": "^6.25.0",
+		"@rushstack/eslint-patch": "^1.12.0",
+		"@wordpress/browserslist-config": "^6.28.0",
 		"eslint": "^8.57.0",
 		"html-entities": "^2.6.0",
-		"lint-staged": "^16.1.2",
+		"lint-staged": "^16.1.5",
 		"newspack-components": "^3.1.0",
 		"newspack-scripts": "^5.5.2",
 		"postcss-scss": "^4.0.9"
