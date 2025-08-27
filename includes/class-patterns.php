@@ -187,7 +187,6 @@ final class Patterns {
 			'jetpack/',
 			'woocommerce/',
 			'woo/',
-			'forms/',
 		];
 
 		if ( strpos( $route, '/wp/v2/block-patterns/patterns' ) === 0 ) {
@@ -252,7 +251,6 @@ final class Patterns {
 				strpos( $pattern_name, 'wc-' ) === 0 ||
 				strpos( $pattern_name, 'core/' ) === 0 ||
 				strpos( $pattern_name, 'jetpack/' ) === 0 ||
-				strpos( $pattern_name, 'forms/' ) === 0 ||
 				( isset( $pattern['categories'] ) && \array_intersect( [ 'woocommerce', 'featured' ], $pattern['categories'] ) ) ) {
 				$blacklisted_patterns[] = $pattern_name;
 			}
