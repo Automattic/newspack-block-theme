@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Newspack Block Theme 1.19.0\n"
+"Project-Id-Version: Newspack Block Theme 1.20.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/project\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-07-30T10:06:17+00:00\n"
+"POT-Creation-Date: 2025-08-27T14:00:16+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: newspack-block-theme\n"
@@ -39,55 +39,55 @@ msgstr ""
 msgid "https://newspack.com"
 msgstr ""
 
-#: includes/class-core.php:69
+#: includes/class-core.php:66
 msgid "Close Menu"
 msgstr ""
 
-#: includes/class-core.php:70
+#: includes/class-core.php:67
 msgid "Close Search"
 msgstr ""
 
-#: includes/class-core.php:122
+#: includes/class-core.php:119
 msgid "Search posts, categories, authors, ..."
 msgstr ""
 
-#: includes/class-core.php:191
+#: includes/class-patterns.php:125
 msgid "Newspack Theme"
 msgstr ""
 
-#: includes/class-core.php:192
+#: includes/class-patterns.php:126
 msgid "Patterns bundled with the Newspack Block Theme."
 msgstr ""
 
-#: includes/class-core.php:199
+#: includes/class-patterns.php:133
 msgid "Newspack Theme - Author Bio"
 msgstr ""
 
-#: includes/class-core.php:200
+#: includes/class-patterns.php:134
 msgid "Patterns bundled with the Newspack Block Theme, specifically built for the author biography."
 msgstr ""
 
-#: includes/class-core.php:207
+#: includes/class-patterns.php:141
 msgid "Newspack Theme - Columns"
 msgstr ""
 
-#: includes/class-core.php:208
+#: includes/class-patterns.php:142
 msgid "Patterns bundled with the Newspack Block Theme, specifically built for the columns to perfectly fit the grid."
 msgstr ""
 
-#: includes/class-core.php:215
+#: includes/class-patterns.php:149
 msgid "Newspack Theme - Post Header"
 msgstr ""
 
-#: includes/class-core.php:216
+#: includes/class-patterns.php:150
 msgid "Patterns bundled with the Newspack Block Theme, specifically built for the post header."
 msgstr ""
 
-#: includes/class-core.php:223
+#: includes/class-patterns.php:157
 msgid "Newspack Theme - Post Meta"
 msgstr ""
 
-#: includes/class-core.php:224
+#: includes/class-patterns.php:158
 msgid "Patterns bundled with the Newspack Block Theme, specifically built for the post meta."
 msgstr ""
 
@@ -109,13 +109,13 @@ msgctxt "Pattern title"
 msgid "Author Bio with Avatar"
 msgstr ""
 
-#: patterns/author-bio/author-bio-avatar.php:13
-#: patterns/author-bio/author-bio.php:13
+#: patterns/author-bio/author-bio-avatar.php:14
+#: patterns/author-bio/author-bio.php:14
 msgid "Author Bio"
 msgstr ""
 
-#: patterns/author-bio/author-bio-avatar.php:20
-#: patterns/author-bio/author-bio.php:20
+#: patterns/author-bio/author-bio-avatar.php:21
+#: patterns/author-bio/author-bio.php:21
 #: patterns/footer/footer-desktop-style-1.php:18
 #: patterns/footer/footer-desktop-style-2.php:18
 #: patterns/footer/footer-desktop-style-3.php:18
@@ -381,10 +381,10 @@ msgctxt "Pattern title"
 msgid "Post Header - Style 1"
 msgstr ""
 
-#: patterns/post-header/post-header-style-1-default.php:13
-#: patterns/post-header/post-header-style-1-wide.php:12
-#: patterns/post-header/post-header-style-2-default.php:13
-#: patterns/post-header/post-header-style-2-wide.php:12
+#: patterns/post-header/post-header-style-1-default.php:14
+#: patterns/post-header/post-header-style-1-wide.php:13
+#: patterns/post-header/post-header-style-2-default.php:14
+#: patterns/post-header/post-header-style-2-wide.php:13
 msgid "Post Header"
 msgstr ""
 
