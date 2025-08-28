@@ -1,3 +1,15 @@
+# [1.21.0-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.20.0...v1.21.0-alpha.1) (2025-08-28)
+
+
+### Bug Fixes
+
+* add missing columns patterns to inserter ([#373](https://github.com/Automattic/newspack-block-theme/issues/373)) ([b34f0c9](https://github.com/Automattic/newspack-block-theme/commit/b34f0c978a82f14356164ea247b0ba0c0be010ea))
+
+
+### Features
+
+* move pattern functionalities to class-patterns ([e1ce70f](https://github.com/Automattic/newspack-block-theme/commit/e1ce70f875a5d7c1e564b7e556a414cc2bad0580))
+
 # [1.20.0](https://github.com/Automattic/newspack-block-theme/compare/v1.19.0...v1.20.0) (2025-08-25)
 
 
