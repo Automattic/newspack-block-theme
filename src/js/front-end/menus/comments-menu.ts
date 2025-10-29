@@ -3,7 +3,6 @@
  */
 import { domReady } from '../utils'; // Global utils.
 import { MENU_OPEN_CLASS_NAME } from './consts'; // Menu constants.
-import { createOverlay, removeOverlay } from './utils'; // Menu utils.
 
 const openClassName = MENU_OPEN_CLASS_NAME + 'comments-menu';
 
@@ -17,12 +16,8 @@ domReady( function () {
 		return;
 	}
 
-	const commentsOpenButton: HTMLAnchorElement | null = pageContain.querySelector(
-		'.comments-menu__toggle a'
-	);
-	const commentsCloseButton: HTMLAnchorElement | null = commentsContents.querySelector(
-		'.comments-menu__toggle a'
-	);
+	const commentsOpenButton: HTMLAnchorElement | null = pageContain.querySelector( '.comments-menu__toggle a' );
+	const commentsCloseButton: HTMLAnchorElement | null = commentsContents.querySelector( '.comments-menu__toggle a' );
 
 	const menuToggle = ( event: Event ) => {
 		event.preventDefault();
@@ -39,7 +34,6 @@ domReady( function () {
 		if ( commentsCloseButton ) {
 			commentsCloseButton.focus();
 		}
-		createOverlay();
 	};
 
 	const closeMenu = () => {
@@ -48,7 +42,6 @@ domReady( function () {
 		if ( commentsOpenButton ) {
 			commentsOpenButton.focus();
 		}
-		removeOverlay();
 	};
 
 	// Find each comments toggle and attaches an event listener.

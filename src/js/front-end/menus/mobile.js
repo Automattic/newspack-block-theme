@@ -9,6 +9,6 @@ domReady( function () {
 		menuType: 'mobile-menu',
 		containerSelector: '.header-mobile',
 		toggleSelector: '.mobile-menu__toggle',
-		contentsSelector: '.mobile-menu__contents'
+		contentsSelector: '.mobile-menu__contents',
 	} ).init();
 } );
