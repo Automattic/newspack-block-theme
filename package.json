@@ -16,8 +16,8 @@
 		"extends @wordpress/browserslist-config"
 	],
 	"lint-staged": {
+		"*.{js,jsx,ts,tsx}": "npm run lint:js:staged",
 		"*.scss": "npm run lint:scss:staged",
-		"*.(js|jsx)": "npm run lint:js:staged",
 		"*.php": "npm run lint:php:staged"
 	},
 	"scripts": {
@@ -42,13 +42,7 @@
 		"release": "npm run build && npm run semantic-release"
 	},
 	"devDependencies": {
-		"@rushstack/eslint-patch": "^1.14.1",
-		"@wordpress/browserslist-config": "^6.32.0",
-		"eslint": "^8.57.0",
-		"html-entities": "^2.6.0",
-		"lint-staged": "^16.2.6",
-		"newspack-components": "^3.1.0",
-		"newspack-scripts": "^5.5.2",
-		"postcss-scss": "^4.0.9"
+		"newspack-components": "^4.1.0",
+		"newspack-scripts": "github:Automattic/newspack-scripts#chore/refresh-dependencies"
 	}
 }
