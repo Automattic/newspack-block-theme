@@ -42,7 +42,7 @@
 		"release": "npm run build && npm run semantic-release"
 	},
 	"devDependencies": {
-		"newspack-components": "^4.1.0",
-		"newspack-scripts": "github:Automattic/newspack-scripts#chore/refresh-dependencies"
+		"newspack-components": "^4.2.0",
+		"newspack-scripts": "^5.8.0"
 	}
 }
