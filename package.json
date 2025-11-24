@@ -1,6 +1,6 @@
 {
 	"name": "@automattic/newspack-block-theme",
-	"version": "1.21.0",
+	"version": "1.22.0-alpha.1",
 	"description": "A forward-looking news theme designed and developed to be highly customizable with the WordPress block editor. Brought to you by Newspack: https://newspack.com",
 	"repository": {
 		"type": "git",
@@ -16,14 +16,14 @@
 		"extends @wordpress/browserslist-config"
 	],
 	"lint-staged": {
+		"*.{js,jsx,ts,tsx}": "npm run lint:js:staged",
 		"*.scss": "npm run lint:scss:staged",
-		"*.(js|jsx)": "npm run lint:js:staged",
 		"*.php": "npm run lint:php:staged"
 	},
 	"scripts": {
 		"cm": "newspack-scripts commit",
 		"semantic-release": "semantic-release",
-		"start": "npm ci --legacy-peer-deps && npm run watch",
+		"start": "npm ci && npm run watch",
 		"clean": "rm -rf dist ; rm -f style.css",
 		"build": "npm run clean && newspack-scripts wp-scripts build",
 		"watch": "npm run clean && newspack-scripts wp-scripts start",
@@ -42,13 +42,7 @@
 		"release": "npm run build && npm run semantic-release"
 	},
 	"devDependencies": {
-		"@rushstack/eslint-patch": "^1.12.0",
-		"@wordpress/browserslist-config": "^6.29.0",
-		"eslint": "^8.57.0",
-		"html-entities": "^2.6.0",
-		"lint-staged": "^16.1.5",
-		"newspack-components": "^3.1.0",
-		"newspack-scripts": "^5.5.2",
-		"postcss-scss": "^4.0.9"
+		"newspack-components": "^4.2.0",
+		"newspack-scripts": "^5.8.0"
 	}
 }

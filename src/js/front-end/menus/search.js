@@ -13,14 +13,14 @@ domReady( function () {
 		toggleSelector: '.search-menu__toggle',
 		contentsSelector: '.search-menu__contents',
 		overlayAnimationDuration: 250,
-		onOpen: ( contents ) => {
+		onOpen: contents => {
 			// Focus search input
 			const searchInput = contents?.querySelector( 'input[type="search"]' );
 			if ( searchInput ) {
 				searchInput.focus();
 			}
 		},
-		specialHandling: ( container ) => {
+		specialHandling: container => {
 			// If Jetpack Instant Search is enabled, add a CSS class to the search toggle and bail.
 			// See: https://jetpack.com/support/search/customizing-jetpack-search/#add-search-button
 			if ( newspackScreenReaderText.jetpack_instant_search ) {
@@ -30,6 +30,6 @@ domReady( function () {
 				}
 				return false; // Don't set up the menu
 			}
-		}
+		},
 	} ).init();
 } );
