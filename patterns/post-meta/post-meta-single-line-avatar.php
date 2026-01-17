@@ -18,7 +18,19 @@ $registry = WP_Block_Type_Registry::get_instance();
 <!-- wp:group {"lock":{"move":false,"remove":true},"metadata":{"name":"Meta"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center","verticalAlignment":"center"}} -->
 <div class="wp-block-group">
 
-<?php if ( $registry->get_registered( 'co-authors-plus/coauthors' ) ) : ?>
+<?php if ( $registry->get_registered( 'newspack/byline' ) ) : ?>
+
+	<!-- wp:group {"templateLock":"all","lock":{"move":true,"remove":true},"metadata":{"name":"Avatar + Byline"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+	<div class="wp-block-group">
+
+	<!-- wp:newspack/avatar {"size":24,"linkToAuthorArchive":true,"lock":{"move":true,"remove":true}} /-->
+
+	<!-- wp:newspack/byline {"lock":{"move":true,"remove":true}} /-->
+
+	</div>
+	<!-- /wp:group -->
+
+<?php elseif ( $registry->get_registered( 'co-authors-plus/coauthors' ) ) : ?>
 
 	<!-- wp:group {"templateLock":"all","lock":{"move":true,"remove":true},"metadata":{"name":"Avatar + Byline"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 	<div class="wp-block-group">

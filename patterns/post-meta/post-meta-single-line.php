@@ -18,7 +18,11 @@ $registry = WP_Block_Type_Registry::get_instance();
 <!-- wp:group {"lock":{"move":false,"remove":true},"metadata":{"name":"Meta"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center","verticalAlignment":"center"}} -->
 <div class="wp-block-group">
 
-<?php if ( $registry->get_registered( 'co-authors-plus/coauthors' ) ) : ?>
+<?php if ( $registry->get_registered( 'newspack/byline' ) ) : ?>
+
+	<!-- wp:newspack/byline {"lock":{"move":true,"remove":true}} /-->
+
+<?php elseif ( $registry->get_registered( 'co-authors-plus/coauthors' ) ) : ?>
 
 	<!-- wp:co-authors-plus/coauthors {"lock":{"move":true,"remove":true}} -->
 	<div class="wp-block-co-authors-plus-coauthors"><!-- wp:co-authors-plus/name {"isLink":true,"lock":{"move":true,"remove":true}} /--></div>

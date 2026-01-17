@@ -18,7 +18,11 @@ $registry = WP_Block_Type_Registry::get_instance();
 <!-- wp:group {"lock":{"move":false,"remove":true},"metadata":{"name":"Meta"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
 <div class="wp-block-group">
 
-<?php if ( $registry->get_registered( 'co-authors-plus/coauthors' ) ) : ?>
+<?php if ( $registry->get_registered( 'newspack/byline' ) ) : ?>
+
+	<!-- wp:newspack/avatar {"size":48,"linkToAuthorArchive":true,"lock":{"move":true,"remove":true}} /-->
+
+<?php elseif ( $registry->get_registered( 'co-authors-plus/coauthors' ) ) : ?>
 
 	<!-- wp:co-authors-plus/coauthors {"layout":{"type":"flex","orientation":"horizontal","flexWrap":"nowrap"},"lock":{"move":true,"remove":true},"style":{"layout":{"selfStretch":"fit"},"spacing":{"blockGap":"0"}},"className":"cap-avatar"} -->
 	<div class="wp-block-co-authors-plus-coauthors cap-avatar"><!-- wp:co-authors-plus/avatar {"size":48} /--></div>
@@ -33,7 +37,11 @@ $registry = WP_Block_Type_Registry::get_instance();
 <!-- wp:group {"templateLock":"all","lock":{"move":true,"remove":true},"metadata":{"name":"Byline + Date"},"style":{"spacing":{"blockGap":"4px"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 <div class="wp-block-group">
 
-<?php if ( $registry->get_registered( 'co-authors-plus/coauthors' ) ) : ?>
+<?php if ( $registry->get_registered( 'newspack/byline' ) ) : ?>
+
+	<!-- wp:newspack/byline {"lock":{"move":true,"remove":true}} /-->
+
+<?php elseif ( $registry->get_registered( 'co-authors-plus/coauthors' ) ) : ?>
 
 	<!-- wp:co-authors-plus/coauthors -->
 	<div class="wp-block-co-authors-plus-coauthors"><!-- wp:co-authors-plus/name {"isLink":true} /--></div>
