@@ -949,6 +949,25 @@
 					"fontSize": "var( --wp--preset--font-size--small )",
 					"lineHeight": "var( --wp--custom--line-height--small )"
 				}
+			},
+			"newspack/my-account-button": {
+				"spacing": {
+					"padding": {
+						"top": "var(--wp--custom--spacing--25)",
+						"right": "var(--wp--preset--spacing--40)",
+						"bottom": "var(--wp--custom--spacing--25)",
+						"left": "var(--wp--preset--spacing--40)"
+					}
+				},
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--inter)",
+					"fontSize": "var(--wp--preset--font-size--small)",
+					"fontWeight": "600",
+					"lineHeight": "var(--wp--custom--line-height--small)"
+				},
+				"border": {
+					"radius": "var( --wp--custom--border--radius-medium )"
+				}
 			}
 		},
 		"color": {
