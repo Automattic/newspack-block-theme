@@ -30,22 +30,6 @@ $registry = WP_Block_Type_Registry::get_instance();
 	</div>
 	<!-- /wp:group -->
 
-<?php elseif ( $registry->get_registered( 'co-authors-plus/coauthors' ) ) : ?>
-
-	<!-- wp:group {"templateLock":"all","lock":{"move":true,"remove":true},"metadata":{"name":"Avatar + Byline"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-	<div class="wp-block-group">
-
-	<!-- wp:co-authors-plus/coauthors {"layout":{"type":"flex","orientation":"horizontal"},"prefix":"","style":{"spacing":{"blockGap":"0"}},"className":"cap-avatar"} -->
-	<div class="wp-block-co-authors-plus-coauthors cap-avatar"><!-- wp:co-authors-plus/avatar /--></div>
-	<!-- /wp:co-authors-plus/coauthors -->
-
-	<!-- wp:co-authors-plus/coauthors {"lock":{"move":true,"remove":true}} -->
-	<div class="wp-block-co-authors-plus-coauthors"><!-- wp:co-authors-plus/name {"isLink":true,"lock":{"move":true,"remove":true}} /--></div>
-	<!-- /wp:co-authors-plus/coauthors -->
-
-	</div>
-	<!-- /wp:group -->
-
 <?php else : ?>
 
 	<!-- wp:post-author {"avatarSize":24,"byline":"By","isLink":true,"lock":{"move":true,"remove":true}} /-->
