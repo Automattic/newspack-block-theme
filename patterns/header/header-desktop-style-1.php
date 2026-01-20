@@ -33,7 +33,7 @@
 
 	<!-- wp:group {"lock":{"move":false,"remove":true},"metadata":{"name":"Menu"},"align":"wide","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
 	<div class="wp-block-group alignwide">
-		<!-- wp:navigation {"ref":134,"className":"primary-navigation","style":{"typography":{"textTransform":"uppercase"}},"layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"left","orientation":"horizontal","flexWrap":"wrap"}} /-->
+		<!-- wp:navigation {"className":"primary-navigation","layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"left","orientation":"horizontal","flexWrap":"wrap"},"style":{"typography":{"textTransform":"uppercase"}}} /-->
 
 		<!-- wp:template-part {"slug":"search-menu","theme":"newspack-block-theme","tagName":"div","className":"search-menu"} /-->
 	</div>
