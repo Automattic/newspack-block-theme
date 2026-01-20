@@ -16,13 +16,22 @@
 	<div class="wp-block-group alignwide">
 		<!-- wp:site-logo {"width":256,"lock":{"move":true,"remove":true}} /-->
 
-		<!-- wp:buttons {"lock":{"move":true,"remove":false},"className":"has-small-size","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"fontSize":"x-small"} -->
-		<div class="wp-block-buttons has-custom-font-size has-small-size has-x-small-font-size">
-			<!-- wp:button -->
-			<div class="wp-block-button"><a class="wp-block-button__link wp-element-button"><?php esc_html_e( 'Donate', 'newspack-block-theme' ); ?></a></div>
-			<!-- /wp:button -->
+		<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+			<div class="wp-block-group">
+				<!-- wp:buttons {"lock":{"move":true,"remove":false},"className":"has-small-size","style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"fontSize":"x-small"} -->
+				<div class="wp-block-buttons has-custom-font-size has-small-size has-x-small-font-size">
+					<!-- wp:button -->
+					<div class="wp-block-button"><a class="wp-block-button__link wp-element-button">
+						<?php esc_html_e( 'Donate', 'newspack-block-theme' ); ?></a>
+					</div>
+					<!-- /wp:button -->
+				</div>
+				<!-- /wp:buttons -->
+			<!-- wp:newspack/my-account-button {"lock":{"move":true,"remove":false},"className":"has-small-size","fontSize":"x-small"} /-->
+			</div>
+			<!-- /wp:group -->
 		</div>
-		<!-- /wp:buttons -->
+		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
 
