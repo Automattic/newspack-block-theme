@@ -951,6 +951,10 @@
 				}
 			},
 			"newspack/my-account-button": {
+				"color": {
+					"background": "var( --wp--preset--color--base-2 )",
+					"text": "var( --wp--preset--color--contrast )"
+				},
 				"spacing": {
 					"padding": {
 						"top": "var(--wp--custom--spacing--25)",
