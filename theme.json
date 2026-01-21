@@ -957,9 +957,9 @@
 				},
 				"spacing": {
 					"padding": {
-						"top": "var(--wp--custom--spacing--25)",
+						"top": "var( --wp--custom--spacing--25)",
 						"right": "var(--wp--preset--spacing--40)",
-						"bottom": "var(--wp--custom--spacing--25)",
+						"bottom": "var( --wp--custom--spacing--25)",
 						"left": "var(--wp--preset--spacing--40)"
 					}
 				},
