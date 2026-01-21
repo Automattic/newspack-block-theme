@@ -1,9 +1,9 @@
 .wp-block-newspack-my-account-button {
 	&.has-small-size {
 		align-items: center;
-			display: inline-flex;
-			min-height: var(--wp--custom--spacing--65);
-			padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
+		display: inline-flex;
+		min-height: var(--wp--custom--spacing--65);
+		padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
 
 		&.is-style-outline {
 			padding: calc(var(--wp--preset--spacing--20) - 1px) calc(var(--wp--preset--spacing--30) - 1px) !important;
