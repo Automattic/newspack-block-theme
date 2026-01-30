@@ -30,11 +30,11 @@
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:25%">
 			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"right"}} -->
 			<div class="wp-block-group">
-				<!-- wp:template-part {"slug":"search-menu","theme":"newspack-block-theme","tagName":"div","align":"right","className":"search-menu"} /-->
-
 				<?php if ( class_exists( 'Newspack\Reader_Activation' ) && \Newspack\Reader_Activation::is_enabled() ) : ?>
 					<!-- wp:newspack/my-account-button {"className":"has-small-size","fontSize":"x-small"} /-->
 				<?php endif; ?>
+
+				<!-- wp:template-part {"slug":"search-menu","theme":"newspack-block-theme","tagName":"div","align":"right","className":"search-menu"} /-->
 			</div>
 			<!-- /wp:group -->
 		</div>
