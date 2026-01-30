@@ -30,7 +30,7 @@
 			<?php if ( class_exists( 'Newspack\Reader_Activation' ) && \Newspack\Reader_Activation::is_enabled() ) : ?>
 				<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"right"}} -->
 				<div class="wp-block-group">
-					<!-- wp:newspack/my-account-button {"className":"has-x-small-size","fontSize":"x-small"} /-->
+					<!-- wp:newspack/my-account-button {"className":"has-small-size","fontSize":"x-small"} /-->
 				</div>
 				<!-- /wp:group -->
 			<?php endif; ?>
