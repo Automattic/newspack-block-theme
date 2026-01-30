@@ -23,6 +23,8 @@
 		</div>
 		<!-- /wp:group -->
 
+
+
 		<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 		<div class="wp-block-group">
 			<!-- wp:buttons {"layout":{"type":"flex","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}}} -->
@@ -32,8 +34,13 @@
 				<!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->
+
+			<?php if ( class_exists( 'Newspack\Reader_Activation' ) && \Newspack\Reader_Activation::is_enabled() ) : ?>
+				<!-- wp:newspack/my-account-button {"lock":{"move":true,"remove":false},"className":"has-x-small-size","fontSize":"x-small"} /-->
+			<?php endif; ?>
 		</div>
 		<!-- /wp:group -->
+
 	</div>
 	<!-- /wp:group -->
 
