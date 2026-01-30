@@ -35,6 +35,10 @@
 		<!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 		<div class="wp-block-group alignwide">
 			<!-- wp:site-logo {"width":256} /-->
+
+			<?php if ( class_exists( 'Newspack\Reader_Activation' ) && \Newspack\Reader_Activation::is_enabled() ) : ?>
+				<!-- wp:newspack/my-account-button {"lock":{"move":true,"remove":false},"className":"has-small-size","fontSize":"x-small"} /-->
+			<?php endif; ?>
 		</div>
 		<!-- /wp:group -->
 	</div>
