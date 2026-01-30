@@ -19,15 +19,7 @@
 
 		<!-- wp:site-logo {"width":256,"lock":{"move":false,"remove":true}} /-->
 
-		<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-		<div class="wp-block-group">
-			<?php if ( class_exists( 'Newspack\Reader_Activation' ) && \Newspack\Reader_Activation::is_enabled() ) : ?>
-				<!-- wp:newspack/my-account-button {"lock":{"move":true,"remove":false},"className":"has-x-small-size","fontSize":"x-small"} /-->
-			<?php endif; ?>
-
-			<!-- wp:template-part {"slug":"search-menu","theme":"newspack-block-theme","tagName":"div","className":"search-menu"} /-->
-		</div>
-		<!-- /wp:group -->
+		<!-- wp:template-part {"slug":"search-menu","theme":"newspack-block-theme","tagName":"div","className":"search-menu"} /-->
 	</div>
 	<!-- /wp:group -->
 
