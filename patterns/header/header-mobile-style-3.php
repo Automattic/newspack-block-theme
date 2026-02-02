@@ -28,7 +28,7 @@
 			<!-- /wp:buttons -->
 
 			<?php if ( class_exists( 'Newspack\Reader_Activation' ) && \Newspack\Reader_Activation::is_enabled() ) : ?>
-				<!-- wp:newspack/my-account-button {"lock":{"move":true,"remove":false},"style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast"}}}},"backgroundColor":"base-2","textColor":"contrast","className":"has-x-small-size","fontSize":"x-small"} /-->
+				<!-- wp:newspack/my-account-button {"showLabel":false,"lock":{"move":true,"remove":false},"className":"has-x-small-size","style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast"}}}},"backgroundColor":"base-2","textColor":"contrast","fontSize":"x-small"} /-->
 			<?php endif; ?>
 
 			<!-- wp:template-part {"slug":"mobile-menu","theme":"newspack-block-theme","tagName":"div","lock":{"move":false,"remove":true},"className":"mobile-menu"} /-->
