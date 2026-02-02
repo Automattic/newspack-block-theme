@@ -1,3 +1,10 @@
+# [1.23.0](https://github.com/Automattic/newspack-block-theme/compare/v1.22.0...v1.23.0) (2026-02-02)
+
+
+### Features
+
+* **byline:** add byline block support to patterns and templates ([#399](https://github.com/Automattic/newspack-block-theme/issues/399)) ([c0d8a90](https://github.com/Automattic/newspack-block-theme/commit/c0d8a906c8c309f949bdb418ee58309eccd03b03))
+
 # [1.22.0](https://github.com/Automattic/newspack-block-theme/compare/v1.21.0...v1.22.0) (2025-11-24)
 
 
