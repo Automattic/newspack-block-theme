@@ -622,6 +622,47 @@ const moveMenuToRoot = ( menuElement, menuType ) => {
 };
 
 /**
+ * Runs slide-out animation and restores one menu contents element to its original DOM position.
+ *
+ * @param {HTMLElement} element The menu contents element to restore.
+ */
+const restoreMenuContent = element => {
+	// Clean up focus trap immediately
+	const cleanup = focusTrapCleanups.get( element );
+	if ( cleanup ) {
+		cleanup();
+	}
+
+	// Get original position
+	const originalPosition = menuPositions.get( element );
+	if ( ! originalPosition ) {
+		return;
+	}
+
+	// For full-width menus, delay class removal until after animation
+	const elementIsFullWidth = isEffectiveFullWidthMenu( element, slideAnimationManager );
+
+	// Start slide-out animation
+	slideAnimationManager.slideOut( element, ANIMATION_DURATION.OPACITY, ANIMATION_DURATION.POSITION, () => {
+		// Remove menu-open class from full-width elements after animation
+		if ( elementIsFullWidth ) {
+			removeClassesWithPrefix( element, MENU_OPEN_CLASS_NAME );
+		}
+
+		// Remove full-width class if we added it for parent override
+		if ( fullWidthClassAddedByUs.has( element ) ) {
+			element.classList.remove( OVERLAY_POSITION_CLASS_PREFIX + 'full-width' );
+			fullWidthClassAddedByUs.delete( element );
+		}
+
+		// Restore position after slide-out animation
+		restoreElementPosition( element, originalPosition );
+		menuPositions.delete( element );
+		slideAnimationManager.clearSlideParamsCache( element );
+	} );
+};
+
+/**
  * Closes all open menus.
  */
 export const closeAllMenus = () => {
@@ -643,42 +684,7 @@ export const closeAllMenus = () => {
 	} );
 	removeClassesWithPrefix( document.body, MENU_OPEN_CLASS_NAME );
 
-	// Handle menu contents restoration - simplified approach
-	menuContents.forEach( element => {
-		// Clean up focus trap immediately
-		const cleanup = focusTrapCleanups.get( element );
-		if ( cleanup ) {
-			cleanup();
-		}
-
-		// Get original position
-		const originalPosition = menuPositions.get( element );
-		if ( ! originalPosition ) {
-			return;
-		}
-
-		// For full-width menus, delay class removal until after animation
-		const elementIsFullWidth = isEffectiveFullWidthMenu( element, slideAnimationManager );
-
-		// Start slide-out animation
-		slideAnimationManager.slideOut( element, ANIMATION_DURATION.OPACITY, ANIMATION_DURATION.POSITION, () => {
-			// Remove menu-open class from full-width elements after animation
-			if ( elementIsFullWidth ) {
-				removeClassesWithPrefix( element, MENU_OPEN_CLASS_NAME );
-			}
-
-			// Remove full-width class if we added it for parent override
-			if ( fullWidthClassAddedByUs.has( element ) ) {
-				element.classList.remove( OVERLAY_POSITION_CLASS_PREFIX + 'full-width' );
-				fullWidthClassAddedByUs.delete( element );
-			}
-
-			// Restore position after slide-out animation
-			restoreElementPosition( element, originalPosition );
-			menuPositions.delete( element );
-			slideAnimationManager.clearSlideParamsCache( element );
-		} );
-	} );
+	menuContents.forEach( restoreMenuContent );
 
 	// Restore focus immediately
 	if ( lastFocusedElement ) {
