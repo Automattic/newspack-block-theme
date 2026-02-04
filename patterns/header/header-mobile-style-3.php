@@ -33,7 +33,7 @@
 				<!-- /wp:buttons -->
 			<?php endif; ?>
 
-			<!-- wp:template-part {"slug":"mobile-menu","theme":"newspack-block-theme","tagName":"div","lock":{"move":false,"remove":true},"className":"mobile-menu"} /-->
+			<!-- wp:template-part {"slug":"mobile-menu","theme":"newspack-block-theme","tagName":"div","lock":{"move":false,"remove":true},"className":"mobile-menu overlay-contents--position--right"} /-->
 		</div>
 		<!-- /wp:group -->
 	</div>
