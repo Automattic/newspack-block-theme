@@ -11,6 +11,9 @@ const menuPositions = new WeakMap();
 // Stores cleanup functions for active focus traps.
 const focusTrapCleanups = new WeakMap();
 
+// Elements we added overlay-contents--position--full-width to (parent override); remove class on restore.
+const fullWidthClassAddedByUs = new WeakSet();
+
 // Stores the last focused element before a menu was opened.
 let lastFocusedElement;
 
@@ -53,13 +56,22 @@ const removeClassesWithPrefix = ( element, prefix ) => {
 };
 
 /**
- * Helper function to check if an element is a full-width menu.
+ * Helper function to check if an element is effectively a full-width menu.
+ * Uses cached slide params (parent override) when available, otherwise the element's own class.
  *
- * @param {HTMLElement} element The element to check.
+ * @param {HTMLElement} element                  The element to check.
+ * @param {Object}      slideAnimationManagerRef Reference to the slide animation manager (used after it is created).
  * @return {boolean} True if element is a full-width menu, false otherwise.
  */
-const isFullWidthMenu = element => {
-	return element && element.classList.contains( OVERLAY_POSITION_CLASS_PREFIX + 'full-width' );
+const isEffectiveFullWidthMenu = ( element, slideAnimationManagerRef ) => {
+	if ( ! element ) {
+		return false;
+	}
+	const params = slideAnimationManagerRef?.getSlideParams( element );
+	if ( params ) {
+		return params.direction === 'full-width';
+	}
+	return element.classList.contains( OVERLAY_POSITION_CLASS_PREFIX + 'full-width' );
 };
 
 /**
@@ -226,36 +238,71 @@ const createSlideAnimationManager = () => {
 	// Store slide animation cleanup functions.
 	const slideCleanups = new WeakMap();
 
-	// Determines slide direction and distance based on position class.
-	const getSlideParams = element => {
-		const slideConfigs = [
-			{
-				direction: 'left',
-				property: 'left',
-				hiddenValue: POSITION_VALUES.HIDDEN,
-				visibleValue: POSITION_VALUES.VISIBLE,
-			},
-			{
-				direction: 'right',
-				property: 'right',
-				hiddenValue: POSITION_VALUES.HIDDEN,
-				visibleValue: POSITION_VALUES.VISIBLE,
-			},
-			{
-				direction: 'full-width',
-				property: 'transform',
-				hiddenValue: POSITION_VALUES.TRANSFORM_HIDDEN,
-				visibleValue: POSITION_VALUES.TRANSFORM_VISIBLE,
-			},
-		];
+	// Cached slide params per element. Resolved before moving to body (when parent still has position class).
+	const slideParamsCache = new WeakMap();
 
+	const slideConfigs = [
+		{
+			direction: 'left',
+			property: 'left',
+			hiddenValue: POSITION_VALUES.HIDDEN,
+			visibleValue: POSITION_VALUES.VISIBLE,
+		},
+		{
+			direction: 'right',
+			property: 'right',
+			hiddenValue: POSITION_VALUES.HIDDEN,
+			visibleValue: POSITION_VALUES.VISIBLE,
+		},
+		{
+			direction: 'full-width',
+			property: 'transform',
+			hiddenValue: POSITION_VALUES.TRANSFORM_HIDDEN,
+			visibleValue: POSITION_VALUES.TRANSFORM_VISIBLE,
+		},
+	];
+
+	const getConfigForNode = node => {
+		if ( ! node || ! node.classList ) {
+			return null;
+		}
 		for ( const config of slideConfigs ) {
-			if ( element.classList.contains( OVERLAY_POSITION_CLASS_PREFIX + config.direction ) ) {
+			if ( node.classList.contains( OVERLAY_POSITION_CLASS_PREFIX + config.direction ) ) {
 				return config;
 			}
 		}
-
 		return null;
+	};
+
+	// Resolves slide params from DOM (element + parent). Call before moving element to body.
+	const resolveSlideParams = element => {
+		const parentConfig = element.parentElement ? getConfigForNode( element.parentElement ) : null;
+		if ( parentConfig ) {
+			return parentConfig;
+		}
+		return getConfigForNode( element );
+	};
+
+	// Determines slide direction and distance based on position class.
+	// Uses cache (set before move) so parent's position class is still available after element is moved to body.
+	const getSlideParams = element => {
+		const cached = slideParamsCache.get( element );
+		if ( cached ) {
+			return cached;
+		}
+		return resolveSlideParams( element );
+	};
+
+	// Call before moving element to body so parent's position class (e.g. overlay-contents--position--right) is used.
+	const cacheSlideParams = element => {
+		const params = resolveSlideParams( element );
+		if ( params ) {
+			slideParamsCache.set( element, params );
+		}
+	};
+
+	const clearSlideParamsCache = element => {
+		slideParamsCache.delete( element );
 	};
 
 	// Slides the menu content in from the specified direction.
@@ -275,6 +322,10 @@ const createSlideAnimationManager = () => {
 			existingCleanup();
 		}
 
+		// Set opposite position to auto so CSS from the element's position class (e.g. --left) doesn't give zero width when we animate the other side (e.g. right).
+		const oppositeProperty = slideParams.property === 'left' ? 'right' : 'left';
+		element.style[ oppositeProperty ] = 'auto';
+
 		// Set initial state.
 		element.style.opacity = '0';
 		element.style[ slideParams.property ] = slideParams.hiddenValue;
@@ -291,6 +342,7 @@ const createSlideAnimationManager = () => {
 		// Store cleanup function.
 		const cleanup = () => {
 			element.style.opacity = '';
+			element.style[ oppositeProperty ] = '';
 			element.style[ slideParams.property ] = '';
 			element.style.transition = '';
 			slideCleanups.delete( element );
@@ -317,6 +369,10 @@ const createSlideAnimationManager = () => {
 			return;
 		}
 
+		// Set opposite position to auto so element has correct width (avoids zero width when element has CSS --left but we animate --right).
+		const oppositeProperty = slideParams.property === 'left' ? 'right' : 'left';
+		element.style[ oppositeProperty ] = 'auto';
+
 		// Set transition for slide out.
 		element.style.transition = `opacity ${ opacityDuration }ms ease-in-out, ${ slideParams.property } ${ positionDuration }ms ease-in-out`;
 
@@ -342,7 +398,7 @@ const createSlideAnimationManager = () => {
 		slideCleanups.forEach( cleanupFn => cleanupFn() );
 	};
 
-	return { slideIn, slideOut, cleanup };
+	return { cacheSlideParams, clearSlideParamsCache, getSlideParams, slideIn, slideOut, cleanup };
 };
 
 /**
@@ -540,6 +596,15 @@ const moveMenuToRoot = ( menuElement, menuType ) => {
 		return;
 	}
 
+	// Resolve and cache slide params while element is still in DOM (parent may have position class).
+	slideAnimationManager.cacheSlideParams( menuElement );
+
+	const slideParams = slideAnimationManager.getSlideParams( menuElement );
+	if ( slideParams?.direction === 'full-width' && ! menuElement.classList.contains( OVERLAY_POSITION_CLASS_PREFIX + 'full-width' ) ) {
+		menuElement.classList.add( OVERLAY_POSITION_CLASS_PREFIX + 'full-width' );
+		fullWidthClassAddedByUs.add( menuElement );
+	}
+
 	// Store original position.
 	menuPositions.set( menuElement, {
 		parent: menuElement.parentNode,
@@ -572,7 +637,7 @@ export const closeAllMenus = () => {
 	// Remove menu-open classes immediately to allow toggle to work properly
 	// (except for full-width menus which need the class during slide-out animation)
 	openMenuElements.forEach( element => {
-		if ( ! isFullWidthMenu( element ) ) {
+		if ( ! isEffectiveFullWidthMenu( element, slideAnimationManager ) ) {
 			removeClassesWithPrefix( element, MENU_OPEN_CLASS_NAME );
 		}
 	} );
@@ -593,7 +658,7 @@ export const closeAllMenus = () => {
 		}
 
 		// For full-width menus, delay class removal until after animation
-		const elementIsFullWidth = isFullWidthMenu( element );
+		const elementIsFullWidth = isEffectiveFullWidthMenu( element, slideAnimationManager );
 
 		// Start slide-out animation
 		slideAnimationManager.slideOut( element, ANIMATION_DURATION.OPACITY, ANIMATION_DURATION.POSITION, () => {
@@ -602,9 +667,16 @@ export const closeAllMenus = () => {
 				removeClassesWithPrefix( element, MENU_OPEN_CLASS_NAME );
 			}
 
+			// Remove full-width class if we added it for parent override
+			if ( fullWidthClassAddedByUs.has( element ) ) {
+				element.classList.remove( OVERLAY_POSITION_CLASS_PREFIX + 'full-width' );
+				fullWidthClassAddedByUs.delete( element );
+			}
+
 			// Restore position after slide-out animation
 			restoreElementPosition( element, originalPosition );
 			menuPositions.delete( element );
+			slideAnimationManager.clearSlideParamsCache( element );
 		} );
 	} );
 
@@ -695,7 +767,7 @@ export const createMenu = config => {
 				moveMenuToRoot( contents, menuType );
 
 				// Only show overlay for non-full-width menus
-				if ( ! isFullWidthMenu( contents ) ) {
+				if ( ! isEffectiveFullWidthMenu( contents, slideAnimationManager ) ) {
 					overlayManager.show( overlayAnimationDuration );
 				}
 
