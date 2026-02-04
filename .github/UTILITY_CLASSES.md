@@ -73,6 +73,8 @@ Additionally, `is-position-sticky--mobile-only` and `is-position-sticky--desktop
 
 The class `overlay-contents` needs to be applied along with a position class: `overlay-contents--position--left`, `overlay-contents--position--right`, or `overlay-contents--position--full-width`.
 
+When the overlay contents are included via a template-part (e.g. mobile menu), the **parent** template-part wrapper can set a position class (e.g. `overlay-contents--position--right` on the wrapper) to override the contents’ own position. That lets patterns control slide direction without editing the shared template part.
+
 When using the right or left position, you can also control the width, which defaults to a maximum of 632px.
 
 | CLASS NAME                             | DESCRIPTION                                                                |
