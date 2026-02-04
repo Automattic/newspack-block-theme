@@ -762,27 +762,32 @@ export const createMenu = config => {
 					closeAllMenus();
 					onClose( contents, container, toggles );
 				} else {
-					openMenu();
+					// Resolve container and contents for the clicked toggle (e.g. search menu exists in both desktop and mobile header).
+					const containerForToggle = event.currentTarget.closest( containerSelector );
+					const contentsForToggle = containerForToggle?.querySelector( contentsSelector );
+					if ( containerForToggle && contentsForToggle ) {
+						openMenu( contentsForToggle, containerForToggle );
+					}
 				}
 			};
 
 			// Opens the menu and applies necessary styling.
-			const openMenu = () => {
+			const openMenu = ( contentsToOpen, containerToUse ) => {
 				body.classList.add( openClassName );
-				contents.classList.add( openClassName );
-				moveMenuToRoot( contents, menuType );
+				contentsToOpen.classList.add( openClassName );
+				moveMenuToRoot( contentsToOpen, menuType );
 
 				// Only show overlay for non-full-width menus
-				if ( ! isEffectiveFullWidthMenu( contents, slideAnimationManager ) ) {
+				if ( ! isEffectiveFullWidthMenu( contentsToOpen, slideAnimationManager ) ) {
 					overlayManager.show( overlayAnimationDuration );
 				}
 
 				// Handle onOpen callback or default behavior.
 				if ( onOpen ) {
-					onOpen( contents, container, toggles );
+					onOpen( contentsToOpen, containerToUse, toggles );
 				} else {
 					// Default behavior: focus the close button.
-					const closeButton = getMenuCloseButton( menuType, contents );
+					const closeButton = getMenuCloseButton( menuType, contentsToOpen );
 					if ( closeButton ) {
 						closeButton.focus();
 					}
