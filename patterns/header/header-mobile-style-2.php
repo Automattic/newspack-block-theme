@@ -19,7 +19,11 @@
 
 		<!-- wp:site-logo {"width":256,"lock":{"move":false,"remove":true}} /-->
 
-		<!-- wp:template-part {"slug":"search-menu","theme":"newspack-block-theme","tagName":"div","className":"search-menu"} /-->
+		<?php if ( class_exists( 'Newspack\Reader_Activation' ) && \Newspack\Reader_Activation::is_enabled() ) : ?>
+			<!-- wp:newspack/my-account-button {"className":"is-style-icon-only has-x-small-size","style":{"spacing":{"padding":{"top":"0.375rem","bottom":"0.375rem","left":"0.375rem","right":"0.375rem"}},"elements":{"link":{"color":{"text":"var:preset|color|contrast"}}}},"backgroundColor":"base","textColor":"contrast","fontSize":"x-small"} /-->
+		<?php else : ?>
+			<!-- wp:template-part {"slug":"search-menu","theme":"newspack-block-theme","tagName":"div","className":"search-menu"} /-->
+		<?php endif; ?>
 	</div>
 	<!-- /wp:group -->
 
