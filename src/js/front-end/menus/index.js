@@ -262,12 +262,19 @@ const createSlideAnimationManager = () => {
 		},
 	];
 
-	const getConfigForNode = node => {
+	const getConfigForNode = ( node, { allowForce = false } = {} ) => {
 		if ( ! node || ! node.classList ) {
 			return null;
 		}
 		for ( const config of slideConfigs ) {
-			if ( node.classList.contains( OVERLAY_POSITION_CLASS_PREFIX + config.direction ) ) {
+			const baseClass = OVERLAY_POSITION_CLASS_PREFIX + config.direction;
+			const forceClass = `${ baseClass }--force`;
+
+			if ( allowForce ) {
+				if ( node.classList.contains( forceClass ) ) {
+					return config;
+				}
+			} else if ( node.classList.contains( baseClass ) ) {
 				return config;
 			}
 		}
@@ -276,10 +283,15 @@ const createSlideAnimationManager = () => {
 
 	// Resolves slide params from DOM (element + parent). Call before moving element to body.
 	const resolveSlideParams = element => {
-		const parentConfig = element.parentElement ? getConfigForNode( element.parentElement ) : null;
-		if ( parentConfig ) {
-			return parentConfig;
+		const parent = element.parentElement;
+		if ( parent ) {
+			// Parent can override using force classes, e.g. overlay-contents--position--right--force.
+			const parentConfig = getConfigForNode( parent, { allowForce: true } );
+			if ( parentConfig ) {
+				return parentConfig;
+			}
 		}
+		// Fall back to the element's own position classes (no force).
 		return getConfigForNode( element );
 	};
 
