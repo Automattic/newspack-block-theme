@@ -112,6 +112,14 @@
 		}
 	}
 
+	&--width--medium {
+		max-width: calc(var(--wp--preset--spacing--30) + var(--wp--style--global--content-size) + var(--wp--preset--spacing--30));
+
+		@include sass-utils.media(medium) {
+			max-width: calc(var(--wp--preset--spacing--40) + var(--wp--style--global--content-size) + var(--wp--preset--spacing--40));
+		}
+	}
+
 	&--width--large {
 		max-width: calc(var(--wp--preset--spacing--30) + var(--wp--custom--width--large) + var(--wp--preset--spacing--30));
 
