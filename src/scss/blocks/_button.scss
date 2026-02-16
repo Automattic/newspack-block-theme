@@ -45,6 +45,18 @@
 				opacity: 1;
 			}
 		}
+
+		&:has(svg) {
+			display: inline-flex;
+			gap: max(0.5em, var(--wp--preset--spacing--20));
+
+			svg {
+				display: block;
+				fill: currentcolor;
+				height: max(1.5em, var(--wp--preset--spacing--40));
+				width: max(1.5em, var(--wp--preset--spacing--40));
+			}
+		}
 	}
 
 	&.is-style-outline {
