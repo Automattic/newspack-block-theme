@@ -58,7 +58,7 @@ final class Featured_Image_Caption {
 		if ( $custom_caption ) {
 			$output = wp_kses_post( $custom_caption );
 		} else {
-			$caption = wp_get_attachment_caption( $featured_image_id );
+			$caption = wp_kses_post( wp_get_attachment_caption( $featured_image_id ) );
 			$credit  = '';
 
 			if ( class_exists( '\Newspack\Newspack_Image_Credits' ) ) {
