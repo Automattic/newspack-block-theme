@@ -1,0 +1,31 @@
+{
+	"name": "newspack-block-theme/featured-image-caption",
+	"title": "Featured Image Caption",
+	"category": "newspack",
+	"attributes": {
+		"customCaption": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"usesContext": [ "postId", "postType" ],
+	"supports": {
+		"html": false,
+		"color": {
+			"gradients": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": true,
+				"link": true
+			}
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		}
+	}
+}
