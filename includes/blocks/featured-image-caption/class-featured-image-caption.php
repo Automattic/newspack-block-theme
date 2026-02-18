@@ -19,7 +19,7 @@ final class Featured_Image_Caption {
 	 */
 	public static function init() {
 		\add_action( 'init', [ __CLASS__, 'register_block' ] );
-		\add_action( 'enqueue_block_editor_assets', [ __CLASS__, 'enqueue_block_editor_assets' ] );
+		\add_action( 'enqueue_block_assets', [ __CLASS__, 'enqueue_block_assets' ] );
 	}
 
 	/**
@@ -82,9 +82,12 @@ final class Featured_Image_Caption {
 	}
 
 	/**
-	 * Enqueue block editor assets.
+	 * Enqueue block assets.
 	 */
-	public static function enqueue_block_editor_assets() {
+	public static function enqueue_block_assets() {
+		if ( ! is_admin() ) {
+			return;
+		}
 		$asset_file = NEWSPACK_BLOCK_THEME_FILE_PATH . '/dist/featured-image-caption-editor.asset.php';
 		if ( ! file_exists( $asset_file ) ) {
 			return;
