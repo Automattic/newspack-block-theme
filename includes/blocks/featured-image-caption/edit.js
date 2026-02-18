@@ -3,6 +3,31 @@ import { useEntityProp } from '@wordpress/core-data';
 import { useSelect } from '@wordpress/data';
 import { __, sprintf } from '@wordpress/i18n';
 
+/**
+ * Generates the credit text for the media credit and organization.
+ *
+ * @param {string} mediaCredit  The media credit.
+ * @param {string} organization The organization associated with the media credit. Optional.
+ *
+ * @return {string} The formatted credit text.
+ */
+const generateCreditText = ( mediaCredit, organization ) => {
+	if ( mediaCredit && organization ) {
+		return sprintf(
+			/* translators: 1: media credit, 2: organization */
+			__( 'Credit: %1$s / %2$s', 'newspack-block-theme' ),
+			mediaCredit,
+			organization
+		);
+	}
+
+	return sprintf(
+		/* translators: %s: media credit */
+		__( 'Credit: %s', 'newspack-block-theme' ),
+		mediaCredit
+	);
+};
+
 export const Edit = ( { attributes, setAttributes, context: { postType, postId } } ) => {
 	const blockProps = useBlockProps();
 
@@ -24,31 +49,6 @@ export const Edit = ( { attributes, setAttributes, context: { postType, postId }
 		},
 		[ featuredImage ]
 	);
-
-	/**
-	 * Generates the credit text for the media credit and organization.
-	 *
-	 * @param {string} mediaCredit  The media credit.
-	 * @param {string} organization The organization associated with the media credit. Optional.
-	 *
-	 * @return {string} The formatted credit text.
-	 */
-	const generateCreditText = ( mediaCredit, organization ) => {
-		if ( mediaCredit && organization ) {
-			return sprintf(
-				/* translators: 1: media credit, 2: organization */
-				__( 'Credit: %1$s / %2$s', 'newspack-block-theme' ),
-				mediaCredit,
-				organization
-			);
-		}
-
-		return sprintf(
-			/* translators: %s: media credit */
-			__( 'Credit: %s', 'newspack-block-theme' ),
-			mediaCredit
-		);
-	};
 
 	const defaultText = [ caption, credit ].filter( Boolean ).join( ' ' );
 
