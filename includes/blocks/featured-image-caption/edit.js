@@ -1,7 +1,7 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 import { useEntityProp } from '@wordpress/core-data';
 import { useSelect } from '@wordpress/data';
-import { __ } from '@wordpress/i18n';
+import { __, sprintf } from '@wordpress/i18n';
 
 export const Edit = ( { attributes, setAttributes, context: { postType, postId } } ) => {
 	const blockProps = useBlockProps();
@@ -19,11 +19,36 @@ export const Edit = ( { attributes, setAttributes, context: { postType, postId }
 			}
 			return {
 				caption: media.caption?.raw || '',
-				credit: media.meta?._media_credit || '',
+				credit: media.meta?._media_credit ? generateCreditText( media.meta._media_credit, media.meta?._navis_media_credit_org ) : '',
 			};
 		},
 		[ featuredImage ]
 	);
+
+	/**
+	 * Generates the credit text for the media credit and organization.
+	 *
+	 * @param {string} mediaCredit  The media credit.
+	 * @param {string} organization The organization associated with the media credit. Optional.
+	 *
+	 * @return {string} The formatted credit text.
+	 */
+	const generateCreditText = ( mediaCredit, organization ) => {
+		if ( mediaCredit && organization ) {
+			return sprintf(
+				/* translators: 1: media credit, 2: organization */
+				__( 'Credit: %1$s / %2$s', 'newspack-block-theme' ),
+				mediaCredit,
+				organization
+			);
+		}
+
+		return sprintf(
+			/* translators: %s: media credit */
+			__( 'Credit: %s', 'newspack-block-theme' ),
+			mediaCredit
+		);
+	};
 
 	const defaultText = [ caption, credit ].filter( Boolean ).join( ' ' );
 
