@@ -85,7 +85,7 @@ _Viewport range for clamp: 782px > 1280px_
 | --wp--preset--color--contrast-3 | #6C6C6C |
 | --wp--preset--color--accent     | #003DA5 |
 | --wp--preset--color--accent-2   | #2055B0 |
-| --wp--preset--color--accent-3   | #26D07C |
+| --wp--preset--color--accent-3   | #9FB6DD |
 
 ## Newspack UI-like
 
