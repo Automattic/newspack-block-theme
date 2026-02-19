@@ -47,7 +47,7 @@
 	// 12-column grid layout.
 	@include mixins.columns-grid__selectors {
 		@include sass-utils.media(large) {
-			@include mixins.columns-grid__layout(12);
+			@include mixins.columns-grid__layout;
 		}
 	}
 
