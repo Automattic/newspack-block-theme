@@ -30,41 +30,6 @@
 	}
 }
 
-// Define mixin for sidebar layout
-@mixin sidebar-layout {
-	/* 33.33/66.66 and 66.66/33.33 */
-	.wp-block-column[style*="33.33%"] {
-		grid-column: 2 / span 3;
-
-		+ .wp-block-column[style*="66.66%"] {
-			grid-column-start: 6;
-		}
-	}
-
-	.wp-block-column[style*="66.66%"] {
-		grid-column: 2 / span 6;
-
-		+ .wp-block-column[style*="33.33%"] {
-			grid-column-start: 9;
-		}
-
-		.alignleft {
-			margin-left: calc(-1 * ((var(--wp--style--global--wide-size) - (var(--wp--preset--spacing--50) * 11)) / 12 + var(--wp--preset--spacing--50)));
-		}
-
-		.alignright {
-			margin-right: calc(-1 * ((var(--wp--style--global--wide-size) - (var(--wp--preset--spacing--50) * 11)) / 12 + var(--wp--preset--spacing--50)));
-		}
-
-		> :first-child:is(.alignleft),
-		> :first-child:is(.alignright) {
-			+ * {
-				margin-top: 0;
-			}
-		}
-	}
-}
-
 .wp-block-columns {
 	// Hide column block if empty on smaller screens.
 	.wp-block-column:empty {
@@ -75,6 +40,7 @@
 		}
 	}
 
+	// Columns grid layout.
 	&.alignwide,
 	.wp-block-group.alignwide.is-layout-flow > &:not(.alignwide):not(.alignfull) {
 		@include mixins.columns-grid__selectors {
@@ -122,47 +88,6 @@
 				&:has(:not(.wp-block-column[style*="25%"]:empty)) {
 					.wp-block-column[style*="50%"] {
 						flex-basis: 75% !important;
-					}
-				}
-			}
-
-			&.newspack-grid-sidebar {
-				.wp-block-column[style*="66.66%"] {
-					.wp-block-post-content {
-						padding-left: 0;
-						padding-right: 0;
-
-						> .alignfull {
-							margin-left: 0;
-							margin-right: 0;
-						}
-					}
-				}
-
-				@include sass-utils.media(medium) {
-					// 33.33/66.66 and 66.66/33.33 layouts.
-					.wp-block-column[style*="33.33%"] {
-						flex-basis: 100% !important;
-						margin-left: auto;
-						margin-right: auto;
-						max-width: var(--wp--custom--width--x-small);
-					}
-
-					.wp-block-column[style*="66.66%"] {
-						flex-basis: 100% !important;
-						margin-left: auto;
-						margin-right: auto;
-						max-width: var(--wp--style--global--content-size);
-					}
-				}
-
-				@include sass-utils.media(x-large) {
-					@include sidebar-layout;
-				}
-
-				[class*="theme-variation-"][class*="-alt"] & {
-					@include sass-utils.media(large) {
-						@include sidebar-layout;
 					}
 				}
 			}
