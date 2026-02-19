@@ -144,21 +144,6 @@
 			"fluid": true,
 			"fontFamilies": [
 				{
-					"fontFamily": "system-ui, sans-serif",
-					"name": "System Font",
-					"slug": "system"
-				},
-				{
-					"fontFamily": "ui-serif, serif",
-					"name": "System Serif",
-					"slug": "system-serif"
-				},
-				{
-					"fontFamily": "ui-monospace, monospace",
-					"name": "System Monospace",
-					"slug": "system-monospace"
-				},
-				{
 					"fontFace": [
 						{
 							"fontFamily": "Inter",
