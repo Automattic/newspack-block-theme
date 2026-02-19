@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /*
  * Input Styles
  */
@@ -227,11 +229,11 @@
 
 /*
  * Columns grid layout
- * 12-column grid
-*/
-@mixin columns-grid__layout {
+ * @param {number} $columns - Number of grid columns (default: 12)
+ */
+@mixin columns-grid__layout($columns: 12) {
 	display: grid;
-	grid-template-columns: repeat(12, 1fr);
+	grid-template-columns: repeat($columns, 1fr);
 
 	> * {
 		grid-column: 1 / -1;
@@ -239,32 +241,32 @@
 	}
 
 	.wp-block-column {
-		grid-column: auto / span 6;
+		grid-column: auto / span ($columns * 0.5);
 	}
 
 	.wp-block-column:only-child {
-		grid-column-end: span 12;
+		grid-column-end: span $columns;
 	}
 
 	.wp-block-column[style*="15%"] {
-		grid-column-end: span 2;
+		grid-column-end: span math.ceil($columns * 0.15);
 	}
 
 	.wp-block-column[style*="25%"] {
-		grid-column-end: span 3;
+		grid-column-end: span math.floor($columns * 0.25);
 	}
 
 	.wp-block-column[style*="33.33%"] {
-		grid-column-end: span 4;
+		grid-column-end: span math.round($columns * 0.3333);
 	}
 
 	.wp-block-column[style*="50%"] {
-		grid-column-end: span 6;
+		grid-column-end: span ($columns * 0.5);
 	}
 
 	.wp-block-column[style*="66.66%"],
 	.wp-block-column[style*="70%"] {
-		grid-column-end: span 8;
+		grid-column-end: span math.round($columns * 0.6666);
 	}
 }
 
