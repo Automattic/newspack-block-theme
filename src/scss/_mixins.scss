@@ -1,3 +1,6 @@
+/*
+ * Input Styles
+ */
 @mixin input {
 	box-sizing: border-box;
 	background-color: var(--wp--preset--color--base);
@@ -33,6 +36,9 @@
 	}
 }
 
+/*
+ * Checkbox and Radio Styles
+ */
 @mixin checkbox-radio {
 	appearance: none;
 	background: white 50% 50% no-repeat;
@@ -92,6 +98,9 @@
 	}
 }
 
+/*
+ * Checkbox Styles
+ */
 @mixin checkbox {
 	border-radius: var(--wp--custom--border--radius-xx-small);
 
@@ -111,6 +120,9 @@
 	}
 }
 
+/*
+ * Radio Styles
+ */
 @mixin radio {
 	border-radius: 100%;
 
@@ -127,6 +139,9 @@
 	}
 }
 
+/*
+ * Button Icon Styles
+ */
 @mixin button-icon {
 	background: transparent;
 	border-radius: var(--wp--custom--border--radius-small);
@@ -148,6 +163,9 @@
 	}
 }
 
+/*
+ * Notice Styles
+ */
 @mixin notice($type, $margin: var(--wp--preset--spacing--50) 0) {
 	--np--notice--color--border: var(--wp--custom--color--neutral-90);
 	--np--notice--color--background: var(--wp--custom--color--neutral-5);
@@ -173,6 +191,9 @@
 	padding: 1rem;
 }
 
+/*
+ * WPNBHA Avatar Styles
+ */
 @mixin wpnbha-avatar($width, $amount: 5) {
 	@for $i from 1 through $amount {
 		&:has(> a:nth-child(#{$i})),
@@ -189,6 +210,9 @@
 	}
 }
 
+/*
+ * CAP Avatar Styles
+ */
 @mixin cap-avatar($width, $amount: 5) {
 	@for $i from 1 through $amount {
 		&:has(.wp-block-co-authors-plus-coauthor:nth-of-type(#{$i})) {
@@ -198,5 +222,63 @@
 				margin-left: calc(#{$i - 1} * #{$width} - #{$i - 1} * var(--wp--preset--spacing--20));
 			}
 		}
+	}
+}
+
+/*
+ * Columns grid layout
+ * 12-column grid
+*/
+@mixin columns-grid__layout {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+
+	> * {
+		grid-column: 1 / -1;
+		margin: 0 !important;
+	}
+
+	.wp-block-column {
+		grid-column: auto / span 6;
+	}
+
+	.wp-block-column:only-child {
+		grid-column-end: span 12;
+	}
+
+	.wp-block-column[style*="15%"] {
+		grid-column-end: span 2;
+	}
+
+	.wp-block-column[style*="25%"] {
+		grid-column-end: span 3;
+	}
+
+	.wp-block-column[style*="33.33%"] {
+		grid-column-end: span 4;
+	}
+
+	.wp-block-column[style*="50%"] {
+		grid-column-end: span 6;
+	}
+
+	.wp-block-column[style*="66.66%"],
+	.wp-block-column[style*="70%"] {
+		grid-column-end: span 8;
+	}
+}
+
+/*
+ * Columns grid selectors
+ * Only for supported combinations
+ */
+@mixin columns-grid__selectors {
+	// Two columns.
+	&:has(> .wp-block-column:nth-last-child(2):first-child):has(.wp-block-column[style*="33.33%"]):has(.wp-block-column[style*="66.66%"]), // 33.33/66.66 and 66.66/33.33.
+
+	// Three columns.
+	&:has(> .wp-block-column:nth-last-child(3):first-child):has(.wp-block-column[style*="25%"]):has(.wp-block-column[style*="50%"]), // 25/50/25.
+	&:has(> .wp-block-column:nth-last-child(3):first-child):has(.wp-block-column[style*="15%"]):has(.wp-block-column[style*="70%"]) { // 15/70/15.
+		@content;
 	}
 }

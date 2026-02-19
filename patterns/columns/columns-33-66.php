@@ -10,8 +10,8 @@
  */
 
 ?>
-<!-- wp:columns {"metadata":{"name":"33 / 66"},"align":"wide","className":"newspack-grid columns-pattern"} -->
-<div class="wp-block-columns alignwide newspack-grid columns-pattern">
+<!-- wp:columns {"metadata":{"name":"33 / 66"},"align":"wide","className":"columns-pattern"} -->
+<div class="wp-block-columns alignwide columns-pattern">
 
 	<!-- wp:column {"width":"33.33%"} -->
 	<div class="wp-block-column" style="flex-basis:33.33%"></div>

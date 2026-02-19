@@ -10,8 +10,8 @@
  */
 
 ?>
-<!-- wp:columns {"metadata":{"name":"15 / 70 / 15"},"align":"wide","className":"newspack-grid columns-pattern is-style-first-col-to-second"} -->
-<div class="wp-block-columns alignwide newspack-grid columns-pattern is-style-first-col-to-second">
+<!-- wp:columns {"metadata":{"name":"15 / 70 / 15"},"align":"wide","className":"columns-pattern is-style-first-col-to-second"} -->
+<div class="wp-block-columns alignwide columns-pattern is-style-first-col-to-second">
 
 	<!-- wp:column {"width":"70%"} -->
 	<div class="wp-block-column" style="flex-basis:70%"></div>
