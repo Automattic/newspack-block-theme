@@ -6,6 +6,10 @@ This file covers what is specific to `newspack-block-theme`. Shared conventions 
 
 `newspack-block-theme` is a WordPress block theme. Templates, template parts, and patterns are HTML files in `templates/`, `parts/`, and `patterns/` respectively. Global styles, layout, typography, and color are controlled via `theme.json`. Two style variations exist in `styles/`: `harold.json` and `paul.json`.
 
+## Blocks
+
+Do not add new blocks to this repo. New blocks should be added to `newspack-plugin` (most cases) or `newspack-blocks`. The existing `includes/blocks/subtitle-block/` is the only block that belongs here as it is tightly coupled to theme-level post metadata.
+
 ## Gotchas
 
 - **`npm run lint` skips PHP.** Run `npm run lint:php` separately for PHP linting.
