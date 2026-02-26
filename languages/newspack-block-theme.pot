@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-26T04:06:11+00:00\n"
+"POT-Creation-Date: 2026-02-26T10:14:37+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: newspack-block-theme\n"
@@ -457,77 +457,168 @@ msgid "Article Subtitle"
 msgstr ""
 
 #: theme.json
-#: styles/harold.json
-#: styles/paul.json
-msgctxt "Color name"
-msgid "Base"
-msgstr ""
-
-#: theme.json
-#: styles/harold.json
-#: styles/paul.json
-msgctxt "Color name"
-msgid "Base / Two"
-msgstr ""
-
-#: theme.json
-#: styles/harold.json
-#: styles/paul.json
-msgctxt "Color name"
-msgid "Base / Three"
-msgstr ""
-
-#: theme.json
-#: styles/harold.json
-msgctxt "Color name"
-msgid "Base / Four"
-msgstr ""
-
-#: theme.json
-#: styles/harold.json
-msgctxt "Color name"
-msgid "Base / Five"
-msgstr ""
-
-#: theme.json
-#: styles/harold.json
-#: styles/paul.json
-msgctxt "Color name"
-msgid "Contrast"
-msgstr ""
-
-#: theme.json
-#: styles/harold.json
-#: styles/paul.json
-msgctxt "Color name"
-msgid "Contrast / Two"
-msgstr ""
-
-#: theme.json
-#: styles/harold.json
-#: styles/paul.json
-msgctxt "Color name"
-msgid "Contrast / Three"
-msgstr ""
-
-#: theme.json
-#: styles/harold.json
-#: styles/paul.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
 msgctxt "Color name"
 msgid "Accent"
 msgstr ""
 
 #: theme.json
-#: styles/harold.json
-#: styles/paul.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
 msgctxt "Color name"
 msgid "Accent / Two"
 msgstr ""
 
 #: theme.json
-#: styles/harold.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
 msgctxt "Color name"
 msgid "Accent / Three"
+msgstr ""
+
+#: theme.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
+msgctxt "Color name"
+msgid "Base"
+msgstr ""
+
+#: theme.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
+msgctxt "Color name"
+msgid "Base / Two"
+msgstr ""
+
+#: theme.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
+msgctxt "Color name"
+msgid "Base / Three"
+msgstr ""
+
+#: theme.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
+msgctxt "Color name"
+msgid "Base / Four"
+msgstr ""
+
+#: theme.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
+msgctxt "Color name"
+msgid "Base / Five"
+msgstr ""
+
+#: theme.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
+msgctxt "Color name"
+msgid "Contrast"
+msgstr ""
+
+#: theme.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
+msgctxt "Color name"
+msgid "Contrast / Two"
+msgstr ""
+
+#: theme.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
+msgctxt "Color name"
+msgid "Contrast / Three"
 msgstr ""
 
 #: theme.json
@@ -596,11 +687,16 @@ msgid "7"
 msgstr ""
 
 #: theme.json
-msgctxt "Font family name"
-msgid "System Font"
-msgstr ""
-
-#: theme.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
 msgctxt "Font family name"
 msgid "Inter"
 msgstr ""
@@ -750,32 +846,105 @@ msgctxt "Template part name"
 msgid "Footer (Mobile)"
 msgstr ""
 
-#: styles/harold.json
+#: styles/01-theme-alt.json
 msgctxt "Style variation name"
-msgid "Harold"
+msgid "Default alt"
 msgstr ""
 
-#: styles/harold.json
-msgctxt "Font family name"
-msgid "Fraunces"
+#: styles/02-arc.json
+msgctxt "Style variation name"
+msgid "Arc"
 msgstr ""
 
-#: styles/harold.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
 msgctxt "Font family name"
 msgid "Nunito"
 msgstr ""
 
-#: styles/paul.json
+#: styles/03-arc-alt.json
 msgctxt "Style variation name"
-msgid "Paul"
+msgid "Arc alt"
 msgstr ""
 
-#: styles/paul.json
+#: styles/04-bulletin.json
+msgctxt "Style variation name"
+msgid "Bulletin"
+msgstr ""
+
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+msgctxt "Font family name"
+msgid "Fraunces"
+msgstr ""
+
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+msgctxt "Font family name"
+msgid "DM Sans"
+msgstr ""
+
+#: styles/05-bulletin-alt.json
+msgctxt "Style variation name"
+msgid "Bulletin alt"
+msgstr ""
+
+#: styles/06-foundry.json
+msgctxt "Style variation name"
+msgid "Foundry"
+msgstr ""
+
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+msgctxt "Font family name"
+msgid "EB Garamond"
+msgstr ""
+
+#: styles/07-foundry-alt.json
+msgctxt "Style variation name"
+msgid "Foundry alt"
+msgstr ""
+
+#: styles/08-ledger.json
+msgctxt "Style variation name"
+msgid "Ledger"
+msgstr ""
+
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
 msgctxt "Font family name"
 msgid "Jost"
 msgstr ""
 
-#: styles/paul.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
 msgctxt "Font family name"
 msgid "Newsreader"
+msgstr ""
+
+#: styles/09-ledger-alt.json
+msgctxt "Style variation name"
+msgid "Ledger alt"
+msgstr ""
+
+#: styles/10-nocturne.json
+msgctxt "Style variation name"
+msgid "Nocturne"
+msgstr ""
+
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
+msgctxt "Font family name"
+msgid "Plus Jakarta Sans"
+msgstr ""
+
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
+msgctxt "Font family name"
+msgid "Public Sans"
+msgstr ""
+
+#: styles/11-nocturne-alt.json
+msgctxt "Style variation name"
+msgid "Nocturne alt"
 msgstr ""
