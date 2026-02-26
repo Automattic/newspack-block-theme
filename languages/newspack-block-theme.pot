@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-25T21:20:28+00:00\n"
+"POT-Creation-Date: 2026-02-26T04:06:11+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: newspack-block-theme\n"
@@ -226,21 +226,21 @@ msgstr ""
 msgid "Copyright"
 msgstr ""
 
-#: patterns/footer/footer-desktop-style-1.php:62
-#: patterns/footer/footer-desktop-style-2.php:70
-#: patterns/footer/footer-desktop-style-3.php:90
-#: patterns/footer/footer-desktop-style-4.php:89
-#: patterns/footer/footer-desktop-style-5.php:91
-#: patterns/footer/footer-mobile-style-1.php:63
+#: patterns/footer/footer-desktop-style-1.php:60
+#: patterns/footer/footer-desktop-style-2.php:68
+#: patterns/footer/footer-desktop-style-3.php:88
+#: patterns/footer/footer-desktop-style-4.php:87
+#: patterns/footer/footer-desktop-style-5.php:89
+#: patterns/footer/footer-mobile-style-1.php:61
 msgid "Powered By"
 msgstr ""
 
-#: patterns/footer/footer-desktop-style-1.php:63
-#: patterns/footer/footer-desktop-style-2.php:71
-#: patterns/footer/footer-desktop-style-3.php:91
-#: patterns/footer/footer-desktop-style-4.php:90
-#: patterns/footer/footer-desktop-style-5.php:92
-#: patterns/footer/footer-mobile-style-1.php:64
+#: patterns/footer/footer-desktop-style-1.php:61
+#: patterns/footer/footer-desktop-style-2.php:69
+#: patterns/footer/footer-desktop-style-3.php:89
+#: patterns/footer/footer-desktop-style-4.php:88
+#: patterns/footer/footer-desktop-style-5.php:90
+#: patterns/footer/footer-mobile-style-1.php:62
 msgid "Powered by Newspack"
 msgstr ""
 
