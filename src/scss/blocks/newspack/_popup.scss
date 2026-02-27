@@ -1,7 +1,0 @@
-.newspack-popup {
-	&.newspack-lightbox {
-		@at-root :where(.is-layout-constrained, .is-layout-flow) > :first-child#{&} + * {
-			margin-block-start: 0;
-		}
-	}
-}
