@@ -7,7 +7,6 @@ $xsmall-screen: 360px;
 $small-screen: 600px;
 $medium-screen: 782px;
 $large-screen: 1280px;
-$xlarge-screen: 1328px;
 
 // Z-indexes
 $zindex-fixed-element: 1000;
@@ -38,10 +37,6 @@ $zindex-screen-reader-text: 100000; /* Above WP toolbar. */
 		}
 	} @else if $class == large { // stylelint-disable-line block-closing-brace-newline-after
 		@media only screen and (min-width: $large-screen) {
-			@content;
-		}
-	} @else if $class == x-large { // stylelint-disable-line block-closing-brace-newline-after
-		@media only screen and (min-width: $xlarge-screen) {
 			@content;
 		}
 	} @else { // stylelint-disable-line block-closing-brace-newline-after

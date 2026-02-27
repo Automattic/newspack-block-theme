@@ -1,124 +1,8 @@
 @use "../sass-utils";
+@use "../mixins";
 
-// Define mixin for grid layout (12 columns)
-@mixin grid-layout {
-	&.wp-block-columns {
-		display: grid;
-		grid-template-columns: repeat(12, 1fr);
-	}
-
-	& > * {
-		grid-column: 1 / -1;
-		margin: 0 !important;
-	}
-
-	.wp-block-column {
-		grid-column: auto / span 6;
-	}
-
-	.wp-block-column:only-child {
-		grid-column-end: span 12;
-	}
-
-	/* "33 / 33 / 33" layout */
-	.wp-block-column:not([style*="flex-basis"]):nth-last-child(3):first-child,
-	.wp-block-column:not([style*="flex-basis"]):nth-last-child(3):first-child ~ .wp-block-column {
-		grid-column-end: span 4;
-	}
-
-	/* "25 / 50 / 25" layout */
-	.wp-block-column[style*="25%"] {
-		grid-column-end: span 3;
-	}
-	.wp-block-column[style*="50%"] {
-		grid-column-end: span 6;
-	}
-
-	/* "15 / 70 / 15" layout */
-	.wp-block-column[style*="15%"] {
-		grid-column-end: span 2;
-	}
-	.wp-block-column[style*="70%"] {
-		grid-column-end: span 8;
-	}
-
-	/* "30 / 70" and "70 / 30" layouts */
-	.wp-block-column[style*="33.33%"] {
-		grid-column-end: span 4;
-	}
-	.wp-block-column[style*="66.66%"] {
-		grid-column-end: span 8;
-	}
-}
-
-// Define mixin for small grid layout (6 columns)
-@mixin small-grid-layout {
-	&.wp-block-columns {
-		display: grid;
-		grid-template-columns: repeat(6, 1fr);
-	}
-
-	& > * {
-		grid-column: 1 / -1;
-		margin: 0 !important;
-	}
-
-	.wp-block-column {
-		grid-column: auto / span 3;
-	}
-
-	.wp-block-column:only-child {
-		grid-column-end: span 6;
-	}
-
-	/* "30 / 70" and "70 / 30" layouts */
-	.wp-block-column[style*="33.33%"] {
-		grid-column-end: span 2;
-	}
-	.wp-block-column[style*="66.66%"] {
-		grid-column-end: span 4;
-	}
-}
-
-// Define mixin for sidebar layout
-@mixin sidebar-layout {
-	/* "30 / 70" and "70 / 30" layouts */
-	.wp-block-column[style*="33.33%"] {
-		grid-column: 2 / span 3;
-
-		+ .wp-block-column[style*="66.66%"] {
-			grid-column-start: 6;
-		}
-	}
-
-	.wp-block-column[style*="66.66%"] {
-		grid-column: 2 / span 6;
-
-		+ .wp-block-column[style*="33.33%"] {
-			grid-column-start: 9;
-		}
-
-		.alignleft {
-			margin-left: calc(-1 * ((var(--wp--style--global--wide-size) - (var(--wp--preset--spacing--50) * 11)) / 12 + var(--wp--preset--spacing--50)));
-		}
-
-		.alignright {
-			margin-right: calc(-1 * ((var(--wp--style--global--wide-size) - (var(--wp--preset--spacing--50) * 11)) / 12 + var(--wp--preset--spacing--50)));
-		}
-
-		> :first-child:is(.alignleft),
-		> :first-child:is(.alignright) {
-			+ * {
-				margin-top: 0;
-			}
-		}
-	}
-}
-
-// Experiment: hide column block if empty on smaller screens.
-// This is to prevent odd spacing issues, especially on mobile, but
-// may need to be removed if causing unexpected consiquences.
 .wp-block-columns {
+	// Hide column block if empty on smaller screens.
 	.wp-block-column:empty {
 		display: none;
 
@@ -127,6 +11,47 @@
 		}
 	}
 
+	// 25-50-25 layout special conditions.
+	&:has(.wp-block-column[style*="50%"]):has(.wp-block-column[style*="25%"]:empty):not(.wp-block) {
+		// Hide empty 25% columns below large screen.
+		.wp-block-column[style*="25%"]:empty {
+			display: none;
+
+			@include sass-utils.media(large) {
+				display: inherit;
+			}
+		}
+
+		// Center the 50% column.
+		.wp-block-column[style*="50%"] {
+			margin-left: auto;
+			margin-right: auto;
+			max-width: var(--wp--style--global--content-size);
+		}
+
+		// Both 25% columns are empty → 50% takes 100%.
+		&:not(:has(.wp-block-column[style*="25%"]:not(:empty))) {
+			.wp-block-column[style*="50%"] {
+				flex-basis: 100% !important;
+			}
+		}
+
+		// Only one 25% column is empty → 50% takes 75% (50% + empty 25%).
+		&:has(.wp-block-column[style*="25%"]:not(:empty)) {
+			.wp-block-column[style*="50%"] {
+				flex-basis: 75% !important;
+			}
+		}
+	}
+
+	// 12-column grid layout.
+	@include mixins.columns-grid__selectors {
+		@include sass-utils.media(large) {
+			@include mixins.columns-grid__layout;
+		}
+	}
+
+	// Borders style.
 	&.is-style-borders {
 		gap: var(--wp--preset--spacing--80) !important;
 
@@ -150,120 +75,6 @@
 			> .wp-block-column::after {
 				right: calc(-1 * var(--wp--preset--spacing--80) / 2 - 0.5px);
 			}
-		}
-	}
-}
-
-// Newspack Grid
-.newspack-grid {
-	@include sass-utils.media(large) {
-		/* "25 / 50 / 25" layout */
-		.wp-block-column[style*="25%"] {
-			flex-basis: 100% !important;
-			max-width: var(--wp--custom--width--x-small);
-		}
-	}
-
-	@include sass-utils.media(x-large) {
-		@include grid-layout;
-	}
-
-	.theme-variation-harold & {
-		@include sass-utils.media(large) {
-			@include grid-layout;
-		}
-	}
-
-	/* "25 / 50 / 25" layout */
-	&:has(.wp-block-column[style*="25%"]:empty):has(.wp-block-column[style*="50%"]):not(.wp-block) {
-		justify-content: center;
-
-		.wp-block-column[style*="50%"] {
-			flex-basis: 100% !important;
-			max-width: var(--wp--style--global--content-size);
-		}
-
-		.wp-block-column[style*="25%"]:empty {
-			display: none;
-
-			@include sass-utils.media(x-large) {
-				display: inherit;
-			}
-
-			.theme-variation-harold & {
-				@include sass-utils.media(large) {
-					display: inherit;
-				}
-			}
-		}
-
-		&:has(:not(.wp-block-column[style*="25%"]:empty)) {
-			.wp-block-column[style*="50%"] {
-				flex-basis: 75% !important;
-			}
-		}
-	}
-
-	&--sidebar {
-		.wp-block-column[style*="66.66%"] {
-			.wp-block-post-content {
-				padding-left: 0;
-				padding-right: 0;
-
-				> .alignfull {
-					margin-left: 0;
-					margin-right: 0;
-				}
-			}
-		}
-
-		@include sass-utils.media(medium) {
-			/* "30 / 70" and "70 / 30" layouts */
-			.wp-block-column[style*="33.33%"] {
-				flex-basis: 100% !important;
-				margin-left: auto;
-				margin-right: auto;
-				max-width: var(--wp--custom--width--x-small);
-			}
-
-			.wp-block-column[style*="66.66%"] {
-				flex-basis: 100% !important;
-				margin-left: auto;
-				margin-right: auto;
-				max-width: var(--wp--style--global--content-size);
-			}
-		}
-
-		@include sass-utils.media(x-large) {
-			@include sidebar-layout;
-		}
-
-		.theme-variation-harold & {
-			@include sass-utils.media(large) {
-				@include sidebar-layout;
-			}
-		}
-	}
-
-	.block-editor-block-preview__content-iframe &.columns-pattern {
-		margin: calc(var(--wp--custom--spacing--85) * 2) var(--wp--custom--spacing--85);
-
-		.wp-block-column {
-			background: var(--wp--preset--color--base-2);
-			min-height: calc(var(--wp--custom--spacing--85) * 3);
-		}
-	}
-}
-
-// Newspack Small Grid
-.newspack-grid-small {
-	@include sass-utils.media(x-large) {
-		@include small-grid-layout;
-	}
-
-	.theme-variation-harold & {
-		@include sass-utils.media(large) {
-			@include small-grid-layout;
 		}
 	}
 }
