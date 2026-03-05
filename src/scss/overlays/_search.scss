@@ -122,7 +122,7 @@ body .jetpack-instant-search {
 	&__overlay {
 		background: var(--wp--custom--color--neutral-70) !important;
 		color: var(--jp--color--text);
-		font-family: var(--newspack-ui-font-family, system-ui);
+		font-family: var(--newspack-ui-font-family, var(--wp--preset--font-family--inter, system-ui, sans-serif));
 		font-size: var(--newspack-ui-font-size-s, 16px);
 		line-height: var(--newspack-ui-line-height-s, 1.5);
 		padding: var(--wp--preset--spacing--30);
