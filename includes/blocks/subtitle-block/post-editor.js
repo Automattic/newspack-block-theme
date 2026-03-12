@@ -13,15 +13,30 @@ const META_FIELD_NAME = newspack_block_theme_subtitle_block.post_meta_name;
 const SUBTITLE_ID = 'newspack-post-subtitle-element';
 const SUBTITLE_STYLE_ID = 'newspack-post-subtitle-element-style';
 
+/**
+ * Get the correct document for the editor canvas.
+ * In iframe mode, the editor content is inside an iframe with name="editor-canvas".
+ * In non-iframe mode, falls back to the admin document.
+ */
+const getEditorCanvas = () => {
+	const iframe = document.querySelector( 'iframe[name="editor-canvas"]' );
+	if ( iframe?.contentDocument ) {
+		return iframe.contentDocument;
+	}
+	return document;
+};
+
 const appendSubtitleToTitleDOMElement = ( subtitle, callback ) => {
-	const titleWrapperEl = document.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
+	const editorDoc = getEditorCanvas();
+	const titleWrapperEl = editorDoc.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
 
 	if ( titleWrapperEl && typeof subtitle === 'string' ) {
-		let subtitleEl = document.getElementById( SUBTITLE_ID );
+		let subtitleEl = editorDoc.getElementById( SUBTITLE_ID );
 		const titleParent = titleWrapperEl.parentNode;
 
-		if ( ! document.getElementById( SUBTITLE_STYLE_ID ) ) {
-			const style = document.createElement( 'style' );
+		if ( ! editorDoc.getElementById( SUBTITLE_STYLE_ID ) ) {
+			const style = editorDoc.createElement( 'style' );
+			style.id = SUBTITLE_STYLE_ID;
 			style.innerHTML = `
                 #${ SUBTITLE_ID } {
                     font-style: italic;
@@ -33,11 +48,11 @@ const appendSubtitleToTitleDOMElement = ( subtitle, callback ) => {
                     padding-right: var(--wp--preset--spacing--30);
                 }
             `;
-			document.head.appendChild( style );
+			editorDoc.head.appendChild( style );
 		}
 
 		if ( ! subtitleEl ) {
-			subtitleEl = document.createElement( 'div' );
+			subtitleEl = editorDoc.createElement( 'div' );
 			subtitleEl.setAttribute( 'contenteditable', 'plaintext-only' );
 			subtitleEl.addEventListener( 'input', () => {
 				callback( subtitleEl.innerHTML );
@@ -65,7 +80,20 @@ const NewspackSubtitlePanel = () => {
 		} );
 	};
 	useEffect( () => {
-		appendSubtitleToTitleDOMElement( subtitle, saveSubtitle );
+		// Retry until the editor canvas (potentially inside an iframe) is ready.
+		let retryCount = 0;
+		const maxRetries = 50; // 5 seconds at 100ms intervals.
+		const tryAppend = () => {
+			const editorDoc = getEditorCanvas();
+			const titleWrapperEl = editorDoc.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
+			if ( titleWrapperEl ) {
+				appendSubtitleToTitleDOMElement( subtitle, saveSubtitle );
+			} else if ( retryCount < maxRetries ) {
+				retryCount++;
+				setTimeout( tryAppend, 100 );
+			}
+		};
+		tryAppend();
 	}, [] );
 };
 

@@ -21,7 +21,7 @@ final class Subtitle_Block {
 	 */
 	public static function init() {
 		\add_action( 'init', [ __CLASS__, 'register_block_and_post_meta' ] );
-		\add_action( 'enqueue_block_editor_assets', [ __CLASS__, 'enqueue_block_editor_assets' ] );
+		\add_action( 'enqueue_block_assets', [ __CLASS__, 'enqueue_block_assets' ] );
 	}
 
 	/**
@@ -29,7 +29,7 @@ final class Subtitle_Block {
 	 */
 	public static function register_block_and_post_meta() {
 		register_block_type_from_metadata(
-			__DIR__ . '/block.json',
+			__DIR__,
 			[
 				'render_callback' => [ __CLASS__, 'render_block' ],
 			]
@@ -56,10 +56,13 @@ final class Subtitle_Block {
 	}
 
 	/**
-	 * Enqueue block editor ad suppression assets for any post type considered
-	 * "viewable".
+	 * Enqueue block editor subtitle assets for the appropriate editor context.
 	 */
-	public static function enqueue_block_editor_assets() {
+	public static function enqueue_block_assets() {
+		if ( ! \wp_should_load_block_editor_scripts_and_styles() ) {
+			return;
+		}
+
 		$script_data = [
 			'post_meta_name' => self::POST_META_NAME,
 		];
@@ -67,7 +70,7 @@ final class Subtitle_Block {
 		global $pagenow;
 		if ( $pagenow === 'site-editor.php' ) {
 			$handle = 'newspack-block-theme-subtitle-block-site-editor';
-			\wp_enqueue_script( $handle, \get_theme_file_uri( 'dist/subtitle-block-site-editor.js' ), [], NEWSPACK_BLOCK_THEME_VERSION, true );
+			\wp_enqueue_script( $handle, \get_theme_file_uri( 'dist/subtitle-block-site-editor.js' ), [ 'wp-block-editor' ], NEWSPACK_BLOCK_THEME_VERSION, true );
 			\wp_localize_script( $handle, 'newspack_block_theme_subtitle_block', $script_data );
 		}
 
