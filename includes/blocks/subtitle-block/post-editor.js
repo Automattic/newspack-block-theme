@@ -6,7 +6,7 @@
  */
 import { registerPlugin } from '@wordpress/plugins';
 import { useSelect, useDispatch } from '@wordpress/data';
-import { useEffect } from '@wordpress/element';
+import { useEffect, useCallback, useRef } from '@wordpress/element';
 
 const META_FIELD_NAME = newspack_block_theme_subtitle_block.post_meta_name;
 
@@ -60,7 +60,11 @@ const appendSubtitleToTitleDOMElement = ( subtitle, callback ) => {
 			subtitleEl.id = SUBTITLE_ID;
 			titleParent.insertBefore( subtitleEl, titleWrapperEl.nextSibling );
 		}
-		subtitleEl.innerHTML = subtitle;
+		// Only update innerHTML if it differs, to avoid frustrating fast
+		// typists.
+		if ( subtitleEl.innerHTML !== subtitle ) {
+			subtitleEl.innerHTML = subtitle;
+		}
 	}
 };
 
@@ -71,14 +75,19 @@ const appendSubtitleToTitleDOMElement = ( subtitle, callback ) => {
  */
 const NewspackSubtitlePanel = () => {
 	const subtitle = useSelect( select => select( 'core/editor' ).getEditedPostAttribute( 'meta' )[ META_FIELD_NAME ] );
-	const dispatch = useDispatch();
-	const saveSubtitle = updatedSubtitle => {
-		dispatch( 'core/editor' ).editPost( {
-			meta: {
-				[ META_FIELD_NAME ]: updatedSubtitle,
-			},
-		} );
-	};
+	const { editPost } = useDispatch( 'core/editor' );
+	const saveSubtitle = useCallback(
+		updatedSubtitle => {
+			editPost( {
+				meta: {
+					[ META_FIELD_NAME ]: updatedSubtitle,
+				},
+			} );
+		},
+		[ editPost ]
+	);
+	// Track timeout with a ref so we can find it for cleanup.
+	const timeoutRef = useRef();
 	useEffect( () => {
 		// Retry until the editor canvas (potentially inside an iframe) is ready.
 		let retryCount = 0;
@@ -90,11 +99,14 @@ const NewspackSubtitlePanel = () => {
 				appendSubtitleToTitleDOMElement( subtitle, saveSubtitle );
 			} else if ( retryCount < maxRetries ) {
 				retryCount++;
-				setTimeout( tryAppend, 100 );
+				timeoutRef.current = setTimeout( tryAppend, 100 );
 			}
 		};
 		tryAppend();
-	}, [] );
+		return () => {
+			clearTimeout( timeoutRef.current );
+		};
+	}, [ subtitle, saveSubtitle ] );
 };
 
 registerPlugin( 'plugin-document-setting-panel-newspack-subtitle', {
