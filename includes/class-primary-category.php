@@ -58,16 +58,29 @@ final class Primary_Category {
 
 		// Build the primary category link.
 		$category_link = \get_category_link( $category->term_id );
-		$link_html     = '<a href="' . \esc_url( $category_link ) . '" rel="tag">' . \esc_html( $category->name ) . '</a>';
+		if ( ! $category_link || \is_wp_error( $category_link ) ) {
+			return $block_content;
+		}
+		$link_html = '<a href="' . \esc_url( $category_link ) . '" rel="tag">' . \esc_html( $category->name ) . '</a>';
 
-		// Replace the inner content of the wrapper element, preserving wrapper attributes.
-		$block_content = preg_replace(
+		// Extract prefix and suffix spans if present, then rebuild inner content.
+		$prefix = '';
+		$suffix = '';
+		if ( preg_match( '/<span[^>]*class="[^"]*wp-block-post-terms__prefix[^"]*"[^>]*>.*?<\/span>/s', $block_content, $matches ) ) {
+			$prefix = $matches[0];
+		}
+		if ( preg_match( '/<span[^>]*class="[^"]*wp-block-post-terms__suffix[^"]*"[^>]*>.*?<\/span>/s', $block_content, $matches ) ) {
+			$suffix = $matches[0];
+		}
+
+		// Replace the inner content of the wrapper element, preserving wrapper attributes, prefix, and suffix.
+		$result = preg_replace(
 			'/(<div[^>]*class="[^"]*wp-block-post-terms[^"]*"[^>]*>).*(<\/div>)/s',
-			'$1' . $link_html . '$2',
+			'$1' . $prefix . $link_html . $suffix . '$2',
 			$block_content
 		);
 
-		return $block_content;
+		return null !== $result ? $result : $block_content;
 	}
 }
 
