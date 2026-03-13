@@ -26,8 +26,7 @@ const getEditorCanvas = () => {
 	return document;
 };
 
-const appendSubtitleToTitleDOMElement = ( subtitle, callback ) => {
-	const editorDoc = getEditorCanvas();
+const appendSubtitleToTitleDOMElement = ( subtitle, editorDoc, callback ) => {
 	const titleWrapperEl = editorDoc.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
 
 	if ( titleWrapperEl && typeof subtitle === 'string' ) {
@@ -96,7 +95,7 @@ const NewspackSubtitlePanel = () => {
 			const editorDoc = getEditorCanvas();
 			const titleWrapperEl = editorDoc.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
 			if ( titleWrapperEl ) {
-				appendSubtitleToTitleDOMElement( subtitle, saveSubtitle );
+				appendSubtitleToTitleDOMElement( subtitle, editorDoc, saveSubtitle );
 			} else if ( retryCount < maxRetries ) {
 				retryCount++;
 				timeoutRef.current = setTimeout( tryAppend, 100 );
