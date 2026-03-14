@@ -54,15 +54,15 @@ const appendSubtitleToTitleDOMElement = ( subtitle, editorDoc, callback ) => {
 			subtitleEl = editorDoc.createElement( 'div' );
 			subtitleEl.setAttribute( 'contenteditable', 'plaintext-only' );
 			subtitleEl.addEventListener( 'input', () => {
-				callback( subtitleEl.innerHTML );
+				callback( subtitleEl.textContent );
 			} );
 			subtitleEl.id = SUBTITLE_ID;
 			titleParent.insertBefore( subtitleEl, titleWrapperEl.nextSibling );
 		}
-		// Only update innerHTML if it differs, to avoid frustrating fast
+		// Only update textContent if it differs, to avoid frustrating fast
 		// typists.
-		if ( subtitleEl.innerHTML !== subtitle ) {
-			subtitleEl.innerHTML = subtitle;
+		if ( subtitleEl.textContent !== subtitle ) {
+			subtitleEl.textContent = subtitle;
 		}
 	}
 };

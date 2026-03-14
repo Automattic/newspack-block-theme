@@ -52,7 +52,7 @@ final class Subtitle_Block {
 	public static function render_block() {
 		$post_subtitle = get_post_meta( get_the_ID(), self::POST_META_NAME, true );
 		$wrapper_attributes = get_block_wrapper_attributes();
-		return sprintf( '<p %1$s>%2$s</p>', $wrapper_attributes, $post_subtitle );
+		return sprintf( '<p %1$s>%2$s</p>', $wrapper_attributes, esc_html( $post_subtitle ) );
 	}
 
 	/**
