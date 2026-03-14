@@ -19,7 +19,6 @@ const EditComponent = ( { context: { postType, postId } } ) => {
 };
 
 const blockData = {
-	apiVersion: 3,
 	title: __( 'Article Subtitle', 'newspack-block-theme' ),
 	icon: {
 		src: <Icon icon={ listView } />,
