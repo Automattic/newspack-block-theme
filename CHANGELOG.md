@@ -1,3 +1,14 @@
+# [1.26.0](https://github.com/Automattic/newspack-block-theme/compare/v1.25.0...v1.26.0) (2026-03-16)
+
+
+### Features
+
+* add AGENTS.md and CLAUDE.md; update README.md ([#420](https://github.com/Automattic/newspack-block-theme/issues/420)) ([7494928](https://github.com/Automattic/newspack-block-theme/commit/7494928ab6d11c941bc153842fde0eb641b9f349))
+* add featured image caption block to templates ([#415](https://github.com/Automattic/newspack-block-theme/issues/415)) ([7db45fe](https://github.com/Automattic/newspack-block-theme/commit/7db45fe737d7cdf36b4c4ca435c090d3efd9e90b))
+* add new styles ([#416](https://github.com/Automattic/newspack-block-theme/issues/416)) ([37e82db](https://github.com/Automattic/newspack-block-theme/commit/37e82dbcdbd00a06adb4f70571783f5234ebb0a4))
+* remove newspack-grid, newspack-grid-small, newspack-grid-sidebar ([#417](https://github.com/Automattic/newspack-block-theme/issues/417)) ([86b8292](https://github.com/Automattic/newspack-block-theme/commit/86b8292489d51fdab5430f70bace3c50d32eb332))
+* use dynamic copyright date block in footer patterns ([#414](https://github.com/Automattic/newspack-block-theme/issues/414)) ([22c9bc8](https://github.com/Automattic/newspack-block-theme/commit/22c9bc826b385098379a5139511658c62880bba5))
+
 # [1.26.0-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.25.0...v1.26.0-alpha.1) (2026-03-05)
 
 
