@@ -84,10 +84,9 @@ const NewspackSubtitlePanel = () => {
 		},
 		[ editPost ]
 	);
-	// Track timeout with a ref so we can find it for cleanup.
+	// Mount effect: poll for canvas, then create element.
 	const timeoutRef = useRef();
 	useEffect( () => {
-		// Retry until the editor canvas (potentially inside an iframe) is ready.
 		let retryCount = 0;
 		const maxRetries = 50; // 5 seconds at 100ms intervals.
 		const tryAppend = () => {
@@ -104,7 +103,17 @@ const NewspackSubtitlePanel = () => {
 		return () => {
 			clearTimeout( timeoutRef.current );
 		};
-	}, [ subtitle, saveSubtitle ] );
+	}, [] ); // eslint-disable-line react-hooks/exhaustive-deps
+
+	// Sync effect: update element when subtitle changes.
+	// Extracted from appendSubtitleToTitleDOMElement() above.
+	useEffect( () => {
+		const editorDoc = getEditorCanvas();
+		const subtitleEl = editorDoc.getElementById( SUBTITLE_ID );
+		if ( subtitleEl && subtitleEl.textContent !== subtitle ) {
+			subtitleEl.textContent = subtitle;
+		}
+	}, [ subtitle ] );
 };
 
 registerPlugin( 'plugin-document-setting-panel-newspack-subtitle', {
