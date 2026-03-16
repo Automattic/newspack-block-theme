@@ -24,6 +24,22 @@ If you have a patch or have stumbled upon an issue with the Newspack plugin/them
 - Run `npm start` to compile the SCSS and JS files, and start file watcher.
 - Run `npm run build` to perform a single compilation run.
 
+### Theme structure
+
+This is a WordPress block theme. Global styles, layout, typography, and color are defined in `theme.json`. Templates and template parts are HTML block markup files:
+
+- `templates/` — Page templates (front page, single, archive, search, 404, etc.). Some templates have layout variants in subdirectories (e.g. `templates/single/`, `templates/page/`).
+- `parts/` — Reusable template parts (header, footer, menus). Headers and footers have separate mobile and desktop variants (e.g. `parts/header-mobile.html`, `parts/header-desktop.html`).
+- `patterns/` — Block patterns organized into subdirectories by category (header, footer, post-header, post-meta, etc.). Note that patterns in subdirectories are not auto-registered by WordPress and are handled manually in `includes/class-patterns.php`.
+
+### Blocks
+
+This theme contains one custom block (`includes/blocks/subtitle-block/`) which is tightly coupled to theme-level post metadata. New blocks should not be added here — they belong in `newspack-plugin` (most cases) or `newspack-blocks`.
+
+### Style variations
+
+Two style variations are available in `styles/`: `harold.json` and `paul.json`. Each is a partial `theme.json` that overrides colors and typography from the base theme. Style variations can be selected from Appearance > Design in wp-admin.
+
 ### Variables
 
 A cheat sheet of the most important CSS variables is available [here](https://github.com/Automattic/newspack-block-theme/blob/trunk/.github/VARIABLES.md).

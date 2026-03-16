@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Newspack Block Theme 1.23.0\n"
+"Project-Id-Version: Newspack Block Theme 1.25.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/newspack-block-theme\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-13T23:22:58+00:00\n"
+"POT-Creation-Date: 2026-03-03T16:04:27+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: newspack-block-theme\n"
@@ -68,26 +68,18 @@ msgid "Patterns bundled with the Newspack Block Theme, specifically built for th
 msgstr ""
 
 #: includes/class-patterns.php:141
-msgid "Newspack Theme - Columns"
-msgstr ""
-
-#: includes/class-patterns.php:142
-msgid "Patterns bundled with the Newspack Block Theme, specifically built for the columns to perfectly fit the grid."
-msgstr ""
-
-#: includes/class-patterns.php:149
 msgid "Newspack Theme - Post Header"
 msgstr ""
 
-#: includes/class-patterns.php:150
+#: includes/class-patterns.php:142
 msgid "Patterns bundled with the Newspack Block Theme, specifically built for the post header."
 msgstr ""
 
-#: includes/class-patterns.php:157
+#: includes/class-patterns.php:149
 msgid "Newspack Theme - Post Meta"
 msgstr ""
 
-#: includes/class-patterns.php:158
+#: includes/class-patterns.php:150
 msgid "Patterns bundled with the Newspack Block Theme, specifically built for the post meta."
 msgstr ""
 
@@ -128,36 +120,6 @@ msgstr ""
 #: patterns/author-bio/author-bio.php
 msgctxt "Pattern title"
 msgid "Author Bio"
-msgstr ""
-
-#: patterns/columns/columns-15-70-15.php
-msgctxt "Pattern title"
-msgid "15 / 70 / 15"
-msgstr ""
-
-#: patterns/columns/columns-25-25-25-25.php
-msgctxt "Pattern title"
-msgid "25 / 25 / 25 / 25"
-msgstr ""
-
-#: patterns/columns/columns-25-50-25.php
-msgctxt "Pattern title"
-msgid "25 / 50 / 25"
-msgstr ""
-
-#: patterns/columns/columns-33-33-33.php
-msgctxt "Pattern title"
-msgid "33 / 33 / 33"
-msgstr ""
-
-#: patterns/columns/columns-33-66.php
-msgctxt "Pattern title"
-msgid "33 / 66"
-msgstr ""
-
-#: patterns/columns/columns-66-33.php
-msgctxt "Pattern title"
-msgid "66 / 33"
 msgstr ""
 
 #: patterns/comments.php
@@ -226,21 +188,21 @@ msgstr ""
 msgid "Copyright"
 msgstr ""
 
-#: patterns/footer/footer-desktop-style-1.php:62
-#: patterns/footer/footer-desktop-style-2.php:70
-#: patterns/footer/footer-desktop-style-3.php:90
-#: patterns/footer/footer-desktop-style-4.php:89
-#: patterns/footer/footer-desktop-style-5.php:91
-#: patterns/footer/footer-mobile-style-1.php:63
+#: patterns/footer/footer-desktop-style-1.php:60
+#: patterns/footer/footer-desktop-style-2.php:68
+#: patterns/footer/footer-desktop-style-3.php:88
+#: patterns/footer/footer-desktop-style-4.php:87
+#: patterns/footer/footer-desktop-style-5.php:89
+#: patterns/footer/footer-mobile-style-1.php:61
 msgid "Powered By"
 msgstr ""
 
-#: patterns/footer/footer-desktop-style-1.php:63
-#: patterns/footer/footer-desktop-style-2.php:71
-#: patterns/footer/footer-desktop-style-3.php:91
-#: patterns/footer/footer-desktop-style-4.php:90
-#: patterns/footer/footer-desktop-style-5.php:92
-#: patterns/footer/footer-mobile-style-1.php:64
+#: patterns/footer/footer-desktop-style-1.php:61
+#: patterns/footer/footer-desktop-style-2.php:69
+#: patterns/footer/footer-desktop-style-3.php:89
+#: patterns/footer/footer-desktop-style-4.php:88
+#: patterns/footer/footer-desktop-style-5.php:90
+#: patterns/footer/footer-mobile-style-1.php:62
 msgid "Powered by Newspack"
 msgstr ""
 
@@ -457,77 +419,168 @@ msgid "Article Subtitle"
 msgstr ""
 
 #: theme.json
-#: styles/harold.json
-#: styles/paul.json
-msgctxt "Color name"
-msgid "Base"
-msgstr ""
-
-#: theme.json
-#: styles/harold.json
-#: styles/paul.json
-msgctxt "Color name"
-msgid "Base / Two"
-msgstr ""
-
-#: theme.json
-#: styles/harold.json
-#: styles/paul.json
-msgctxt "Color name"
-msgid "Base / Three"
-msgstr ""
-
-#: theme.json
-#: styles/harold.json
-msgctxt "Color name"
-msgid "Base / Four"
-msgstr ""
-
-#: theme.json
-#: styles/harold.json
-msgctxt "Color name"
-msgid "Base / Five"
-msgstr ""
-
-#: theme.json
-#: styles/harold.json
-#: styles/paul.json
-msgctxt "Color name"
-msgid "Contrast"
-msgstr ""
-
-#: theme.json
-#: styles/harold.json
-#: styles/paul.json
-msgctxt "Color name"
-msgid "Contrast / Two"
-msgstr ""
-
-#: theme.json
-#: styles/harold.json
-#: styles/paul.json
-msgctxt "Color name"
-msgid "Contrast / Three"
-msgstr ""
-
-#: theme.json
-#: styles/harold.json
-#: styles/paul.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
 msgctxt "Color name"
 msgid "Accent"
 msgstr ""
 
 #: theme.json
-#: styles/harold.json
-#: styles/paul.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
 msgctxt "Color name"
 msgid "Accent / Two"
 msgstr ""
 
 #: theme.json
-#: styles/harold.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
 msgctxt "Color name"
 msgid "Accent / Three"
+msgstr ""
+
+#: theme.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
+msgctxt "Color name"
+msgid "Base"
+msgstr ""
+
+#: theme.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
+msgctxt "Color name"
+msgid "Base / Two"
+msgstr ""
+
+#: theme.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
+msgctxt "Color name"
+msgid "Base / Three"
+msgstr ""
+
+#: theme.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
+msgctxt "Color name"
+msgid "Base / Four"
+msgstr ""
+
+#: theme.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
+msgctxt "Color name"
+msgid "Base / Five"
+msgstr ""
+
+#: theme.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
+msgctxt "Color name"
+msgid "Contrast"
+msgstr ""
+
+#: theme.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
+msgctxt "Color name"
+msgid "Contrast / Two"
+msgstr ""
+
+#: theme.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
+msgctxt "Color name"
+msgid "Contrast / Three"
 msgstr ""
 
 #: theme.json
@@ -596,11 +649,16 @@ msgid "7"
 msgstr ""
 
 #: theme.json
-msgctxt "Font family name"
-msgid "System Font"
-msgstr ""
-
-#: theme.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
 msgctxt "Font family name"
 msgid "Inter"
 msgstr ""
@@ -750,32 +808,105 @@ msgctxt "Template part name"
 msgid "Footer (Mobile)"
 msgstr ""
 
-#: styles/harold.json
+#: styles/01-theme-alt.json
 msgctxt "Style variation name"
-msgid "Harold"
+msgid "Default alt"
 msgstr ""
 
-#: styles/harold.json
-msgctxt "Font family name"
-msgid "Fraunces"
+#: styles/02-arc.json
+msgctxt "Style variation name"
+msgid "Arc"
 msgstr ""
 
-#: styles/harold.json
+#: styles/02-arc.json
+#: styles/03-arc-alt.json
 msgctxt "Font family name"
 msgid "Nunito"
 msgstr ""
 
-#: styles/paul.json
+#: styles/03-arc-alt.json
 msgctxt "Style variation name"
-msgid "Paul"
+msgid "Arc alt"
 msgstr ""
 
-#: styles/paul.json
+#: styles/04-bulletin.json
+msgctxt "Style variation name"
+msgid "Bulletin"
+msgstr ""
+
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+msgctxt "Font family name"
+msgid "Fraunces"
+msgstr ""
+
+#: styles/04-bulletin.json
+#: styles/05-bulletin-alt.json
+msgctxt "Font family name"
+msgid "DM Sans"
+msgstr ""
+
+#: styles/05-bulletin-alt.json
+msgctxt "Style variation name"
+msgid "Bulletin alt"
+msgstr ""
+
+#: styles/06-foundry.json
+msgctxt "Style variation name"
+msgid "Foundry"
+msgstr ""
+
+#: styles/06-foundry.json
+#: styles/07-foundry-alt.json
+msgctxt "Font family name"
+msgid "EB Garamond"
+msgstr ""
+
+#: styles/07-foundry-alt.json
+msgctxt "Style variation name"
+msgid "Foundry alt"
+msgstr ""
+
+#: styles/08-ledger.json
+msgctxt "Style variation name"
+msgid "Ledger"
+msgstr ""
+
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
 msgctxt "Font family name"
 msgid "Jost"
 msgstr ""
 
-#: styles/paul.json
+#: styles/08-ledger.json
+#: styles/09-ledger-alt.json
 msgctxt "Font family name"
 msgid "Newsreader"
+msgstr ""
+
+#: styles/09-ledger-alt.json
+msgctxt "Style variation name"
+msgid "Ledger alt"
+msgstr ""
+
+#: styles/10-nocturne.json
+msgctxt "Style variation name"
+msgid "Nocturne"
+msgstr ""
+
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
+msgctxt "Font family name"
+msgid "Plus Jakarta Sans"
+msgstr ""
+
+#: styles/10-nocturne.json
+#: styles/11-nocturne-alt.json
+msgctxt "Font family name"
+msgid "Public Sans"
+msgstr ""
+
+#: styles/11-nocturne-alt.json
+msgctxt "Style variation name"
+msgid "Nocturne alt"
 msgstr ""
