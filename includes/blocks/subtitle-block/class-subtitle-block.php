@@ -72,7 +72,7 @@ final class Subtitle_Block {
 			$handle = 'newspack-block-theme-subtitle-block-site-editor';
 			\wp_enqueue_script( $handle, \get_theme_file_uri( 'dist/subtitle-block-site-editor.js' ), [ 'wp-block-editor' ], NEWSPACK_BLOCK_THEME_VERSION, true );
 			\wp_localize_script( $handle, 'newspack_block_theme_subtitle_block', $script_data );
-		} elseif ( \get_current_screen()->post_type === 'post' ) {
+		} elseif ( \get_current_screen() && \get_current_screen()->post_type === 'post' ) {
 			$handle = 'newspack-block-theme-subtitle-block-post-editor';
 			\wp_enqueue_script( $handle, \get_theme_file_uri( 'dist/subtitle-block-post-editor.js' ), [], NEWSPACK_BLOCK_THEME_VERSION, true );
 			\wp_localize_script( $handle, 'newspack_block_theme_subtitle_block', $script_data );
