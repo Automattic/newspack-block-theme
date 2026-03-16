@@ -59,8 +59,7 @@ const appendSubtitleToTitleDOMElement = ( subtitle, editorDoc, callback ) => {
 			subtitleEl.id = SUBTITLE_ID;
 			titleParent.insertBefore( subtitleEl, titleWrapperEl.nextSibling );
 		}
-		// Only update textContent if it differs, to avoid frustrating fast
-		// typists.
+		// Only update textContent if it differs, to avoid frustrating fast typists.
 		if ( subtitleEl.textContent !== subtitle ) {
 			subtitleEl.textContent = subtitle;
 		}
