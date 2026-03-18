@@ -34,7 +34,7 @@ $registry = WP_Block_Type_Registry::get_instance();
 
 <!-- wp:post-date {"lock":{"move":true,"remove":true}} /-->
 
-<!-- wp:post-date {"displayType":"modified","lock":{"move":true,"remove":false}} /--></div>
+<!-- wp:post-date {"displayType":"modified","lock":{"move":true,"remove":true}} /--></div>
 <!-- /wp:group -->
 
 <!-- wp:pattern {"slug":"newspack-block-theme/jetpack-sharing-buttons-center"} /-->
