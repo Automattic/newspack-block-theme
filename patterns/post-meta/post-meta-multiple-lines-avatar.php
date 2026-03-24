@@ -41,7 +41,9 @@ $registry = WP_Block_Type_Registry::get_instance();
 
 <?php endif; ?>
 
-<!-- wp:post-date {"format":"F j, Y"} /--></div>
+<!-- wp:post-date {"format":"F j, Y"} /-->
+
+<!-- wp:post-date {"displayType":"modified","format":"F j, Y"} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
