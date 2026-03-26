@@ -5,6 +5,50 @@ import { domReady } from '../utils';
 import { createMenu, createFocusTrap } from './index';
 
 /**
+ * Swaps the .wp-block-comments element inside the panel with the one found in
+ * the parsed HTML document, then updates the URL and focus trap.
+ *
+ * @param {Document}    doc      Parsed HTML document from a fetch response.
+ * @param {string}      finalUrl The URL of the fetched page (after any redirects).
+ * @param {HTMLElement} contents The .comments-menu__contents panel element.
+ */
+const swapCommentsBlock = ( doc, finalUrl, contents ) => {
+	const commentsBlock = contents.querySelector( '.wp-block-comments' );
+	if ( ! commentsBlock ) {
+		return false;
+	}
+
+	const newBlock = doc.querySelector( '.comments-menu__contents .wp-block-comments' ) || doc.querySelector( '.wp-block-comments' );
+
+	if ( ! newBlock ) {
+		return false;
+	}
+
+	commentsBlock.replaceWith( newBlock );
+
+	// Update the URL so refresh / auto-open logic stays accurate.
+	history.pushState( null, doc.title, finalUrl );
+
+	// Scroll to the new comment if the URL has a hash, otherwise scroll to top.
+	const hash = new URL( finalUrl ).hash;
+	if ( hash ) {
+		setTimeout( () => {
+			const target = contents.querySelector( hash );
+			if ( target ) {
+				target.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+			}
+		}, 100 );
+	} else {
+		contents.scrollTop = 0;
+	}
+
+	// Re-create the focus trap now that the DOM has changed.
+	createFocusTrap( contents );
+
+	return true;
+};
+
+/**
  * Loads a comment page via fetch and swaps the comments block content in the
  * panel without a full page reload.
  *
@@ -30,30 +74,54 @@ const loadCommentPage = ( url, contents ) => {
 		} )
 		.then( html => {
 			const doc = new DOMParser().parseFromString( html, 'text/html' );
-
-			// Pull the updated comments block from the fetched page.
-			// Use the panel-specific selector so we don't grab a full-page comments section.
-			const newBlock = doc.querySelector( '.comments-menu__contents .wp-block-comments' ) || doc.querySelector( '.wp-block-comments' );
-
-			if ( ! newBlock ) {
+			if ( ! swapCommentsBlock( doc, url, contents ) ) {
 				window.location.href = url;
-				return;
 			}
-
-			commentsBlock.replaceWith( newBlock );
-
-			// Update the URL so refresh / auto-open logic stays accurate.
-			history.pushState( null, doc.title, url );
-
-			// Scroll the panel back to the top of the new content.
-			contents.scrollTop = 0;
-
-			// Re-create the focus trap now that the DOM has changed.
-			createFocusTrap( contents );
 		} )
 		.catch( () => {
 			// On any error, fall back to normal navigation so pagination still works.
 			window.location.href = url;
+		} );
+};
+
+/**
+ * Submits the comment form via fetch and swaps the comments block content in
+ * the panel without a full page reload, keeping the panel open.
+ *
+ * @param {HTMLFormElement} form     The comment form element.
+ * @param {HTMLElement}     contents The .comments-menu__contents panel element.
+ */
+const submitCommentForm = ( form, contents ) => {
+	const commentsBlock = contents.querySelector( '.wp-block-comments' );
+	if ( ! commentsBlock ) {
+		return;
+	}
+
+	// Show a loading state by reducing opacity.
+	commentsBlock.style.opacity = '0.4';
+	commentsBlock.style.pointerEvents = 'none';
+
+	fetch( form.action, {
+		method: 'POST',
+		body: new FormData( form ),
+		redirect: 'follow',
+	} )
+		.then( response => {
+			if ( ! response.ok ) {
+				throw new Error( response.statusText );
+			}
+			const finalUrl = response.url;
+			return response.text().then( html => ( { html, finalUrl } ) );
+		} )
+		.then( ( { html, finalUrl } ) => {
+			const doc = new DOMParser().parseFromString( html, 'text/html' );
+			if ( ! swapCommentsBlock( doc, finalUrl, contents ) ) {
+				form.submit();
+			}
+		} )
+		.catch( () => {
+			// On any error, fall back to normal form submission.
+			form.submit();
 		} );
 };
 
@@ -87,6 +155,20 @@ domReady( function () {
 			}
 			event.preventDefault();
 			loadCommentPage( link.href, contents );
+		} );
+
+		// Intercept comment form submission to keep the panel open after posting.
+		contents.addEventListener( 'submit', event => {
+			const form = event.target.closest( '#commentform' );
+			if ( ! form ) {
+				return;
+			}
+			// Only intercept same-origin form actions.
+			if ( new URL( form.action ).origin !== window.location.origin ) {
+				return;
+			}
+			event.preventDefault();
+			submitCommentForm( form, contents );
 		} );
 	}
 
