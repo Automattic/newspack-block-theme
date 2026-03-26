@@ -3,6 +3,7 @@
  */
 import { domReady } from '../utils';
 import { createMenu, createFocusTrap } from './index';
+import { ANIMATION_DURATION } from './consts';
 
 /**
  * Swaps the .wp-block-comments element inside the panel with the one found in
@@ -183,14 +184,14 @@ domReady( function () {
 		if ( toggle ) {
 			toggle.click();
 
-			// After the panel's slide-in animation (250ms), scroll to the target comment.
+			// After the panel's slide-in animation, scroll to the target comment.
 			if ( commentHash ) {
 				setTimeout( () => {
 					const target = document.querySelector( commentHash );
 					if ( target ) {
 						target.scrollIntoView( { behavior: 'smooth', block: 'start' } );
 					}
-				}, 400 );
+				}, ANIMATION_DURATION.POSITION + 150 );
 			}
 		}
 	}
