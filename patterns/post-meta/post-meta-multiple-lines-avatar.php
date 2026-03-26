@@ -43,7 +43,7 @@ $registry = WP_Block_Type_Registry::get_instance();
 
 <!-- wp:post-date {"format":"F j, Y"} /-->
 
-<!-- wp:post-date {"displayType":"modified","format":"F j, Y"} /--></div>
+<!-- wp:post-date {"metadata":{"bindings":{"datetime":{"source":"core/post-data","args":{"field":"modified"}}}},"className":"wp-block-post-date__modified-date","format":"F j, Y"} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
