@@ -26,8 +26,8 @@ const swapCommentsBlock = ( doc, finalUrl, contents ) => {
 
 	commentsBlock.replaceWith( newBlock );
 
-	// Update the URL so refresh / auto-open logic stays accurate.
-	history.pushState( null, doc.title, finalUrl );
+	// Update the URL so refresh / auto-open logic stays accurate without adding a new history entry.
+	history.replaceState( null, doc.title, finalUrl );
 
 	// Scroll to the new comment if the URL has a hash, otherwise scroll to top.
 	const hash = new URL( finalUrl ).hash;
