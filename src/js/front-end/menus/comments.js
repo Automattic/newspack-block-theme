@@ -70,12 +70,13 @@ const loadCommentPage = ( url, contents ) => {
 			if ( ! response.ok ) {
 				throw new Error( response.statusText );
 			}
-			return response.text();
+			const finalUrl = response.url;
+			return response.text().then( html => ( { html, finalUrl } ) );
 		} )
-		.then( html => {
+		.then( ( { html, finalUrl } ) => {
 			const doc = new DOMParser().parseFromString( html, 'text/html' );
-			if ( ! swapCommentsBlock( doc, url, contents ) ) {
-				window.location.href = url;
+			if ( ! swapCommentsBlock( doc, finalUrl, contents ) ) {
+				window.location.href = finalUrl;
 			}
 		} )
 		.catch( () => {
