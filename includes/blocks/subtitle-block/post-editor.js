@@ -29,7 +29,7 @@ const getEditorCanvas = () => {
 const appendSubtitleToTitleDOMElement = ( subtitle, editorDoc, callback ) => {
 	const titleWrapperEl = editorDoc.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
 
-	if ( titleWrapperEl && typeof subtitle === 'string' ) {
+	if ( titleWrapperEl ) {
 		let subtitleEl = editorDoc.getElementById( SUBTITLE_ID );
 		const titleParent = titleWrapperEl.parentNode;
 
@@ -60,8 +60,9 @@ const appendSubtitleToTitleDOMElement = ( subtitle, editorDoc, callback ) => {
 			titleParent.insertBefore( subtitleEl, titleWrapperEl.nextSibling );
 		}
 		// Only update textContent if it differs, to avoid frustrating fast typists.
-		if ( subtitleEl.textContent !== subtitle ) {
-			subtitleEl.textContent = subtitle;
+		const subtitleText = subtitle ?? '';
+		if ( subtitleEl.textContent !== subtitleText ) {
+			subtitleEl.textContent = subtitleText;
 		}
 	}
 };
