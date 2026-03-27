@@ -70,11 +70,13 @@ final class Subtitle_Block {
 		global $pagenow;
 		if ( $pagenow === 'site-editor.php' ) {
 			$handle = 'newspack-block-theme-subtitle-block-site-editor';
-			\wp_enqueue_script( $handle, \get_theme_file_uri( 'dist/subtitle-block-site-editor.js' ), [ 'wp-block-editor' ], NEWSPACK_BLOCK_THEME_VERSION, true );
+			$asset  = require \get_theme_file_path( 'dist/subtitle-block-site-editor.asset.php' );
+			\wp_enqueue_script( $handle, \get_theme_file_uri( 'dist/subtitle-block-site-editor.js' ), $asset['dependencies'], $asset['version'], true );
 			\wp_localize_script( $handle, 'newspack_block_theme_subtitle_block', $script_data );
 		} elseif ( \get_current_screen() && \get_current_screen()->post_type === 'post' ) {
 			$handle = 'newspack-block-theme-subtitle-block-post-editor';
-			\wp_enqueue_script( $handle, \get_theme_file_uri( 'dist/subtitle-block-post-editor.js' ), [], NEWSPACK_BLOCK_THEME_VERSION, true );
+			$asset  = require \get_theme_file_path( 'dist/subtitle-block-post-editor.asset.php' );
+			\wp_enqueue_script( $handle, \get_theme_file_uri( 'dist/subtitle-block-post-editor.js' ), $asset['dependencies'], $asset['version'], true );
 			\wp_localize_script( $handle, 'newspack_block_theme_subtitle_block', $script_data );
 		}
 	}
