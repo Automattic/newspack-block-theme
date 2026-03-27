@@ -84,6 +84,11 @@ const NewspackSubtitlePanel = () => {
 		},
 		[ editPost ]
 	);
+	// Keep current subtitle state visible within effect.
+	const subtitleRef = useRef( subtitle );
+	useEffect( () => {
+		subtitleRef.current = subtitle;
+	}, [ subtitle ] );
 	// Mount effect: poll for canvas, then create element.
 	const timeoutRef = useRef();
 	useEffect( () => {
@@ -93,7 +98,7 @@ const NewspackSubtitlePanel = () => {
 			const editorDoc = getEditorCanvas();
 			const titleWrapperEl = editorDoc.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
 			if ( titleWrapperEl ) {
-				appendSubtitleToTitleDOMElement( subtitle, editorDoc, saveSubtitle );
+				appendSubtitleToTitleDOMElement( subtitleRef.current, editorDoc, saveSubtitle );
 			} else if ( retryCount < maxRetries ) {
 				retryCount++;
 				timeoutRef.current = setTimeout( tryAppend, 100 );
