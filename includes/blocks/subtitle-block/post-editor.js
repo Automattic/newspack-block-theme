@@ -115,8 +115,9 @@ const NewspackSubtitlePanel = () => {
 	useEffect( () => {
 		const editorDoc = getEditorCanvas();
 		const subtitleEl = editorDoc.getElementById( SUBTITLE_ID );
-		if ( subtitleEl && subtitleEl.textContent !== subtitle ) {
-			subtitleEl.textContent = subtitle;
+		const subtitleText = typeof subtitle === 'string' ? subtitle : '';
+		if ( subtitleEl && subtitleEl.textContent !== subtitleText ) {
+			subtitleEl.textContent = subtitleText;
 		}
 	}, [ subtitle ] );
 };
