@@ -11,7 +11,7 @@ import { useEntityProp } from '@wordpress/core-data';
 
 import metadata from './block.json';
 
-const EditComponent = ( { context: { postType, postId } } ) => {
+const EditComponent = ( { context: { postType, postId } = {} } ) => {
 	const blockProps = useBlockProps();
 	const [ postMeta = {} ] = useEntityProp( 'postType', postType, 'meta', postId );
 	const subtitle = postMeta[ newspack_block_theme_subtitle_block.post_meta_name ] || __( 'Article subtitle', 'newspack-block-theme' );
@@ -25,7 +25,6 @@ const blockData = {
 		foreground: '#36f',
 	},
 	edit: EditComponent,
-	usesContext: [ 'postId', 'postType' ],
 	...metadata,
 };
 
