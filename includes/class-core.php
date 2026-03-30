@@ -20,7 +20,7 @@ final class Core {
 	public static function init() {
 		\add_action( 'after_setup_theme', [ __CLASS__, 'theme_support' ] );
 		\add_action( 'wp_enqueue_scripts', [ __CLASS__, 'theme_styles' ] );
-		\add_action( 'enqueue_block_editor_assets', [ __CLASS__, 'editor_scripts' ] );
+		\add_action( 'enqueue_block_assets', [ __CLASS__, 'enqueue_block_assets' ] );
 		\add_filter( 'body_class', [ __CLASS__, 'body_class' ] );
 		\add_filter( 'block_type_metadata', [ __CLASS__, 'block_variations' ] );
 	}
@@ -78,7 +78,10 @@ final class Core {
 	/**
 	 * Enqueue editor scripts.
 	 */
-	public static function editor_scripts() {
+	public static function enqueue_block_assets() {
+		if ( ! wp_should_load_block_editor_scripts_and_styles() ) {
+			return;
+		}
 		// Enqueue editor JavaScript.
 		wp_enqueue_script( 'editor-script', get_theme_file_uri( '/dist/editor.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
 	}
