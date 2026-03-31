@@ -11,10 +11,6 @@ Note: The font size still needs to be changed to x-small if we're recreating a N
 | has-small-size   | The buttons will have a top and bottom padding of 8px and a left and right padding of 16px.                          |
 | has-x-small-size | The buttons will have a top and bottom padding of 6px, a left and right padding of 12px, and a border-radius of 4px. |
 
-# Responsive Elements
-
-The Newspack Block Theme uses WordPress's blockVisibility to show/hide certain elements on desktop and mobile, including different versions of the header and footer template parts.
-
 # Position
 
 ## Fixed
