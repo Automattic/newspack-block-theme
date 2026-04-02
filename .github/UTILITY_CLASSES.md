@@ -11,15 +11,6 @@ Note: The font size still needs to be changed to x-small if we're recreating a N
 | has-small-size   | The buttons will have a top and bottom padding of 8px and a left and right padding of 16px.                          |
 | has-x-small-size | The buttons will have a top and bottom padding of 6px, a left and right padding of 12px, and a border-radius of 4px. |
 
-# Responsive Elements
-
-`mobile-only` and `desktop-only` can be applied to blocks to display them based on the screen size.
-
-| CLASS NAME   | DESCRIPTION                                                                     |
-| ------------ | ------------------------------------------------------------------------------- |
-| mobile-only  | The block will be displayed on the screen if it is 781px wide or less.          |
-| desktop-only | The block will be displayed on the screen if the screen is at least 782px wide. |
-
 # Position
 
 ## Fixed

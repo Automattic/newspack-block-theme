@@ -27,5 +27,7 @@ $registry = WP_Block_Type_Registry::get_instance();
 
 <!-- wp:post-date {"fontSize":"x-small"} /-->
 
+<!-- wp:post-date {"displayType":"modified","fontSize":"x-small"} /-->
+
 </div>
 <!-- /wp:group -->
