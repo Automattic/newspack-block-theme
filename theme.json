@@ -1169,6 +1169,20 @@
 				"post"
 			],
 			"title": "Single - Sidebar Layout"
+		},
+		{
+			"name": "single-newspack_nl_cpt",
+			"postTypes": [
+				"newspack_nl_cpt"
+			],
+			"title": "Single Newsletter"
+		},
+		{
+			"name": "archive-newspack_nl_cpt",
+			"postTypes": [
+				"newspack_nl_cpt"
+			],
+			"title": "Newsletter Archive"
 		}
 	],
 	"templateParts": [
