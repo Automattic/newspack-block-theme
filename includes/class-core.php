@@ -125,11 +125,9 @@ final class Core {
 		];
 
 		foreach ( $templates as $template ) {
-			if ( 'theme' !== $template->source || ! isset( $titles[ $template->slug ] ) ) {
-				continue;
+			if ( isset( $titles[ $template->slug ] ) ) {
+				$template->title = $titles[ $template->slug ];
 			}
-
-			$template->title = $titles[ $template->slug ];
 		}
 
 		return $templates;
