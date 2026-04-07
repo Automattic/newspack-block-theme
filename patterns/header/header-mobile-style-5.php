@@ -39,7 +39,7 @@
 			<!-- wp:newspack/overlay-menu {"instanceId":"1a382fccbd5d"} -->
 			<div class="wp-block-newspack-overlay-menu"><!-- wp:newspack/overlay-menu-trigger {"className":"is-style-icon-only","style":{"color":{"background":"#ffffff00"},"elements":{"link":{"color":{"text":"var:preset|color|contrast"}}},"spacing":{"padding":{"right":"0","left":"0"}}},"textColor":"contrast"} /-->
 				<!-- wp:newspack/overlay-menu-panel {"slideDirection":"right"} -->
-				<div class="wp-block-newspack-overlay-menu-panel"><!-- wp:navigation {"layout":{"type":"flex","orientation":"vertical"}} /--></div>
+				<div class="wp-block-newspack-overlay-menu-panel"><!-- wp:navigation {"className":"is-style-flatten","layout":{"type":"flex","setCascadingProperties":true,"orientation":"vertical"}} /--></div>
 				<!-- /wp:newspack/overlay-menu-panel --></div>
 			<!-- /wp:newspack/overlay-menu -->
 		</div>
