@@ -87,6 +87,25 @@ const loadCommentPage = ( url, contents ) => {
 };
 
 /**
+ * Shows an error message inside the comment form and re-enables it.
+ *
+ * @param {HTMLFormElement} form    The comment form element.
+ * @param {string}          message The error message to display.
+ */
+const showCommentFormError = ( form, message ) => {
+	let noticeEl = form.querySelector( '.newspack-ui__notice--error' );
+	if ( ! noticeEl ) {
+		const wrapper = document.createElement( 'div' );
+		wrapper.className = 'newspack-ui';
+		noticeEl = document.createElement( 'p' );
+		noticeEl.className = 'newspack-ui__notice newspack-ui__notice--error';
+		wrapper.appendChild( noticeEl );
+		form.prepend( wrapper );
+	}
+	noticeEl.textContent = message;
+};
+
+/**
  * Submits the comment form via fetch and swaps the comments block content in
  * the panel without a full page reload, keeping the panel open.
  *
@@ -109,21 +128,39 @@ const submitCommentForm = ( form, contents ) => {
 		redirect: 'follow',
 	} )
 		.then( response => {
+			// Handle rate limiting with a user-visible message rather than a
+			// silent fallback — the native form.submit() would hit the same limit.
+			if ( response.status === 429 ) {
+				commentsBlock.style.opacity = '';
+				commentsBlock.style.pointerEvents = '';
+				showCommentFormError(
+					form,
+					window.newspackScreenReaderText?.comment_too_fast ||
+						'You are posting comments too quickly. Please wait a moment before trying again.'
+				);
+				return null;
+			}
 			if ( ! response.ok ) {
 				throw new Error( response.statusText );
 			}
 			const finalUrl = response.url;
 			return response.text().then( html => ( { html, finalUrl } ) );
 		} )
-		.then( ( { html, finalUrl } ) => {
+		.then( result => {
+			if ( ! result ) {
+				return;
+			}
+			const { html, finalUrl } = result;
 			const doc = new DOMParser().parseFromString( html, 'text/html' );
 			if ( ! swapCommentsBlock( doc, finalUrl, contents ) ) {
-				form.submit();
+				// Use the prototype method directly — WordPress's comment form has
+				// <input name="submit"> which shadows the native form.submit().
+				HTMLFormElement.prototype.submit.call( form );
 			}
 		} )
 		.catch( () => {
 			// On any error, fall back to normal form submission.
-			form.submit();
+			HTMLFormElement.prototype.submit.call( form );
 		} );
 };
 
