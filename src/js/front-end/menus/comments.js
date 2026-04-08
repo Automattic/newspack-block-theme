@@ -212,7 +212,8 @@ domReady( function () {
 	}
 
 	// Auto-open the comments panel when the page loads via a comment pagination link (?cpage=N or /comment-page-N/) or a direct comment link (#comment-N).
-	const isCommentPagination = /[?&]cpage=\d+/.test( window.location.search ) || /\/comment-page-\d+\//i.test( window.location.pathname );
+	const isCommentPagination =
+		new URLSearchParams( window.location.search ).has( 'cpage' ) || /\/comment-page-\d+\//i.test( window.location.pathname );
 	const commentHash = /^#comment-\d+$/.test( window.location.hash ) ? window.location.hash : null;
 
 	if ( isCommentPagination || commentHash ) {
