@@ -23,6 +23,7 @@ final class Core {
 		\add_action( 'enqueue_block_assets', [ __CLASS__, 'enqueue_block_assets' ] );
 		\add_filter( 'body_class', [ __CLASS__, 'body_class' ] );
 		\add_filter( 'block_type_metadata', [ __CLASS__, 'block_variations' ] );
+		\add_filter( 'get_block_templates', [ __CLASS__, 'set_custom_template_titles' ], 10, 3 );
 	}
 
 	/**
@@ -102,6 +103,34 @@ final class Core {
 		);
 
 		return $classes;
+	}
+
+	/**
+	 * Set human-readable titles for custom post type templates.
+	 *
+	 * @param \WP_Block_Template[] $templates Array of block templates.
+	 * @param array                $query     Template query arguments.
+	 * @param string               $template_type Template type (wp_template or wp_template_part).
+	 *
+	 * @return \WP_Block_Template[] Modified array of block templates.
+	 */
+	public static function set_custom_template_titles( $templates, $query, $template_type ) {
+		if ( 'wp_template' !== $template_type ) {
+			return $templates;
+		}
+
+		$titles = [
+			'single-newspack_nl_cpt'  => \__( 'Single Newsletter', 'newspack-block-theme' ),
+			'archive-newspack_nl_cpt' => \__( 'Newsletter Archive', 'newspack-block-theme' ),
+		];
+
+		foreach ( $templates as $template ) {
+			if ( isset( $titles[ $template->slug ] ) && 'theme' === $template->source ) {
+				$template->title = $titles[ $template->slug ];
+			}
+		}
+
+		return $templates;
 	}
 
 	/**
