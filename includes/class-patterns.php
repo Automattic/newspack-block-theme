@@ -189,6 +189,11 @@ final class Patterns {
 				foreach ( $patterns as $pattern ) {
 					$should_remove = false;
 
+					// Preserve patterns required for the WooCommerce Coming Soon mode so they remain available for selection in the Site Editor.
+					if ( ! empty( $pattern['template_types'] ) || strpos( $pattern['name'], 'woocommerce/coming-soon' ) === 0 ) {
+						continue;
+					}
+
 					// Check if the pattern's name starts with any of the blacklisted prefixes.
 					foreach ( $blacklisted_pattern_prefixes as $prefix ) {
 						if ( strpos( $pattern['name'], $prefix ) === 0 ) {
@@ -236,6 +241,13 @@ final class Patterns {
 
 		foreach ( $patterns as $pattern ) {
 			$pattern_name = $pattern['name'];
+
+			// Preserve patterns required for the WooCommerce Coming Soon mode. These are
+			// referenced at render time by the coming-soon block template and must remain
+			// registered on the frontend.
+			if ( ! empty( $pattern['template_types'] ) || strpos( $pattern_name, 'woocommerce/coming-soon' ) === 0 ) {
+				continue;
+			}
 
 			// Check for various WooCommerce pattern naming conventions.
 			if ( strpos( $pattern_name, 'woocommerce' ) === 0 ||
