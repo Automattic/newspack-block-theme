@@ -190,7 +190,7 @@ final class Patterns {
 					$should_remove = false;
 
 					// Preserve patterns required for the WooCommerce Coming Soon mode so they remain available for selection in the Site Editor.
-					if ( ! empty( $pattern['template_types'] ) || strpos( $pattern['name'], 'woocommerce/coming-soon' ) === 0 ) {
+					if ( strpos( $pattern['name'], 'woocommerce/coming-soon' ) === 0 ) {
 						continue;
 					}
 
@@ -245,7 +245,7 @@ final class Patterns {
 			// Preserve patterns required for the WooCommerce Coming Soon mode. These are
 			// referenced at render time by the coming-soon block template and must remain
 			// registered on the frontend.
-			if ( ! empty( $pattern['template_types'] ) || strpos( $pattern_name, 'woocommerce/coming-soon' ) === 0 ) {
+			if ( strpos( $pattern_name, 'woocommerce/coming-soon' ) === 0 ) {
 				continue;
 			}
 
