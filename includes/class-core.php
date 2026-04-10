@@ -64,8 +64,9 @@ final class Core {
 
 		// Strings for translation.
 		$newspack_l10n = array(
-			'close_menu'   => esc_html__( 'Close Menu', 'newspack-block-theme' ),
-			'close_search' => esc_html__( 'Close Search', 'newspack-block-theme' ),
+			'close_menu'       => esc_html__( 'Close Menu', 'newspack-block-theme' ),
+			'close_search'     => esc_html__( 'Close Search', 'newspack-block-theme' ),
+			'comment_too_fast' => esc_html__( 'You are posting comments too quickly. Please wait a moment before trying again.', 'newspack-block-theme' ),
 		);
 		if ( wp_script_is( 'jetpack-instant-search', 'enqueued' ) ) {
 			$newspack_l10n['jetpack_instant_search'] = 'true';

@@ -209,3 +209,8 @@ footer {
 		}
 	}
 }
+
+// Fallback for .newspack-ui__notice--error when newspack-ui styles are not loaded.
+.newspack-ui__notice--error {
+	color: var(--newspack-ui-color-error-50, #d63638);
+}
