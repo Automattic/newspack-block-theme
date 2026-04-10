@@ -27,6 +27,7 @@ Thumbs.db
 # Compiled CSS
 *.css
 style.css
+!assets/css/newspack-newsletters-editor.css
 
 # Compiled Javascript
 /dist/
