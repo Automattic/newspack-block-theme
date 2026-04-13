@@ -1,3 +1,53 @@
+# [1.27.0](https://github.com/Automattic/newspack-block-theme/compare/v1.26.0...v1.27.0) (2026-04-13)
+
+
+### Bug Fixes
+
+* avoid race condition by setting up a reference for the subtitle ([82c430e](https://github.com/Automattic/newspack-block-theme/commit/82c430e341283e8d778e3b4b5ede72754133f6bb))
+* clean up timeout and rework subtitle saves to prevent reruns from mangling input ([517a8d4](https://github.com/Automattic/newspack-block-theme/commit/517a8d4535f53a08c927324980e98597e56822f6))
+* ensure context by setting in `block.json` and also adding a(n empty) default ([f0c478d](https://github.com/Automattic/newspack-block-theme/commit/f0c478dac9ebebaa4d36abfbfa5e8e58cf7edae5))
+* escaped output and switched to `textContent` as an extra guard against naughty subtitles ([cb60c98](https://github.com/Automattic/newspack-block-theme/commit/cb60c98d0bb6eec7fce94b656bd74b3af9bb71e5))
+* guard against `null` from `get_current_screen()` ([e298edb](https://github.com/Automattic/newspack-block-theme/commit/e298edb82ba156806e4ed3292eadbc26761b2ade))
+* normalize subtitle to avoid race condition ([d26534d](https://github.com/Automattic/newspack-block-theme/commit/d26534d73a5dc97e9e245e621bc3647cd61f604d))
+* separate mount and update effects ([d4d4892](https://github.com/Automattic/newspack-block-theme/commit/d4d48929c7a9a61e5bba21f189a1e89f6fa93851))
+* **subtitle:** use CSS variable for content width in post editor ([#434](https://github.com/Automattic/newspack-block-theme/issues/434)) ([aed2e69](https://github.com/Automattic/newspack-block-theme/commit/aed2e693dd746a7e83a07b9724db57de3ba78718))
+* update subtitle block for compatibility with iframed Post Editor ([36c1bd6](https://github.com/Automattic/newspack-block-theme/commit/36c1bd6a8dc27ec15f0382321ff654364d833d9e))
+* update subtitle block for compatibility with iframed Post Editor ([76e9135](https://github.com/Automattic/newspack-block-theme/commit/76e913567869ea775a1bc234f6ad3fdbe26133f7))
+* use asset file for dependencies ([4ecefa4](https://github.com/Automattic/newspack-block-theme/commit/4ecefa4537c83a08afaa76557c0fe0209bd8dd38))
+* work around non-string subtitles ([e081213](https://github.com/Automattic/newspack-block-theme/commit/e081213e5b817aba9e7aa09b7a3982b265b5776a))
+
+
+### Features
+
+* **patterns:** use author profile block in author bio patterns ([#424](https://github.com/Automattic/newspack-block-theme/issues/424)) ([cf8d5e8](https://github.com/Automattic/newspack-block-theme/commit/cf8d5e837a00a289a56405c9b897907ee11c1257))
+* **post-date:** add modified date block to post-meta patterns ([#428](https://github.com/Automattic/newspack-block-theme/issues/428)) ([656831c](https://github.com/Automattic/newspack-block-theme/commit/656831c1a3be5fbf423c8342cee062c6d98a7070))
+* switch header/footer to use WordPress's block visibility ([#432](https://github.com/Automattic/newspack-block-theme/issues/432)) ([914a41c](https://github.com/Automattic/newspack-block-theme/commit/914a41c93208c2dfd76498606d43bb404e74dd82))
+
+# [1.27.0-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.26.0...v1.27.0-alpha.1) (2026-04-02)
+
+
+### Bug Fixes
+
+* avoid race condition by setting up a reference for the subtitle ([82c430e](https://github.com/Automattic/newspack-block-theme/commit/82c430e341283e8d778e3b4b5ede72754133f6bb))
+* clean up timeout and rework subtitle saves to prevent reruns from mangling input ([517a8d4](https://github.com/Automattic/newspack-block-theme/commit/517a8d4535f53a08c927324980e98597e56822f6))
+* ensure context by setting in `block.json` and also adding a(n empty) default ([f0c478d](https://github.com/Automattic/newspack-block-theme/commit/f0c478dac9ebebaa4d36abfbfa5e8e58cf7edae5))
+* escaped output and switched to `textContent` as an extra guard against naughty subtitles ([cb60c98](https://github.com/Automattic/newspack-block-theme/commit/cb60c98d0bb6eec7fce94b656bd74b3af9bb71e5))
+* guard against `null` from `get_current_screen()` ([e298edb](https://github.com/Automattic/newspack-block-theme/commit/e298edb82ba156806e4ed3292eadbc26761b2ade))
+* normalize subtitle to avoid race condition ([d26534d](https://github.com/Automattic/newspack-block-theme/commit/d26534d73a5dc97e9e245e621bc3647cd61f604d))
+* separate mount and update effects ([d4d4892](https://github.com/Automattic/newspack-block-theme/commit/d4d48929c7a9a61e5bba21f189a1e89f6fa93851))
+* **subtitle:** use CSS variable for content width in post editor ([#434](https://github.com/Automattic/newspack-block-theme/issues/434)) ([aed2e69](https://github.com/Automattic/newspack-block-theme/commit/aed2e693dd746a7e83a07b9724db57de3ba78718))
+* update subtitle block for compatibility with iframed Post Editor ([36c1bd6](https://github.com/Automattic/newspack-block-theme/commit/36c1bd6a8dc27ec15f0382321ff654364d833d9e))
+* update subtitle block for compatibility with iframed Post Editor ([76e9135](https://github.com/Automattic/newspack-block-theme/commit/76e913567869ea775a1bc234f6ad3fdbe26133f7))
+* use asset file for dependencies ([4ecefa4](https://github.com/Automattic/newspack-block-theme/commit/4ecefa4537c83a08afaa76557c0fe0209bd8dd38))
+* work around non-string subtitles ([e081213](https://github.com/Automattic/newspack-block-theme/commit/e081213e5b817aba9e7aa09b7a3982b265b5776a))
+
+
+### Features
+
+* **patterns:** use author profile block in author bio patterns ([#424](https://github.com/Automattic/newspack-block-theme/issues/424)) ([cf8d5e8](https://github.com/Automattic/newspack-block-theme/commit/cf8d5e837a00a289a56405c9b897907ee11c1257))
+* **post-date:** add modified date block to post-meta patterns ([#428](https://github.com/Automattic/newspack-block-theme/issues/428)) ([656831c](https://github.com/Automattic/newspack-block-theme/commit/656831c1a3be5fbf423c8342cee062c6d98a7070))
+* switch header/footer to use WordPress's block visibility ([#432](https://github.com/Automattic/newspack-block-theme/issues/432)) ([914a41c](https://github.com/Automattic/newspack-block-theme/commit/914a41c93208c2dfd76498606d43bb404e74dd82))
+
 # [1.26.0](https://github.com/Automattic/newspack-block-theme/compare/v1.25.0...v1.26.0) (2026-03-16)
 
 
