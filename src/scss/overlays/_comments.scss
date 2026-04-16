@@ -17,6 +17,10 @@
 				calc((var(--wp--style--global--content-size) - (var(--wp--preset--spacing--50) * 5)) / 6 * 7 +
 				(var(--wp--preset--spacing--50) * 6));
 		}
+
+		.newspack-ui__notice {
+			margin-bottom: 0;
+		}
 	}
 
 	&__toggle {
