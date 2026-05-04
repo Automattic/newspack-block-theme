@@ -1188,11 +1188,6 @@
 			"title": "Header (Mobile)"
 		},
 		{
-			"area": "uncategorized",
-			"name": "mobile-contents",
-			"title": "Mobile Menu Contents"
-		},
-		{
 			"area": "footer",
 			"name": "footer",
 			"title": "Footer"

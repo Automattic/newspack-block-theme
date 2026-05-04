@@ -2,52 +2,64 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Newspack Block Theme 1.26.0\n"
+"Project-Id-Version: Newspack Block Theme 1.27.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/newspack-block-theme\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-02T14:13:36+00:00\n"
+"POT-Creation-Date: 2026-04-16T20:42:23+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: newspack-block-theme\n"
 
 #. Theme Name of the theme
-#: dist
+#: style.css
 msgid "Newspack Block Theme"
 msgstr ""
 
 #. Theme URI of the theme
-#: dist
+#: style.css
 msgid "https://github.com/automattic/newspack-block-theme"
 msgstr ""
 
 #. Description of the theme
-#: dist
+#: style.css
 msgid "A forward-looking news theme designed and developed to be highly customizable with the WordPress block editor. Brought to you by Newspack: https://newspack.com"
 msgstr ""
 
 #. Author of the theme
-#: dist
+#: style.css
 msgid "Automattic"
 msgstr ""
 
 #. Author URI of the theme
-#: dist
+#: style.css
 msgid "https://newspack.com"
 msgstr ""
 
-#: includes/class-core.php:66
+#: includes/class-core.php:67
 msgid "Close Menu"
 msgstr ""
 
-#: includes/class-core.php:67
+#: includes/class-core.php:68
 msgid "Close Search"
 msgstr ""
 
-#: includes/class-core.php:122
+#: includes/class-core.php:69
+msgid "You are posting comments too quickly. Please wait a moment before trying again."
+msgstr ""
+
+#: includes/class-core.php:124
+msgid "Single Newsletter"
+msgstr ""
+
+#: includes/class-core.php:125
+msgid "Newsletter Archive"
+msgstr ""
+
+#: includes/class-core.php:152
 msgid "Search posts, categories, authors, ..."
 msgstr ""
 
@@ -125,21 +137,6 @@ msgstr ""
 #: patterns/comments.php
 msgctxt "Pattern title"
 msgid "Comments"
-msgstr ""
-
-#: patterns/drawer-menu.php
-msgctxt "Pattern title"
-msgid "Drawer Menu"
-msgstr ""
-
-#: patterns/drawer-menu.php:13
-msgid "Drawer Menu"
-msgstr ""
-
-#: patterns/drawer-menu.php:19
-#: patterns/header/header-desktop-style-2.php:42
-#: patterns/header/header-desktop-style-3.php:15
-msgid "Menu"
 msgstr ""
 
 #: patterns/footer/footer-desktop-style-1.php
@@ -261,6 +258,17 @@ msgctxt "Pattern title"
 msgid "Header (Desktop) - Style 2"
 msgstr ""
 
+#: patterns/header/header-desktop-style-2.php:42
+#: patterns/header/header-desktop-style-3.php:15
+msgid "Menu"
+msgstr ""
+
+#: patterns/header/header-desktop-style-2.php:45
+#: patterns/header/header-desktop-style-3.php:26
+#: patterns/header/header-desktop-style-4.php:20
+msgid "MENU"
+msgstr ""
+
 #: patterns/header/header-desktop-style-3.php
 msgctxt "Pattern title"
 msgid "Header (Desktop) - Style 3"
@@ -271,7 +279,7 @@ msgctxt "Pattern title"
 msgid "Header (Desktop) - Style 4"
 msgstr ""
 
-#: patterns/header/header-desktop-style-4.php:34
+#: patterns/header/header-desktop-style-4.php:39
 msgid "Donate"
 msgstr ""
 
@@ -786,11 +794,6 @@ msgstr ""
 #: theme.json
 msgctxt "Template part name"
 msgid "Header (Mobile)"
-msgstr ""
-
-#: theme.json
-msgctxt "Template part name"
-msgid "Mobile Menu Contents"
 msgstr ""
 
 #: theme.json
