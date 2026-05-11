@@ -32,7 +32,6 @@ yarn.lock
 *.sql
 *.tar.gz
 *.zip
-*.asset.php
 
 # directories
 node_modules
