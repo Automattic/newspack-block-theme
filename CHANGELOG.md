@@ -1,3 +1,19 @@
+## [1.28.1](https://github.com/Automattic/newspack-block-theme/compare/v1.28.0...v1.28.1) (2026-05-18)
+
+
+### Bug Fixes
+
+* **block-theme:** remove MJML image-caption filter moved to newsletters plugin ([#442](https://github.com/Automattic/newspack-block-theme/issues/442)) ([93c9b4b](https://github.com/Automattic/newspack-block-theme/commit/93c9b4b352ce568539ca789a3275824fb1d31f7c))
+* fine-tune code removing patterns to skip Woo Coming Soon patterns ([#439](https://github.com/Automattic/newspack-block-theme/issues/439)) ([1cf68d0](https://github.com/Automattic/newspack-block-theme/commit/1cf68d029cd4ea732fefbd3243fc18adefc789fe))
+
+## [1.28.1-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.28.0...v1.28.1-alpha.1) (2026-05-07)
+
+
+### Bug Fixes
+
+* **block-theme:** remove MJML image-caption filter moved to newsletters plugin ([#442](https://github.com/Automattic/newspack-block-theme/issues/442)) ([93c9b4b](https://github.com/Automattic/newspack-block-theme/commit/93c9b4b352ce568539ca789a3275824fb1d31f7c))
+* fine-tune code removing patterns to skip Woo Coming Soon patterns ([#439](https://github.com/Automattic/newspack-block-theme/issues/439)) ([1cf68d0](https://github.com/Automattic/newspack-block-theme/commit/1cf68d029cd4ea732fefbd3243fc18adefc789fe))
+
 # [1.28.0](https://github.com/Automattic/newspack-block-theme/compare/v1.27.0...v1.28.0) (2026-05-04)
 
 
