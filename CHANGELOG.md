@@ -1,3 +1,11 @@
+## [1.28.2-alpha.1](https://github.com/Automattic/newspack-block-theme/compare/v1.28.1...v1.28.2-alpha.1) (2026-05-21)
+
+
+### Bug Fixes
+
+* ensure subtitle PHP file ends up in release:archive version of theme ([#444](https://github.com/Automattic/newspack-block-theme/issues/444)) ([9dc914c](https://github.com/Automattic/newspack-block-theme/commit/9dc914cff1b7cfd5bf6a23ae1ec0ce90b59a8cf4))
+* remove italics from editor preview for subtitle block ([#446](https://github.com/Automattic/newspack-block-theme/issues/446)) ([cf91f15](https://github.com/Automattic/newspack-block-theme/commit/cf91f150523b5bcbb552f849077aa3996df912dd))
+
 ## [1.28.1](https://github.com/Automattic/newspack-block-theme/compare/v1.28.0...v1.28.1) (2026-05-18)
 
 
