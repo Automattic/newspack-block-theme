@@ -1,3 +1,10 @@
+## [1.28.2](https://github.com/Automattic/newspack-block-theme/compare/v1.28.1...v1.28.2) (2026-08-18)
+
+
+### Bug Fixes
+
+* soften sunset theme name and add migration notice ([90ecf09](https://github.com/Automattic/newspack-block-theme/commit/90ecf09a06dab7bf293977b2e92595de1aec270e))
+
 ## [1.28.1](https://github.com/Automattic/newspack-block-theme/compare/v1.28.0...v1.28.1) (2026-05-18)
 
 
